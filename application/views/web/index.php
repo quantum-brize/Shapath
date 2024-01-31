@@ -1,3 +1,4 @@
+<div class="navbar-end-gap"></div>
 <div class="quote-video-wrapper">
     <div class="quote">
         <p>"The best way to find yourself is to lose yourself in the service of others."</p>

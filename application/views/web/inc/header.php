@@ -60,9 +60,9 @@
                         <div class="nav-item dropdown">
                             <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Aboout</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                <a href="ourteam.html" class="dropdown-item">Our Team</a>
-                                <a href="missionandvision.html" class="dropdown-item">Mission and Vision</a>
-                                <a href="faq.html" class="dropdown-item">FAQ</a>
+                                <a href="<?= base_url('our-team')?>" class="dropdown-item">Our Team</a>
+                                <a href="<?= base_url('mission-vision')?>" class="dropdown-item">Mission and Vision</a>
+                                <a href="<?= base_url('faq')?>" class="dropdown-item">FAQ</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
@@ -101,5 +101,5 @@
     </div>
     <!-- Navbar End -->
 
-    <div class="navbar-end-gap"></div>
+
     
