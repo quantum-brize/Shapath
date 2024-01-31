@@ -10,25 +10,23 @@ class Common extends CI_Controller
 	public function __construct()
 	{
 		parent::__construct();
-		Header(header_allow_origin); //for allow any domain, insecure
-		Header(header_allow_headers); //for allow any headers, insecure
-		Header(header_allow_methods); //method allowed
 
 	}
 
-	public function load_page($page,$data){
+	public function load_page($page, $data)
+	{
 
 		$data = [
 			'page_data' => [],
 			'data_header' => [
-				'header_link'=> [],
-				'header'=> [],
-				'sidebar'=> [],
+				'header_link' => [],
+				'header' => [],
+				'sidebar' => [],
 				'site' => 'web'
 			],
 			'data_footer' => [
-				'footer_link'=> [],
-				'footer'=> [],
+				'footer_link' => [],
+				'footer' => [],
 				'site' => 'web'
 			]
 		];
@@ -39,22 +37,18 @@ class Common extends CI_Controller
 	}
 	private function load_headers($data)
 	{
-		if($data['site'] == 'web'){
+		if ($data['site'] == 'web') {
 			$this->load->view('/web/inc/header_link.php');
 			$this->load->view('/web/inc/header.php');
 		}
 	}
 
-	private function load_footers($data){
-		if($data['site'] == 'web'){
+	private function load_footers($data)
+	{
+		if ($data['site'] == 'web') {
 			$this->load->view('/web/inc/footer.php');
 			$this->load->view('/web/inc/footer_link.php');
 		}
-    }
-
-	public function index()
-	{
-		$this->load->view('welcome_message');
 	}
 
 

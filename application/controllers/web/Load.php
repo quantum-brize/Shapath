@@ -8,11 +8,9 @@ class Load extends Common {
         parent::__construct();
     }
 
-    public function index(){
-       
+    function index(){
         $this->load_page('web/index.php',[]);
     }
-
 
 }
 

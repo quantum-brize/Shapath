@@ -47,7 +47,7 @@
     <div class="container-fluid fixed-top px-0">
         <div class="container px-0">
             <nav class="navbar navbar-light bg-light navbar-expand-xl header-nav">
-                <a href="index.html" class="navbar-brand ms-3">
+                <a href="<?= base_url('home')?>" class="navbar-brand ms-3">
                     <h1 class="text-primary display-5">Shapath</h1>
                 </a>
                 <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse"
@@ -56,7 +56,7 @@
                 </button>
                 <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
-                        <a href="index.html" class="nav-item nav-link active">Home</a>
+                        <a href="<?= base_url('home')?>" class="nav-item nav-link active">Home</a>
                         <div class="nav-item dropdown">
                             <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Aboout</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
@@ -102,14 +102,4 @@
     <!-- Navbar End -->
 
     <div class="navbar-end-gap"></div>
-    <div class="quote-video-wrapper">
-        <div class="quote">
-            <p>"The best way to find yourself is to lose yourself in the service of others."</p>
-            <p class="author">- Mahatma Gandhi</p>
-        </div>
-        <div class="video">
-            <iframe id="ytplayer" type="text/html" width="720" height="405"
-                src="https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA"
-                frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen></iframe>
-        </div>
-    </div>
+    

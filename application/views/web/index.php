@@ -1,3 +1,14 @@
+<div class="quote-video-wrapper">
+    <div class="quote">
+        <p>"The best way to find yourself is to lose yourself in the service of others."</p>
+        <p class="author">- Mahatma Gandhi</p>
+    </div>
+    <div class="video">
+        <iframe id="ytplayer" type="text/html" width="720" height="405"
+            src="https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA"
+            frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen></iframe>
+    </div>
+</div>
 <!-- About Start -->
 <div class="container-fluid about  py-5">
     <div class="container py-5">
