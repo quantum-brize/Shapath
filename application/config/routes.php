@@ -9,6 +9,7 @@ $route['translate_uri_dashes']  = FALSE;
 
 // ============================ web routes
 $route['home']                  = 'web/load';
-$route['our-team']              = 'web/load/our_team';
-$route['mission-vision']        = 'web/load/mission_and_vision';
-$route['faq']                   = 'web/load/faq';
+$route['our-team']              = 'web/about/our_team';
+$route['mission-vision']        = 'web/about/mission_and_vision';
+$route['faq']                   = 'web/about/faq';
+$route['project']               = 'web/projects';

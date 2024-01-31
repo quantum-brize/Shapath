@@ -31,10 +31,9 @@ body {
 
 /* Center content in the logo container */
 .logo-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px 0;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
 }
 
 .logo-container img {

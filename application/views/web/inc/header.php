@@ -68,13 +68,13 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Projects</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                <a href="" class="dropdown-item">Sristi</a>
-                                <a href="" class="dropdown-item">Hope Canvas</a>
-                                <a href="v" class="dropdown-item">Uddan</a>
-                                <a href="" class="dropdown-item">Saraswati Scholarship</a>
-                                <a href="" class="dropdown-item">Bastra Bondhu</a>
-                                <a href="v" class="dropdown-item">Upohar</a>
-                                <a href="" class="dropdown-item">Blanket Drive</a>
+                                <a href="<?= base_url('project') ?>" class="dropdown-item">Sristi</a>
+                                <a href="<?= base_url('project') ?>" class="dropdown-item">Hope Canvas</a>
+                                <a href="<?= base_url('project') ?>" class="dropdown-item">Uddan</a>
+                                <a href="<?= base_url('project') ?>" class="dropdown-item">Saraswati Scholarship</a>
+                                <a href="<?= base_url('project') ?>" class="dropdown-item">Bastra Bondhu</a>
+                                <a href="<?= base_url('project') ?>" class="dropdown-item">Upohar</a>
+                                <a href="<?= base_url('project') ?>" class="dropdown-item">Blanket Drive</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
