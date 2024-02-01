@@ -9,10 +9,20 @@ class Load extends Common {
     }
 
     public function index(){
-        $this->load_page('web/index.php',[]);
+        $data = PAGE_DATA_WEB;
+        $this->load_page('web/index.php',$data);
     }
 
+    public function contact(){
+        $data = PAGE_DATA_WEB;
+        $this->load_page('web/contact.php',$data);
+    }
 
+    public function donation(){
+        $data = PAGE_DATA_WEB;
+        $this->load_page('web/donation.php',$data);
+
+    }
 }
 
 

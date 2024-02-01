@@ -14,8 +14,9 @@ class Errors extends Common
         if (current_url() == base_url()) {
             redirect('/home');
         }else{
+            $data = PAGE_DATA_WEB;
             $this->output->set_status_header('404');
-            $this->load_page('errors/custom_404', []);
+            $this->load_page('errors/custom_404',  $data);
         }
     }
 }

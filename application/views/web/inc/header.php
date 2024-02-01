@@ -80,18 +80,17 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Testimonial</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                <a href="our-volunteer.html" class="dropdown-item">Our Volunteer</a>
-                                <a href="our-donor.html" class="dropdown-item">Our Donor</a>
+                                <a href="<?= base_url('our-volunteer') ?>" class="dropdown-item">Our Volunteer</a>
+                                <a href="<?= base_url('our-donor') ?>" class="dropdown-item">Our Donor</a>
                             </div>
                         </div>
-                        <a href="gallery.html" class="nav-item nav-link">Gallery</a>
-                        <a href="events.html" class="nav-item nav-link">Events</a>
-                        <a href="blog.html" class="nav-item nav-link">Blog</a>
-                        <a href="contact.html" class="nav-item nav-link">Contact</a>
+                        <a href="<?= base_url('gallery') ?>" class="nav-item nav-link">Gallery</a>
+                        <a href="<?= base_url('events') ?>" class="nav-item nav-link">Events</a>
+                        <a href="<?= base_url('blogs')?>" class="nav-item nav-link">Blog</a>
+                        <a href="<?= base_url('contact-us')?>" class="nav-item nav-link">Contact</a>
                     </div>
                     <div class="d-flex align-items-center flex-nowrap pt-xl-0" style="margin-left: 15px;">
-                        <a href="donation.html" class="btn-hover-bg btn btn-primary text-white py-2 px-4 me-3">Donate
-                            Now</a>
+                        <a href="<?= base_url('donate')?>" class="btn-hover-bg btn btn-primary text-white py-2 px-4 me-3">Donate Now</a>
                     </div>
                     <a class="navbar-close" aria-label="Close"></a>
                 </div>

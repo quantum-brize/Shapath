@@ -11,7 +11,10 @@ class Projects extends Load {
     }
 
     public function index(){
-        $this->load_page('web/project.php',[]);
+        $data = PAGE_DATA_WEB;
+        $data['data_header']['header_link'] = ['web/inc/css/projects_css.php'];
+
+        $this->load_page('web/project.php',$data);
     }
 
 }

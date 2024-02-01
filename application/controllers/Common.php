@@ -15,22 +15,6 @@ class Common extends CI_Controller
 
 	public function load_page($page, $data)
 	{
-
-		$data = [
-			'page_data' => [],
-			'data_header' => [
-				'header_link' => [],
-				'header' => [],
-				'sidebar' => [],
-				'site' => 'web'
-			],
-			'data_footer' => [
-				'footer_link' => [],
-				'footer' => [],
-				'site' => 'web'
-			]
-		];
-
 		$this->load_headers($data['data_header']);
 		$this->load->view($page);
 		$this->load_footers($data['data_footer']);
@@ -39,6 +23,11 @@ class Common extends CI_Controller
 	{
 		if ($data['site'] == 'web') {
 			$this->load->view('/web/inc/header_link.php');
+			if($data['header_link']){
+				foreach($data['header_link'] as $link){
+					$this->load->view($link);
+				}
+			}
 			$this->load->view('/web/inc/header.php');
 		}
 	}

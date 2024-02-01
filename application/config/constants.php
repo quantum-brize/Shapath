@@ -23,6 +23,11 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+//////////////////////////////////////////////__PAGEDATA
+define('PAGE_DATA_WEB', ['page_data' => [],'data_header' => ['header_link' => [],'header' => [],'sidebar' => [],'site' => 'web'],'data_footer' => ['footer_link' => [],'footer' => [],'site' => 'web']]);
+define('PAGE_DATA_ADMIN', ['page_data' => [],'data_header' => ['header_link' => [],'header' => [],'sidebar' => [],'site' => 'admin'],'data_footer' => ['footer_link' => [],'footer' => [],'site' => 'admin']]);
+
+
 
 defined('rest_controller_path') OR define('rest_controller_path', 'libraries/RestController.php');
 defined('DATA')                 OR define('DATA', 'data');
@@ -93,59 +98,3 @@ defined('MODEL_ONBOARDING_DIST') OR define('MODEL_ONBOARDING_DIST', 'Distributor
 defined('MODEL_VENDOR_DIST')     OR define('MODEL_VENDOR_DIST', 'Distributor/Vendor_model');
 defined('MODEL_BILLINGS_DIST')   OR define('MODEL_BILLINGS_DIST', 'Distributor/Billings_model');
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////-----USERS
-defined('USER_CLIENT')          OR define('USER_CLIENT', 'user_client');
-defined('USER_VENDOR')          OR define('USER_VENDOR', 'user_vendor');
-defined('USER_DISTRIBUTOR')     OR define('USER_DISTRIBUTOR', 'user_distributor');
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////-----FORMAT
-defined('FORMAT_DATETIME')      OR define('FORMAT_DATETIME', 'Y-m-d H:i:s');
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////-----UID - KEY
-defined('KEY_USER')               OR define('KEY_USER', 'USER');
-defined('KEY_OTP')                OR define('KEY_OTP', 'OTP');
-defined('KEY_VENDOR')             OR define('KEY_VENDOR', 'VENDOR');
-defined('KEY_ADDRESS')            OR define('KEY_ADDRESS','ADDRESS');
-defined('KEY_COUPON')             OR define('KEY_COUPON','COUPON');
-defined('KEY_PAPER')              OR define('KEY_PAPER', 'PAPER');
-defined('KEY_BILL')               OR define('KEY_BILL','BILL');
-defined('KEY_APPLIED_COUPON')     OR define('KEY_APPLIED_COUPON', 'APPLIED_COUPON');
-defined('KEY_PAPER_ASSIGN')       OR define('KEY_PAPER_ASSIGN', 'PAPER_ASSIGN');
-defined('KEY_PAPER_PRICE')        OR define('KEY_PAPER_PRICE', 'PAPER_PRICE');
-defined('KEY_SYS_PRE')            OR define('KEY_SYS_PRE','SYS_PRE');
-defined('KEY_RETURN')             OR define('KEY_RETURN', 'RETURN');
-defined('KEY_PASSWORD')           OR define('KEY_PASSWORD', 'PASSWORD');
-defined('KEY_HISTORY')            OR define('KEY_HISTORY', 'HISTORY');
-defined('KEY_EMAIL')              OR define('KEY_EMAIL', 'EMAIL');
-defined('KEY_SUBSCRIPTION')       OR define('KEY_SUBSCRIPTION', 'SUBSCRIPTION');
-defined('KEY_BILL_UPDATE')        OR define('KEY_BILL_UPDATE', 'BILL_UPDATE' );
-defined('KEY_EXPENSES')           OR define('KEY_EXPENSES' , 'EXPENSES');
-defined('KEY_STOCK')              OR define('KEY_STOCK' , 'STOCK');
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////-----UID - VALUE
-defined('UID_USER_PREFIX')        OR define('UID_USER_PREFIX', 'U');
-defined('UID_OTP_PREFIX')         OR define('UID_OTP_PREFIX', 'O');
-defined('UID_VENDOR_PREFIX')      OR define('UID_VENDOR_PREFIX', 'V');
-defined('UID_ADDRESS_PREFIX')     OR define('UID_ADDRESS_PREFIX', 'A');
-defined('UID_COUPON_PREFIX')      OR define('UID_COUPON_PREFIX', 'C');
-defined('UID_PAPER_PREFIX')       OR define('UID_PAPER_PREFIX', 'P');
-defined('UID_BILL_PREFIX')        OR define('UID_BILL_PREFIX', 'B');
-defined('UID_APPLIED_COUPON')     OR define('UID_APPLIED_COUPON', 'APC');
-defined('UID_PAPER_ASSIGN')       OR define('UID_PAPER_ASSIGN', 'PA');
-defined('UID_PAPER_PRICE_PREFIX') OR define('UID_PAPER_PRICE_PREFIX', 'PPR');
-defined('UID_SYS_PRE')            OR define('UID_SYS_PRE', 'SYS');
-defined('UID_RETURN_PREFIX')      OR define('UID_RETURN_PREFIX', 'RE');
-defined('UID_PASSWORD_PREFIX')    OR define('UID_PASSWORD_PREFIX', 'PAS');
-defined('UID_HISTORY')            OR define('UID_HISTORY_PREFIX', 'HIS');
-defined('UID_EMAIL')              OR define('UID_EMAIL_PREFIX', 'EML');
-defined('UID_SUBSCRIPTION')       OR define('UID_SUBSCRIPTION_PREFIX', 'SUB');
-defined('UID_BILL_UPDATE')        OR define('UID_BILL_UPDATE','BUP');
-defined('UID_EXPENSES')           OR define('UID_EXPENSES', 'EXP'); 
-defined('UID_STOCK')              OR define('UID_STOCK', 'ST'); 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////-----PARAM
-defined('PARAM_NAME')           OR define('PARAM_NAME', 'name');
-defined('PARAM_EMAIL')          OR define('PARAM_EMAIL', 'email');
-defined('PARAM_MOBILE')         OR define('PARAM_MOBILE', 'mobile');
-defined('PARAM_ADDERSS')        OR define('PARAM_ADDERSS', 'address');
-defined('PARAM_STATE')          OR define('PARAM_STATE', 'state');
-defined('PARAM_DISTRICT')       OR define('PARAM_DISTRICT', 'district');
-defined('PARAM_PINCODE')        OR define('PARAM_PINCODE', 'pincode');
-defined('PARAM_PASSWORD')       OR define('PARAM_PASSWORD', 'password');
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////-----TEXT
