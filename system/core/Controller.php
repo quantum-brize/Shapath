@@ -63,6 +63,8 @@ class CI_Controller {
 	public $security;
 	public $input;    
 	public $lang;  
+	public $session;
+
 	/**
 	 * Reference to the CI singleton
 	 *

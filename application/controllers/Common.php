@@ -40,6 +40,17 @@ class Common extends CI_Controller
 		}
 	}
 
+	public function prd($data){
+		echo '<pre>';
+		print_r($data);
+		echo '</pre>';
+		die();
+	}
+	public function pr($data){
+		echo '<pre>';
+		print_r($data);
+		echo '</pre>';
+	}
 
 	private function uid()
 	{

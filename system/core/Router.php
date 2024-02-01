@@ -51,7 +51,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
  */
 class CI_Router {
 
-
+	public $session;
 	public $load;
 	public $benchmark;	
 	public $log;

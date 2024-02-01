@@ -20,3 +20,6 @@ $route['blogs']                 = 'web/activity/blogs';
 $route['project']               = 'web/projects';
 $route['our-volunteer']         = 'web/testimonial/our_volunteer';
 $route['our-donor']             = 'web/testimonial/our_donor';
+
+// ============================ admin routes
+$route['admin']                = 'admin/Admin/index';
