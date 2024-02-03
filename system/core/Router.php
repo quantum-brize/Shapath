@@ -65,6 +65,7 @@ class CI_Router {
 	public $input;
 	public $lang;  
 
+	public $db;
 	/**
 	 * CI_Config class object
 	 *

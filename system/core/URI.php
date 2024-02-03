@@ -53,6 +53,7 @@ class CI_URI {
 	public $config;
 	public $session;
 
+	public $db;
 	/**
 	 * List of cached URI segments
 	 *

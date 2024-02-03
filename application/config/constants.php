@@ -49,9 +49,12 @@ define('PAGE_DATA_WEB', ['page_data' => [],'data_header' => ['header_link' => []
 define('PAGE_DATA_ADMIN', ['page_data' => [],'data_header' => ['header_link' => [],'title' => '','header' => [],'sidebar' => [],'site' => 'admin'],'data_footer' => ['footer_link' => [],'footer' => [],'site' => 'admin']]);
 
 
+/////////////////////////////////////////////__MODELS
+define('MODEL_COMMON', 'Common_model');
+define('MODEL_ADMIN', 'Admin_model');
 
 
 
-
-
+////////////////////////////////////////////__TABLES
+define('TABLE_USER','user');
 

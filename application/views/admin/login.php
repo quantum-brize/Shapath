@@ -58,7 +58,7 @@
                                             <label class="custom-control-label" for="customCheck">Remember Me</label>
                                         </div>
                                     </div>
-                                    <a href="index.html" class="btn btn-primary btn-user btn-block">
+                                    <a  class="btn btn-primary btn-user btn-block" id="loginBtn">
                                         Login
                                     </a>
                                 </form>
@@ -95,6 +95,33 @@
                     passwordIcon.removeClass('fa-eye').addClass('fa-eye-slash');
                 }
             });
+
+
+            $('#loginBtn').click(function(){
+                let userName = $('#userName').val();
+                let password = $('#password').val();
+
+                $.ajax({
+                    type: 'POST',
+                    url: '<?=base_url('admin/Admin/admin_login')?>',
+                    data : {
+                        userName : userName,
+                        password : password 
+                    },
+                    beforeSend: function(){
+
+                    },
+                    success: function(resp){
+                        console.log(resp)
+                    }
+
+
+                })
+
+
+            })
+            
+
         });
     </script>
 </body>
