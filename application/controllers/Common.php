@@ -21,25 +21,34 @@ class Common extends CI_Controller
 	}
 	private function load_headers($data)
 	{
-		if ($data['site'] == 'web') {
-			$this->load->view('/web/inc/header_link.php');
-			if($data['header_link']){
-				foreach($data['header_link'] as $link){
-					$this->load->view($link);
-				}
+
+		$this->load->view('/'.$data['site'].'/inc/header_link.php');
+		if($data['header_link']){
+			foreach($data['header_link'] as $link){
+				$this->load->view($link);
 			}
-			$this->load->view('/web/inc/header.php');
 		}
+		$this->load->view('/'.$data['site'].'/inc/header.php');
+		
 	}
 
 	private function load_footers($data)
 	{
-		if ($data['site'] == 'web') {
-			$this->load->view('/web/inc/footer.php');
-			$this->load->view('/web/inc/footer_link.php');
+		
+		$this->load->view('/'.$data['site'].'/inc/footer.php');
+		if($data['footer_link']){
+			foreach($data['footer_link'] as $link){
+				$this->load->view($link);
+			}
 		}
+		$this->load->view('/'.$data['site'].'/inc/footer_link.php');
+		
 	}
+	public function load_login()
+    {
+        $this->load->view('admin/login');
 
+    }
 	public function prd($data){
 		echo '<pre>';
 		print_r($data);

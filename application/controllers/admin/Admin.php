@@ -21,10 +21,10 @@ class Admin extends Common
     }
 
 
-    public function load_login()
+    public function dashboard()
     {
-        $this->load->view('admin/login');
-
+        $data = PAGE_DATA_ADMIN;
+        $this->load_page('admin/dashboard.php', $data);
     }
 
 

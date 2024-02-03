@@ -4,7 +4,7 @@
 <head>
     <!-- Meta tags and other head elements -->
 
-    <title>SB Admin 2 - Login</title>
+    <title>Admin - Login</title>
 
     <!-- Custom fonts and styles -->
     <link href="<?= base_url() ?>assets_admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
