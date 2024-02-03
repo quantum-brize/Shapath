@@ -23,4 +23,6 @@ $route['our-donor']             = 'web/testimonial/our_donor';
 
 // ============================ admin routes
 $route['admin']                = 'admin/Admin/index';
+$route['admin/login']          = 'admin/Admin/login';
+$route['admin/logout']         = 'admin/Admin/logout';
 $route['admin/dashboard']      = 'admin/Admin/dashboard';

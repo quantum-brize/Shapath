@@ -13,12 +13,16 @@ class Admin extends Common
     }
     public function index()
     {
-        if ($this->session->userdata('name') == null) {
-            $this->load_login();
+        if ($this->session->userdata('user_id') == null) {
+            redirect('/admin/login');
         } else {
-            $this->session->sess_destroy();
-            $this->pr($this->session);
+            redirect('/admin/dashboard');
         }
+    }
+
+
+    public function login(){
+        $this->load_login(); 
     }
 
     public function admin_login(){
@@ -34,15 +38,31 @@ class Admin extends Common
 			$is_admin = $this->Admin_model->is_admin($userName, md5($password));
             $resp['status'] = !empty($is_admin);
             $resp['userType'] = !empty($is_admin) ? $is_admin['type']: '';
+            if($resp['status']){
+                $this->session->set_userdata('user_id', $is_admin['uid']);
+                $this->session->set_userdata('user_name', $is_admin['user_name']);
+                $this->session->set_userdata('user_type', $is_admin['type']);
+            }
 		}
         $resp['message'] = $resp['status'] ? 'user found' : 'user not found';
         return $this->response($resp);
     }
 
+    public function logout(){
+		$this->session->unset_userdata('user_id');
+		$this->session->unset_userdata('user_name');
+		$this->session->unset_userdata('user_type');
+		redirect('/admin');
+	}
+
     public function dashboard()
-    {
-        $data = PAGE_DATA_ADMIN;
-        $this->load_page('admin/dashboard.php', $data);
+    {   
+        if ($this->session->userdata('user_id') == null) {
+            redirect('/admin');
+        } else {
+            $data = PAGE_DATA_ADMIN;
+            $this->load_page('admin/dashboard.php', $data);
+        }
     }
 
 

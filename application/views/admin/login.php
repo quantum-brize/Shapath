@@ -4,7 +4,7 @@
 <head>
     <!-- Meta tags and other head elements -->
 
-    <title>Admin - Login</title>
+    <title>Admin|Login</title>
 
     <!-- Custom fonts and styles -->
     <link href="<?= base_url() ?>assets_admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -12,6 +12,8 @@
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
     <link href="<?= base_url() ?>assets_admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <style>
         #showHidePassword {
             border-top-right-radius: 25px;
@@ -58,7 +60,7 @@
                                             <label class="custom-control-label" for="customCheck">Remember Me</label>
                                         </div>
                                     </div>
-                                    <a  class="btn btn-primary btn-user btn-block" id="loginBtn">
+                                    <a class="btn btn-primary btn-user btn-block" id="loginBtn">
                                         Login
                                     </a>
                                 </form>
@@ -97,22 +99,41 @@
             });
 
 
-            $('#loginBtn').click(function(){
+            $('#loginBtn').click(function () {
                 let userName = $('#userName').val();
                 let password = $('#password').val();
 
                 $.ajax({
                     type: 'POST',
-                    url: '<?=base_url('admin/Admin/admin_login')?>',
-                    data : {
-                        userName : userName,
-                        password : password 
+                    url: '<?= base_url('admin/Admin/admin_login') ?>',
+                    data: {
+                        userName: userName,
+                        password: password
                     },
-                    beforeSend: function(){
-
+                    beforeSend: function () {
+                        $('#loginBtn').prop("disabled", true)
+                        $('#loginBtn').html(`<div class="spinner-border text-light"></div>`)
                     },
-                    success: function(resp){
-                        console.log(resp)
+                    success: function (resp) {
+                        resp = JSON.parse(resp)
+                        $('#loginBtn').prop("disabled", false)
+                        $('#loginBtn').html(`Login`)
+                        Toastify({
+                            text: resp.message.toUpperCase(),
+                            duration: 3000,
+                            position: "center", 
+                            stopOnFocus: true,
+                            style: {
+                                background: resp.status ? 'darkgreen' : 'darkred',
+                            },
+                            
+                        }).showToast();
+                        if(resp.status){
+                            setTimeout(function(){
+                                location.href = '<?=base_url('admin/dashboard')?>'
+                            }, 1000)
+                        }
+                        
                     }
 
 
@@ -120,7 +141,7 @@
 
 
             })
-            
+
 
         });
     </script>
