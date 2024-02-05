@@ -27,12 +27,20 @@ class Component extends Admin
     public function quotes(){
         $data = PAGE_DATA_ADMIN;
         $data['data_footer']['footer_link'] = ['quotes.js'];
+        $data['data_header']['title'] = 'Admin | Quotes';
+        $data['data_header']['sidebar']['component'] = true;
+        $data['data_header']['sidebar']['quotes'] = true;
+
         $this->is_auth('admin/quotes.php', $data);
     
 
     }
     public function videos(){
         $data = PAGE_DATA_ADMIN;
+        $data['data_header']['title'] = 'Admin | Videos';
+        $data['data_header']['sidebar']['component'] = true;
+        $data['data_header']['sidebar']['videos'] = true;
+
         $this->is_auth('admin/videos.php', $data);
     }
 

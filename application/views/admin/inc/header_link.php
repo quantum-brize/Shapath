@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Dashboard</title>
+    <title><?= $title ? $title : 'Admin'?></title>
 
     <!-- Custom fonts for this template-->
     <link href="<?=base_url()?>assets_admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -26,6 +26,12 @@
            }
 
        };
-           
+         
        
-   ?>
+       ?>
+    <style>
+        #accordionSidebar{
+            transition: 0.1s;
+        }
+
+    </style>
