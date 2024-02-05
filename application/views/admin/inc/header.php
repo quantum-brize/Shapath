@@ -45,12 +45,12 @@
                 <div id="collapseTwo" class="collapse <?=  isset($sidebar['component']) ?  'show': ''?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a 
-                            class="collapse-item" 
+                            class="collapse-item sidebar_item <?=  isset($sidebar['quotes']) ? 'sidebar_active' : ''?>"
                             href="<?= base_url('/admin/component/quotes') ?>">
                             Quotes
                         </a>
                         <a 
-                            class="collapse-item"
+                            class="collapse-item sidebar_item <?=  isset($sidebar['videos']) ? 'sidebar_active' : ''?>"
                             href="<?= base_url('/admin/component/videos') ?>">
                             Videos
                         </a>

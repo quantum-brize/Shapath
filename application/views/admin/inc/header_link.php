@@ -33,5 +33,16 @@
         #accordionSidebar{
             transition: 0.1s;
         }
-
+        .sidebar_active{
+            background-color:#3a60d0;
+            color: #ffff  !important;
+        }
+        .sidebar_item:hover{
+            background-color:#3a60d0 !important;
+            color: #ffff  !important;
+        }
+        .sidebar_item{
+            margin-top: 2px !important;
+            margin-bottom: 2px !important;
+        }
     </style>
