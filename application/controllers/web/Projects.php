@@ -12,7 +12,7 @@ class Projects extends Load {
 
     public function index(){
         $data = PAGE_DATA_WEB;
-        $data['data_header']['header_link'] = ['web/inc/css/projects_css.php'];
+        $data['data_header']['header_link'] = ['projects.css'];
 
         $this->load_page('web/project.php',$data);
     }

@@ -17,3 +17,15 @@
 
     <!-- Custom styles for this template-->
     <link href="<?=base_url()?>assets_admin/css/sb-admin-2.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets_admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <?php
+       
+       if(!empty($header_link)){
+           foreach($header_link as $link){
+               echo "<link href='".base_url()."assets_admin/css/".$link."' rel='stylesheet'>";
+           }
+
+       };
+           
+       
+   ?>

@@ -4,7 +4,7 @@
 <head>
     <!-- Meta tags and other head elements -->
 
-    <title>Admin|Login</title>
+    <title>Admin | Login</title>
 
     <!-- Custom fonts and styles -->
     <link href="<?= base_url() ?>assets_admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -116,30 +116,39 @@
                     },
                     success: function (resp) {
                         resp = JSON.parse(resp)
-                        $('#loginBtn').prop("disabled", false)
-                        $('#loginBtn').html(`Login`)
                         Toastify({
                             text: resp.message.toUpperCase(),
                             duration: 3000,
-                            position: "center", 
+                            position: "center",
                             stopOnFocus: true,
                             style: {
                                 background: resp.status ? 'darkgreen' : 'darkred',
                             },
-                            
+
                         }).showToast();
-                        if(resp.status){
-                            setTimeout(function(){
-                                location.href = '<?=base_url('admin/dashboard')?>'
+                        if (resp.status) {
+                            setTimeout(function () {
+                                location.href = '<?= base_url('admin/dashboard') ?>'
                             }, 1000)
                         }
-                        
+                    },
+                    error: function (err) {
+                        Toastify({
+                            text: 'Server Error',
+                            duration: 3000,
+                            position: "center",
+                            stopOnFocus: true,
+                            style: {
+                                background: 'darkred',
+                            },
+
+                        }).showToast();
+                    },
+                    complete: function(){
+                        $('#loginBtn').prop("disabled", false)
+                        $('#loginBtn').html(`Login`)
                     }
-
-
                 })
-
-
             })
 
 

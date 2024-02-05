@@ -56,5 +56,26 @@ define('MODEL_ADMIN', 'Admin_model');
 
 
 ////////////////////////////////////////////__TABLES
-define('TABLE_USER','user');
+define('TABLE_USER','users');
+define('TABLE_QUOTES','quotes');
+define('TABLE_VIDEOS','videos');
 
+////////////////////////////////////////////__SESSION_VARS
+define('SES_ADMIN_ID', 'admin_id');
+define('SES_ADMIN_NAME', 'admin_name');
+define('SES_SUB_ADMIN_ID', 'sub_admin_id');
+define('SES_SUB_ADMIN_NAME', 'sub_admin_name');
+define('SES_TYPE', 'type');
+
+////////////////////////////////////////////__USERS
+define('USER_ADMIN','admin');
+define('USER_SUB_ADMIN','sub_admin');
+
+
+////////////////////////////////////////////__KEYS
+
+define("KEY_STATUS","status");
+define("KEY_MESSAGE", "message");
+define("KEY_TYPE", "type");
+define('KEY_USER_NAME', 'user_name');
+define('KEY_UID', 'uid');
