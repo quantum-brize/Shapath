@@ -37,22 +37,18 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link <?= isset($sidebar['component']) ? '' : 'collapsed' ?>" href="#" data-toggle="collapse" data-target="#collapseTwo"
+                <a class="nav-link <?= isset($sidebar['pages']) ? '' : 'collapsed' ?>" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Pages</span>
                 </a>
-                <div id="collapseTwo" class="collapse <?=  isset($sidebar['component']) ?  'show': ''?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse <?=  isset($sidebar['pages']) ?  'show': ''?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <a 
-                            class="collapse-item sidebar_item <?=  isset($sidebar['quotes']) ? 'sidebar_active' : ''?>"
-                            href="<?= base_url('/admin/component/quotes') ?>">
-                            Quotes
-                        </a>
-                        <a 
-                            class="collapse-item sidebar_item <?=  isset($sidebar['videos']) ? 'sidebar_active' : ''?>"
-                            href="<?= base_url('/admin/component/videos') ?>">
-                            Videos
+                        class="collapse-item sidebar_item <?=  isset($sidebar['home']) ? 'sidebar_active' : ''?>"
+                        href="<?= base_url('/admin/pages/home') ?>">
+                            <i class="fas fa-fw fa-home mr-1" ></i>
+                            Home
                         </a>
                     </div>
                 </div>

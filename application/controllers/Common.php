@@ -6,7 +6,6 @@ class Common extends CI_Controller
 {
 	private $prefix_data = [];
 
-
 	public function __construct()
 	{
 		ini_set('error_reporting', E_ALL & ~E_DEPRECATED);
@@ -27,7 +26,7 @@ class Common extends CI_Controller
 	public function load_page($page, $data)
 	{
 		$this->load_headers($data['data_header']);
-		$this->load->view($page);
+		$this->load->view($page,$data['data_page']);
 		$this->load_footers($data['data_footer']);
 	}
 	private function load_headers($data)

@@ -22,10 +22,10 @@ $route['our-volunteer']         = 'web/testimonial/our_volunteer';
 $route['our-donor']             = 'web/testimonial/our_donor';
 
 // ============================ admin routes
-$route['admin']                  = 'admin/Admin/index';
-$route['admin/login']            = 'admin/Admin/login';
-$route['admin/logout']           = 'admin/Admin/logout';
-$route['admin/dashboard']        = 'admin/Admin/dashboard';
-$route['admin/component/']       = 'admin/Component/index';
-$route['admin/component/quotes'] = 'admin/Component/quotes';
-$route['admin/component/videos'] = 'admin/Component/videos';
+$route['admin']                 = 'admin/Admin/index';
+$route['admin/login']           = 'admin/Admin/login';
+$route['admin/logout']          = 'admin/Admin/logout';
+$route['admin/dashboard']       = 'admin/Admin/dashboard';
+$route['admin/pages/']          = 'admin/Pages/index';
+$route['admin/pages/home']      = 'admin/Pages/home';
+
