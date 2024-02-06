@@ -36,7 +36,7 @@ class Pages extends Admin
         $data['data_header']['sidebar']['pages'] = true;
         $data['data_header']['sidebar']['home'] = true;
         $data['data_page']['quotes'] = $this->Pages_model->get_all_quotes();
-
+        $data['data_page']['videos'] = $this->Pages_model->get_all_videos();
 
 
         $this->is_auth('admin/pages_home.php', $data);
@@ -51,7 +51,7 @@ class Pages extends Admin
         $quote_author = $this->input->post('quote_author');
 
         $this->init_model(MODEL_PAGES);
-        
+
         if (empty($_FILES['quote_img']['name'][0])) {
             $this->Pages_model->update_quotes($uid, $quote, $quote_author, '');
         } else {
@@ -74,4 +74,16 @@ class Pages extends Admin
         redirect('/admin/pages/home');
     }
 
+
+    public function update_video(){
+        $uid = $this->input->post('uid');
+        $url = $this->input->post('url');
+
+        if(!empty($uid) && !empty($url)){
+            $this->init_model(MODEL_PAGES);
+            $this->Pages_model->update_video($uid, $url);
+        }
+        redirect('/admin/pages/home');
+
+    }
 }

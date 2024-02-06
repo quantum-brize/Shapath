@@ -23,6 +23,17 @@ class Pages_model extends Admin_model
         return isset($quotes) ? $quotes : [];
     }
 
+    public function get_all_videos()
+    {
+        $videos = $this->db
+            ->select('*')
+            ->from(TABLE_VIDEOS)
+            ->get();
+
+        $videos = $videos->result_array();
+        return isset($videos) ? $videos : [];
+    }
+
     public function update_quotes($uid, $quote, $quote_author, $quote_img)
     {
 
@@ -44,5 +55,13 @@ class Pages_model extends Admin_model
 
     }
 
+    public function update_video($uid, $url){
+        $data = [
+            'path' => $url
+        ];
+        $update = $this->db->where('uid', $uid)
+						->update(TABLE_VIDEOS, $data);
+        return $update;
+    }   
 
 }
