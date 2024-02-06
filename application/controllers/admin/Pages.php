@@ -60,20 +60,7 @@ class Pages extends Admin
         if (empty($_FILES['about_img']['name'][0])) {
             $this->Pages_model->update_about_misson_vision($about_title,$about,$mission_title,$mission,$vision_title,$vision,$about_id,$mission_id,$vision_id,'');
         }else{
-            $config['upload_path'] = './uploads/about_img/';
-            $config['allowed_types'] = 'gif|jpg|png';
-            $config['max_size'] = 5048;
-            $config['encrypt_name'] = TRUE;
-            $this->load->library('upload', $config);
-            foreach ($_FILES['about_img']['name'] as $key => $value) {
-                $_FILES['userfile']['name'] = $_FILES['about_img']['name'][$key];
-                $_FILES['userfile']['type'] = $_FILES['about_img']['type'][$key];
-                $_FILES['userfile']['tmp_name'] = $_FILES['about_img']['tmp_name'][$key];
-                $_FILES['userfile']['error'] = $_FILES['about_img']['error'][$key];
-                $_FILES['userfile']['size'] = $_FILES['about_img']['size'][$key];
-                $this->upload->do_upload('userfile');
-            }
-            $upload_data = $this->upload->data();
+            $upload_data = $this->upload_files('./uploads/about_img/' , 'about_img');
             $this->Pages_model->update_about_misson_vision($about_title,$about,$mission_title,$mission,$vision_title,$vision,$about_id,$mission_id,$vision_id, '/uploads/about_img/' . $upload_data['file_name']);
         }
         redirect('/admin/pages/home');
@@ -92,20 +79,7 @@ class Pages extends Admin
         if (empty($_FILES['quote_img']['name'][0])) {
             $this->Pages_model->update_quotes($uid, $quote, $quote_author, '');
         } else {
-            $config['upload_path'] = './uploads/quotes_img/';
-            $config['allowed_types'] = 'gif|jpg|png';
-            $config['max_size'] = 5048;
-            $config['encrypt_name'] = TRUE;
-            $this->load->library('upload', $config);
-            foreach ($_FILES['quote_img']['name'] as $key => $value) {
-                $_FILES['userfile']['name'] = $_FILES['quote_img']['name'][$key];
-                $_FILES['userfile']['type'] = $_FILES['quote_img']['type'][$key];
-                $_FILES['userfile']['tmp_name'] = $_FILES['quote_img']['tmp_name'][$key];
-                $_FILES['userfile']['error'] = $_FILES['quote_img']['error'][$key];
-                $_FILES['userfile']['size'] = $_FILES['quote_img']['size'][$key];
-                $this->upload->do_upload('userfile');
-            }
-            $upload_data = $this->upload->data();
+            $upload_data = $this->upload_files('./uploads/quotes_img/' , 'quote_img');
             $this->Pages_model->update_quotes($uid, $quote, $quote_author, '/uploads/quotes_img/' . $upload_data['file_name']);
         }
         redirect('/admin/pages/home');

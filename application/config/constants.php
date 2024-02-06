@@ -62,6 +62,7 @@ define('TABLE_QUOTES','quotes');
 define('TABLE_VIDEOS','videos');
 define('TABLE_ABOUT', 'about');
 define('TABLE_MISSION_VISION','mission_vision');
+define('TABLE_WHAT_WE_DO','what_we_do');
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');
