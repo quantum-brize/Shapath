@@ -60,6 +60,8 @@ define('MODEL_PAGES', 'Pages_model');
 define('TABLE_USER','users');
 define('TABLE_QUOTES','quotes');
 define('TABLE_VIDEOS','videos');
+define('TABLE_ABOUT', 'about');
+define('TABLE_MISSION_VISION','mission_vision');
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');

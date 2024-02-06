@@ -7,7 +7,7 @@ if (!empty($quotes)) {
     foreach ($quotes as $quote) {
         if ($quote['type'] == 'home' && $quote['position'] == 'top') {
             $top_quote = $quote;
-        } elseif ($quote['type'] == 'home' && $quote['position'] == 'bottom') {
+        } else if ($quote['type'] == 'home' && $quote['position'] == 'bottom') {
             $bottom_quote = $quote;
         }
     }
@@ -18,6 +18,18 @@ if (!empty($videos)) {
     foreach ($videos as $video) {
         if ($video['page'] == 'home') {
             $home_videos = $video;
+        }
+    }
+}
+
+$mission = [];
+$vision = [];
+if (!empty($mission_vision)) {
+    foreach ($mission_vision as $val) {
+        if ($val['type'] == 'mission') {
+            $mission = $val;
+        }else if($val['type'] == 'vision'){
+            $vision = $val;
         }
     }
 }
@@ -159,6 +171,89 @@ if (!empty($videos)) {
                                 </div>
                             </form>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-xl-12 col-lg-12">
+            <div class="card shadow mb-4">
+                <!-- Card Header - Dropdown -->
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h5 class="m-0 font-weight-bold text-primary">About</h5>
+                </div>
+                <!-- Card Body -->
+                <div class="card-body row">
+                    <div class="col-xl-12 col-lg-12">
+                        <form enctype="multipart/form-data" action="<?= base_url('admin/Pages/update_about') ?>" method="POST">
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6">
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput2">About Title</label>
+                                        <input type="text" class="form-control" name="about_title" value="<?= $about[0]['about_title']?>" placeholder="About Title" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="formGroupExampleInput">About</label>
+                                        <textarea rows="6" cols="30"  class="form-control" value="" placeholder="About" required name="about"><?= $about[0]['about']?></textarea>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6">
+                                    <div class='form-group' id="aboutPrev">
+                                        <div>
+                                            <label for="formGroupExampleInput2">About image</label>
+                                        </div>
+                                        <img src="<?= base_url($about[0]['about_img'])?>" height="200" id="about_img" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="file" class="form-control-file" placeholder="about image" name="about_img[]" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-xl-6 col-lg-6 card">
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h5 class="m-0 font-weight-bold text-primary">Mission</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput2">Mission Title</label>
+                                            <input type="text" class="form-control" name="mission_title" value="<?= $mission['title']?>"
+                                                placeholder="Mission Title" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Mission</label>
+                                            <textarea rows="6" cols="30" type="text" class="form-control"  placeholder="Mission" required name="mission"><?= $mission['description']?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-6 col-lg-6 card">
+                                    <div
+                                        class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                                        <h5 class="m-0 font-weight-bold text-primary">Vision</h5>
+                                    </div>
+                                    <div class="card-body">
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput2">Vision Title</label>
+                                            <input type="text" class="form-control" name="vision_title" value="<?= $vision['title']?>" placeholder="Vision Title" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Vision</label>
+                                            <textarea rows="6" cols="30" type="text" class="form-control" placeholder="Vision" required name="vision"><?= $vision['description']?></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-2">
+                                <div class="form-group">
+                                    <input type="text" hidden name="about_id" value="<?= $about[0]['uid']?>">
+                                    <input type="text" hidden name="mission_id" value="<?= $mission['uid']?>">
+                                    <input type="text" hidden name="vision_id" value="<?= $vision['uid']?>">
+                                    <input type="submit" class="btn btn-success" id="" value="Update">
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>
