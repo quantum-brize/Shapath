@@ -85,7 +85,6 @@ if (!empty($quotes)) {
                                 </div>
                                 <div class="form-group">
                                     <input type="text"   hidden value="<?= $bottom_quote['uid']?>" name="uid">
-                                    <input type="text"   hidden value="<?= $bottom_quote['quote_img']?>" name="file_img">
                                     <input type="submit" class="btn btn-success" id="" value="Update">
                                 </div>
                             </form>
