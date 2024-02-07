@@ -18,15 +18,17 @@
                     <h5 class="m-0 font-weight-bold text-primary">Add New Project</h5>
                 </div>
                 <!-- Card Body -->
-                <div class="card-body row">
+                <form class="card-body row">
                     <div class="col-xl-6 col-lg-6">
                         <div class="form-group">
                             <label for="formGroupExampleInput2">Project Title</label>
-                            <input type="text" class="form-control" name="project_title" value="" placeholder="Project Title" required>
+                            <input type="text" class="form-control" name="project_title" value=""
+                                placeholder="Project Title" required>
                         </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput">Cover Project Detils</label>
-                            <textarea rows="6" cols="30" class="form-control" value="" placeholder="Cover Project Detils" required name="project_title"></textarea>
+                            <label for="formGroupExampleInput">Project Cover Detils</label>
+                            <textarea rows="6" cols="30" class="form-control" value=""
+                                placeholder="Project Cover Detils" required name="project_cover_details"></textarea>
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6">
@@ -38,10 +40,56 @@
                                 height="200" id="project_img" />
                         </div>
                         <div class="form-group">
-                            <input type="file" class="form-control-file" placeholder="projects image" name="project_img[]" />
+                            <input multiple type="file" class="form-control-file" placeholder="projects image"
+                                name="project_img[]" />
                         </div>
                     </div>
-                </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput2">Project Page Title</label>
+                            <input type="text" class="form-control" name="project_page_title" value=""
+                                placeholder="Project Title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Project Video Url</label>
+                            <input type="text" class="form-control" name="project_page_video" value=""
+                                placeholder="Project Video Url" required>
+                        </div>
+                    </div>
+                    <div class="col-xl-6 col-lg-6">
+                        <div class="form-group">
+                            <label for="formGroupExampleInput">Project Page Description</label>
+                            <textarea rows="5" cols="30" class="form-control" value=""
+                                placeholder="Project Page description" required
+                                name="project_page_description"></textarea>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 p-2" style="border: 1px solid lightgray">
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="form-group">
+                                <h3 align="center">Project Galary Images</h3>
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12"
+                            style="display: flex;align-items: center;justify-content: center;">
+                            <div class="form-group">
+                                <label class="btn btn-info" for="image_uploads">Choose multiple images to upload</label>
+                                <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png"
+                                    multiple hidden />
+                            </div>
+                        </div>
+                        <div class="col-xl-12 col-lg-12">
+                            <div class="preview">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-12 col-lg-12 mt-4"
+                        style="display: flex;align-items: center;justify-content: center;">
+                        <div class="form-group">
+                            <button class="btn btn-success" style="width: 200px;">Submit</button>
+                        </div>
+                    </div>
+                </form>
             </div>
 
         </div>

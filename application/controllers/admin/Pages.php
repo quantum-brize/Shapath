@@ -63,7 +63,7 @@ class Pages extends Admin
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_ADMIN;
         $data['data_footer']['footer_link'] = ['projects_js.php'];
-        $data['data_header']['header_link'] = [];
+        $data['data_header']['header_link'] = ['projects.css'];
         $data['data_header']['title'] = 'Admin | Add Project';
         $data['data_header']['sidebar']['pages'] = true;
         $data['data_header']['sidebar']['projects'] = true;
