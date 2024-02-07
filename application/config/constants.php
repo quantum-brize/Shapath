@@ -54,15 +54,13 @@ define('MODEL_COMMON', 'Common_model');
 define('MODEL_ADMIN', 'Admin_model');
 define('MODEL_PAGES', 'Pages_model');
 
-
-
 ////////////////////////////////////////////__TABLES
 define('TABLE_USER','users');
 define('TABLE_QUOTES','quotes');
 define('TABLE_VIDEOS','videos');
 define('TABLE_ABOUT', 'about');
 define('TABLE_MISSION_VISION','mission_vision');
-define('TABLE_WHAT_WE_DO','what_we_do');
+define('TABLE_SERVICES','services');
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');
@@ -77,9 +75,11 @@ define('USER_SUB_ADMIN','sub_admin');
 
 
 ////////////////////////////////////////////__KEYS
-
 define("KEY_STATUS","status");
 define("KEY_MESSAGE", "message");
 define("KEY_TYPE", "type");
 define('KEY_USER_NAME', 'user_name');
 define('KEY_UID', 'uid');
+
+///////////////////////////////////////////__UID
+define('UID_WORK', 'WDO');

@@ -34,8 +34,6 @@ if (!empty($mission_vision)) {
     }
 }
 
-
-
 ?>
 
 <!-- Begin Page Content -->
@@ -49,6 +47,8 @@ if (!empty($mission_vision)) {
     <!-- Content Row -->
     <div class="row">
 
+
+        <!-- Quotes -->
         <div class="col-xl-12 col-lg-12">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -119,7 +119,7 @@ if (!empty($mission_vision)) {
             </div>
         </div>
 
-
+        <!-- Audio and Video -->
         <div class="col-xl-12 col-lg-12">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -176,7 +176,7 @@ if (!empty($mission_vision)) {
             </div>
         </div>
 
-
+        <!-- About -->
         <div class="col-xl-12 col-lg-12">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
@@ -277,39 +277,44 @@ if (!empty($mission_vision)) {
             </div>
         </div>
 
+        <!-- Services -->
         <div class="col-xl-12 col-lg-12">
             <div class="card shadow mb-4">
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h5 class="m-0 font-weight-bold text-primary">What We Do</h5>
+                    <h5 class="m-0 font-weight-bold text-primary">Services</h5>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body">
-                    <div class="row card shadow">
+                    <div class="row card shadow mb-2">
                         <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                            <h5 class="m-0 font-weight-bold text-primary">Add Work</h5>
+                            <h5 class="m-0 font-weight-bold text-primary">Add Service</h5>
                         </div>
-                        <form class="card-body row">
+                        <form class="card-body row" enctype="multipart/form-data"
+                            action="<?= base_url('admin/Pages/add_work') ?>" method="POST">
                             <div class="col-xl-6 col-lg-6">
                                 <div class="form-group">
-                                    <label for="formGroupExampleInput2">Work Title</label>
+                                    <label for="formGroupExampleInput2">Service Title</label>
                                     <input type="text" class="form-control" name="work_title"
-                                         placeholder="Work Title" required>
+                                        placeholder="Service Title" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="formGroupExampleInput">Description</label>
-                                    <textarea rows="6" cols="30" class="form-control" placeholder="Description" required name="Description"></textarea>
+                                    <textarea rows="6" cols="30" class="form-control" placeholder="Description" required
+                                        name="description"></textarea>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6">
                                 <div class='form-group' id="aboutWork">
                                     <div>
-                                        <label for="formGroupExampleInput2">Work Image</label>
+                                        <label for="formGroupExampleInput2">Service Image</label>
                                     </div>
-                                    <img src="https://usercontent.one/wp/www.vocaleurope.eu/wp-content/uploads/no-image.jpg?media=1642546813" height="200" id="about_img" />
+                                    <img src="https://usercontent.one/wp/www.vocaleurope.eu/wp-content/uploads/no-image.jpg?media=1642546813"
+                                        height="200" id="about_img" />
                                 </div>
                                 <div class="form-group">
-                                    <input type="file" class="form-control-file" placeholder="work image" name="work_img[]" />
+                                    <input type="file" class="form-control-file" placeholder="work image"
+                                        name="work_img[]" required />
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6">
@@ -319,11 +324,52 @@ if (!empty($mission_vision)) {
                             </div>
                         </form>
                     </div>
+                    <div class="row card shadow">
+                        <!-- Card Header - Dropdown -->
+                        <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                            <h5 class="m-0 font-weight-bold text-primary">All Services</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-info" id="dataTable" width="100%" cellspacing="0">
+                                    <thead>
+                                        <tr>
+                                            <th>Id</th>
+                                            <th>Title</th>
+                                            <th>Description</th>
+                                            <th>Image</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                            if(!empty($services)){
+                                                $i = 1;
+                                                foreach($services as $service){
+                                                    $row = '';
+                                                    $row .= '<tr>';
+                                                    $row .= '<td>'. $i++ . '</td>';
+                                                    $row .= '<td>'. $service['title'] . '</td>';
+                                                    $row .= '<td>'. $service['description'] . '</td>';
+                                                    $row .= '<td><img src="'.base_url() . $service['img'] . '" height="100"></td>';
+                                                    $row .= '<td>';
+                                                    $row .= '<a href="'.base_url('admin/Pages/delete_service?uid='.$service['uid']).'" class="btn btn-danger text-light"><i class="fa fa-trash"></i></a>';
+                                                    $row .= '</td>';
+                                                    $row .= '</tr>';
+                                                    echo $row;;
+                                                }
+                                            }
 
-
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
     </div>
 
 

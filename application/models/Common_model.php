@@ -20,9 +20,17 @@ class Common_model extends CI_Model {
         echo '<pre>';
         print_r($data);
         echo '</pre>';
-
-        
     }
+
+    private function uid()
+	{
+		return strtoupper(bin2hex(openssl_random_pseudo_bytes(4)));
+	}
+
+    public function generate_uid($purpose)
+	{
+		return $purpose . $this->uid() . date('Ymd');
+	}
 }
 
 ?>

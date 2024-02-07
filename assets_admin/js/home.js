@@ -1,3 +1,8 @@
+// Call the dataTables jQuery plugin
+$(document).ready(function () {
+    $('#dataTable').DataTable();
+});
+
 // Add this function to preview selected images before uploading
 $(document).on('change', 'input[name="quote_img[]"]', function (e) {
     console.log(1)
@@ -47,3 +52,6 @@ $(document).on('change', 'input[name="work_img[]"]', function (e) {
         reader.readAsDataURL(files[i]);
     }
 });
+
+
+

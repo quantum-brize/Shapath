@@ -4,8 +4,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class Common extends CI_Controller
 {
-	private $prefix_data = [];
-
 	public function __construct()
 	{
 		ini_set('error_reporting', E_ALL & ~E_DEPRECATED);
@@ -69,9 +67,9 @@ class Common extends CI_Controller
 		return strtoupper(bin2hex(openssl_random_pseudo_bytes(4)));
 	}
 
-	public function generate_uid($purpose = null)
+	public function generate_uid($purpose)
 	{
-		return (array_key_exists($purpose, $this->prefix_data)) ? $this->prefix_data[$purpose] . $this->uid() . date('Ymd') : 0;
+		return $purpose . $this->uid() . date('Ymd');
 	}
 
 

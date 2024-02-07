@@ -123,4 +123,32 @@ class Pages_model extends Admin_model
         return $update;
     }
 
+    public function add_work($work_title, $description, $path)
+    {
+
+        $data = [
+            'uid' => $this->generate_uid(UID_WORK),
+            'title' => $work_title,
+            'description' => $description,
+            'img' => $path
+        ];
+        $add = $this->db->insert(TABLE_SERVICES, $data);
+        return $add;
+    }
+
+    public function get_all_work()
+    {
+        $work = $this->db
+            ->select('*')
+            ->from(TABLE_SERVICES)
+            ->get();
+        $work = $work->result_array();
+        return !empty($work) ? $work : [];
+    }
+    
+    public function delete_service($uid){
+        $delete = $this->db->where('uid', $uid)
+                            ->delete(TABLE_SERVICES);
+        return $delete;
+    }
 }

@@ -39,6 +39,7 @@ class Pages extends Admin
         $data['data_page']['videos'] = $this->Pages_model->get_all_videos();
         $data['data_page']['about'] = $this->Pages_model->get_about();
         $data['data_page']['mission_vision'] = $this->Pages_model->get_mission_vision();
+        $data['data_page']['services'] = $this->Pages_model->get_all_work();
 
         $this->is_auth('admin/pages_home.php', $data);
 
@@ -97,6 +98,26 @@ class Pages extends Admin
         }
         redirect('/admin/pages/home');
 
+    }
+
+    public function add_work(){
+        $work_title = $this->input->post('work_title');
+        $description = $this->input->post('description');
+
+        if(!empty($_FILES['work_img']['name'][0])){
+            $this->init_model(MODEL_PAGES);
+            $upload_data = $this->upload_files('./uploads/work_img/' , 'work_img');
+            $this->Pages_model->add_work($work_title, $description, '/uploads/work_img/' . $upload_data['file_name']);
+        }
+        redirect('/admin/pages/home');
+
+    }
+
+    public function delete_service(){
+        $uid = $this->input->get('uid');
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->delete_service($uid);
+        redirect('/admin/pages/home');
     }
 
 }
