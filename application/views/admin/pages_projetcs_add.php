@@ -18,7 +18,8 @@
                     <h5 class="m-0 font-weight-bold text-primary">Add New Project</h5>
                 </div>
                 <!-- Card Body -->
-                <form class="card-body row">
+                <form class="card-body row" enctype="multipart/form-data"
+                    action="<?= base_url('admin/Pages/add_new_project') ?>" method="POST">
                     <div class="col-xl-6 col-lg-6">
                         <div class="form-group">
                             <label for="formGroupExampleInput2">Project Title</label>
@@ -31,7 +32,7 @@
                                 placeholder="Project Cover Detils" required name="project_cover_details"></textarea>
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6">
+                    <div class="col-xl-3 col-lg-3">
                         <div>
                             <label for="formGroupExampleInput2">Cover image</label>
                         </div>
@@ -41,7 +42,20 @@
                         </div>
                         <div class="form-group">
                             <input multiple type="file" class="form-control-file" placeholder="projects image"
-                                name="project_img[]" />
+                                name="project_img[]" required />
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-3">
+                        <div>
+                            <label for="formGroupExampleInput2">Project Logo</label>
+                        </div>
+                        <div class='form-group' id="projectLogo">
+                            <img src="https://usercontent.one/wp/www.vocaleurope.eu/wp-content/uploads/no-image.jpg?media=1642546813"
+                                height="200" id="project_logo" />
+                        </div>
+                        <div class="form-group">
+                            <input multiple type="file" class="form-control-file" placeholder="projects logo"
+                                name="project_logo[]" required />
                         </div>
                     </div>
                     <div class="col-xl-6 col-lg-6">
@@ -74,8 +88,7 @@
                             style="display: flex;align-items: center;justify-content: center;">
                             <div class="form-group">
                                 <label class="btn btn-info" for="image_uploads">Choose multiple images to upload</label>
-                                <input type="file" id="image_uploads" name="image_uploads" accept=".jpg, .jpeg, .png"
-                                    multiple hidden />
+                                <input type="file" id="image_uploads" name="galary_img[]" multiple hidden required />
                             </div>
                         </div>
                         <div class="col-xl-12 col-lg-12">

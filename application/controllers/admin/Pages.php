@@ -141,11 +141,16 @@ class Pages extends Admin
 
     }
 
+    public function add_new_project(){
+        $this->prd($this->input->post());
+    }
     public function delete_service(){
         $uid = $this->input->get('uid');
         $this->init_model(MODEL_PAGES);
         $this->Pages_model->delete_service($uid);
         redirect('/admin/pages/home');
     }
+
+
 
 }
