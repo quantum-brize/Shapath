@@ -16,7 +16,7 @@
 <?php
 if (!empty($footer_link)) {
     foreach ($footer_link as $link) {
-        echo "<script src='" . base_url() . "assets_admin/js/" . $link . "'></script>";
+        require_once(APPPATH . 'views/admin/inc/js/'.$link);
     }
 }
 ?>

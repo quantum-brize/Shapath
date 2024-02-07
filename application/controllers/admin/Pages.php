@@ -30,7 +30,7 @@ class Pages extends Admin
     {
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_ADMIN;
-        $data['data_footer']['footer_link'] = ['home.js'];
+        $data['data_footer']['footer_link'] = ['home_js.php'];
         $data['data_header']['header_link'] = ['home.css'];
         $data['data_header']['title'] = 'Admin | Pages';
         $data['data_header']['sidebar']['pages'] = true;
@@ -44,6 +44,34 @@ class Pages extends Admin
         $this->is_auth('admin/pages_home.php', $data);
 
     }
+    public function projects()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['projects_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Projects';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['projects'] = true;
+       
+
+        $this->is_auth('admin/pages_projetcs.php', $data);
+
+    }
+
+    public function projects_add(){
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['projects_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Add Project';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['projects'] = true;
+       
+
+        $this->is_auth('admin/pages_projetcs_add.php', $data);
+    }
+
     public function update_about()
     {   
         $about_title = $this->input->post('about_title');

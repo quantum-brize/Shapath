@@ -1,3 +1,6 @@
+<script>
+
+
 // Call the dataTables jQuery plugin
 $(document).ready(function () {
     $('#dataTable').DataTable();
@@ -52,6 +55,6 @@ $(document).on('change', 'input[name="work_img[]"]', function (e) {
         reader.readAsDataURL(files[i]);
     }
 });
-
+</script>
 
 
