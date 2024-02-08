@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 07, 2024 at 02:24 PM
+-- Generation Time: Feb 08, 2024 at 02:05 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -77,9 +77,14 @@ INSERT INTO `mission_vision` (`id`, `uid`, `title`, `description`, `type`, `crea
 CREATE TABLE `projects` (
   `id` int(11) NOT NULL,
   `uid` varchar(255) NOT NULL,
-  `title` varchar(255) NOT NULL,
-  `cover_details` longtext NOT NULL,
-  `cover_img` varchar(255) NOT NULL,
+  `project_title` varchar(255) NOT NULL,
+  `project_cover_details` longtext NOT NULL,
+  `project_page_title` varchar(255) NOT NULL,
+  `project_page_video` varchar(255) NOT NULL,
+  `project_page_description` longtext NOT NULL,
+  `project_img` varchar(255) NOT NULL,
+  `project_logo` varchar(255) NOT NULL,
+  `galary_img` longtext NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -248,7 +253,7 @@ ALTER TABLE `mission_vision`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `quotes`
