@@ -37,22 +37,21 @@
                                 <?php
                                 if (!empty($projects)) {
                                     $i = 1;
-                                    foreach ($projects as $projects) {
+                                    foreach ($projects as $project) {
                                         $row = '';
                                         $row .= '<tr>';
                                         $row .= '<td>' . $i++ . '</td>';
-                                        $row .= '<td>' . $projects['project_title'] . '</td>';
-                                        $row .= '<td>' . $projects['project_cover_details'] . '</td>';
-                                        $row .= '<td><img src="' . base_url() . $projects['project_logo'] . '" height="100"></td>';
+                                        $row .= '<td>' . $project['project_title'] . '</td>';
+                                        $row .= '<td>' . $project['project_cover_details'] . '</td>';
+                                        $row .= '<td><img src="' . base_url() . $project['project_logo'] . '" height="100"></td>';
                                         $row .= '<td>';
-                                        $row .= '<a href="" class="btn btn-info text-light">View & Edit</a>';
+                                        $row .= '<a href="'.base_url('admin/pages/projects/edit?p_id=').$project['uid'] .'" class="btn btn-info text-light">View & Edit</a>';
                                         $row .= '</td>';
                                         $row .= '<td>';
                                         $row .= '<a href="" class="btn btn-danger text-light">Delete</a>';
                                         $row .= '</td>';
                                         $row .= '</tr>';
                                         echo $row;
-                                        ;
                                     }
                                 }
                                 ?>

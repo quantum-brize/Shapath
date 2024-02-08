@@ -145,20 +145,23 @@ class Pages_model extends Admin_model
         $work = $work->result_array();
         return !empty($work) ? $work : [];
     }
-    
-    public function delete_service($uid){
+
+    public function delete_service($uid)
+    {
         $delete = $this->db->where('uid', $uid)
-                            ->delete(TABLE_SERVICES);
+            ->delete(TABLE_SERVICES);
         return $delete;
     }
 
 
-    public function add_new_project($data){
+    public function add_new_project($data)
+    {
         $add = $this->db->insert(TABLE_PROJECTS, $data);
         return $add;
     }
-    
-    public function get_all_projects(){
+
+    public function get_all_projects()
+    {
         $projects = $this->db
             ->select('*')
             ->from(TABLE_PROJECTS)
@@ -166,4 +169,17 @@ class Pages_model extends Admin_model
         $projects = $projects->result_array();
         return !empty($projects) ? $projects : [];
     }
+
+    public function get_projects_by_id($p_id)
+    {
+
+        $project = $this->db->select('*')
+                ->from(TABLE_PROJECTS)
+                ->where('uid', $p_id)
+                ->get()
+                ->row_array();
+        return !empty($project) ? $project : [];
+
+    }
+
 }
