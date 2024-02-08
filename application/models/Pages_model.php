@@ -123,6 +123,12 @@ class Pages_model extends Admin_model
         return $update;
     }
 
+    public function update_project($p_id, $update_data){
+        $update = $this->db->where('uid', $p_id)
+                        ->update(TABLE_PROJECTS, $update_data);
+        return $update;
+    }
+
     public function add_work($work_title, $description, $path)
     {
 

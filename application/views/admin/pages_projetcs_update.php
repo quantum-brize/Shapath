@@ -21,7 +21,7 @@
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h5 class="m-0 font-weight-bold text-primary">Edit Project</h5>
-                    <a class="btn btn-danger" href="<?= base_url('admin/pages/projects/delete?p_id=').$p_id ?>">DELETE</a>
+                    <a class="btn btn-danger"  data-toggle="modal" data-target="#deletModel">DELETE</a>
                 </div>
                 <!-- Card Body -->
                 <form class="card-body row" enctype="multipart/form-data"
@@ -122,5 +122,22 @@
         </div>
 
 
+    </div>
+    <div class="modal fade" id="deletModel" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Do You Really Want To Delete This Project</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-danger" href="<?= base_url('admin/pages/projects/delete?p_id=').$p_id ?>">Delete</a>
+                </div>
+            </div>
+        </div>
     </div>
     <!-- /.container-fluid -->

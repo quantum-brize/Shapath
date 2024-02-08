@@ -185,24 +185,42 @@ class Pages extends Admin
         $project_page_video = $this->input->post('project_page_video');
         $project_page_description = $this->input->post('project_page_description');
         $this->init_model(MODEL_PAGES);
-        $update_data = [];
-        if (
-            empty($_FILES['project_logo']['name'][0]) &&
-            empty($_FILES['project_img']['name'][0]) &&
-            empty($_FILES['galary_img']['name'][0])
-        ) {
-            $update_data = [
-                "project_title" => $project_title,
-                "project_cover_details" => $project_cover_details,
-                "project_page_title" => $project_page_title,
-                "project_page_video" => $project_page_video,
-                "project_page_description" => $project_page_description,
-            ];
+        $update_data = [
+            "project_title" => $project_title,
+            "project_cover_details" => $project_cover_details,
+            "project_page_title" => $project_page_title,
+            "project_page_video" => $project_page_video,
+            "project_page_description" => $project_page_description,
+        ];
+        if (!empty($_FILES['project_logo']['name'][0])) {
+            $project_logo_data = $this->upload_files('./uploads/project_logo/', 'project_logo', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $update_data['project_logo'] = '/uploads/project_logo/' . $project_logo_data['file_name'];
         }
+        if (!empty($_FILES['project_img']['name'][0])) {
+            $project_img_data = $this->upload_files('./uploads/project_img/', 'project_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $update_data['project_img'] = '/uploads/project_img/' . $project_img_data['file_name'];
+        }
+        if (!empty($_FILES['galary_img']['name'][0])) {
+            $galary_img_data = $this->upload_files('./uploads/project_galary_img/', 'galary_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $galary_img_arr = [];
 
-        $update = $this->Pages_model->update_project($p_id, )
+
+            if (!empty($galary_img_data)) {
+                if ($this->isAssociativeArray($galary_img_data)) {
+                    $update_data['galary_img'] = '/uploads/project_galary_img/' . $galary_img_data['file_name'];
+                } else {
+                    foreach ($galary_img_data as $key => $val) {
+                        $galary_img_arr[$key] = '/uploads/project_galary_img/' . $val['file_name'];
+                    }
+                    $update_data['galary_img'] = implode(',', $galary_img_arr);
+                }
+            }
+        }
+        $this->Pages_model->update_project($p_id, $update_data);
+        redirect('admin/pages/projects/edit?p_id='.$p_id);
 
     }
+
 
     public function update_video()
     {

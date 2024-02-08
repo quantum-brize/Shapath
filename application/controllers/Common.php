@@ -100,6 +100,17 @@ class Common extends CI_Controller
 		return count($data) == 1 ? $data[0] : $data;
 	}
 
+	public function isAssociativeArray($array)
+    {
+        if (!is_array($array)) {
+            return false;
+        }
+
+        $keys = array_keys($array);
+
+        // Check if the keys are sequential (0, 1, 2, ...) or non-sequential
+        return array_keys($keys) !== $keys;
+    }
 
 }
 
