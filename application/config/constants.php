@@ -48,6 +48,9 @@ define('BASE_URL', 'http://localhost/Shapath/');
 define('PAGE_DATA_WEB', ['data_page' => [],'data_header' => ['header_link' => [],'title' => '','header' => [],'sidebar' => [],'site' => 'web'],'data_footer' => ['footer_link' => [],'footer' => [],'site' => 'web']]);
 define('PAGE_DATA_ADMIN', ['data_page' => [],'data_header' => ['header_link' => [],'title' => '','header' => [],'sidebar' => [],'site' => 'admin'],'data_footer' => ['footer_link' => [],'footer' => [],'site' => 'admin']]);
 
+/////////////////////////////////////////////__IMG_UPLOAD_CONFIG
+define('IMG_FILE_TYPES', 'gif|jpg|png');
+define('IMG_FILE_SIZE', 5048);
 
 /////////////////////////////////////////////__MODELS
 define('MODEL_COMMON', 'Common_model');
@@ -61,6 +64,7 @@ define('TABLE_VIDEOS','videos');
 define('TABLE_ABOUT', 'about');
 define('TABLE_MISSION_VISION','mission_vision');
 define('TABLE_SERVICES','services');
+define('TABLE_PROJECTS','projects');
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');
@@ -83,3 +87,4 @@ define('KEY_UID', 'uid');
 
 ///////////////////////////////////////////__UID
 define('UID_WORK', 'WDO');
+define('UID_PROJECT', 'PRO');

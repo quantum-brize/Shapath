@@ -151,4 +151,19 @@ class Pages_model extends Admin_model
                             ->delete(TABLE_SERVICES);
         return $delete;
     }
+
+
+    public function add_new_project($data){
+        $add = $this->db->insert(TABLE_PROJECTS, $data);
+        return $add;
+    }
+    
+    public function get_all_projects(){
+        $projects = $this->db
+            ->select('*')
+            ->from(TABLE_PROJECTS)
+            ->get();
+        $projects = $projects->result_array();
+        return !empty($projects) ? $projects : [];
+    }
 }

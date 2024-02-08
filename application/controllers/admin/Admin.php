@@ -86,10 +86,7 @@ class Admin extends Common
     public function dashboard()
     {
         $data = PAGE_DATA_ADMIN;
-        $data['data_footer']['footer_link'] = [
-            'demo/chart-area-demo.js',
-            'demo/chart-pie-demo.js'
-        ];
+        $data['data_footer']['footer_link'] = [];
         $data['data_header']['title'] = 'Admin | Dashboard';   
         $data['data_header']['sidebar']['dashboard'] = true;
         

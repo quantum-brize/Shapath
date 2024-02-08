@@ -53,13 +53,14 @@ class Pages extends Admin
         $data['data_header']['title'] = 'Admin | Projects';
         $data['data_header']['sidebar']['pages'] = true;
         $data['data_header']['sidebar']['projects'] = true;
-       
+        $data['data_page']['projects'] = $this->Pages_model->get_all_projects();
 
         $this->is_auth('admin/pages_projetcs.php', $data);
 
     }
 
-    public function projects_add(){
+    public function projects_add()
+    {
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_ADMIN;
         $data['data_footer']['footer_link'] = ['projects_js.php'];
@@ -67,13 +68,13 @@ class Pages extends Admin
         $data['data_header']['title'] = 'Admin | Add Project';
         $data['data_header']['sidebar']['pages'] = true;
         $data['data_header']['sidebar']['projects'] = true;
-       
+
 
         $this->is_auth('admin/pages_projetcs_add.php', $data);
     }
 
     public function update_about()
-    {   
+    {
         $about_title = $this->input->post('about_title');
         $about = $this->input->post('about');
         $mission_title = $this->input->post('mission_title');
@@ -87,10 +88,10 @@ class Pages extends Admin
         $this->init_model(MODEL_PAGES);
 
         if (empty($_FILES['about_img']['name'][0])) {
-            $this->Pages_model->update_about_misson_vision($about_title,$about,$mission_title,$mission,$vision_title,$vision,$about_id,$mission_id,$vision_id,'');
-        }else{
-            $upload_data = $this->upload_files('./uploads/about_img/' , 'about_img');
-            $this->Pages_model->update_about_misson_vision($about_title,$about,$mission_title,$mission,$vision_title,$vision,$about_id,$mission_id,$vision_id, '/uploads/about_img/' . $upload_data['file_name']);
+            $this->Pages_model->update_about_misson_vision($about_title, $about, $mission_title, $mission, $vision_title, $vision, $about_id, $mission_id, $vision_id, '');
+        } else {
+            $upload_data = $this->upload_files('./uploads/about_img/', 'about_img',IMG_FILE_TYPES ,IMG_FILE_SIZE);
+            $this->Pages_model->update_about_misson_vision($about_title, $about, $mission_title, $mission, $vision_title, $vision, $about_id, $mission_id, $vision_id, '/uploads/about_img/' . $upload_data['file_name']);
         }
         redirect('/admin/pages/home');
 
@@ -108,12 +109,54 @@ class Pages extends Admin
         if (empty($_FILES['quote_img']['name'][0])) {
             $this->Pages_model->update_quotes($uid, $quote, $quote_author, '');
         } else {
-            $upload_data = $this->upload_files('./uploads/quotes_img/' , 'quote_img');
+            $upload_data = $this->upload_files('./uploads/quotes_img/', 'quote_img',IMG_FILE_TYPES ,IMG_FILE_SIZE);
             $this->Pages_model->update_quotes($uid, $quote, $quote_author, '/uploads/quotes_img/' . $upload_data['file_name']);
         }
         redirect('/admin/pages/home');
     }
+    public function add_new_project()
+    {
+        $project_title              = $this->input->post('project_title');
+        $project_cover_details      = $this->input->post('project_cover_details');
+        $project_page_title         = $this->input->post('project_page_title');
+        $project_page_video         = $this->input->post('project_page_video');
+        $project_page_description   = $this->input->post('project_page_description');
+        
+        $project_logo_data          = $this->upload_files('./uploads/project_logo/', 'project_logo',IMG_FILE_TYPES ,IMG_FILE_SIZE);
+        $project_img_data           = $this->upload_files('./uploads/project_img/', 'project_img',IMG_FILE_TYPES ,IMG_FILE_SIZE);
+        $galary_img_data            = $this->upload_files('./uploads/project_galary_img/', 'galary_img',IMG_FILE_TYPES ,IMG_FILE_SIZE);
 
+        $project_img                = '/uploads/project_img/' . $project_img_data['file_name'];
+        $project_logo               = '/uploads/project_logo/' . $project_logo_data['file_name'];
+
+        $galary_img_arr = [];
+        if(!empty($galary_img_data)){
+            foreach($galary_img_data as $key => $val){
+                $galary_img_arr[$key] = '/uploads/project_galary_img/'.$val['file_name'];
+            }
+            $galary_img = implode(',', $galary_img_arr);
+        }
+
+
+        $this->init_model(MODEL_PAGES);
+        $insert_data = [
+            "uid"                      => $this->generate_uid(UID_PROJECT),
+            "project_title"            => $project_title,
+            "project_cover_details"    => $project_cover_details,
+            "project_page_title"       => $project_page_title,
+            "project_page_video"       => $project_page_video,
+            "project_page_description" => $project_page_description,
+            "project_img"              => $project_img,
+            "project_logo"             => $project_logo,
+            "galary_img"               => $galary_img
+        ];
+
+        $add_new_project = $this->Pages_model->add_new_project($insert_data);
+
+        if($add_new_project){
+            redirect('admin/pages/projects');
+        }
+    }
 
     public function update_video()
     {
@@ -128,23 +171,23 @@ class Pages extends Admin
 
     }
 
-    public function add_work(){
+    public function add_work()
+    {
         $work_title = $this->input->post('work_title');
         $description = $this->input->post('description');
 
-        if(!empty($_FILES['work_img']['name'][0])){
+        if (!empty($_FILES['work_img']['name'][0])) {
             $this->init_model(MODEL_PAGES);
-            $upload_data = $this->upload_files('./uploads/work_img/' , 'work_img');
+            $upload_data = $this->upload_files('./uploads/work_img/', 'work_img',IMG_FILE_TYPES ,IMG_FILE_SIZE);
             $this->Pages_model->add_work($work_title, $description, '/uploads/work_img/' . $upload_data['file_name']);
         }
         redirect('/admin/pages/home');
 
     }
 
-    public function add_new_project(){
-        $this->prd($this->input->post());
-    }
-    public function delete_service(){
+
+    public function delete_service()
+    {
         $uid = $this->input->get('uid');
         $this->init_model(MODEL_PAGES);
         $this->Pages_model->delete_service($uid);

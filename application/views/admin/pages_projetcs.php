@@ -1,5 +1,3 @@
-
-
 <!-- Begin Project Content -->
 <div class="container-fluid">
 
@@ -18,17 +16,55 @@
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h5 class="m-0 font-weight-bold text-primary">Projects</h5>
-                    <a class="btn btn-success" href="<?=base_url('admin/pages/projects/add')?>">Add Project <b style="font-size: 20px;">+</b></a>
+                    <a class="btn btn-success" href="<?= base_url('admin/pages/projects/add') ?>">Add Project <b
+                            style="font-size: 20px;">+</b></a>
                 </div>
                 <!-- Card Body -->
                 <div class="card-body row">
-                   
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-info" id="project_table" width="100%" cellspacing="0">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Title</th>
+                                    <th>Description</th>
+                                    <th>Project Logo</th>
+                                    <th>View</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php
+                                if (!empty($projects)) {
+                                    $i = 1;
+                                    foreach ($projects as $projects) {
+                                        $row = '';
+                                        $row .= '<tr>';
+                                        $row .= '<td>' . $i++ . '</td>';
+                                        $row .= '<td>' . $projects['project_title'] . '</td>';
+                                        $row .= '<td>' . $projects['project_cover_details'] . '</td>';
+                                        $row .= '<td><img src="' . base_url() . $projects['project_logo'] . '" height="100"></td>';
+                                        $row .= '<td>';
+                                        $row .= '<a href="" class="btn btn-info text-light">View & Edit</a>';
+                                        $row .= '</td>';
+                                        $row .= '<td>';
+                                        $row .= '<a href="" class="btn btn-danger text-light">Delete</a>';
+                                        $row .= '</td>';
+                                        $row .= '</tr>';
+                                        echo $row;
+                                        ;
+                                    }
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </div>
 
 
-      
+
 
     </div>
 

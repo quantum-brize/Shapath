@@ -73,23 +73,31 @@ class Common extends CI_Controller
 	}
 
 
-	public function upload_files($path, $file_name)
+	public function upload_files($path, $file_name, $allowed_types, $max_size)
 	{
 		$config['upload_path'] = $path;
-		$config['allowed_types'] = 'gif|jpg|png';
-		$config['max_size'] = 5048;
+		$config['allowed_types'] = $allowed_types;
+		$config['max_size'] = $max_size;
 		$config['encrypt_name'] = TRUE;
+
 		$this->load->library('upload', $config);
+
+		$data = [];
+
 		foreach ($_FILES[$file_name]['name'] as $key => $value) {
 			$_FILES['userfile']['name'] = $_FILES[$file_name]['name'][$key];
 			$_FILES['userfile']['type'] = $_FILES[$file_name]['type'][$key];
 			$_FILES['userfile']['tmp_name'] = $_FILES[$file_name]['tmp_name'][$key];
 			$_FILES['userfile']['error'] = $_FILES[$file_name]['error'][$key];
 			$_FILES['userfile']['size'] = $_FILES[$file_name]['size'][$key];
+
+			$this->upload->initialize($config); // Initialize with specific configuration
 			$this->upload->do_upload('userfile');
+
+			$data[$key] = $this->upload->data();
 		}
 
-		return $this->upload->data();
+		return count($data) == 1 ? $data[0] : $data;
 	}
 
 
