@@ -218,9 +218,15 @@ class Pages extends Admin
         }
         $this->Pages_model->update_project($p_id, $update_data);
         redirect('admin/pages/projects/edit?p_id='.$p_id);
-
+      
     }
 
+    public function delete_project(){
+        $this->init_model(MODEL_PAGES);
+        $p_id = $this->input->get('p_id');
+        $this->Pages_model->delete_project($p_id);
+        redirect('admin/pages/projects');
+    }
 
     public function update_video()
     {

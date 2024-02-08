@@ -135,7 +135,7 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-danger" href="<?= base_url('admin/pages/projects/delete?p_id=').$p_id ?>">Delete</a>
+                    <a class="btn btn-danger" href="<?= base_url('admin/Pages/delete_project?p_id=').$p_id ?>">Delete</a>
                 </div>
             </div>
         </div>

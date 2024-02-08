@@ -159,6 +159,11 @@ class Pages_model extends Admin_model
         return $delete;
     }
 
+    public function delete_project($p_id){
+        $delete = $this->db->where('uid', $p_id)
+            ->delete(TABLE_PROJECTS);
+        return $delete;
+    }
 
     public function add_new_project($data)
     {
