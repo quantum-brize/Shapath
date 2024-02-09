@@ -22,10 +22,19 @@
                 <div class="mb-3" style="width: auto;">
                     <label for="projectName" class="form-label">Project Name</label>
                     <select class="form-select" id="projectName">
-                        <option selected>Choose...</option>
+                        <?php if($flag){?>
+                        <option value="<?php echo $project['project_title']?>" selected disabled><?php echo $project['project_title']?></option>
+                        <?php }else{?>
+                            <option selected>Choose...</option>
+                            <?php foreach($project as $p){?>
+                                
+                                <option value="<?php echo $p['project_title']?>"><?php echo $p['project_title']?></option>
+                            <?php }?>   
+                         <?php }?>   
+                        <!-- <option selected>Choose...</option>
                         <option value="sristi">Sristi</option>
                         <option value="hopeCanvas">Hope Canvas</option>
-                        <option value="uddan">Uddan</option>
+                        <option value="uddan">Uddan</option> -->
                         <!-- Add more projects as needed -->
                     </select>
                 </div>

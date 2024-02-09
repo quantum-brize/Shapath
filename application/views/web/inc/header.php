@@ -68,13 +68,16 @@
                         <div class="nav-item dropdown">
                             <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Projects</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                <a href="<?= base_url('project') ?>" class="dropdown-item">Sristi</a>
-                                <a href="<?= base_url('project') ?>" class="dropdown-item">Hope Canvas</a>
+                                <?php foreach($projects as $project){?>
+                                <a href="<?= base_url('project/?id='.$project['uid']) ?>" class="dropdown-item"><?php echo $project['project_title']?></a>
+                                <?php }?>
+
+                                <!-- <a href="<?= base_url('project') ?>" class="dropdown-item">Hope Canvas</a>
                                 <a href="<?= base_url('project') ?>" class="dropdown-item">Uddan</a>
                                 <a href="<?= base_url('project') ?>" class="dropdown-item">Saraswati Scholarship</a>
                                 <a href="<?= base_url('project') ?>" class="dropdown-item">Bastra Bondhu</a>
                                 <a href="<?= base_url('project') ?>" class="dropdown-item">Upohar</a>
-                                <a href="<?= base_url('project') ?>" class="dropdown-item">Blanket Drive</a>
+                                <a href="<?= base_url('project') ?>" class="dropdown-item">Blanket Drive</a> -->
                             </div>
                         </div>
                         <div class="nav-item dropdown">
