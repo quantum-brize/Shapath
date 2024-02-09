@@ -16,16 +16,13 @@
         <div class="row g-5">
             <div class="col-xl-5">
                 <div class="h-100">
-                    <img src="img/about-1.jpg" class="img-fluid w-100 h-100" alt="Image">
+                    <img src="<?php echo base_url($about['about_img']);?>" class="img-fluid w-100 h-100" alt="Image">
                 </div>
             </div>
             <div class="col-xl-7" style="text-align: center;">
                 <h5 class="text-uppercase text-primary">About Us</h5>
-                <h1 class="mb-4">about us title</h1>
-                <p class="fs-5 mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                    Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                    printer took a galley of type and scrambled it to make a type specimen book. It has
-                </p>
+                <h1 class="mb-4"><?php echo $about['about_title'];?></h1>
+                <p class="fs-5 mb-4"><?php echo $about['about']?></p>
                 <div class="tab-class bg-secondary p-4">
                     <ul id="nav" class="nav d-flex mb-2">
                         <li class="nav-item mb-3">
@@ -202,90 +199,21 @@
             <h1 class="mb-0">Projects title</h1>
         </div>
         <div class="row g-4">
+        <?php foreach($projects as $project){?>
             <div class="col-lg-4">
                 <div class="donation-item">
-                    <img src="img/donation-1.jpg" class="img-fluid w-100" alt="Image">
+                    <img src="<?php echo base_url($project['project_img'])?>" class="img-fluid w-100" alt="Image">
                     <div class="donation-content d-flex flex-column">
-                        <h5 class="text-uppercase text-primary mb-4">Sristi</h5>
-                        <a href="#" class="btn-hover-color display-6 text-white">Help Us More</a>
-                        <p class="text-white mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's</p>
+                        <h5 class="text-uppercase text-primary mb-4"><?php echo $project['project_title']?></h5>
+                        <a href="<?= base_url('project/?id='.$project['uid']) ?>" class="btn-hover-color display-6 text-white">Help Us More</a>
+                        <p class="text-white mb-4"><?php echo $project['project_cover_details']?></p>
                         <div class="donation-btn d-flex align-items-center justify-content-start">
-                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Donate !</a>
+                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="<?= base_url('donate/?id='.$project['uid'])?>">Donate !</a>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
-                <div class="donation-item">
-                    <img src="img/donation-3.jpg" class="img-fluid w-100" alt="Image">
-                    <div class="donation-content d-flex flex-column">
-                        <h5 class="text-uppercase text-primary mb-4">Hope Canvas</h5>
-                        <a href="#" class="btn-hover-color display-6 text-white">Help Us More</a>
-                        <p class="text-white mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's</p>
-                        <div class="donation-btn d-flex align-items-center justify-content-start">
-                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Donate !</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="donation-item">
-                    <img src="img/donation-3.jpg" class="img-fluid w-100" alt="Image">
-                    <div class="donation-content d-flex flex-column">
-                        <h5 class="text-uppercase text-primary mb-4">Uddan</h5>
-                        <a href="#" class="btn-hover-color display-6 text-white">Help Us More</a>
-                        <p class="text-white mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's</p>
-                        <div class="donation-btn d-flex align-items-center justify-content-start">
-                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Donate !</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="donation-item">
-                    <img src="img/donation-1.jpg" class="img-fluid w-100" alt="Image">
-                    <div class="donation-content d-flex flex-column">
-                        <h5 class="text-uppercase text-primary mb-4">Saraswati Scholarship</h5>
-                        <a href="#" class="btn-hover-color display-6 text-white">Help Us More</a>
-                        <p class="text-white mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's</p>
-                        <div class="donation-btn d-flex align-items-center justify-content-start">
-                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Donate !</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="donation-item">
-                    <img src="img/donation-3.jpg" class="img-fluid w-100" alt="Image">
-                    <div class="donation-content d-flex flex-column">
-                        <h5 class="text-uppercase text-primary mb-4">Bastra Bondhu</h5>
-                        <a href="#" class="btn-hover-color display-6 text-white">Help Us More</a>
-                        <p class="text-white mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's</p>
-                        <div class="donation-btn d-flex align-items-center justify-content-start">
-                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Donate !</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="donation-item">
-                    <img src="img/donation-3.jpg" class="img-fluid w-100" alt="Image">
-                    <div class="donation-content d-flex flex-column">
-                        <h5 class="text-uppercase text-primary mb-4">Blanket Drive</h5>
-                        <a href="#" class="btn-hover-color display-6 text-white">Help Us More</a>
-                        <p class="text-white mb-4">Lorem Ipsum is simply dummy text of the printing and typesetting
-                            industry. Lorem Ipsum has been the industry's</p>
-                        <div class="donation-btn d-flex align-items-center justify-content-start">
-                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Donate !</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            <?php }?>
         </div>
     </div>
 </div>

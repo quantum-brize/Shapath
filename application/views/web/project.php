@@ -5,17 +5,19 @@
 <div class="quote-video-wrapper">
     <div class="quote">
         <h1>text</h1>
-        <p>"The best way to find yourself is to lose yourself in the service of others. The best way to find yourself is
-            to lose yourself in the service of others.
-            The best way to find yourself is to lose yourself in the service of others. The best way to find yourself is
-            to lose yourself in the service of others."</p>
-    </div>
+        <p><?php echo $project['project_page_description']?></p>
+    </div><br>
+    
     <div class="video">
         <iframe id="ytplayer" type="text/html" width="720" height="405"
-            src="https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA"
-            frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen></iframe>
+            src="<?php echo $project['project_page_video']?>"
+            frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen>
+        </iframe>
+        <!-- https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA -->
     </div>
+    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="<?= base_url('donate/?id='.$project['uid'])?>">Donate !</a>
 </div>
+        
 
 <!-- Events Start -->
 <div class="container-fluid event py-5">

@@ -45,7 +45,7 @@ define('field_location', 'Asia/Kolkata');
 define('BASE_URL', 'http://localhost/Shapath/');
 
 //////////////////////////////////////////////__PAGEDATA
-define('PAGE_DATA_WEB', ['data_page' => [],'data_header' => ['header_link' => [],'title' => '','header' => [],'sidebar' => [],'site' => 'web'],'data_footer' => ['footer_link' => [],'footer' => [],'site' => 'web']]);
+define('PAGE_DATA_WEB', ['data_page' => [],'data_header' => ['header_link' => [],'title' => '','projects' => [],'header' => [],'sidebar' => [],'site' => 'web'],'data_footer' => ['footer_link' => [],'footer' => [],'site' => 'web']]);
 define('PAGE_DATA_ADMIN', ['data_page' => [],'data_header' => ['header_link' => [],'title' => '','header' => [],'sidebar' => [],'site' => 'admin'],'data_footer' => ['footer_link' => [],'footer' => [],'site' => 'admin']]);
 
 /////////////////////////////////////////////__IMG_UPLOAD_CONFIG

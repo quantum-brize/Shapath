@@ -9,17 +9,35 @@ class Load extends Common {
     }
 
     public function index(){
+        $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
+        $data['data_header']['projects'] = $this->Pages_model->get_all_projects();
+        $data['data_page']['projects'] = $this->Pages_model->get_all_projects();
+        $data['data_page']['about'] = $this->Pages_model->get_about_web();
+        // print_r($data['data_page']['about']);
+        // die();
         $this->load_page('web/index.php',$data);
     }
 
     public function contact(){
+        
         $data = PAGE_DATA_WEB;
         $this->load_page('web/contact.php',$data);
     }
 
     public function donation(){
+        $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
+        $id = $this->input->get('id');
+        if(!empty($id)){
+            $data['data_page']['project'] = $this->Pages_model->get_projects_by_id($id);
+            $data['data_page']['flag'] = 1;
+
+        }else{
+            $data['data_page']['project'] = $this->Pages_model->get_all_projects();
+            $data['data_page']['flag'] = 0;
+        }
+        
         $this->load_page('web/donation.php',$data);
 
     }

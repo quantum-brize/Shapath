@@ -46,6 +46,17 @@ class Pages_model extends Admin_model
 
     }
 
+    public function get_about_web()
+    {
+        $about = $this->db
+            ->select('*')
+            ->from(TABLE_ABOUT)
+            ->get();
+        $about = $about->row_array();
+        return isset($about) ? $about : [];
+
+    }
+
     public function get_mission_vision()
     {
         $mission_vision = $this->db
