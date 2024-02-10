@@ -11,11 +11,11 @@ class Load extends Common {
     public function index(){
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
-        $data['data_header']['projects'] = $this->Pages_model->get_all_projects();
         $data['data_page']['projects'] = $this->Pages_model->get_all_projects();
         $data['data_page']['about'] = $this->Pages_model->get_about_web();
-        // print_r($data['data_page']['about']);
-        // die();
+        $data['data_page']['mission_vision'] = $this->Pages_model->get_mission_vision();
+        $data['data_page']['quotes'] = $this->Pages_model->get_all_quotes();
+        $data['data_page']['services'] = $this->Pages_model->get_all_work();
         $this->load_page('web/index.php',$data);
     }
 

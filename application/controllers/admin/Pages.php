@@ -90,6 +90,34 @@ class Pages extends Admin
         $this->is_auth('admin/pages_projetcs_update.php', $data);
     }
 
+    public function donors()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['donor_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Donors';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['donors'] = true;
+        $data['data_page']['donors'] = $this->Pages_model->get_all_donors();
+
+        $this->is_auth('admin/pages_donors.php', $data);
+
+    }
+
+    public function donors_add()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['donor_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Donors';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['donors'] = true;
+        $this->is_auth('admin/pages_donors_add.php', $data);
+
+    }
+
 
     public function update_about()
     {
@@ -264,6 +292,38 @@ class Pages extends Admin
         redirect('/admin/pages/home');
     }
 
+    public function add_new_donor()
+    {
+        $this->init_model(MODEL_PAGES);
+
+        $donor_name = $this->input->post('name');
+        $about_donor = $this->input->post('donor_about');
+        $donor_img = '';
+        if (!empty($_FILES['donor_img']['name'])){
+            $donor_image_data = $this->upload_files('./uploads/donor_img/', 'donor_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $donor_img = '/uploads/donor_img/' . $donor_image_data['file_name'];
+        }
+
+        $insert_data = [
+            "uid" => $this->generate_uid(UID_DONOR),
+            "name" => $donor_name,
+            "doner_about" => $about_donor,
+            "img" => $donor_img,
+        ];
+
+        $add_new_donor = $this->Pages_model->add_new_donor($insert_data);
+
+        if ($add_new_donor) {
+            redirect('admin/pages/donors');
+        }
+    }
+
+    public function delete_donor(){
+        $this->init_model(MODEL_PAGES);
+        $donor_id = $this->input->get('donor_id');
+        $this->Pages_model->delete_donor($donor_id);
+        redirect('admin/pages/donors');
+    }
 
 
 }

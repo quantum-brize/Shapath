@@ -187,6 +187,31 @@ CREATE TABLE `videos` (
 INSERT INTO `videos` (`id`, `uid`, `path`, `type`, `page`, `created_at`, `updated_at`) VALUES
 (1, 'VDO34567GKFJJKGGHJ', 'https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA', 'url', 'home', '2024-02-05 11:25:55', '2024-02-05 11:25:55');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `services`
+--
+
+CREATE TABLE `donors` (
+  `id` int(11) NOT NULL,
+  `uid` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `doner_about` longtext NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `services`
+--
+
+INSERT INTO `donors` (`id`, `uid`, `name`, `doner_about`, `img`, `created_at`, `updated_at`) VALUES
+(4, 'WDOD893B77220240207', 'Ram', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/0efcfe3b6f11d5fa8a9ebe6fc4b18356.png', '2024-02-07 11:01:39', '2024-02-07 11:01:39'),
+(5, 'WDO593E794D20240207', 'Rahim', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/eaa475aada4da370f2d08b7c9239a069.png', '2024-02-07 11:02:04', '2024-02-07 11:02:04'),
+(6, 'WDO07DBE79820240207', 'Sham', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/d65e4740386191ba891c7b04b3ca0c1c.png', '2024-02-07 11:02:44', '2024-02-07 11:02:44');
+
 --
 -- Indexes for dumped tables
 --
@@ -220,7 +245,11 @@ ALTER TABLE `quotes`
 --
 ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
-
+--
+-- Indexes for table `donors`
+--
+ALTER TABLE `donors`
+  ADD PRIMARY KEY (`id`);
 --
 -- Indexes for table `users`
 --
