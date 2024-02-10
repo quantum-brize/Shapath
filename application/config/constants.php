@@ -65,6 +65,7 @@ define('TABLE_ABOUT', 'about');
 define('TABLE_MISSION_VISION','mission_vision');
 define('TABLE_SERVICES','services');
 define('TABLE_PROJECTS','projects');
+define('TABLE_DONORS','donors');
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');
@@ -88,3 +89,4 @@ define('KEY_UID', 'uid');
 ///////////////////////////////////////////__UID
 define('UID_WORK', 'WDO');
 define('UID_PROJECT', 'PRO');
+define('UID_DONOR', 'DONOR');

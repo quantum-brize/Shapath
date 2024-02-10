@@ -31,4 +31,6 @@ $route['admin/pages/home']          = 'admin/Pages/home';
 $route['admin/pages/projects']      = 'admin/Pages/projects';
 $route['admin/pages/projects/add']  = 'admin/Pages/projects_add';
 $route['admin/pages/projects/edit'] = 'admin/Pages/projects_update';
+$route['admin/pages/donors']        = 'admin/Pages/donors';
+$route['admin/pages/donors/add']    = 'admin/Pages/donors_add';
 

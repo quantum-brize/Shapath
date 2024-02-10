@@ -58,6 +58,12 @@
                         <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
                             Projects
                         </a>
+                        <a 
+                        class="collapse-item sidebar_item <?=  isset($sidebar['donors']) ? 'sidebar_active' : ''?>"
+                        href="<?= base_url('/admin/pages/donors') ?>">
+                        <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
+                            Donors
+                        </a>
                     </div>
                   
                 </div>

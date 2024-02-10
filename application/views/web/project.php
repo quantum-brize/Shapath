@@ -71,9 +71,13 @@
         <h1 class="mb-4">gallery text</h1>
     </div>
     <div class="row g-0">
+    <?php
+        $arr_img = explode(',',$project['galary_img']);
+        foreach($arr_img as $img){
+    ?>
         <div class="col-lg-4">
             <div class="gallery-item">
-                <img src="img/gallery-2.jpg" class="img-fluid w-100" alt="">
+                <img src="<?php echo base_url($img)?>" class="img-fluid w-100" alt="">
                 <div class="search-icon">
                     <a href="img/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i
                             class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i></a>
@@ -87,22 +91,8 @@
                     </div>
                 </div>
             </div>
-            <div class="gallery-item">
-                <img src="img/gallery-3.jpg" class="img-fluid w-100" alt="">
-                <div class="search-icon">
-                    <a href="img/gallery-3.jpg" data-lightbox="gallery-3" class="my-auto"><i
-                            class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i></a>
-                </div>
-                <div class="gallery-content">
-                    <div class="gallery-inner pb-5">
-                        <a href="#" class="h4 text-white">Beauty Of Life</a>
-                        <a href="#" class="text-white">
-                            <p class="mb-0">Gallery Name</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
         </div>
+    <?php }?>
         <div class="col-lg-4">
             <div class="gallery-item">
                 <img src="img/gallery-1.jpg" class="img-fluid w-100" alt="">

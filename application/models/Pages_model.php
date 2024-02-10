@@ -204,4 +204,38 @@ class Pages_model extends Admin_model
 
     }
 
+    public function add_new_donor($data)
+    {
+        $add = $this->db->insert(TABLE_DONORS, $data);
+        return $add;
+    }
+
+    public function get_all_donors()
+    {
+        $donors = $this->db
+            ->select('*')
+            ->from(TABLE_DONORS)
+            ->get();
+        $donors = $donors->result_array();
+        return !empty($donors) ? $donors : [];
+    }
+
+    public function delete_donor($donor_id){
+        $delete = $this->db->where('uid', $donor_id)
+            ->delete(TABLE_DONORS);
+        return $delete;
+    }
+
+    public function get_donor_by_id($donor_id)
+    {
+
+        $donors = $this->db->select('*')
+                ->from(TABLE_DONORS)
+                ->where('uid', $donor_id)
+                ->get()
+                ->row_array();
+        return !empty($donors) ? $donors : [];
+
+    }
+
 }

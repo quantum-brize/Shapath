@@ -30,10 +30,10 @@ class Common extends CI_Controller
 	}
 	private function load_headers($data)
 	{
-		// $this->init_model(MODEL_PAGES);
-		// $projects['projects'] = $this->Pages_model->get_all_projects();
+		$this->init_model(MODEL_PAGES);
+		$projects['projects'] = $this->Pages_model->get_all_projects();
 		$this->load->view('/' . $data['site'] . '/inc/header_link.php', $data);
-		$this->load->view('/' . $data['site'] . '/inc/header.php');
+		$this->load->view('/' . $data['site'] . '/inc/header.php',$projects);
 
 	}
 
@@ -76,6 +76,11 @@ class Common extends CI_Controller
 
 	public function upload_files($path, $file_name, $allowed_types, $max_size)
 	{
+		if (!file_exists($path)) {
+			// Create the directory with read and write permissions
+			mkdir($path, 0777, true);
+			echo "Directory created successfully.";
+		}
 		$config['upload_path'] = $path;
 		$config['allowed_types'] = $allowed_types;
 		$config['max_size'] = $max_size;
@@ -84,6 +89,7 @@ class Common extends CI_Controller
 		$this->load->library('upload', $config);
 
 		$data = [];
+		
 
 		foreach ($_FILES[$file_name]['name'] as $key => $value) {
 			$_FILES['userfile']['name'] = $_FILES[$file_name]['name'][$key];
@@ -97,7 +103,6 @@ class Common extends CI_Controller
 
 			$data[$key] = $this->upload->data();
 		}
-
 		return count($data) == 1 ? $data[0] : $data;
 	}
 
