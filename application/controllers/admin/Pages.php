@@ -245,11 +245,12 @@ class Pages extends Admin
             }
         }
         $this->Pages_model->update_project($p_id, $update_data);
-        redirect('admin/pages/projects/edit?p_id='.$p_id);
-      
+        redirect('admin/pages/projects/edit?p_id=' . $p_id);
+
     }
 
-    public function delete_project(){
+    public function delete_project()
+    {
         $this->init_model(MODEL_PAGES);
         $p_id = $this->input->get('p_id');
         $this->Pages_model->delete_project($p_id);
@@ -299,7 +300,7 @@ class Pages extends Admin
         $donor_name = $this->input->post('name');
         $about_donor = $this->input->post('donor_about');
         $donor_img = '';
-        if (!empty($_FILES['donor_img']['name'])){
+        if (!empty($_FILES['donor_img']['name'])) {
             $donor_image_data = $this->upload_files('./uploads/donor_img/', 'donor_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
             $donor_img = '/uploads/donor_img/' . $donor_image_data['file_name'];
         }
@@ -318,7 +319,8 @@ class Pages extends Admin
         }
     }
 
-    public function delete_donor(){
+    public function delete_donor()
+    {
         $this->init_model(MODEL_PAGES);
         $donor_id = $this->input->get('donor_id');
         $this->Pages_model->delete_donor($donor_id);

@@ -94,6 +94,7 @@ class Admin extends Common
         
     }
 
+    
 
     public function is_auth($page, $data){
         if (
@@ -104,6 +105,60 @@ class Admin extends Common
         } else {
             $this->load_page($page, $data);
         }
+    }
+
+
+
+    public function gallery(){
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['gallery_js.php'];
+        $data['data_header']['header_link'] = ['gallery.css'];
+        $data['data_header']['title'] = 'Admin | Gallery';   
+        $data['data_header']['sidebar']['gallery'] = true;
+
+        $this->init_model(MODEL_PAGES);
+        $data['data_page']['gallery_img'] =  $this->Pages_model->get_gallery_img();
+
+
+        $this->is_auth('admin/gallery.php', $data);
+    }
+    public function gallery_img_add(){
+
+        if(!empty($_FILES['galary_img'])){
+            $galary_img_data = $this->upload_files('./uploads/galary_img/', 'galary_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+
+            $galary_img_arr = [];
+
+
+            if (!empty($galary_img_data)) {
+                if ($this->isAssociativeArray($galary_img_data)) {
+                    $gallery_img_data = '/uploads/galary_img/' . $galary_img_data['file_name'];
+                } else {
+                    foreach ($galary_img_data as $key => $val) {
+                        $galary_img_arr[$key] = '/uploads/galary_img/' . $val['file_name'];
+                    }
+                    $gallery_img_data= implode(',', $galary_img_arr);
+                }
+            }
+            $this->init_model(MODEL_PAGES);
+            $this->Pages_model->gallery_img_update($gallery_img_data);
+        }
+        redirect('admin/gallery');
+
+    }
+
+   
+    public function causes(){
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = [];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Causes';   
+        $data['data_header']['sidebar']['causes'] = true;
+
+        $this->init_model(MODEL_PAGES);
+
+
+        $this->is_auth('admin/causes.php', $data);
     }
 
 

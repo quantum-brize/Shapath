@@ -49,7 +49,7 @@ define('PAGE_DATA_WEB', ['data_page' => [],'data_header' => ['header_link' => []
 define('PAGE_DATA_ADMIN', ['data_page' => [],'data_header' => ['header_link' => [],'title' => '','header' => [],'sidebar' => [],'site' => 'admin'],'data_footer' => ['footer_link' => [],'footer' => [],'site' => 'admin']]);
 
 /////////////////////////////////////////////__IMG_UPLOAD_CONFIG
-define('IMG_FILE_TYPES', 'gif|jpg|png');
+define('IMG_FILE_TYPES', 'gif|jpg|png|JPG|jpeg|JPEG|PNG');
 define('IMG_FILE_SIZE', 5048);
 
 /////////////////////////////////////////////__MODELS
@@ -66,6 +66,7 @@ define('TABLE_MISSION_VISION','mission_vision');
 define('TABLE_SERVICES','services');
 define('TABLE_PROJECTS','projects');
 define('TABLE_DONORS','donors');
+define('TABLE_GALLERY','gallery_img');
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');
@@ -86,7 +87,10 @@ define("KEY_TYPE", "type");
 define('KEY_USER_NAME', 'user_name');
 define('KEY_UID', 'uid');
 
-///////////////////////////////////////////__UID
+///////////////////////////////////////////__UID-PREFIX
 define('UID_WORK', 'WDO');
 define('UID_PROJECT', 'PRO');
 define('UID_DONOR', 'DONOR');
+
+//////////////////////////////////////////__UID
+define('GALLERY_UID','GAL67890RTY78TY');

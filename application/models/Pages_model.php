@@ -238,4 +238,23 @@ class Pages_model extends Admin_model
 
     }
 
+    public function gallery_img_update($gallery_img_data){
+        // fixed table for gallery images
+        // GALLERY_UID fixed uid for all images
+        $update = $this->db->where('uid', GALLERY_UID)
+                        ->update(TABLE_GALLERY, ['images' => $gallery_img_data]);
+        return $update;
+
+    }
+
+    public function get_gallery_img(){
+        $images = $this->db->select('images')
+                            ->from(TABLE_GALLERY)
+                            ->where('uid', GALLERY_UID)
+                            ->get()
+                            ->row_array();
+        return !empty($images) ? $images : [];
+    }
+
+
 }

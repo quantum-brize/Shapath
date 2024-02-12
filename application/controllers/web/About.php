@@ -38,6 +38,9 @@ class About extends Load
     public function gallery()
     {
         $data = PAGE_DATA_WEB;
+        $this->init_model(MODEL_PAGES);
+        $data['data_page']['gallery_img'] = $this->Pages_model->get_gallery_img();
+
         $this->load_page('web/gallery.php',$data);
     }
 
