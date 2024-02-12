@@ -67,8 +67,7 @@
 <!-- Gallery Start -->
 <div class="container-fluid gallery py-5 my-5 px-0">
     <div class="text-center mx-auto pb-5" style="max-width: 800px;">
-        <h5 class="text-uppercase text-primary">Our work</h5>
-        <h1 class="mb-4">gallery text</h1>
+        <h3 class="text-uppercase text-primary">Project Gallery</h3>
     </div>
     <div class="row g-0">
     <?php
@@ -76,72 +75,16 @@
         foreach($arr_img as $img){
     ?>
         <div class="col-lg-4">
-            <div class="gallery-item">
-                <img src="<?php echo base_url($img)?>" class="img-fluid w-100" alt="">
+            <div class="gallery-item" style="">
+                <img src="<?php echo base_url($img)?>" class="img-fluid w-100" alt="" style="height: 450px; background-size: cover; background-position: center;">
                 <div class="search-icon">
-                    <a href="img/gallery-2.jpg" data-lightbox="gallery-2" class="my-auto"><i
-                            class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i></a>
-                </div>
-                <div class="gallery-content">
-                    <div class="gallery-inner pb-5">
-                        <a href="#" class="h4 text-white">Beauty Of Life</a>
-                        <a href="#" class="text-white">
-                            <p class="mb-0">Gallery Name</p>
-                        </a>
-                    </div>
+                    <a href="<?php echo base_url($img)?>" data-lightbox="gallery-2" class="my-auto">
+                        <i class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i>
+                    </a>
                 </div>
             </div>
         </div>
     <?php }?>
-        <div class="col-lg-4">
-            <div class="gallery-item">
-                <img src="img/gallery-1.jpg" class="img-fluid w-100" alt="">
-                <div class="search-icon">
-                    <a href="img/gallery-1.jpg" data-lightbox="gallery-1" class="my-auto"><i
-                            class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i></a>
-                </div>
-                <div class="gallery-content">
-                    <div class="gallery-inner pb-5">
-                        <a href="#" class="h4 text-white">Beauty Of Life</a>
-                        <a href="#" class="text-white">
-                            <p class="mb-0">Gallery Name</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4">
-            <div class="gallery-item">
-                <img src="img/gallery-4.jpg" class="img-fluid w-100" alt="">
-                <div class="search-icon">
-                    <a href="img/gallery-4.jpg" data-lightbox="gallery-4" class="my-auto"><i
-                            class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i></a>
-                </div>
-                <div class="gallery-content">
-                    <div class="gallery-inner pb-5">
-                        <a href="#" class="h4 text-white">Beauty Of Life</a>
-                        <a href="#" class="text-white">
-                            <p class="mb-0">Gallery Name</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-item">
-                <img src="img/gallery-5.jpg" class="img-fluid w-100" alt="">
-                <div class="search-icon">
-                    <a href="img/gallery-5.jpg" data-lightbox="gallery-5" class="my-auto"><i
-                            class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i></a>
-                </div>
-                <div class="gallery-content">
-                    <div class="gallery-inner pb-5">
-                        <a href="#" class="h4 text-white">Beauty Of Life</a>
-                        <a href="#" class="text-white">
-                            <p class="mb-0">Gallery Name</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
 </div>
 <!-- Gallery End -->

@@ -2,6 +2,7 @@
 <?php
 
 ?>
+
 <body id="page-top">
 
     <!-- Page Wrapper -->
@@ -15,7 +16,7 @@
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fas fa-laugh-wink"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">SB Admin <sup>2</sup></div>
+                <div class="sidebar-brand-text mx-3">Shapath</div>
             </a>
 
             <!-- Divider -->
@@ -39,29 +40,27 @@
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link <?= isset($sidebar['pages']) ? '' : 'collapsed' ?>" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link <?= isset($sidebar['pages']) ? '' : 'collapsed' ?>" href="#" data-toggle="collapse"
+                    data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Pages</span>
                 </a>
-                <div id="collapseTwo" class="collapse <?=  isset($sidebar['pages']) ?  'show': ''?>" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                <div id="collapseTwo" class="collapse <?= isset($sidebar['pages']) ? 'show' : '' ?>"
+                    aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a 
-                        class="collapse-item sidebar_item <?=  isset($sidebar['home']) ? 'sidebar_active' : ''?>"
-                        href="<?= base_url('/admin/pages/home') ?>">
-                            <i class="fas fa-fw fa-home mr-1" ></i>
+                        <a class="collapse-item sidebar_item <?= isset($sidebar['home']) ? 'sidebar_active' : '' ?>"
+                            href="<?= base_url('/admin/pages/home') ?>">
+                            <i class="fas fa-fw fa-home mr-1"></i>
                             Home
                         </a>
-                        <a 
-                        class="collapse-item sidebar_item <?=  isset($sidebar['projects']) ? 'sidebar_active' : ''?>"
-                        href="<?= base_url('/admin/pages/projects') ?>">
-                        <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
+                        <a class="collapse-item sidebar_item <?= isset($sidebar['projects']) ? 'sidebar_active' : '' ?>"
+                            href="<?= base_url('/admin/pages/projects') ?>">
+                            <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
                             Projects
                         </a>
-                        <a 
-                        class="collapse-item sidebar_item <?=  isset($sidebar['donors']) ? 'sidebar_active' : ''?>"
-                        href="<?= base_url('/admin/pages/donors') ?>">
-                        <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
+                        <a class="collapse-item sidebar_item <?= isset($sidebar['donors']) ? 'sidebar_active' : '' ?>"
+                            href="<?= base_url('/admin/pages/donors') ?>">
+                            <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
                             Donors
                         </a>
                         <a 
@@ -77,12 +76,22 @@
                             Our Team
                         </a>
                     </div>
-                  
                 </div>
-
-
-
             </li>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?= base_url('admin/gallery')?>">
+                <i class="fas fa-image"></i>
+                    <span>Gallery</span>
+                </a>
+            </li> 
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?= base_url('admin/causes')?>">
+                <i class="fas fa-star"></i>
+                    <span>Causes</span>
+                </a>
+            </li>
+
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
@@ -110,7 +119,7 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                     
+
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 
@@ -119,9 +128,10 @@
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
                                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <span class="mr-2 d-none d-lg-inline text-gray-600 small">
-                                    <?= $this->session->userdata(SES_TYPE) == 'admin' ? $this->session->userdata(SES_ADMIN_NAME) : $this->session->userdata(SES_SUB_ADMIN_NAME)?>
+                                    <?= $this->session->userdata(SES_TYPE) == 'admin' ? $this->session->userdata(SES_ADMIN_NAME) : $this->session->userdata(SES_SUB_ADMIN_NAME) ?>
                                 </span>
-                                <img class="img-profile rounded-circle" src="<?=base_url('assets_admin/')?>img/undraw_profile.svg">
+                                <img class="img-profile rounded-circle"
+                                    src="<?= base_url('assets_admin/') ?>img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
                             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"

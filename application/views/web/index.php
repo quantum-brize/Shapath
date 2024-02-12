@@ -208,10 +208,9 @@ if (!empty($mission_vision)) {
         <?php foreach($projects as $project){?>
             <div class="col-lg-4">
                 <div class="donation-item">
-                    <img src="<?php echo base_url($project['project_img'])?>" class="img-fluid w-100" alt="Image">
+                    <img src="<?php echo base_url($project['project_img'])?>" class="img-fluid w-100" alt="Image" style="height: 350px;">
                     <div class="donation-content d-flex flex-column">
-                        <h5 class="text-uppercase text-primary mb-4"><?php echo $project['project_title']?></h5>
-                        <a href="<?= base_url('project/?id='.$project['uid']) ?>" class="btn-hover-color display-6 text-white">Help Us More</a>
+                        <h1 class="text-uppercase text-primary mb-4"><?php echo $project['project_title']?></h1>
                         <p class="text-white mb-4"><?php echo $project['project_cover_details']?></p>
                         <div class="donation-btn d-flex align-items-center justify-content-start">
                             <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="<?= base_url('donate/?id='.$project['uid'])?>">Donate !</a>
@@ -734,7 +733,7 @@ if (!empty($mission_vision)) {
         <p class="author-2">- <?php echo $bottom_quote['quote_by']?></p>
     </div>
     <div class="authimage">
-        <!-- <img src="<?php echo base_url($bottom_quote['quote_img'])?>" alt=""> -->
+        <img src="<?php echo base_url($bottom_quote['quote_img'])?>" alt="">
     </div>
 </div>
 

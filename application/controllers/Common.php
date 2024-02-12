@@ -77,28 +77,25 @@ class Common extends CI_Controller
 	public function upload_files($path, $file_name, $allowed_types, $max_size)
 	{
 		if (!file_exists($path)) {
-			// Create the directory with read and write permissions
 			mkdir($path, 0777, true);
-			echo "Directory created successfully.";
 		}
-		$config['upload_path'] = $path;
+		$config['upload_path'] 	 = $path;
 		$config['allowed_types'] = $allowed_types;
-		$config['max_size'] = $max_size;
-		$config['encrypt_name'] = TRUE;
+		$config['max_size'] 	 = $max_size;
+		$config['encrypt_name']  = TRUE;
 
 		$this->load->library('upload', $config);
 
 		$data = [];
-		
 
 		foreach ($_FILES[$file_name]['name'] as $key => $value) {
-			$_FILES['userfile']['name'] = $_FILES[$file_name]['name'][$key];
-			$_FILES['userfile']['type'] = $_FILES[$file_name]['type'][$key];
+			$_FILES['userfile']['name'] 	= $_FILES[$file_name]['name'][$key];
+			$_FILES['userfile']['type'] 	= $_FILES[$file_name]['type'][$key];
 			$_FILES['userfile']['tmp_name'] = $_FILES[$file_name]['tmp_name'][$key];
-			$_FILES['userfile']['error'] = $_FILES[$file_name]['error'][$key];
-			$_FILES['userfile']['size'] = $_FILES[$file_name]['size'][$key];
+			$_FILES['userfile']['error'] 	= $_FILES[$file_name]['error'][$key];
+			$_FILES['userfile']['size'] 	= $_FILES[$file_name]['size'][$key];
 
-			$this->upload->initialize($config); // Initialize with specific configuration
+			$this->upload->initialize($config); 
 			$this->upload->do_upload('userfile');
 
 			$data[$key] = $this->upload->data();
