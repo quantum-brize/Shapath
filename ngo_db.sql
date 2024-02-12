@@ -4,8 +4,8 @@
 --
 -- Host: 127.0.0.1
 -- Generation Time: Feb 12, 2024 at 02:19 PM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 8.1.10
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,7 +42,7 @@ CREATE TABLE `about` (
 --
 
 INSERT INTO `about` (`id`, `uid`, `about_title`, `about`, `about_img`, `created_at`, `updated_at`) VALUES
-(1, 'ABT5678FGHTYUU', 'about us title', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has', '/uploads/about_img/ad9c66d89ac8a092a0945fc5c59d643c.jpg', '2024-02-06 15:53:38', '2024-02-06 15:53:38');
+(1, 'ABT5678FGHTYUU', 'about us title', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has', '/uploads/about_img/628bf705ce7f364305418d6786b7792c.jpg', '2024-02-06 15:53:38', '2024-02-06 15:53:38');
 
 -- --------------------------------------------------------
 
@@ -58,16 +58,38 @@ CREATE TABLE `donors` (
   `img` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `donors`
 --
 
 INSERT INTO `donors` (`id`, `uid`, `name`, `doner_about`, `img`, `created_at`, `updated_at`) VALUES
-(8, 'DONOR448D016320240210', 'SUBHANKAR', 'subhankar sharma', '/uploads/donor_img/4adabc7de7797fab059d41ca36831e89.jpg', '2024-02-10 16:56:12', '2024-02-10 16:56:12'),
-(9, 'DONORD78081EC20240210', 'Rohan', 'sk rohan ali', '/uploads/donor_img/fd4d64d5d27b11d3251a39885d6d7f4c.jpg', '2024-02-10 17:04:36', '2024-02-10 17:04:36'),
-(11, 'DONOR3A93602A20240210', 'Admin', 'admin panel', '/uploads/donor_img/d6be9baf78d47c21a5d0ac23fa312d71.jpg', '2024-02-10 18:45:38', '2024-02-10 18:45:38');
+(0, 'DONOR96F3C14F20240212', 'Rohan ', 'fsgfhjfhdjtyjkh', '/uploads/donor_img/8380b93c7e90d626ac39f24291b9ad51.jpg', '2024-02-12 11:55:00', '2024-02-12 11:55:00'),
+(4, 'WDOD893B77220240207', 'Ram', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/0efcfe3b6f11d5fa8a9ebe6fc4b18356.png', '2024-02-07 11:01:39', '2024-02-07 11:01:39'),
+(5, 'WDO593E794D20240207', 'Rahim', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/eaa475aada4da370f2d08b7c9239a069.png', '2024-02-07 11:02:04', '2024-02-07 11:02:04'),
+(6, 'WDO07DBE79820240207', 'Sham', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/d65e4740386191ba891c7b04b3ca0c1c.png', '2024-02-07 11:02:44', '2024-02-07 11:02:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gallery_img`
+--
+
+CREATE TABLE `gallery_img` (
+  `id` int(11) NOT NULL,
+  `uid` varchar(255) NOT NULL,
+  `images` longtext NOT NULL,
+  `created_at` datetime NOT NULL,
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `gallery_img`
+--
+
+INSERT INTO `gallery_img` (`id`, `uid`, `images`, `created_at`, `updated_at`) VALUES
+(1, 'GAL67890RTY78TY', '/uploads/galary_img/920335dd36bfd1e1c38abc40bff8d6bc.jpg,/uploads/galary_img/ea35d51fc6cfbd2513166b2600ca3687.jpg,/uploads/galary_img/552e9cbfbb4edea2935f40c9389d2b25.jpg,/uploads/galary_img/5ec204b32cbfaa150785f15a5b88630a.jpg,/uploads/galary_img/05ee1ca2a7aa7db0ffbbed9b585818b8.jpg,/uploads/galary_img/0ef380f36b957a17b309521504c449e9.jpg,/uploads/galary_img/f5c10545b5a311ea558c1586aa143504.jpg,/uploads/galary_img/b1f40d446f183c0bbed8d8980acce91b.jpg,/uploads/galary_img/a6c9b1c87334fe1e39d9092827c0d183.jpg,/uploads/galary_img/c933338de96685993ab90489ffb28541.jpg', '2024-02-12 11:36:00', '2024-02-12 16:06:14');
 
 -- --------------------------------------------------------
 
@@ -150,6 +172,14 @@ INSERT INTO `projects` (`id`, `uid`, `project_title`, `project_cover_details`, `
 (6, 'PROAE486ADA20240209', 'Project 3', 'Project 3 details', 'project 3 page title', 'https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA', 'project 3 description', '/uploads/project_img/4a98f9e9e7f2774dc011f67398220adf.jpg', '/uploads/project_logo/2c0c210d5a5f837ae688beb3dc8ac8a2.jpg', '/uploads/project_galary_img/819d0fda46ce7f47aa3bb8c622612527.jpg,/uploads/project_galary_img/311c459f8434480272ffcff51240ed3e.jpg', '2024-02-09 15:55:34', '2024-02-09 15:55:34'),
 (7, 'PROFE81152E20240209', 'Project 4', 'project 4 details', 'Project 4 page details', 'htttps://google.com', 'project 4 description', '/uploads/project_img/52dc16bab7f2620273b72d6d948ac3a2.jpg', '/uploads/project_logo/b89319057afef37fe5e7152bf9084332.jpg', '/uploads/project_galary_img/f9c2fb6894fe96e5daef7f819dae6727.jpg,/uploads/project_galary_img/f25bea79c9cafcff907db70b8e63f004.jpg', '2024-02-09 15:57:46', '2024-02-09 15:57:46'),
 (8, 'PRO142A0CCB20240210', 'Project 5', 'project 5 details', 'Project 5 page', 'https://youtu.be/UkFCE25-XTs?si=j5dFOwymvDe6DzXe', 'project 5 description', '/uploads/project_img/8066d171d08c7cc3dc7a80013994a9e5.jpg', '/uploads/project_logo/128400d94fbd1ae6b30df9ebe3521ac5.jpg', '/uploads/project_galary_img/19561c97f2b13636e76ed07a7f9b2eb7.jpg,/uploads/project_galary_img/649d80a395ade22b76c164b9ec54fec4.jpg', '2024-02-10 11:49:35', '2024-02-10 11:49:35');
+
+--
+-- Dumping data for table `projects`
+--
+
+INSERT INTO `projects` (`id`, `uid`, `project_title`, `project_cover_details`, `project_page_title`, `project_page_video`, `project_page_description`, `project_img`, `project_logo`, `galary_img`, `created_at`, `updated_at`) VALUES
+(4, 'PROD9B4CE5520240212', 'Title', 'qwerer', '453', 'erwwer', 'fgdzgfg', '/uploads/project_img/946c50e336c6e135fda3d8fec3593b84.jpg', '/uploads/project_logo/b11500be141a412b2b373fb23d308aa6.jpg', '/uploads/project_galary_img/e9ee3a36cf2d4e333ae61d8fe9b2cebd.jpg,/uploads/project_galary_img/060a099280ad07393bda9414d387315e.jpg,/uploads/project_galary_img/6fb88bd414ba946bcf5a1cc4a5b56b83.jpg,/uploads/project_galary_img/3471a181b59ff8077037563fe08dccb2.jpg,/uploads/project_galary_img/ddf32e8d53a5c03578c21b9b8938d477.jpg', '2024-02-12 12:08:06', '2024-02-12 12:08:06'),
+(5, 'PRO3C8AAF5C20240212', 'dfs', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'rtaesr', 'rgedrg', 'rget5tgser', '/uploads/project_img/fb58a7a8f6cb50eacb9193c3159546c7.jpg', '/uploads/project_logo/2a546b2dd5ba8851ae337df56b5009c0.jpg', '/uploads/project_galary_img/9be9b324f8a7f9af2eacac9ee287a867.jpg,/uploads/project_galary_img/408698ba6b1c1d44a6c6fea86da9e9e1.jpg,/uploads/project_galary_img/526c7cb6eadafd8aeed78b53cd696629.jpg,/uploads/project_galary_img/a93fbd1e32cbb2a75d41a50443c404aa.jpg,/uploads/project_galary_img/a808cd8c8c7b15d2287fe200aa285c09.jpg,/uploads/project_galary_img/60e2e190d51d5c2830c01eaac830a4e0.png,/uploads/project_galary_img/05e325001f7f55d0f9fed3fcb03859cd.jpg,/uploads/project_galary_img/b709b325025e53188736f3185183976e.jpg,/uploads/project_galary_img/28b57b5fad38cea680a330d3d0928460.jpg,/uploads/project_galary_img/efcf0b143dd798c39f2afd05b0e84832.jpg,/uploads/project_galary_img/1d10bd95e0c07e86abbc1d0767dd79e8.png,/uploads/project_galary_img/535b77b28447e371db952eebd64d1e85.png', '2024-02-12 17:06:53', '2024-02-12 17:06:53');
 
 -- --------------------------------------------------------
 
@@ -277,6 +307,12 @@ INSERT INTO `volunteers` (`id`, `uid`, `name`, `volunteer_about`, `img`, `create
 --
 
 --
+=======
+--
+-- Indexes for dumped tables
+--
+
+--
 -- Indexes for table `about`
 --
 ALTER TABLE `about`
@@ -292,6 +328,10 @@ ALTER TABLE `donors`
 -- Indexes for table `mission_vision`
 --
 ALTER TABLE `mission_vision`
+=======
+-- Indexes for table `gallery_img`
+--
+ALTER TABLE `gallery_img`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -347,10 +387,17 @@ ALTER TABLE `about`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
+
 -- AUTO_INCREMENT for table `donors`
 --
 ALTER TABLE `donors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+=======
+-- AUTO_INCREMENT for table `gallery_img`
+--
+ALTER TABLE `gallery_img`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 
 --
 -- AUTO_INCREMENT for table `mission_vision`
@@ -368,7 +415,9 @@ ALTER TABLE `our_team`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
+
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+
 
 --
 -- AUTO_INCREMENT for table `quotes`
