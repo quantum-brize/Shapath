@@ -118,6 +118,34 @@ class Pages extends Admin
 
     }
 
+    public function volunteers()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['volunteer_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Volunteers';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['volunteers'] = true;
+        $data['data_page']['volunteers'] = $this->Pages_model->get_all_volunteers();
+
+        $this->is_auth('admin/pages_volunteers.php', $data);
+
+    }
+
+    public function volunteers_add()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['volunteer_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Volunteers';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['Volunteers'] = true;
+        $this->is_auth('admin/pages_volunteers_add.php', $data);
+
+    }
+
 
     public function update_about()
     {
@@ -327,5 +355,102 @@ class Pages extends Admin
         redirect('admin/pages/donors');
     }
 
+    public function add_new_volunteer()
+    {
+        $this->init_model(MODEL_PAGES);
 
+        $volunteer_name = $this->input->post('name');
+        $volunteer_about = $this->input->post('volunteer_about');
+        $volunteer_img = '';
+        if (!empty($_FILES['volunteers_img']['name'])){
+            $donor_image_data = $this->upload_files('./uploads/volunteers_img/', 'volunteers_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $volunteer_img = '/uploads/volunteers_img/' . $donor_image_data['file_name'];
+        }
+
+        $insert_data = [
+            "uid" => $this->generate_uid(UID_VOLUNTEER),
+            "name" => $volunteer_name,
+            "volunteer_about" => $volunteer_about,
+            "img" => $volunteer_img,
+        ];
+
+        $add_new_volunteer = $this->Pages_model->add_new_volunteer($insert_data);
+
+        if ($add_new_volunteer) {
+            redirect('admin/pages/volunteers');
+        }
+    }
+
+    public function delete_volunteer(){
+        $this->init_model(MODEL_PAGES);
+        $volunteer_id = $this->input->get('volunteer_id');
+        $this->Pages_model->delete_volunteer($volunteer_id);
+        redirect('admin/pages/volunteers');
+    }
+
+
+    public function our_team()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = [];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Our Team';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['our_team'] = true;
+        $data['data_page']['our_team'] = $this->Pages_model->get_all_our_team_members();
+
+        $this->is_auth('admin/pages_our_team.php', $data);
+
+    }
+
+    public function our_team_add()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['our_team_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Our Team';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['our_team'] = true;
+        // $data['data_page']['donors'] = $this->Pages_model->get_all_donors();
+
+        $this->is_auth('admin/pages_our_team_add.php', $data);
+
+    }
+
+    public function add_new_our_team_member()
+    {
+        $this->init_model(MODEL_PAGES);
+
+        $member_name = $this->input->post('name');
+        $about_member = $this->input->post('about_member');
+        $member_type = $this->input->post('member_type');
+        $member_img = '';
+        if (!empty($_FILES['member_img']['name'])){
+            $donor_image_data = $this->upload_files('./uploads/our_team_img/', 'member_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $member_img = '/uploads/our_team_img/' . $donor_image_data['file_name'];
+        }
+
+        $insert_data = [
+            "uid" => $this->generate_uid(UID_OUR_TEAM),
+            "name" => $member_name,
+            "about_member" => $about_member,
+            "img" => $member_img,
+            "type" => $member_type,
+        ];
+
+        $add_new_member = $this->Pages_model->add_new_our_team_member($insert_data);
+
+        if ($add_new_member) {
+            redirect('admin/pages/our_team');
+        }
+    }
+
+    public function delete_our_team_member(){
+        $this->init_model(MODEL_PAGES);
+        $our_team_member_id = $this->input->get('our_team_member_id');
+        $this->Pages_model->delete_our_team_member($our_team_member_id);
+        redirect('admin/pages/our/team');
+    }
 }

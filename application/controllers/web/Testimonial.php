@@ -16,7 +16,9 @@ class Testimonial extends Load {
     }
 
     public function our_volunteer(){
+        $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
+        $data['data_page']['volunteers'] = $this->Pages_model->get_all_volunteers();
         $this->load_page('web/our_volunteer.php',$data);
     }
 

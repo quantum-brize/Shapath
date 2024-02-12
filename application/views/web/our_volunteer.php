@@ -15,7 +15,7 @@
     <div class="container py-5">
         <div class="text-center mx-auto pb-5" style="max-width: 800px;">
         </div>
-        <div class="row g-4">
+        <!-- <div class="row g-4">
             <div class="col-lg-4">
                 <div class="donation-item">
                     <img src="img/donation-1.jpg" class="img-fluid w-100" alt="Image">
@@ -55,6 +55,22 @@
                     </div>
                 </div>
             </div>
+        </div> -->
+        <div class="event-carousel owl-carousel">
+            <?php foreach($volunteers as $volunteer){?>
+            <div class="event-item">
+                <div class="donation-item">
+                    <img src="<?php echo base_url($volunteer['img'])?>" class="img-fluid w-100" alt="Image">
+                    <div class="donation-content d-flex flex-column">
+                        <h5 class="text-uppercase text-primary mb-4"><?php echo $volunteer['name']?></h5>
+                        <p class="text-white mb-4"><?php echo $volunteer['volunteer_about']?></p>
+                        <div class="donation-btn d-flex align-items-center justify-content-start">
+                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <?php }?>
         </div>
     </div>
 </div>

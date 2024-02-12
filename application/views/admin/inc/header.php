@@ -63,6 +63,18 @@
                             <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
                             Donors
                         </a>
+                        <a 
+                        class="collapse-item sidebar_item <?=  isset($sidebar['volunteers']) ? 'sidebar_active' : ''?>"
+                        href="<?= base_url('/admin/pages/volunteers') ?>">
+                        <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
+                            Volunteers
+                        </a>
+                        <a 
+                        class="collapse-item sidebar_item <?=  isset($sidebar['our_team']) ? 'sidebar_active' : ''?>"
+                        href="<?= base_url('/admin/pages/our/team') ?>">
+                        <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
+                            Our Team
+                        </a>
                     </div>
                 </div>
             </li>

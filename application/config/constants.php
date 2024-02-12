@@ -66,6 +66,8 @@ define('TABLE_MISSION_VISION','mission_vision');
 define('TABLE_SERVICES','services');
 define('TABLE_PROJECTS','projects');
 define('TABLE_DONORS','donors');
+define('TABLE_VOLUNTEERS','volunteers');
+define('TABLE_OUR_TEAM','our_team');
 define('TABLE_GALLERY','gallery_img');
 
 ////////////////////////////////////////////__SESSION_VARS
@@ -91,6 +93,9 @@ define('KEY_UID', 'uid');
 define('UID_WORK', 'WDO');
 define('UID_PROJECT', 'PRO');
 define('UID_DONOR', 'DONOR');
+define('UID_VOLUNTEER', 'VOLUNTEER');
+define('UID_OUR_TEAM', 'OUR_TEAM');
 
 //////////////////////////////////////////__UID
 define('GALLERY_UID','GAL67890RTY78TY');
+
