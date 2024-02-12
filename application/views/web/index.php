@@ -73,7 +73,7 @@ if (!empty($mission_vision)) {
                                             <p class="mb-4"><?php echo $mission['description']?></p>
                                             <div class="d-flex align-items-center justify-content-start">
                                                 <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
-                                                    href="#">Read More</a>
+                                                    href="<?= base_url('mission-vision')?>">Read More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -90,7 +90,7 @@ if (!empty($mission_vision)) {
                                             </p>
                                             <div class="d-flex align-items-center justify-content-start">
                                                 <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
-                                                    href="#">Read More</a>
+                                                    href="<?= base_url('mission-vision')?>">Read More</a>
                                             </div>
                                         </div>
                                     </div>

@@ -226,16 +226,82 @@ class Pages_model extends Admin_model
         return $delete;
     }
 
-    public function get_donor_by_id($donor_id)
+    // public function get_donor_by_id($donor_id)
+    // {
+
+    //     $donors = $this->db->select('*')
+    //             ->from(TABLE_DONORS)
+    //             ->where('uid', $donor_id)
+    //             ->get()
+    //             ->row_array();
+    //     return !empty($donors) ? $donors : [];
+
+    // }
+
+    public function add_new_volunteer($data)
     {
+        $add = $this->db->insert(TABLE_VOLUNTEERS, $data);
+        return $add;
+    }
 
-        $donors = $this->db->select('*')
-                ->from(TABLE_DONORS)
-                ->where('uid', $donor_id)
-                ->get()
-                ->row_array();
-        return !empty($donors) ? $donors : [];
+    public function get_all_volunteers()
+    {
+        $volunteers = $this->db
+            ->select('*')
+            ->from(TABLE_VOLUNTEERS)
+            ->get();
+        $volunteers = $volunteers->result_array();
+        return !empty($volunteers) ? $volunteers : [];
+    }
 
+    public function delete_volunteer($volunteer_id){
+        $delete = $this->db->where('uid', $volunteer_id)
+            ->delete(TABLE_VOLUNTEERS);
+        return $delete;
+    }
+
+    public function add_new_our_team_member($data)
+    {
+        $add = $this->db->insert(TABLE_OUR_TEAM, $data);
+        return $add;
+    }
+
+    public function get_all_our_team_members()
+    {
+        $our_team = $this->db
+            ->select('*')
+            ->from(TABLE_OUR_TEAM)
+            ->get();
+        $our_team = $our_team->result_array();
+        return !empty($our_team) ? $our_team : [];
+    }
+
+    public function get_all_our_team_board_of_trustees()
+    {
+        $our_team = $this->db
+            ->select('*')
+            ->from(TABLE_OUR_TEAM)
+            ->where('type','board_of_trustees')
+            ->get();
+        $our_team = $our_team->result_array();
+        return !empty($our_team) ? $our_team : [];
+    }
+
+    public function get_all_our_team__trustees()
+    {
+        $our_team = $this->db
+            ->select('*')
+            ->from(TABLE_OUR_TEAM)
+            ->where('type','trustees')
+            ->get();
+        $our_team = $our_team->result_array();
+        return !empty($our_team) ? $our_team : [];
+    }
+
+    public function delete_our_team_member($our_team_member_id){
+        $delete = $this->db->where('uid', $our_team_member_id)
+            ->delete(TABLE_OUR_TEAM);
+        return $delete;
     }
 
 }

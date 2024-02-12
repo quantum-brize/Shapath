@@ -190,7 +190,7 @@ INSERT INTO `videos` (`id`, `uid`, `path`, `type`, `page`, `created_at`, `update
 -- --------------------------------------------------------
 
 --
--- Table structure for table `services`
+-- Table structure for table `donors`
 --
 
 CREATE TABLE `donors` (
@@ -211,6 +211,55 @@ INSERT INTO `donors` (`id`, `uid`, `name`, `doner_about`, `img`, `created_at`, `
 (4, 'WDOD893B77220240207', 'Ram', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/0efcfe3b6f11d5fa8a9ebe6fc4b18356.png', '2024-02-07 11:01:39', '2024-02-07 11:01:39'),
 (5, 'WDO593E794D20240207', 'Rahim', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/eaa475aada4da370f2d08b7c9239a069.png', '2024-02-07 11:02:04', '2024-02-07 11:02:04'),
 (6, 'WDO07DBE79820240207', 'Sham', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/d65e4740386191ba891c7b04b3ca0c1c.png', '2024-02-07 11:02:44', '2024-02-07 11:02:44');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `volunteers`
+--
+
+CREATE TABLE `volunteers` (
+  `id` int(11) NOT NULL,
+  `uid` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `volunteer_about` longtext NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `volunteers`
+--
+
+INSERT INTO `volunteers` (`id`, `uid`, `name`, `volunteer_about`, `img`, `created_at`, `updated_at`) VALUES
+(4, 'WDOD893B77220240207', 'Ram', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/0efcfe3b6f11d5fa8a9ebe6fc4b18356.png', '2024-02-07 11:01:39', '2024-02-07 11:01:39'),
+(5, 'WDO593E794D20240207', 'Rahim', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/eaa475aada4da370f2d08b7c9239a069.png', '2024-02-07 11:02:04', '2024-02-07 11:02:04'),
+(6, 'WDO07DBE79820240207', 'Sham', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/d65e4740386191ba891c7b04b3ca0c1c.png', '2024-02-07 11:02:44', '2024-02-07 11:02:44');
+
+--
+-- Table structure for table `our_team`
+--
+
+CREATE TABLE `our_team` (
+  `id` int(11) NOT NULL,
+  `uid` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `about_member` longtext NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `type` varchar(255) NOT NULL
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `our_team`
+--
+
+INSERT INTO `our_team` (`id`, `uid`, `name`, `about_member`, `img`,`type`, `created_at`, `updated_at`) VALUES
+(4, 'WDOD893B77220240207', 'Ram', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/0efcfe3b6f11d5fa8a9ebe6fc4b18356.png','board_of_trustees', '2024-02-07 11:01:39', '2024-02-07 11:01:39'),
+(5, 'WDO593E794D20240207', 'Rahim', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/eaa475aada4da370f2d08b7c9239a069.png','board_of_trustees', '2024-02-07 11:02:04', '2024-02-07 11:02:04'),
+(6, 'WDO07DBE79820240207', 'Sham', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '/uploads/work_img/d65e4740386191ba891c7b04b3ca0c1c.png','trustees', '2024-02-07 11:02:44', '2024-02-07 11:02:44');
 
 --
 -- Indexes for dumped tables
@@ -249,6 +298,11 @@ ALTER TABLE `services`
 -- Indexes for table `donors`
 --
 ALTER TABLE `donors`
+  ADD PRIMARY KEY (`id`);
+--
+-- Indexes for table `volunteers`
+--
+ALTER TABLE `volunteers`
   ADD PRIMARY KEY (`id`);
 --
 -- Indexes for table `users`
