@@ -499,7 +499,7 @@ if (!empty($mission_vision)) {
             <h1 class="mb-0">Help today because tomorrow you may be the one who needs more helping!</h1>
         </div>
         <div class="event-carousel owl-carousel">
-            <div class="event-item">
+            <!-- <div class="event-item">
                 <img src="img/events-1.jpg" class="img-fluid w-100" alt="Image">
                 <div class="event-content p-4">
                     <div class="d-flex justify-content-between mb-4">
@@ -550,7 +550,32 @@ if (!empty($mission_vision)) {
                         eiusmod tempor.</p>
                     <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
                 </div>
-            </div>
+            </div> -->
+            <?php
+
+            if (!empty($events)) {
+                foreach ($events as $event) {
+                    ?>
+                    <div class="event-item">
+                        <img src="<?= base_url().$event['img'] ?>" class="img-fluid w-100" alt="Image" style="height: 250px;object-fit: cover;">
+                        <div class="event-content p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i><?= $event['place'] ?></span>
+                                <span class="text-body"><i class="fas fa-calendar-alt me-2"></i><?= $event['date'] ?></span>
+                            </div>
+                            <h4 class="mb-4"><?= $event['title'] ?></h4>
+                            <p class="mb-4"><?= $event['details'] ?></p>
+                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
+                        </div>
+                    </div>
+
+
+                    <?php
+                }
+            }
+
+            ?>
+
         </div>
     </div>
 </div>

@@ -17,6 +17,7 @@ class Load extends Common {
         $data['data_page']['quotes'] = $this->Pages_model->get_all_quotes();
         $data['data_page']['services'] = $this->Pages_model->get_all_work();
         $data['data_page']['causes'] = $this->Pages_model->get_causes();
+        $data['data_page']['events'] = $this->Pages_model->get_event();
         $this->load_page('web/index.php',$data);
     }
 
