@@ -200,10 +200,38 @@ class Admin extends Common
         $data['data_header']['header_link'] = [];
         $data['data_header']['title'] = 'Admin | Update Causes';   
         $data['data_header']['sidebar']['causes'] = true;
-       
+        $this->init_model(MODEL_PAGES);
+        $data['data_page']['cause'] =  $this->Pages_model->get_causes_by_id($this->input->get('c_id'));
+        
 
         $this->is_auth('admin/causes_update.php', $data);
 
+    }
+
+    public function update_cause(){
+
+        $data = [];
+
+        if(!empty($_FILES['cause_img']['name'][0])){
+            $cause_img_data = $this->upload_files('./uploads/cause_img/', 'cause_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $data['img'] = '/uploads/cause_img/' . $cause_img_data['file_name'];
+        }
+        $data['title'] = $this->input->post('name');
+        $data['details'] = $this->input->post('details');
+        $data['goal'] = $this->input->post('goal');
+        $data['raised'] = $this->input->post('raised');
+
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->update_cause($this->input->post('uid'),$data);
+        redirect('admin/causes');
+    }
+
+    public function delete_cause(){
+
+        $uid = $this->input->get('c_id');
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->delete_cause($uid);
+        redirect('admin/causes');
     }
 
 }
