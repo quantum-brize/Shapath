@@ -453,4 +453,65 @@ class Pages extends Admin
         $this->Pages_model->delete_our_team_member($our_team_member_id);
         redirect('admin/pages/our/team');
     }
+
+    public function blog_add()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['blog_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Add  Blog';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['blog'] = true;
+        // $data['data_page']['our_team'] = $this->Pages_model->get_all_our_team_members();
+
+        $this->is_auth('admin/blog_add.php', $data);
+    }
+
+    public function blog()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['blog_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Blog';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['blog'] = true;
+        $data['data_page']['blogs'] = $this->Pages_model->get_all_blogs();
+
+        $this->is_auth('admin/blog.php', $data);
+    }
+
+    public function add_new_blog()
+    {
+        $this->init_model(MODEL_PAGES);
+
+        $blog_title = $this->input->post('title');
+        $description = $this->input->post('description');
+        $blog_img = '';
+        if (!empty($_FILES['blog_img']['name'])){
+            $donor_image_data = $this->upload_files('./uploads/blog_img/', 'blog_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $blog_img = '/uploads/blog_img/' . $donor_image_data['file_name'];
+        }
+
+        $insert_data = [
+            "uid" => $this->generate_uid(UID_BLOG),
+            "title" => $blog_title,
+            "description" => $description,
+            "img" => $blog_img,
+        ];
+
+        $add_new_blog = $this->Pages_model->add_new_blog($insert_data);
+
+        if ($add_new_blog) {
+            redirect('admin/blog');
+        }
+    }
+
+    public function delete_blog(){
+        $this->init_model(MODEL_PAGES);
+        $blog_id = $this->input->get('blog_id');
+        $this->Pages_model->delete_blog($blog_id);
+        redirect('admin/blog');
+    }
 }

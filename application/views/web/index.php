@@ -590,102 +590,31 @@ if (!empty($mission_vision)) {
             </h1>
         </div>
         <div class="row g-4">
+            <?php foreach($blogs as $blog){?>
             <div class="col-lg-6 col-xl-3">
                 <div class="blog-item">
                     <div class="blog-img">
-                        <img src="img/blog-1.jpg" class="img-fluid w-100" alt="">
+                        <img src="<?php echo base_url($blog['img'])?>" class="img-fluid w-100" alt="">
                         <div class="blog-info">
-                            <span><i class="fa fa-clock"></i> Dec 01.2024</span>
+                            <span><i class="fa fa-clock"></i> <?php $dateTime = new DateTime($blog['created_at']); $dateOnly = $dateTime->format('d-m-Y'); echo $dateOnly?></span>
                             <div class="d-flex">
                                 <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
                                 <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
                             </div>
                         </div>
                         <div class="search-icon">
-                            <a href="img/blog-1.jpg" data-lightbox="Blog-1" class="my-auto"><i
+                            <a href="<?php echo base_url($blog['img'])?>" data-lightbox="Blog-1" class="my-auto"><i
                                     class="fas fa-search-plus btn-primary text-white p-3"></i></a>
                         </div>
                     </div>
                     <div class="text-dark border p-4 ">
-                        <h4 class="mb-4">News Name Title</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip
-                            sed eiusmod tempor.</p>
-                        <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
+                        <h4 class="mb-4"><?php echo $blog['title']?></h4>
+                        <p class="mb-4"><?php echo $blog['description']?></p>
+                        <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="<?php echo base_url('web/Activity/blog?blog_id='.$blog['uid'])?>">Read More</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-6 col-xl-3">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="img/blog-2.jpg" class="img-fluid w-100" alt="">
-                        <div class="blog-info">
-                            <span><i class="fa fa-clock"></i> Dec 01.2024</span>
-                            <div class="d-flex">
-                                <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                            </div>
-                        </div>
-                        <div class="search-icon">
-                            <a href="img/blog-2.jpg" data-lightbox="Blog-2" class="my-auto"><i
-                                    class="fas fa-search-plus btn-primary text-white p-3"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-dark border p-4 ">
-                        <h4 class="mb-4">News Name Title</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip
-                            sed eiusmod tempor.</p>
-                        <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-3">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="img/blog-3.jpg" class="img-fluid w-100" alt="">
-                        <div class="blog-info">
-                            <span><i class="fa fa-clock"></i> Dec 01.2024</span>
-                            <div class="d-flex">
-                                <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                            </div>
-                        </div>
-                        <div class="search-icon">
-                            <a href="img/blog-3.jpg" data-lightbox="Blog-3" class="my-auto"><i
-                                    class="fas fa-search-plus btn-primary text-white p-3"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-dark border p-4 ">
-                        <h4 class="mb-4">News Name Title</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip
-                            sed eiusmod tempor.</p>
-                        <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-6 col-xl-3">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="img/blog-4.jpg" class="img-fluid w-100" alt="">
-                        <div class="blog-info">
-                            <span><i class="fa fa-clock"></i> Dec 01.2024</span>
-                            <div class="d-flex">
-                                <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                            </div>
-                        </div>
-                        <div class="search-icon">
-                            <a href="img/blog-4.jpg" data-lightbox="Blog-4" class="my-auto"><i
-                                    class="fas fa-search-plus btn-primary text-white p-3"></i></a>
-                        </div>
-                    </div>
-                    <div class="text-dark border p-4 ">
-                        <h4 class="mb-4">News Name Title</h4>
-                        <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip
-                            sed eiusmod tempor.</p>
-                        <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
-                    </div>
-                </div>
-            </div>
+            <?php }?>
         </div>
     </div>
 </div>

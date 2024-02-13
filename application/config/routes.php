@@ -44,5 +44,12 @@ $route['admin/pages/volunteers']    = 'admin/Pages/volunteers';
 $route['admin/pages/volunteers/add']= 'admin/Pages/volunteers_add';
 $route['admin/pages/our/team']      = 'admin/Pages/our_team';
 $route['admin/pages/our/team/add']  = 'admin/Pages/our_team_add';
+$route['admin/blog']                = 'admin/Pages/blog';
+$route['admin/add/blog']            = 'admin/Pages/blog_add';
+$route['admin/pages/volunteers']    = 'admin/Pages/volunteers';
+$route['admin/pages/volunteers/add']= 'admin/Pages/volunteers_add';
+$route['admin/pages/our/team']      = 'admin/Pages/our_team';
+$route['admin/pages/our/team/add']  = 'admin/Pages/our_team_add';
+
 
 
