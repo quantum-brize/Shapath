@@ -373,4 +373,43 @@ class Pages_model extends Admin_model
         return $delete;
     }
 
+    public function add_event($data)
+    {
+        $event = $this->db->insert(TABLE_EVENTS, $data);
+        return $event;
+    }
+    public function get_event()
+    {
+        $event = $this->db
+            ->select('*')
+            ->from(TABLE_EVENTS)
+            ->get()
+            ->result_array();
+        return !empty($event) ? $event : [];
+    }
+
+    public function get_event_by_id($uid)
+    {
+        $event = $this->db->select('*')
+            ->from(TABLE_EVENTS)
+            ->where('uid', $uid)
+            ->get()
+            ->result_array();
+        return !empty($event) ? $event[0] : [];
+    }
+
+    public function update_event($uid, $data)
+    {
+        $update = $this->db->where('uid', $uid)
+            ->update(TABLE_EVENTS, $data);
+        return $update;
+
+    }
+
+    public function delete_event($uid){
+        $delete = $this->db->where('uid', $uid)
+            ->delete(TABLE_EVENTS);
+        return $delete;
+    }
+
 }
