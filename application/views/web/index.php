@@ -9,7 +9,7 @@ if (!empty($quotes)) {
             $bottom_quote = $quote;
         }
     }
-}   
+}
 
 $mission = [];
 $vision = [];
@@ -23,13 +23,19 @@ if (!empty($mission_vision)) {
     }
 }
 
+
+
 ?>
 
 <div class="navbar-end-gap"></div>
 <div class="quote-video-wrapper">
     <div class="quote">
-        <p>"<?php echo $top_quote['quote']?>"</p>
-        <p class="author">- <?php echo $top_quote['quote_by']?></p>
+        <p>"
+            <?php echo $top_quote['quote'] ?>"
+        </p>
+        <p class="author">-
+            <?php echo $top_quote['quote_by'] ?>
+        </p>
     </div>
     <div class="video">
         <iframe id="ytplayer" type="text/html" width="720" height="405"
@@ -43,13 +49,17 @@ if (!empty($mission_vision)) {
         <div class="row g-5">
             <div class="col-xl-5">
                 <div class="h-100">
-                    <img src="<?php echo base_url($about['about_img']);?>" class="img-fluid w-100 h-100" alt="Image">
+                    <img src="<?php echo base_url($about['about_img']); ?>" class="img-fluid w-100 h-100" alt="Image">
                 </div>
             </div>
             <div class="col-xl-7" style="text-align: center;">
                 <h5 class="text-uppercase text-primary">About Us</h5>
-                <h1 class="mb-4"><?php echo $about['about_title'];?></h1>
-                <p class="fs-5 mb-4"><?php echo $about['about']?></p>
+                <h1 class="mb-4">
+                    <?php echo $about['about_title']; ?>
+                </h1>
+                <p class="fs-5 mb-4">
+                    <?php echo $about['about'] ?>
+                </p>
                 <div class="tab-class bg-secondary p-4">
                     <ul id="nav" class="nav d-flex mb-2">
                         <li class="nav-item mb-3">
@@ -69,11 +79,15 @@ if (!empty($mission_vision)) {
                                 <div class="col-12">
                                     <div class="d-flex">
                                         <div class="text-start my-auto">
-                                            <h5 class="text-uppercase mb-3"><?php echo $mission['title']?></h5>
-                                            <p class="mb-4"><?php echo $mission['description']?></p>
+                                            <h5 class="text-uppercase mb-3">
+                                                <?php echo $mission['title'] ?>
+                                            </h5>
+                                            <p class="mb-4">
+                                                <?php echo $mission['description'] ?>
+                                            </p>
                                             <div class="d-flex align-items-center justify-content-start">
                                                 <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
-                                                    href="<?= base_url('mission-vision')?>">Read More</a>
+                                                    href="<?= base_url('mission-vision') ?>">Read More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -85,12 +99,15 @@ if (!empty($mission_vision)) {
                                 <div class="col-12">
                                     <div class="d-flex">
                                         <div class="text-start my-auto">
-                                            <h5 class="text-uppercase mb-3"><?php echo $vision['title']?></h5>
-                                            <p class="mb-4"><?php echo $vision['description']?>
+                                            <h5 class="text-uppercase mb-3">
+                                                <?php echo $vision['title'] ?>
+                                            </h5>
+                                            <p class="mb-4">
+                                                <?php echo $vision['description'] ?>
                                             </p>
                                             <div class="d-flex align-items-center justify-content-start">
                                                 <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
-                                                    href="<?= base_url('mission-vision')?>">Read More</a>
+                                                    href="<?= base_url('mission-vision') ?>">Read More</a>
                                             </div>
                                         </div>
                                     </div>
@@ -141,18 +158,21 @@ if (!empty($mission_vision)) {
             <h1 class="mb-0">What we do title</h1>
         </div>
         <div class="row g-4">
-            <?php foreach($services as $service){?>
-            <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="service-item">
-                    <img src="<?php echo base_url($service['img'])?>" class="img-fluid w-100" alt="Image">
-                    <div class="service-link">
-                        <a href="#" class="h4 mb-0"><?php echo $service['title']?></a>
+            <?php foreach ($services as $service) { ?>
+                <div class="col-md-6 col-lg-6 col-xl-3">
+                    <div class="service-item">
+                        <img src="<?php echo base_url($service['img']) ?>" class="img-fluid w-100" alt="Image">
+                        <div class="service-link">
+                            <a href="#" class="h4 mb-0">
+                                <?php echo $service['title'] ?>
+                            </a>
+                        </div>
                     </div>
+                    <p class="my-4">
+                        <?php echo $service['description'] ?>
+                    </p>
                 </div>
-                <p class="my-4"><?php echo $service['description']?>
-                </p>
-            </div>
-            <?php }?>
+            <?php } ?>
             <!-- <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="service-item">
                     <img src="img/service-2.png" class="img-fluid w-100" alt="Image">
@@ -205,20 +225,26 @@ if (!empty($mission_vision)) {
             <h1 class="mb-0">Projects title</h1>
         </div>
         <div class="row g-4">
-        <?php foreach($projects as $project){?>
-            <div class="col-lg-4">
-                <div class="donation-item">
-                    <img src="<?php echo base_url($project['project_img'])?>" class="img-fluid w-100" alt="Image" style="height: 350px;">
-                    <div class="donation-content d-flex flex-column">
-                        <h1 class="text-uppercase text-primary mb-4"><?php echo $project['project_title']?></h1>
-                        <p class="text-white mb-4"><?php echo $project['project_cover_details']?></p>
-                        <div class="donation-btn d-flex align-items-center justify-content-start">
-                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="<?= base_url('donate/?id='.$project['uid'])?>">Donate !</a>
+            <?php foreach ($projects as $project) { ?>
+                <div class="col-lg-4">
+                    <div class="donation-item">
+                        <img src="<?php echo base_url($project['project_img']) ?>" class="img-fluid w-100" alt="Image"
+                            style="height: 350px;">
+                        <div class="donation-content d-flex flex-column">
+                            <h1 class="text-uppercase text-primary mb-4">
+                                <?php echo $project['project_title'] ?>
+                            </h1>
+                            <p class="text-white mb-4">
+                                <?php echo $project['project_cover_details'] ?>
+                            </p>
+                            <div class="donation-btn d-flex align-items-center justify-content-start">
+                                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
+                                    href="<?= base_url('donate/?id=' . $project['uid']) ?>">Donate !</a>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <?php }?>
+            <?php } ?>
         </div>
     </div>
 </div>
@@ -303,7 +329,7 @@ if (!empty($mission_vision)) {
             </p>
         </div>
         <div class="row g-4">
-            <div class="col-lg-6 col-xl-3">
+            <!-- <div class="col-lg-6 col-xl-3">
                 <div class="causes-item">
                     <div class="causes-img">
                         <img src="img/causes-4.png" class="img-fluid w-100" alt="Image">
@@ -410,7 +436,55 @@ if (!empty($mission_vision)) {
                         <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
                     </div>
                 </div>
-            </div>
+            </div> -->
+            <?php
+            if (!empty($causes)) {
+                foreach ($causes as $cause) {
+
+                    ?>
+                    <div class="col-lg-6 col-xl-3">
+                        <div class="causes-item">
+                            <div class="causes-img">
+                                <img src="<?= base_url() . $cause['img'] ?>" class="img-fluid w-100" alt="Image"
+                                    style="object-fit: cover; height: 250px;">
+                                <div class="causes-link pb-2 px-3">
+                                    <small class="text-white"><i class="fas fa-chart-bar text-primary me-2"></i>Goal:
+                                        <?= $cause['goal'] ?>
+                                    </small>
+                                    <small class="text-white"><i class="fa fa-thumbs-up text-primary me-2"></i>Raised:
+                                        <?= empty($cause['raised']) ? 0 : $cause['raised'] ?>
+                                    </small>
+                                </div>
+                                <div class="causes-dination p-2">
+                                    <a class="btn-hover-bg btn btn-primary text-white py-2 px-3" href="#">Donate Now</a>
+                                </div>
+                            </div>
+                            <div class="progress">
+                                <div class="progress-bar" role="progressbar"
+                                    aria-valuenow="<?= ($cause['raised'] / $cause['goal']) * 100 ?>" aria-valuemin="0"
+                                    aria-valuemax="100">
+                                    <span>
+                                        <?= ($cause['raised'] / $cause['goal']) * 100 ?>%
+                                    </span>
+                                </div>
+                            </div>
+                            <div class="causes-content p-4">
+                                <h4 class="mb-3">
+                                    <?= $cause['title'] ?>
+                                </h4>
+                                <p class="mb-4">
+                                    <?= $cause['details'] ?>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <?php
+
+                }
+            }
+            ?>
+
+
         </div>
     </div>
 </div>
@@ -729,11 +803,15 @@ if (!empty($mission_vision)) {
 <!-- Image with Quote Start -->
 <div class="quote-div">
     <div class="quote-2">
-        <p><span>"</span> <?php echo $bottom_quote['quote']?> <span>"</span></p>
-        <p class="author-2">- <?php echo $bottom_quote['quote_by']?></p>
+        <p><span>"</span>
+            <?php echo $bottom_quote['quote'] ?> <span>"</span>
+        </p>
+        <p class="author-2">-
+            <?php echo $bottom_quote['quote_by'] ?>
+        </p>
     </div>
     <div class="authimage">
-        <img src="<?php echo base_url($bottom_quote['quote_img'])?>" alt="">
+        <img src="<?php echo base_url($bottom_quote['quote_img']) ?>" alt="">
     </div>
 </div>
 
