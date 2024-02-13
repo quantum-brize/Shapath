@@ -322,5 +322,37 @@ class Pages_model extends Admin_model
         return !empty($images) ? $images : [];
     }
 
+    public function add_new_blog($data)
+    {
+        $add = $this->db->insert(TABLE_BLOG, $data);
+        return $add;
+    }
+
+    public function get_all_blogs()
+    {
+        $blogs = $this->db
+            ->select('*')
+            ->from(TABLE_BLOG)
+            ->get();
+        $blogs = $blogs->result_array();
+        return !empty($blogs) ? $blogs : [];
+    }
+
+    public function delete_blog($blog_id){
+        $delete = $this->db->where('uid', $blog_id)
+            ->delete(TABLE_BLOG);
+        return $delete;
+    }
+
+    public function get_blog($blog_id)
+    {
+        $blog = $this->db
+            ->select('*')
+            ->from(TABLE_BLOG)
+            ->where('uid',$blog_id)
+            ->get();
+        $blog = $blog->row_array();
+        return !empty($blog) ? $blog : [];
+    }
 
 }

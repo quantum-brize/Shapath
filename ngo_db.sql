@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 12, 2024 at 02:19 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Feb 13, 2024 at 02:52 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -47,6 +47,30 @@ INSERT INTO `about` (`id`, `uid`, `about_title`, `about`, `about_img`, `created_
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `blog`
+--
+
+CREATE TABLE `blog` (
+  `id` int(11) NOT NULL,
+  `uid` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` longtext NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `blog`
+--
+
+INSERT INTO `blog` (`id`, `uid`, `title`, `description`, `img`, `created_at`, `updated_at`) VALUES
+(2, 'BLG427EF1F220240213', 'New blog', 'new blog description', '/uploads/blog_img/b2cf049b7c1485279410f48dc568c274.jpg', '2024-02-13 13:46:22', '2024-02-13 13:46:22'),
+(3, 'BLG13264C5620240213', 'Blog 2', 'blog 2 description', '/uploads/blog_img/2ffcbab12a8a4a2f2af3d2462761619a.jpg', '2024-02-13 14:50:13', '2024-02-13 14:50:13');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `donors`
 --
 
@@ -58,7 +82,7 @@ CREATE TABLE `donors` (
   `img` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `donors`
@@ -82,7 +106,7 @@ CREATE TABLE `gallery_img` (
   `images` longtext NOT NULL,
   `created_at` datetime NOT NULL,
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `gallery_img`
@@ -171,13 +195,7 @@ INSERT INTO `projects` (`id`, `uid`, `project_title`, `project_cover_details`, `
 (5, 'PRO9BC73B2E20240209', 'Project 2', 'Project 2 details', 'new project 2', 'https://youtu.be/UkFCE25-XTs?si=j5dFOwymvDe6DzXe', 'project 2 description', '/uploads/project_img/56f10ffa59a5960bd7030b25de23900f.jpg', '/uploads/project_logo/29feae2e4ee4db047bf4c2037ce836ab.jpg', '/uploads/project_galary_img/732132cfe47fab6a6cb1150ef479b732.jpg,/uploads/project_galary_img/129270be5d1bf2ac20a8944657fb1695.jpg', '2024-02-09 14:46:54', '2024-02-09 14:46:54'),
 (6, 'PROAE486ADA20240209', 'Project 3', 'Project 3 details', 'project 3 page title', 'https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA', 'project 3 description', '/uploads/project_img/4a98f9e9e7f2774dc011f67398220adf.jpg', '/uploads/project_logo/2c0c210d5a5f837ae688beb3dc8ac8a2.jpg', '/uploads/project_galary_img/819d0fda46ce7f47aa3bb8c622612527.jpg,/uploads/project_galary_img/311c459f8434480272ffcff51240ed3e.jpg', '2024-02-09 15:55:34', '2024-02-09 15:55:34'),
 (7, 'PROFE81152E20240209', 'Project 4', 'project 4 details', 'Project 4 page details', 'htttps://google.com', 'project 4 description', '/uploads/project_img/52dc16bab7f2620273b72d6d948ac3a2.jpg', '/uploads/project_logo/b89319057afef37fe5e7152bf9084332.jpg', '/uploads/project_galary_img/f9c2fb6894fe96e5daef7f819dae6727.jpg,/uploads/project_galary_img/f25bea79c9cafcff907db70b8e63f004.jpg', '2024-02-09 15:57:46', '2024-02-09 15:57:46'),
-(8, 'PRO142A0CCB20240210', 'Project 5', 'project 5 details', 'Project 5 page', 'https://youtu.be/UkFCE25-XTs?si=j5dFOwymvDe6DzXe', 'project 5 description', '/uploads/project_img/8066d171d08c7cc3dc7a80013994a9e5.jpg', '/uploads/project_logo/128400d94fbd1ae6b30df9ebe3521ac5.jpg', '/uploads/project_galary_img/19561c97f2b13636e76ed07a7f9b2eb7.jpg,/uploads/project_galary_img/649d80a395ade22b76c164b9ec54fec4.jpg', '2024-02-10 11:49:35', '2024-02-10 11:49:35');
-
---
--- Dumping data for table `projects`
---
-
-INSERT INTO `projects` (`id`, `uid`, `project_title`, `project_cover_details`, `project_page_title`, `project_page_video`, `project_page_description`, `project_img`, `project_logo`, `galary_img`, `created_at`, `updated_at`) VALUES
+(8, 'PRO142A0CCB20240210', 'Project 5', 'project 5 details', 'Project 5 page', 'https://youtu.be/UkFCE25-XTs?si=j5dFOwymvDe6DzXe', 'project 5 description', '/uploads/project_img/8066d171d08c7cc3dc7a80013994a9e5.jpg', '/uploads/project_logo/128400d94fbd1ae6b30df9ebe3521ac5.jpg', '/uploads/project_galary_img/19561c97f2b13636e76ed07a7f9b2eb7.jpg,/uploads/project_galary_img/649d80a395ade22b76c164b9ec54fec4.jpg', '2024-02-10 11:49:35', '2024-02-10 11:49:35'),
 (4, 'PROD9B4CE5520240212', 'Title', 'qwerer', '453', 'erwwer', 'fgdzgfg', '/uploads/project_img/946c50e336c6e135fda3d8fec3593b84.jpg', '/uploads/project_logo/b11500be141a412b2b373fb23d308aa6.jpg', '/uploads/project_galary_img/e9ee3a36cf2d4e333ae61d8fe9b2cebd.jpg,/uploads/project_galary_img/060a099280ad07393bda9414d387315e.jpg,/uploads/project_galary_img/6fb88bd414ba946bcf5a1cc4a5b56b83.jpg,/uploads/project_galary_img/3471a181b59ff8077037563fe08dccb2.jpg,/uploads/project_galary_img/ddf32e8d53a5c03578c21b9b8938d477.jpg', '2024-02-12 12:08:06', '2024-02-12 12:08:06'),
 (5, 'PRO3C8AAF5C20240212', 'dfs', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'rtaesr', 'rgedrg', 'rget5tgser', '/uploads/project_img/fb58a7a8f6cb50eacb9193c3159546c7.jpg', '/uploads/project_logo/2a546b2dd5ba8851ae337df56b5009c0.jpg', '/uploads/project_galary_img/9be9b324f8a7f9af2eacac9ee287a867.jpg,/uploads/project_galary_img/408698ba6b1c1d44a6c6fea86da9e9e1.jpg,/uploads/project_galary_img/526c7cb6eadafd8aeed78b53cd696629.jpg,/uploads/project_galary_img/a93fbd1e32cbb2a75d41a50443c404aa.jpg,/uploads/project_galary_img/a808cd8c8c7b15d2287fe200aa285c09.jpg,/uploads/project_galary_img/60e2e190d51d5c2830c01eaac830a4e0.png,/uploads/project_galary_img/05e325001f7f55d0f9fed3fcb03859cd.jpg,/uploads/project_galary_img/b709b325025e53188736f3185183976e.jpg,/uploads/project_galary_img/28b57b5fad38cea680a330d3d0928460.jpg,/uploads/project_galary_img/efcf0b143dd798c39f2afd05b0e84832.jpg,/uploads/project_galary_img/1d10bd95e0c07e86abbc1d0767dd79e8.png,/uploads/project_galary_img/535b77b28447e371db952eebd64d1e85.png', '2024-02-12 17:06:53', '2024-02-12 17:06:53');
 
@@ -307,15 +325,9 @@ INSERT INTO `volunteers` (`id`, `uid`, `name`, `volunteer_about`, `img`, `create
 --
 
 --
-=======
+-- Indexes for table `blog`
 --
--- Indexes for dumped tables
---
-
---
--- Indexes for table `about`
---
-ALTER TABLE `about`
+ALTER TABLE `blog`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -325,25 +337,9 @@ ALTER TABLE `donors`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `mission_vision`
---
-ALTER TABLE `mission_vision`
-=======
--- Indexes for table `gallery_img`
---
-ALTER TABLE `gallery_img`
-  ADD PRIMARY KEY (`id`);
-
---
 -- Indexes for table `our_team`
 --
 ALTER TABLE `our_team`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `projects`
---
-ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -381,43 +377,22 @@ ALTER TABLE `volunteers`
 --
 
 --
--- AUTO_INCREMENT for table `about`
+-- AUTO_INCREMENT for table `blog`
 --
-ALTER TABLE `about`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+ALTER TABLE `blog`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
-
 -- AUTO_INCREMENT for table `donors`
 --
 ALTER TABLE `donors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
-=======
--- AUTO_INCREMENT for table `gallery_img`
---
-ALTER TABLE `gallery_img`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
-
---
--- AUTO_INCREMENT for table `mission_vision`
---
-ALTER TABLE `mission_vision`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `our_team`
 --
 ALTER TABLE `our_team`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `projects`
---
-ALTER TABLE `projects`
-
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
 
 --
 -- AUTO_INCREMENT for table `quotes`

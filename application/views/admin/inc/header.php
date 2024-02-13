@@ -91,6 +91,12 @@
                     <span>Causes</span>
                 </a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?= base_url('admin/blog')?>">
+                <i class="fas fa-star"></i>
+                    <span>Blog</span>
+                </a>
+            </li>
 
 
             <!-- Divider -->

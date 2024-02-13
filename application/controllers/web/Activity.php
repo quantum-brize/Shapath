@@ -21,8 +21,19 @@ class Activity extends Load
     }
     public function blogs()
     {
+        $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
+        $data['data_page']['blogs'] = $this->Pages_model->get_all_blogs();
         $this->load_page('web/blogs.php', $data);
+    }
+
+    public function blog()
+    {
+        $this->init_model(MODEL_PAGES);
+        $blog_id = $this->input->get('blog_id');
+        $data = PAGE_DATA_WEB;
+        $data['data_page']['blog'] = $this->Pages_model->get_blog($blog_id);
+        $this->load_page('web/blog.php', $data);
     }
 
 }
