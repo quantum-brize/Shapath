@@ -87,16 +87,17 @@ class Admin extends Common
     {
         $data = PAGE_DATA_ADMIN;
         $data['data_footer']['footer_link'] = [];
-        $data['data_header']['title'] = 'Admin | Dashboard';   
+        $data['data_header']['title'] = 'Admin | Dashboard';
         $data['data_header']['sidebar']['dashboard'] = true;
-        
+
         $this->is_auth('admin/dashboard.php', $data);
-        
+
     }
 
-    
 
-    public function is_auth($page, $data){
+
+    public function is_auth($page, $data)
+    {
         if (
             $this->session->userdata(SES_ADMIN_ID) == null &&
             $this->session->userdata(SES_SUB_ADMIN_ID) == null
@@ -109,22 +110,24 @@ class Admin extends Common
 
 
 
-    public function gallery(){
+    public function gallery()
+    {
         $data = PAGE_DATA_ADMIN;
         $data['data_footer']['footer_link'] = ['gallery_js.php'];
         $data['data_header']['header_link'] = ['gallery.css'];
-        $data['data_header']['title'] = 'Admin | Gallery';   
+        $data['data_header']['title'] = 'Admin | Gallery';
         $data['data_header']['sidebar']['gallery'] = true;
 
         $this->init_model(MODEL_PAGES);
-        $data['data_page']['gallery_img'] =  $this->Pages_model->get_gallery_img();
+        $data['data_page']['gallery_img'] = $this->Pages_model->get_gallery_img();
 
 
         $this->is_auth('admin/gallery.php', $data);
     }
-    public function gallery_img_add(){
+    public function gallery_img_add()
+    {
 
-        if(!empty($_FILES['galary_img'])){
+        if (!empty($_FILES['galary_img'])) {
             $galary_img_data = $this->upload_files('./uploads/galary_img/', 'galary_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
 
             $galary_img_arr = [];
@@ -137,7 +140,7 @@ class Admin extends Common
                     foreach ($galary_img_data as $key => $val) {
                         $galary_img_arr[$key] = '/uploads/galary_img/' . $val['file_name'];
                     }
-                    $gallery_img_data= implode(',', $galary_img_arr);
+                    $gallery_img_data = implode(',', $galary_img_arr);
                 }
             }
             $this->init_model(MODEL_PAGES);
@@ -147,19 +150,188 @@ class Admin extends Common
 
     }
 
-   
-    public function causes(){
+
+    public function causes()
+    {
         $data = PAGE_DATA_ADMIN;
         $data['data_footer']['footer_link'] = [];
         $data['data_header']['header_link'] = [];
-        $data['data_header']['title'] = 'Admin | Causes';   
+        $data['data_header']['title'] = 'Admin | Causes';
         $data['data_header']['sidebar']['causes'] = true;
-
         $this->init_model(MODEL_PAGES);
-
+        $data['data_page']['causes'] = $this->Pages_model->get_causes();
 
         $this->is_auth('admin/causes.php', $data);
     }
 
+    public function causes_add()
+    {
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = [];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Add Causes';
+        $data['data_header']['sidebar']['causes'] = true;
 
+
+        $this->is_auth('admin/causes_add.php', $data);
+    }
+
+
+    public function add_new_cause()
+    {
+
+
+        if (!empty($_FILES['cause_img'])) {
+            $cause_img_data = $this->upload_files('./uploads/cause_img/', 'cause_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+
+            $cause_img = '/uploads/cause_img/' . $cause_img_data['file_name'];
+
+            $this->init_model(MODEL_PAGES);
+
+            $data = [
+                'uid' => $this->generate_uid(UID_CAUSES),
+                'title' => $this->input->post('name'),
+                'details' => $this->input->post('details'),
+                'goal' => $this->input->post('goal'),
+                'img' => $cause_img,
+            ];
+            $this->Pages_model->add_causes($data);
+            redirect('admin/causes');
+        }
+    }
+
+    public function causes_update()
+    {
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = [];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Update Causes';
+        $data['data_header']['sidebar']['causes'] = true;
+        $this->init_model(MODEL_PAGES);
+        $data['data_page']['cause'] = $this->Pages_model->get_causes_by_id($this->input->get('c_id'));
+
+
+        $this->is_auth('admin/causes_update.php', $data);
+
+    }
+
+    public function update_cause()
+    {
+
+        $data = [];
+
+        if (!empty($_FILES['cause_img']['name'][0])) {
+            $cause_img_data = $this->upload_files('./uploads/cause_img/', 'cause_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $data['img'] = '/uploads/cause_img/' . $cause_img_data['file_name'];
+        }
+        $data['title'] = $this->input->post('name');
+        $data['details'] = $this->input->post('details');
+        $data['goal'] = $this->input->post('goal');
+        $data['raised'] = $this->input->post('raised');
+
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->update_cause($this->input->post('uid'), $data);
+        redirect('admin/causes');
+    }
+
+    public function delete_cause()
+    {
+
+        $uid = $this->input->get('c_id');
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->delete_cause($uid);
+        redirect('admin/causes');
+    }
+
+    public function events()
+    {
+
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = [];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Events';
+        $data['data_header']['sidebar']['events'] = true;
+        $this->init_model(MODEL_PAGES);
+        $data['data_page']['events'] = $this->Pages_model->get_event();
+
+
+        $this->is_auth('admin/events.php', $data);
+    }
+
+    public function events_add()
+    {
+
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = [];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Add Events';
+        $data['data_header']['sidebar']['events'] = true;
+
+
+        $this->is_auth('admin/events_add.php', $data);
+    }
+
+    public function add_new_event()
+    {
+
+        if (!empty($_FILES['event_img'])) {
+            $cause_img_data = $this->upload_files('./uploads/event_img/', 'event_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+
+            $cause_img = '/uploads/event_img/' . $cause_img_data['file_name'];
+
+            $data = [
+                'uid' => $this->generate_uid(UID_EVENTS),
+                'title' => $this->input->post('name'),
+                'details' => $this->input->post('details'),
+                'img' => $cause_img,
+                'date' => $this->input->post('date'),
+                'place' => $this->input->post('place')
+            ];
+            $this->init_model(MODEL_PAGES);
+            $this->Pages_model->add_event($data);
+            redirect('admin/events');
+        }
+
+    }
+
+    public function events_update()
+    {
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = [];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Edit Events';
+        $data['data_header']['sidebar']['events'] = true;
+        $this->init_model(MODEL_PAGES);
+        $data['data_page']['event'] = $this->Pages_model->get_event_by_id($this->input->get('e_id'));
+
+
+        $this->is_auth('admin/events_update.php', $data);
+    }
+
+    public function update_event()
+    {
+        $data = [];
+
+        if (!empty($_FILES['event_img']['name'][0])) {
+            $event_img = $this->upload_files('./uploads/event_img/', 'event_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $data['img'] = '/uploads/event_img/' . $event_img['file_name'];
+        }
+        $data['title'] = $this->input->post('name');
+        $data['details'] = $this->input->post('details');
+        $data['place'] = $this->input->post('place');
+        $data['date'] = $this->input->post('date');
+
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->update_event($this->input->post('uid'), $data);
+        redirect('admin/events');
+
+    }
+
+
+    public function delete_event(){
+        $uid = $this->input->get('e_id');
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->delete_event($uid);
+        redirect('admin/events');
+    }
 }

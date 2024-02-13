@@ -20,7 +20,7 @@ $gallery_img = explode(",", $gallery_img['images']);
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h5 class="m-0 font-weight-bold text-primary">Edit Gallery</h5>
-                    <a class="btn btn-danger" data-toggle="modal" data-target="#deletModel">DELETE</a>
+
                 </div>
                 <!-- Card Body -->
                 <form class="card-body row" enctype="multipart/form-data"

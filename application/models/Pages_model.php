@@ -134,9 +134,10 @@ class Pages_model extends Admin_model
         return $update;
     }
 
-    public function update_project($p_id, $update_data){
+    public function update_project($p_id, $update_data)
+    {
         $update = $this->db->where('uid', $p_id)
-                        ->update(TABLE_PROJECTS, $update_data);
+            ->update(TABLE_PROJECTS, $update_data);
         return $update;
     }
 
@@ -170,7 +171,8 @@ class Pages_model extends Admin_model
         return $delete;
     }
 
-    public function delete_project($p_id){
+    public function delete_project($p_id)
+    {
         $delete = $this->db->where('uid', $p_id)
             ->delete(TABLE_PROJECTS);
         return $delete;
@@ -196,10 +198,10 @@ class Pages_model extends Admin_model
     {
 
         $project = $this->db->select('*')
-                ->from(TABLE_PROJECTS)
-                ->where('uid', $p_id)
-                ->get()
-                ->row_array();
+            ->from(TABLE_PROJECTS)
+            ->where('uid', $p_id)
+            ->get()
+            ->row_array();
         return !empty($project) ? $project : [];
 
     }
@@ -220,7 +222,8 @@ class Pages_model extends Admin_model
         return !empty($donors) ? $donors : [];
     }
 
-    public function delete_donor($donor_id){
+    public function delete_donor($donor_id)
+    {
         $delete = $this->db->where('uid', $donor_id)
             ->delete(TABLE_DONORS);
         return $delete;
@@ -254,7 +257,8 @@ class Pages_model extends Admin_model
         return !empty($volunteers) ? $volunteers : [];
     }
 
-    public function delete_volunteer($volunteer_id){
+    public function delete_volunteer($volunteer_id)
+    {
         $delete = $this->db->where('uid', $volunteer_id)
             ->delete(TABLE_VOLUNTEERS);
         return $delete;
@@ -281,7 +285,7 @@ class Pages_model extends Admin_model
         $our_team = $this->db
             ->select('*')
             ->from(TABLE_OUR_TEAM)
-            ->where('type','board_of_trustees')
+            ->where('type', 'board_of_trustees')
             ->get();
         $our_team = $our_team->result_array();
         return !empty($our_team) ? $our_team : [];
@@ -292,35 +296,39 @@ class Pages_model extends Admin_model
         $our_team = $this->db
             ->select('*')
             ->from(TABLE_OUR_TEAM)
-            ->where('type','trustees')
+            ->where('type', 'trustees')
             ->get();
         $our_team = $our_team->result_array();
         return !empty($our_team) ? $our_team : [];
     }
 
-    public function delete_our_team_member($our_team_member_id){
+    public function delete_our_team_member($our_team_member_id)
+    {
         $delete = $this->db->where('uid', $our_team_member_id)
             ->delete(TABLE_OUR_TEAM);
         return $delete;
     }
 
-    public function gallery_img_update($gallery_img_data){
+    public function gallery_img_update($gallery_img_data)
+    {
         // fixed table for gallery images
         // GALLERY_UID fixed uid for all images
         $update = $this->db->where('uid', GALLERY_UID)
-                        ->update(TABLE_GALLERY, ['images' => $gallery_img_data]);
+            ->update(TABLE_GALLERY, ['images' => $gallery_img_data]);
         return $update;
 
     }
 
-    public function get_gallery_img(){
+    public function get_gallery_img()
+    {
         $images = $this->db->select('images')
-                            ->from(TABLE_GALLERY)
-                            ->where('uid', GALLERY_UID)
-                            ->get()
-                            ->row_array();
+            ->from(TABLE_GALLERY)
+            ->where('uid', GALLERY_UID)
+            ->get()
+            ->row_array();
         return !empty($images) ? $images : [];
     }
+
 
     public function add_new_blog($data)
     {
@@ -353,6 +361,89 @@ class Pages_model extends Admin_model
             ->get();
         $blog = $blog->row_array();
         return !empty($blog) ? $blog : [];
+    }
+  
+    public function add_causes($data)
+    {
+        $add = $this->db->insert(TABLE_CAUSES, $data);
+        return $add;
+    }
+
+    public function get_causes()
+    {
+        $causes = $this->db
+            ->select('*')
+            ->from(TABLE_CAUSES)
+            ->get()
+            ->result_array();
+        return !empty($causes) ? $causes : [];
+    }
+
+
+    public function get_causes_by_id($uid)
+    {
+
+        $cause = $this->db->select('*')
+            ->from(TABLE_CAUSES)
+            ->where('uid', $uid)
+            ->get()
+            ->result_array();
+        return !empty($cause) ? $cause[0] : [];
+
+    }
+
+    public function update_cause($uid, $data)
+    {
+        $update = $this->db->where('uid', $uid)
+            ->update(TABLE_CAUSES, $data);
+        return $update;
+
+    }
+
+    public function delete_cause($uid)
+    {
+        $delete = $this->db->where('uid', $uid)
+            ->delete(TABLE_CAUSES);
+        return $delete;
+    }
+
+    public function add_event($data)
+    {
+        $event = $this->db->insert(TABLE_EVENTS, $data);
+        return $event;
+    }
+    public function get_event()
+    {
+        $event = $this->db
+            ->select('*')
+            ->from(TABLE_EVENTS)
+            ->get()
+            ->result_array();
+        return !empty($event) ? $event : [];
+    }
+
+    public function get_event_by_id($uid)
+    {
+        $event = $this->db->select('*')
+            ->from(TABLE_EVENTS)
+            ->where('uid', $uid)
+            ->get()
+            ->result_array();
+        return !empty($event) ? $event[0] : [];
+    }
+
+    public function update_event($uid, $data)
+    {
+        $update = $this->db->where('uid', $uid)
+            ->update(TABLE_EVENTS, $data);
+        return $update;
+
+    }
+
+    public function delete_event($uid){
+        $delete = $this->db->where('uid', $uid)
+            ->delete(TABLE_EVENTS);
+        return $delete;
     }
 
 }

@@ -70,6 +70,9 @@ define('TABLE_VOLUNTEERS','volunteers');
 define('TABLE_OUR_TEAM','our_team');
 define('TABLE_GALLERY','gallery_img');
 define('TABLE_BLOG','blog');
+define('TABLE_CAUSES', 'causes');
+define('TABLE_EVENTS', 'events');
+
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');
@@ -98,6 +101,8 @@ define('UID_DONOR', 'DON');
 define('UID_VOLUNTEER', 'VOL');
 define('UID_OUR_TEAM', 'OUT');
 define('UID_BLOG', 'BLG');
+define('UID_EVENTS', 'EVN');
+
 
 //////////////////////////////////////////__UID
 define('GALLERY_UID','GAL67890RTY78TY');
