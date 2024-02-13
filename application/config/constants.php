@@ -69,6 +69,7 @@ define('TABLE_DONORS','donors');
 define('TABLE_VOLUNTEERS','volunteers');
 define('TABLE_OUR_TEAM','our_team');
 define('TABLE_GALLERY','gallery_img');
+define('TABLE_CAUSES', 'causes');
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');
@@ -92,9 +93,10 @@ define('KEY_UID', 'uid');
 ///////////////////////////////////////////__UID-PREFIX
 define('UID_WORK', 'WDO');
 define('UID_PROJECT', 'PRO');
-define('UID_DONOR', 'DONOR');
-define('UID_VOLUNTEER', 'VOLUNTEER');
-define('UID_OUR_TEAM', 'OUR_TEAM');
+define('UID_CAUSES', 'CUS');
+define('UID_DONOR', 'DON');
+define('UID_VOLUNTEER', 'VOL');
+define('UID_OUR_TEAM', 'OUT');
 
 //////////////////////////////////////////__UID
 define('GALLERY_UID','GAL67890RTY78TY');

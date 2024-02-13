@@ -322,5 +322,18 @@ class Pages_model extends Admin_model
         return !empty($images) ? $images : [];
     }
 
+    public function add_causes($data){
+        $add = $this->db->insert(TABLE_CAUSES, $data);
+        return $add;
+    }
+
+    public function get_causes(){
+        $causes = $this->db
+                        ->select('*')
+                        ->from(TABLE_CAUSES)
+                        ->get()
+                        ->result_array();
+        return !empty($causes) ? $causes : [];
+    }
 
 }

@@ -16,7 +16,7 @@
                 <!-- Card Header - Dropdown -->
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                     <h5 class="m-0 font-weight-bold text-primary">Causes</h5>
-                    <a class="btn btn-success" href="">Add causes <b
+                    <a class="btn btn-success" href="<?=base_url('admin/causes/add')?>">Add causes <b
                             style="font-size: 20px;">+</b></a>
                 </div>
                 <!-- Card Body -->
@@ -28,27 +28,25 @@
                                     <th>Id</th>
                                     <th>Title</th>
                                     <th>Description</th>
-                                    <th>Project Logo</th>
+                                    <th>Goal</th>
+                                    <th>image</th>
                                     <th>View</th>
-                                    <th>Delete</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
-                                if (!empty($projects)) {
+                                if (!empty($causes)) {
                                     $i = 1;
-                                    foreach ($projects as $project) {
+                                    foreach ($causes as $cause) {
                                         $row = '';
                                         $row .= '<tr>';
                                         $row .= '<td>' . $i++ . '</td>';
-                                        $row .= '<td>' . $project['project_title'] . '</td>';
-                                        $row .= '<td>' . $project['project_cover_details'] . '</td>';
-                                        $row .= '<td><img src="' . base_url() . $project['project_logo'] . '" height="100"></td>';
+                                        $row .= '<td>' . $cause['title'] . '</td>';
+                                        $row .= '<td>' . $cause['details'] . '</td>';
+                                        $row .= '<td>' . $cause['goal'] . '</td>';
+                                        $row .= '<td><img src="' . base_url() . $cause['img'] . '" height="100"></td>';
                                         $row .= '<td>';
-                                        $row .= '<a href="'.base_url('admin/pages/projects/edit?p_id=').$project['uid'] .'" class="btn btn-info text-light">View & Edit</a>';
-                                        $row .= '</td>';
-                                        $row .= '<td>';
-                                        $row .= '<a href="" class="btn btn-danger text-light">Delete</a>';
+                                        $row .= '<a href="'.base_url('admin/causes/edit?c_id=').$cause['uid'] .'" class="btn btn-info text-light">View & Edit</a>';
                                         $row .= '</td>';
                                         $row .= '</tr>';
                                         echo $row;

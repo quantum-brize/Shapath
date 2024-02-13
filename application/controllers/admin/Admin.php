@@ -154,12 +154,56 @@ class Admin extends Common
         $data['data_header']['header_link'] = [];
         $data['data_header']['title'] = 'Admin | Causes';   
         $data['data_header']['sidebar']['causes'] = true;
-
         $this->init_model(MODEL_PAGES);
-
+        $data['data_page']['causes'] =  $this->Pages_model->get_causes();
 
         $this->is_auth('admin/causes.php', $data);
     }
 
+    public function causes_add(){
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = [];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Add Causes';   
+        $data['data_header']['sidebar']['causes'] = true;
+       
+
+        $this->is_auth('admin/causes_add.php', $data);
+    }
+
+
+    public function add_new_cause(){
+        
+
+        if(!empty($_FILES['cause_img'])){
+            $cause_img_data = $this->upload_files('./uploads/cause_img/', 'cause_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+
+            $cause_img = '/uploads/cause_img/' . $cause_img_data['file_name'];
+
+            $this->init_model(MODEL_PAGES);
+
+            $data = [
+                'uid'     => $this->generate_uid(UID_CAUSES),
+                'title'   => $this->input->post('name'),
+                'details' => $this->input->post('details'),
+                'goal'    => $this->input->post('goal'),
+                'img'     => $cause_img,
+            ];
+            $this->Pages_model->add_causes($data);
+            redirect('admin/causes');
+        }
+    }
+
+    public function causes_update(){
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = [];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Update Causes';   
+        $data['data_header']['sidebar']['causes'] = true;
+       
+
+        $this->is_auth('admin/causes_update.php', $data);
+
+    }
 
 }
