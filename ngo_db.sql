@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 15, 2024 at 12:41 PM
+-- Generation Time: Feb 15, 2024 at 02:29 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -93,7 +93,7 @@ CREATE TABLE `causes` (
 --
 
 INSERT INTO `causes` (`id`, `uid`, `title`, `details`, `img`, `goal`, `raised`, `created_at`, `updated_at`) VALUES
-(4, 'CUS51A422B320240215', 'Rohan ', 'qwertyuiopasdf sdfdgsrtwe fgererdfgv erg45tgy bgbgr  tg t ', '/uploads/cause_img/738b89d12edea2aaa93a03263bd1da50.jpg', '1245', '', '2024-02-15 13:05:30', '2024-02-15 13:05:30');
+(4, 'CUS51A422B320240215', 'Rohan ', 'qwertyuiopasdf sdfdgsrtwe fgererdfgv erg45tgy bgbgr  tg t ', '/uploads/cause_img/738b89d12edea2aaa93a03263bd1da50.jpg', '1245', '489', '2024-02-15 13:05:30', '2024-02-15 13:05:30');
 
 -- --------------------------------------------------------
 
@@ -106,11 +106,12 @@ CREATE TABLE `donations` (
   `uid` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `address` text NOT NULL,
+  `pin` varchar(255) NOT NULL,
   `phone` varchar(255) NOT NULL,
   `pan` varchar(255) NOT NULL,
-  `aadhar` varchar(255) NOT NULL,
-  `voter` varchar(255) NOT NULL,
   `amount` varchar(255) NOT NULL,
+  `payment_status` varchar(255) NOT NULL DEFAULT 'pending',
   `project_id` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
@@ -120,8 +121,17 @@ CREATE TABLE `donations` (
 -- Dumping data for table `donations`
 --
 
-INSERT INTO `donations` (`id`, `uid`, `name`, `email`, `phone`, `pan`, `aadhar`, `voter`, `amount`, `project_id`, `created_at`, `updated_at`) VALUES
-(1, 'DONATE2E3C58C820240215', 'Rohan ', 'skohan0420@gmail.com', '6290353314', 'erwerewrwerwe', 'erwrwerwerw', 'erwerweawr', '3453', 'PROD9B4CE5520240212', '2024-02-15 12:32:08', '2024-02-15 12:32:08');
+INSERT INTO `donations` (`id`, `uid`, `name`, `email`, `address`, `pin`, `phone`, `pan`, `amount`, `payment_status`, `project_id`, `created_at`, `updated_at`) VALUES
+(2, 'DNTD6AC139320240215', 'Rohan ', 'skohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '100', 'pending', 'general-donation', '2024-02-15 17:50:54', '2024-02-15 17:50:54'),
+(3, 'DNTF674B53820240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 17:56:33', '2024-02-15 17:56:33'),
+(4, 'DNTE8792A6A20240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 17:58:14', '2024-02-15 17:58:14'),
+(5, 'DNTD1CFD55F20240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 17:58:23', '2024-02-15 17:58:23'),
+(6, 'DNTFC4163A120240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 17:59:14', '2024-02-15 17:59:14'),
+(7, 'DNTE7E9D59B20240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 18:01:02', '2024-02-15 18:01:02'),
+(8, 'DNT2B7C9BA020240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 18:02:55', '2024-02-15 18:02:55'),
+(9, 'DNT9D72747620240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 18:06:01', '2024-02-15 18:06:01'),
+(10, 'DNTEB7389AA20240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 18:18:39', '2024-02-15 18:18:39'),
+(11, 'DNT530ACC5A20240215', 'Rohan ', 'skohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '3422342', '34234', 'pending', 'general-donation', '2024-02-15 18:37:58', '2024-02-15 18:37:58');
 
 -- --------------------------------------------------------
 
@@ -331,6 +341,17 @@ INSERT INTO `services` (`id`, `uid`, `title`, `description`, `img`, `created_at`
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `transaction`
+--
+
+CREATE TABLE `transaction` (
+  `id` int(11) NOT NULL,
+  `text` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `users`
 --
 
@@ -494,6 +515,12 @@ ALTER TABLE `services`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -537,7 +564,7 @@ ALTER TABLE `causes`
 -- AUTO_INCREMENT for table `donations`
 --
 ALTER TABLE `donations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `donors`
@@ -586,6 +613,12 @@ ALTER TABLE `quotes`
 --
 ALTER TABLE `services`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+
+--
+-- AUTO_INCREMENT for table `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
