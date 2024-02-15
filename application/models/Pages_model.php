@@ -475,5 +475,11 @@ class Pages_model extends Admin_model
 
     }
 
+    public function save_webhook_text($data){
+        $data  = $this->db->insert('transaction',['text'=>$data]); 
+        return $data;
+
+    }
+
 
 }

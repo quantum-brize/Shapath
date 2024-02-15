@@ -1,5 +1,5 @@
 <?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 define('SHOW_DEBUG_BACKTRACE', TRUE);
 define('FILE_READ_MODE', 0644);
 define('FILE_WRITE_MODE', 0666);
@@ -27,11 +27,11 @@ define('rest_controller_path', 'libraries/RestController.php');
 define('DATA', 'data');
 define('HTTP_STATUS', 'http_status');
 define('key_status', 'status');
-define('key_message','message');
+define('key_message', 'message');
 define('key_data', 'data');
 define('http_ok', 200);
-define('header_allow_origin', 'Access-Control-Allow-Origin: *'); 
-define('header_allow_headers', 'Access-Control-Allow-Headers: *'); 
+define('header_allow_origin', 'Access-Control-Allow-Origin: *');
+define('header_allow_headers', 'Access-Control-Allow-Headers: *');
 define('header_allow_methods', "Access-Control-Allow-Methods: GET, POST, OPTIONS, PUT, DELETE, PATCH");
 define('helper_form', 'form');
 define('helper_url', 'url');
@@ -45,8 +45,8 @@ define('field_location', 'Asia/Kolkata');
 define('BASE_URL', 'http://localhost/Shapath/');
 
 //////////////////////////////////////////////__PAGEDATA
-define('PAGE_DATA_WEB', ['data_page' => [],'data_header' => ['header_link' => [],'title' => '','projects' => [],'header' => [],'sidebar' => [],'site' => 'web'],'data_footer' => ['footer_link' => [],'footer' => [],'site' => 'web']]);
-define('PAGE_DATA_ADMIN', ['data_page' => [],'data_header' => ['header_link' => [],'title' => '','header' => [],'sidebar' => [],'site' => 'admin'],'data_footer' => ['footer_link' => [],'footer' => [],'site' => 'admin']]);
+define('PAGE_DATA_WEB', ['data_page' => [], 'data_header' => ['header_link' => [], 'title' => '', 'projects' => [], 'header' => [], 'sidebar' => [], 'site' => 'web'], 'data_footer' => ['footer_link' => [], 'footer' => [], 'site' => 'web']]);
+define('PAGE_DATA_ADMIN', ['data_page' => [], 'data_header' => ['header_link' => [], 'title' => '', 'header' => [], 'sidebar' => [], 'site' => 'admin'], 'data_footer' => ['footer_link' => [], 'footer' => [], 'site' => 'admin']]);
 
 /////////////////////////////////////////////__IMG_UPLOAD_CONFIG
 define('IMG_FILE_TYPES', 'gif|jpg|png|JPG|jpeg|JPEG|PNG');
@@ -58,22 +58,22 @@ define('MODEL_ADMIN', 'Admin_model');
 define('MODEL_PAGES', 'Pages_model');
 
 ////////////////////////////////////////////__TABLES
-define('TABLE_USER','users');
-define('TABLE_QUOTES','quotes');
-define('TABLE_VIDEOS','videos');
+define('TABLE_USER', 'users');
+define('TABLE_QUOTES', 'quotes');
+define('TABLE_VIDEOS', 'videos');
 define('TABLE_ABOUT', 'about');
-define('TABLE_MISSION_VISION','mission_vision');
-define('TABLE_SERVICES','services');
-define('TABLE_PROJECTS','projects');
-define('TABLE_DONORS','donors');
-define('TABLE_VOLUNTEERS','volunteers');
-define('TABLE_OUR_TEAM','our_team');
-define('TABLE_GALLERY','gallery_img');
-define('TABLE_BLOG','blog');
+define('TABLE_MISSION_VISION', 'mission_vision');
+define('TABLE_SERVICES', 'services');
+define('TABLE_PROJECTS', 'projects');
+define('TABLE_DONORS', 'donors');
+define('TABLE_VOLUNTEERS', 'volunteers');
+define('TABLE_OUR_TEAM', 'our_team');
+define('TABLE_GALLERY', 'gallery_img');
+define('TABLE_BLOG', 'blog');
 define('TABLE_CAUSES', 'causes');
 define('TABLE_EVENTS', 'events');
 define('TABLE_DONATIONS', 'donations');
-define('TABLE_USER_MESSAGE','user_message');
+define('TABLE_USER_MESSAGE', 'user_message');
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');
@@ -83,12 +83,12 @@ define('SES_SUB_ADMIN_NAME', 'sub_admin_name');
 define('SES_TYPE', 'type');
 
 ////////////////////////////////////////////__USERS
-define('USER_ADMIN','admin');
-define('USER_SUB_ADMIN','sub_admin');
+define('USER_ADMIN', 'admin');
+define('USER_SUB_ADMIN', 'sub_admin');
 
 
 ////////////////////////////////////////////__KEYS
-define("KEY_STATUS","status");
+define("KEY_STATUS", "status");
 define("KEY_MESSAGE", "message");
 define("KEY_TYPE", "type");
 define('KEY_USER_NAME', 'user_name');
@@ -108,5 +108,13 @@ define('UID_USER_MESSAGE', 'UMSG');
 
 
 //////////////////////////////////////////__UID
-define('GALLERY_UID','GAL67890RTY78TY');
+define('GALLERY_UID', 'GAL67890RTY78TY');
 
+
+
+/////////////////////////////////////////__RAZORPAY_SECRET_KEY
+define('RAZORPAY_KEY_TEST_SECRET', 'rqaB1PDEZvHE7cY6FpJlYzve');
+define('RAZORPAY_KEY_TEST_ID',  'rzp_test_CU0ppPGU4Lrll0');
+
+define('RAZORPAY_KEY_LIVE_SECRET', '');
+define('RAZORPAY_KEY_LIVE_ID', '');

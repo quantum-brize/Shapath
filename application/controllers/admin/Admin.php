@@ -334,4 +334,14 @@ class Admin extends Common
         $this->Pages_model->delete_event($uid);
         redirect('admin/events');
     }
+
+    public function rezorpay_webhook(){
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->save_webhook_text($this->input->post());
+        redirect('donate');
+
+    
+    }
+
+
 }

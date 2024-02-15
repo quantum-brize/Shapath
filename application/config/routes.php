@@ -53,6 +53,7 @@ $route['admin/pages/volunteers']    = 'admin/Pages/volunteers';
 $route['admin/pages/volunteers/add']= 'admin/Pages/volunteers_add';
 $route['admin/pages/our/team']      = 'admin/Pages/our_team';
 $route['admin/pages/our/team/add']  = 'admin/Pages/our_team_add';
+$route['admin/webhook']             = 'admin/Admin/rezorpay_webhook';
 
 
 

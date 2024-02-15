@@ -25,7 +25,7 @@
                         <?php if($flag){?>
                         <option value="<?php echo $project['uid']?>" selected disabled><?php echo $project['project_title']?></option>
                         <?php }else{?>
-                            <option selected>Choose...</option>
+                            <option selected value="general-donation">general-donation</option>
                             <?php foreach($project as $p){?>
                                 
                                 <option value="<?php echo $p['uid']?>"><?php echo $p['project_title']?></option>
@@ -48,32 +48,32 @@
 
                 <!-- Phone Number -->
                 <div class="mb-3" style="width: auto;">
-                    <label for="phone" class="form-label">Phone Number</label>
-                    <input type="tel" class="form-control" id="phone" name="phone">
+                    <label for="" class="form-label">Phone Number</label>
+                    <input type="tel" class="form-control" id="" name="phone" required>
                 </div>
 
                 <!-- PAN Card -->
                 <div class="mb-3" style="width: auto;">
-                    <label for="panCard" class="form-label">PAN Card</label>
-                    <input type="text" class="form-control" id="panCard" name="pan">
+                    <label for="" class="form-label">PAN Card</label> 
+                    <input type="text" class="form-control" id="" name="pan" required>
                 </div>
 
-                <!-- Aadhar Card -->
+                <!-- Donation Address -->
                 <div class="mb-3" style="width: auto;">
-                    <label for="aadharCard" class="form-label">Aadhar Card</label>
-                    <input type="text" class="form-control" id="aadharCard" name="aadhar">
-                </div>
-
-                <!-- Voter Card -->
-                <div class="mb-3" style="width: auto;">
-                    <label for="voterCard" class="form-label">Voter Card</label>
-                    <input type="text" class="form-control" id="voterCard" name="voter">
+                    <label for="" class="form-label">Address</label>
+                    <textarea type="number" class="form-control" id="" name="address" required></textarea>
                 </div>
 
                 <!-- Donation Amount -->
                 <div class="mb-3" style="width: auto;">
-                    <label for="donationAmount" class="form-label">Donation Amount</label>
-                    <input type="number" class="form-control" id="donationAmount" name="amount">
+                    <label for="" class="form-label">Pin Code</label>
+                    <input type="number" class="form-control" id="" name="pin" required>
+                </div>              
+
+                <!-- Donation Amount -->
+                <div class="mb-3" style="width: auto;">
+                    <label for="" class="form-label">Donation Amount</label>
+                    <input type="number" class="form-control" id="" name="amount" required>
                 </div>
 
                 <!-- Submit Button -->
