@@ -18,6 +18,7 @@ class Testimonial extends Load {
     public function our_volunteer(){
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
+        $data['data_header']['testimonial'] = true;
         $data['data_page']['volunteers'] = $this->Pages_model->get_all_volunteers();
         $this->load_page('web/our_volunteer.php',$data);
     }
@@ -25,6 +26,7 @@ class Testimonial extends Load {
     public function our_donor(){
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
+        $data['data_header']['testimonial'] = true;
         $data['data_page']['donors'] = $this->Pages_model->get_all_donors();
         $this->load_page('web/our_donor.php',$data);
     } 

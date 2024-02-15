@@ -520,4 +520,41 @@ class Pages extends Admin
         $this->Pages_model->delete_blog($blog_id);
         redirect('admin/blog');
     }
+
+    public function blog_update()
+    {
+        $blog_id = $this->input->get('blog_id');
+
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['blog_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Update  Blog';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['blog'] = true;
+        $data['data_page']['blog'] = $this->Pages_model->get_blog($blog_id);
+
+
+        $this->is_auth('admin/blog_update.php', $data);
+    }
+
+    public function update_blog()
+    {
+        $blog_id = $this->input->get('blog_id');
+        $title = $this->input->post('title');
+        $description = $this->input->post('description');
+
+        $this->init_model(MODEL_PAGES);
+        $update_data = [
+            "title" => $title,
+            "description" => $description,
+        ];
+        if (!empty($_FILES['blog_img']['name'][0])) {
+            $blog_img_data = $this->upload_files('./uploads/blog_img/', 'blog_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $update_data['img'] = '/uploads/blog_img/' . $blog_img_data['file_name'];
+        }
+        $this->Pages_model->update_blog($blog_id, $update_data);
+        redirect('admin/blog');
+
+    }
 }

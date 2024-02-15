@@ -58,15 +58,16 @@
                     <div class="navbar-nav ms-auto">
                         <a href="<?= base_url('home')?>" class="nav-item nav-link <?= isset($home) ? 'active' : '' ?>">Home</a>
                         <div class="nav-item dropdown">
-                            <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Aboout</a>
+                            <a href="" class="nav-link dropdown-toggle <?= isset($about) ? 'active' : '' ?>" data-bs-toggle="dropdown">Aboout</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                 <a href="<?= base_url('our-team')?>" class="dropdown-item">Our Team</a>
                                 <a href="<?= base_url('mission-vision')?>" class="dropdown-item">Mission and Vision</a>
+                                <a href="<?= base_url('annual_report')?>" class="dropdown-item">Annual Report</a>
                                 <a href="<?= base_url('faq')?>" class="dropdown-item">FAQ</a>
                             </div>
                         </div>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Projects</a>
+                            <a href="#" class="nav-link dropdown-toggle <?= isset($project) ? 'active' : '' ?>" data-bs-toggle="dropdown">Projects</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                 <?php foreach($projects as $project){?>
                                 <a href="<?= base_url('project/?id='.$project['uid']) ?>" class="dropdown-item"><?php echo $project['project_title']?></a>
@@ -81,14 +82,14 @@
                             </div>
                         </div>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Testimonial</a>
+                            <a href="#" class="nav-link dropdown-toggle <?= isset($testimonial) ? 'active' : '' ?>" data-bs-toggle="dropdown">Testimonial</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                 <a href="<?= base_url('our-volunteer') ?>" class="dropdown-item">Our Volunteer</a>
                                 <a href="<?= base_url('our-donor') ?>" class="dropdown-item">Our Donor</a>
                             </div>
                         </div>
-                        <a href="<?= base_url('gallery') ?>" class="nav-item nav-link" <?= isset($gallery) ? 'active' : '' ?>>Gallery</a>
-                        <a href="<?= base_url('events') ?>" class="nav-item nav-link" <?= isset($event) ? 'active' : '' ?>>Events</a>
+                        <a href="<?= base_url('gallery') ?>" class="nav-item nav-link <?= isset($gallery) ? 'active' : '' ?>">Gallery</a>
+                        <a href="<?= base_url('events') ?>" class="nav-item nav-link <?= isset($event) ? 'active' : '' ?>">Events</a>
                         <a href="<?= base_url('blogs')?>" class="nav-item nav-link <?= isset($blogs) ? 'active' : '' ?>">Blog</a>
                         <a href="<?= base_url('contact-us')?>" class="nav-item nav-link <?= isset($contact) ? 'active' : '' ?>">Contact</a>
                     </div>

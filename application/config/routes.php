@@ -13,6 +13,7 @@ $route['contact-us']                = 'web/load/contact';
 $route['donate']                    = 'web/load/donation';
 $route['our-team']                  = 'web/about/our_team';
 $route['mission-vision']            = 'web/about/mission_and_vision';
+$route['annual_report']             = 'web/about/annual_report';
 $route['faq']                       = 'web/about/faq';
 $route['gallery']                   = 'web/about/gallery';
 $route['events']                    = 'web/activity/events';
