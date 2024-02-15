@@ -79,7 +79,7 @@ $gallery_img = explode(",", $gallery_img['images']);
             foreach ($gallery_img as $img) {
                 ?>
 
-                <div class="col-6 col-md-6 col-lg-4">
+                <div class="col-sm-12 col-md-6 col-lg-4">
                     <div class="gallery-item">
                         <img src="<?= base_url($img) ?>" class="img-fluid w-100" alt="" style="height: 450px; background-size: cover; background-position: center;">
                         <div class="search-icon">
