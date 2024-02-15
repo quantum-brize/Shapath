@@ -26,10 +26,6 @@
                         <img src="<?php echo base_url($blog['img'])?>" class="img-fluid  image_size" alt="Square Image" style="height: 200px; object-fit: cover;">
                         <div class="blog-info">
                             <span><i class="fa fa-clock"></i> <?php $dateTime = new DateTime($blog['created_at']); $dateOnly = $dateTime->format('d-m-Y'); echo $dateOnly?></span>
-                            <div class="d-flex">
-                                <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                            </div>
                         </div>
                         <div class="search-icon">
                             <a href="img/blog-1.jpg" data-lightbox="Blog-1" class="my-auto"><i
