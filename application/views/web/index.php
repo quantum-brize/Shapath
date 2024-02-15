@@ -469,10 +469,10 @@ $gallery_img = explode(",", $gallery_img['images']);
                             </div>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar"
-                                    aria-valuenow="<?= (intval($cause['raised']) / intval($cause['goal'])) * 100 ?>"
+                                    aria-valuenow="<?= intval($cause['raised']) / intval($cause['goal']) * 100 ?>"
                                     aria-valuemin="0" aria-valuemax="100">
                                     <span>
-                                        <?= (intval($cause['raised']) / intval($cause['goal'])) * 100 ?>%
+                                        <?= intval(intval($cause['raised']) / intval($cause['goal']) * 100) ?>%
                                     </span>
                                 </div>
                             </div>
