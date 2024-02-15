@@ -446,4 +446,10 @@ class Pages_model extends Admin_model
         return $delete;
     }
 
+    public function add_new_donation($data)
+    {
+        $event = $this->db->insert(TABLE_DONATIONS, $data);
+        return $event;
+    }
+
 }

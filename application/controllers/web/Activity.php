@@ -17,12 +17,14 @@ class Activity extends Load
     public function events()
     {
         $data = PAGE_DATA_WEB;
+        $data['data_header']['event'] = true;
         $this->load_page('web/events.php', $data);
     }
     public function blogs()
     {
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
+        $data['data_header']['blogs'] = true;
         $data['data_page']['blogs'] = $this->Pages_model->get_all_blogs();
         $this->load_page('web/blogs.php', $data);
     }

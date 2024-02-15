@@ -23,7 +23,7 @@
             <div class="col-lg-6 col-xl-3">
                 <div class="blog-item">
                     <div class="blog-img">
-                        <img src="<?php echo base_url($blog['img'])?>" class="img-fluid w-100" alt="">
+                        <img src="<?php echo base_url($blog['img'])?>" class="img-fluid  image_size" alt="Square Image">
                         <div class="blog-info">
                             <span><i class="fa fa-clock"></i> <?php $dateTime = new DateTime($blog['created_at']); $dateOnly = $dateTime->format('d-m-Y'); echo $dateOnly?></span>
                             <div class="d-flex">

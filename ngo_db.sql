@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 13, 2024 at 02:48 PM
--- Server version: 10.4.28-MariaDB
--- PHP Version: 8.2.4
+-- Generation Time: Feb 15, 2024 at 07:52 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,7 +35,7 @@ CREATE TABLE `about` (
   `about_img` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `about`
@@ -47,7 +47,6 @@ INSERT INTO `about` (`id`, `uid`, `about_title`, `about`, `about_img`, `created_
 -- --------------------------------------------------------
 
 --
-
 -- Table structure for table `blog`
 --
 
@@ -69,6 +68,9 @@ INSERT INTO `blog` (`id`, `uid`, `title`, `description`, `img`, `created_at`, `u
 (2, 'BLG427EF1F220240213', 'New blog', 'new blog description', '/uploads/blog_img/b2cf049b7c1485279410f48dc568c274.jpg', '2024-02-13 13:46:22', '2024-02-13 13:46:22'),
 (3, 'BLG13264C5620240213', 'Blog 2', 'blog 2 description', '/uploads/blog_img/2ffcbab12a8a4a2f2af3d2462761619a.jpg', '2024-02-13 14:50:13', '2024-02-13 14:50:13');
 
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `causes`
 --
 
@@ -82,7 +84,28 @@ CREATE TABLE `causes` (
   `raised` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `donations`
+--
+
+CREATE TABLE `donations` (
+  `id` int(11) NOT NULL,
+  `uid` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `pan` varchar(255) NOT NULL,
+  `aadhar` varchar(255) NOT NULL,
+  `voter` varchar(255) NOT NULL,
+  `amount` varchar(255) NOT NULL,
+  `project_id` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -126,7 +149,7 @@ CREATE TABLE `events` (
   `place` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `events`
@@ -172,7 +195,7 @@ CREATE TABLE `mission_vision` (
   `type` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `mission_vision`
@@ -197,7 +220,7 @@ CREATE TABLE `our_team` (
   `type` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `our_team`
@@ -227,18 +250,7 @@ CREATE TABLE `projects` (
   `galary_img` longtext NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
---
--- Dumping data for table `projects`
---
-
-INSERT INTO `projects` (`id`, `uid`, `project_title`, `project_cover_details`, `project_page_title`, `project_page_video`, `project_page_description`, `project_img`, `project_logo`, `galary_img`, `created_at`, `updated_at`) VALUES
-(5, 'PRO9BC73B2E20240209', 'Project 2', 'Project 2 details', 'new project 2', 'https://youtu.be/UkFCE25-XTs?si=j5dFOwymvDe6DzXe', 'project 2 description', '/uploads/project_img/56f10ffa59a5960bd7030b25de23900f.jpg', '/uploads/project_logo/29feae2e4ee4db047bf4c2037ce836ab.jpg', '/uploads/project_galary_img/732132cfe47fab6a6cb1150ef479b732.jpg,/uploads/project_galary_img/129270be5d1bf2ac20a8944657fb1695.jpg', '2024-02-09 14:46:54', '2024-02-09 14:46:54'),
-(6, 'PROAE486ADA20240209', 'Project 3', 'Project 3 details', 'project 3 page title', 'https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA', 'project 3 description', '/uploads/project_img/4a98f9e9e7f2774dc011f67398220adf.jpg', '/uploads/project_logo/2c0c210d5a5f837ae688beb3dc8ac8a2.jpg', '/uploads/project_galary_img/819d0fda46ce7f47aa3bb8c622612527.jpg,/uploads/project_galary_img/311c459f8434480272ffcff51240ed3e.jpg', '2024-02-09 15:55:34', '2024-02-09 15:55:34'),
-(7, 'PROFE81152E20240209', 'Project 4', 'project 4 details', 'Project 4 page details', 'htttps://google.com', 'project 4 description', '/uploads/project_img/52dc16bab7f2620273b72d6d948ac3a2.jpg', '/uploads/project_logo/b89319057afef37fe5e7152bf9084332.jpg', '/uploads/project_galary_img/f9c2fb6894fe96e5daef7f819dae6727.jpg,/uploads/project_galary_img/f25bea79c9cafcff907db70b8e63f004.jpg', '2024-02-09 15:57:46', '2024-02-09 15:57:46'),
-(8, 'PRO142A0CCB20240210', 'Project 5', 'project 5 details', 'Project 5 page', 'https://youtu.be/UkFCE25-XTs?si=j5dFOwymvDe6DzXe', 'project 5 description', '/uploads/project_img/8066d171d08c7cc3dc7a80013994a9e5.jpg', '/uploads/project_logo/128400d94fbd1ae6b30df9ebe3521ac5.jpg', '/uploads/project_galary_img/19561c97f2b13636e76ed07a7f9b2eb7.jpg,/uploads/project_galary_img/649d80a395ade22b76c164b9ec54fec4.jpg', '2024-02-10 11:49:35', '2024-02-10 11:49:35'),
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -256,7 +268,7 @@ CREATE TABLE `quotes` (
   `type` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `quotes`
@@ -280,7 +292,7 @@ CREATE TABLE `services` (
   `img` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -296,7 +308,7 @@ CREATE TABLE `users` (
   `type` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `users`
@@ -319,7 +331,7 @@ CREATE TABLE `videos` (
   `page` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `videos`
@@ -342,7 +354,7 @@ CREATE TABLE `volunteers` (
   `img` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `volunteers`
@@ -357,18 +369,15 @@ INSERT INTO `volunteers` (`id`, `uid`, `name`, `volunteer_about`, `img`, `create
 --
 
 --
-
--- Indexes for table `blog`
---
-ALTER TABLE `blog`
--- Indexes for table `about`
---
-ALTER TABLE `about`
-  ADD PRIMARY KEY (`id`);
---
 -- Indexes for table `causes`
 --
 ALTER TABLE `causes`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `donations`
+--
+ALTER TABLE `donations`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -396,16 +405,9 @@ ALTER TABLE `mission_vision`
   ADD PRIMARY KEY (`id`);
 
 --
-
 -- Indexes for table `our_team`
 --
 ALTER TABLE `our_team`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `quotes`
---
-ALTER TABLE `quotes`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -437,21 +439,17 @@ ALTER TABLE `volunteers`
 --
 
 --
--- AUTO_INCREMENT for table `blog`
---
-ALTER TABLE `blog`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
 -- AUTO_INCREMENT for table `causes`
 --
 ALTER TABLE `causes`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
 --
 -- AUTO_INCREMENT for table `donors`
 --
 ALTER TABLE `donors`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
 --
 -- AUTO_INCREMENT for table `events`
 --
@@ -463,54 +461,6 @@ ALTER TABLE `events`
 --
 ALTER TABLE `gallery_img`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `mission_vision`
---
-ALTER TABLE `mission_vision`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `our_team`
---
-ALTER TABLE `our_team`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `projects`
---
-ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
-
---
--- AUTO_INCREMENT for table `quotes`
---
-ALTER TABLE `quotes`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `services`
---
-ALTER TABLE `services`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-
---
--- AUTO_INCREMENT for table `users`
---
-ALTER TABLE `users`
-  MODIFY `id` int(255) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `videos`
---
-ALTER TABLE `videos`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- AUTO_INCREMENT for table `volunteers`
---
-ALTER TABLE `volunteers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
