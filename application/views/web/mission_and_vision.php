@@ -34,8 +34,8 @@ if (!empty($mission_vision)) {
     </div>
     <div class="video">
         <iframe id="ytplayer" type="text/html" width="720" height="405"
-            src="https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA"
-            frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen></iframe>
+            src="https://www.youtube.com/embed/ox3VFMNBXjA?unmute=1&loop=1&playlist=ox3VFMNBXjA"
+            frameborder="0" allow="encrypted-media; loop" allowfullscreen></iframe>
     </div>
 
 </div>

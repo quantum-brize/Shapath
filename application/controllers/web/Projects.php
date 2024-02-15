@@ -18,6 +18,7 @@ class Projects extends Load {
         $data['data_header']['project'] = true;
         $data['data_page']['quotes'] = $this->Pages_model->get_all_quotes();
         $data['data_page']['project'] = $this->Pages_model->get_projects_by_id($id);
+        $data['data_page']['events'] = $this->Pages_model->get_event();
 
         $this->load_page('web/project.php',$data);
     }

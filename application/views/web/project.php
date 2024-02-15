@@ -13,22 +13,27 @@ if (!empty($quotes)) {
 ?>
 
 <div class="logo-container">
-    <img src="<?= base_url('assets/img/srishti.png')?>" alt="Website Logo" />
+    <img src="<?= base_url('assets/img/srishti.png') ?>" alt="Website Logo" />
 </div>
 
 <div class="quote-video-wrapper">
     <div class="quote">
-        <p>"<?php echo $top_quote['quote'] ?>"</p>
-        <p class="author">- <?php echo $top_quote['quote_by'] ?></p>
-    </div>
+        <h1>text</h1>
+        <p>
+            <?php echo $project['project_page_description'] ?>
+        </p>
+    </div><br>
+    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
+        href="<?= base_url('donate/?id=' . $project['uid']) ?>">Donate</a>
     <div class="video">
         <iframe id="ytplayer" type="text/html" width="720" height="405"
-            src="https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA"
-            frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen></iframe>
+            src="<?php echo $project['project_page_video'] ?>" frameborder="0" allow="encrypted-media; loop"
+            allowfullscreen>
+        </iframe>
     </div>
-
 </div>
-        
+
+
 
 <!-- Events Start -->
 <!-- <div class="container-fluid event py-5">
@@ -38,38 +43,39 @@ if (!empty($quotes)) {
             <h1 class="mb-0">text</h1>
         </div>
         <div class="event-carousel owl-carousel">
-            <div class="event-item">
-                <img src="img/events-1.jpg" class="img-fluid w-100" alt="Image">
-                <div class="event-content p-4">
-                    <h4 class="mb-4">How To Build A Cleaning Plan</h4>
-                    <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed
-                        eiusmod tempor.</p>
-                </div>
-            </div>
-            <div class="event-item">
-                <img src="img/events-2.jpg" class="img-fluid w-100" alt="Image">
-                <div class="event-content p-4">
-                    <h4 class="mb-4">How To Build A Cleaning Plan</h4>
-                    <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed
-                        eiusmod tempor.</p>
-                </div>
-            </div>
-            <div class="event-item">
-                <img src="img/events-3.jpg" class="img-fluid w-100" alt="Image">
-                <div class="event-content p-4">
-                    <h4 class="mb-4">How To Build A Cleaning Plan</h4>
-                    <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed
-                        eiusmod tempor.</p>
-                </div>
-            </div>
-            <div class="event-item">
-                <img src="img/events-4.jpg" class="img-fluid w-100" alt="Image">
-                <div class="event-content p-4">
-                    <h4 class="mb-4">How To Build A Cleaning Plan</h4>
-                    <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed
-                        eiusmod tempor.</p>
-                </div>
-            </div>
+            <?php
+
+            if (!empty($events)) {
+                foreach ($events as $event) {
+                    ?>
+                    <div class="event-item">
+                        <img src="<?= base_url() . $event['img'] ?>" class="img-fluid w-100" alt="Image"
+                            style="height: 250px;object-fit: cover;">
+                        <div class="event-content p-4">
+                            <div class="d-flex justify-content-between mb-4">
+                                <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>
+                                    <?= $event['place'] ?>
+                                </span>
+                                <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>
+                                    <?= $event['date'] ?>
+                                </span>
+                            </div>
+                            <h4 class="mb-4">
+                                <?= $event['title'] ?>
+                            </h4>
+                            <p class="mb-4">
+                                <?= $event['details'] ?>
+                            </p>
+                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
+                        </div>
+                    </div>
+
+
+                    <?php
+                }
+            }
+
+            ?>
         </div>
     </div>
 </div> -->
@@ -100,21 +106,22 @@ if (!empty($quotes)) {
         <h3 class="text-uppercase text-primary">Project Gallery</h3>
     </div>
     <div class="row g-0">
-    <?php
-        $arr_img = explode(',',$project['galary_img']);
-        foreach($arr_img as $img){
-    ?>
-        <div class="col-lg-4">
-            <div class="gallery-item" style="">
-                <img src="<?php echo base_url($img)?>" class="img-fluid w-100" alt="" style="height: 450px; background-size: cover; background-position: center;">
-                <div class="search-icon">
-                    <a href="<?php echo base_url($img)?>" data-lightbox="gallery-2" class="my-auto">
-                        <i class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i>
-                    </a>
+        <?php
+        $arr_img = explode(',', $project['galary_img']);
+        foreach ($arr_img as $img) {
+            ?>
+            <div class="col-sm-12 col-nd-6 col-lg-4">
+                <div class="gallery-item" style="">
+                    <img src="<?php echo base_url($img) ?>" class="img-fluid w-100" alt=""
+                        style="height: 450px; background-size: cover; background-position: center;">
+                    <div class="search-icon">
+                        <a href="<?php echo base_url($img) ?>" data-lightbox="gallery-2" class="my-auto">
+                            <i class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i>
+                        </a>
+                    </div>
                 </div>
             </div>
-        </div>
-    <?php }?>
+        <?php } ?>
     </div>
 </div>
 <!-- Gallery End -->

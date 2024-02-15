@@ -25,6 +25,15 @@ if (!empty($mission_vision)) {
 
 
 
+$video_home = '';
+if (!empty($video)) {
+    foreach ($video as $val) {
+        if ($val['page'] == 'home') {
+            $video_home = $val['path'];
+        }
+    }
+}
+$gallery_img = explode(",", $gallery_img['images']);
 ?>
 
 <div class="navbar-end-gap"></div>
@@ -38,9 +47,8 @@ if (!empty($mission_vision)) {
         </p>
     </div>
     <div class="video">
-        <iframe id="ytplayer" type="text/html" width="720" height="405"
-            src="https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA"
-            frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen></iframe>
+        <iframe id="ytplayer" type="text/html" width="720" height="405" src="<?= $video_home ?>" frameborder="0"
+            allow="encrypted-media; loop" allowfullscreen></iframe>
     </div>
 </div>
 <!-- About Start -->
@@ -163,7 +171,7 @@ if (!empty($mission_vision)) {
                     <div class="service-item">
                         <img src="<?php echo base_url($service['img']) ?>" class="img-fluid w-100" alt="Image">
                         <div class="service-link">
-                            <a href="#" class="h4 mb-0">
+                            <a href="<?= base_url() ?>" class="h4 mb-0">
                                 <?php echo $service['title'] ?>
                             </a>
                         </div>
@@ -461,10 +469,10 @@ if (!empty($mission_vision)) {
                             </div>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar"
-                                    aria-valuenow="<?= ($cause['raised'] / $cause['goal']) * 100 ?>" aria-valuemin="0"
-                                    aria-valuemax="100">
+                                    aria-valuenow="<?= (intval($cause['raised']) / intval($cause['goal'])) * 100 ?>"
+                                    aria-valuemin="0" aria-valuemax="100">
                                     <span>
-                                        <?= ($cause['raised'] / $cause['goal']) * 100 ?>%
+                                        <?= (intval($cause['raised']) / intval($cause['goal'])) * 100 ?>%
                                     </span>
                                 </div>
                             </div>
@@ -557,14 +565,23 @@ if (!empty($mission_vision)) {
                 foreach ($events as $event) {
                     ?>
                     <div class="event-item">
-                        <img src="<?= base_url().$event['img'] ?>" class="img-fluid w-100" alt="Image" style="height: 250px;object-fit: cover;">
+                        <img src="<?= base_url() . $event['img'] ?>" class="img-fluid w-100" alt="Image"
+                            style="height: 250px;object-fit: cover;">
                         <div class="event-content p-4">
                             <div class="d-flex justify-content-between mb-4">
-                                <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i><?= $event['place'] ?></span>
-                                <span class="text-body"><i class="fas fa-calendar-alt me-2"></i><?= $event['date'] ?></span>
+                                <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>
+                                    <?= $event['place'] ?>
+                                </span>
+                                <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>
+                                    <?= $event['date'] ?>
+                                </span>
                             </div>
-                            <h4 class="mb-4"><?= $event['title'] ?></h4>
-                            <p class="mb-4"><?= $event['details'] ?></p>
+                            <h4 class="mb-4">
+                                <?= $event['title'] ?>
+                            </h4>
+                            <p class="mb-4">
+                                <?= $event['details'] ?>
+                            </p>
                             <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
                         </div>
                     </div>
@@ -590,31 +607,41 @@ if (!empty($mission_vision)) {
             </h1>
         </div>
         <div class="row g-4">
-            <?php foreach($blogs as $blog){?>
-            <div class="col-lg-6 col-xl-3">
-                <div class="blog-item">
-                    <div class="blog-img">
-                        <img src="<?php echo base_url($blog['img'])?>" class="img-fluid w-100" alt="">
-                        <div class="blog-info">
-                            <span><i class="fa fa-clock"></i> <?php $dateTime = new DateTime($blog['created_at']); $dateOnly = $dateTime->format('d-m-Y'); echo $dateOnly?></span>
-                            <div class="d-flex">
-                                <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
+            <?php foreach ($blogs as $blog) { ?>
+                <div class="col-lg-6 col-xl-3">
+                    <div class="blog-item">
+                        <div class="blog-img">
+                            <img src="<?php echo base_url($blog['img']) ?>" class="img-fluid w-100" height="" alt=""
+                                style="height: 200px; object-fit: cover;">
+                            <div class="blog-info">
+                                <span><i class="fa fa-clock"></i>
+                                    <?php $dateTime = new DateTime($blog['created_at']);
+                                    $dateOnly = $dateTime->format('d-m-Y');
+                                    echo $dateOnly ?>
+                                </span>
+                                <div class="d-flex">
+                                    <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
+                                    <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
+                                </div>
+                            </div>
+                            <div class="search-icon">
+                                <a href="<?php echo base_url($blog['img']) ?>" data-lightbox="Blog-1" class="my-auto"><i
+                                        class="fas fa-search-plus btn-primary text-white p-3"></i></a>
                             </div>
                         </div>
-                        <div class="search-icon">
-                            <a href="<?php echo base_url($blog['img'])?>" data-lightbox="Blog-1" class="my-auto"><i
-                                    class="fas fa-search-plus btn-primary text-white p-3"></i></a>
+                        <div class="text-dark border p-4 ">
+                            <h4 class="mb-4">
+                                <?php echo $blog['title'] ?>
+                            </h4>
+                            <p class="mb-4">
+                                <?php echo $blog['description'] ?>
+                            </p>
+                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
+                                href="<?php echo base_url('web/Activity/blog?blog_id=' . $blog['uid']) ?>">Read More</a>
                         </div>
                     </div>
-                    <div class="text-dark border p-4 ">
-                        <h4 class="mb-4"><?php echo $blog['title']?></h4>
-                        <p class="mb-4"><?php echo $blog['description']?></p>
-                        <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="<?php echo base_url('web/Activity/blog?blog_id='.$blog['uid'])?>">Read More</a>
-                    </div>
                 </div>
-            </div>
-            <?php }?>
+            <?php } ?>
         </div>
     </div>
 </div>
@@ -625,61 +652,30 @@ if (!empty($mission_vision)) {
 <div class="container-fluid gallery py-5 my-5 px-0">
     <div class="text-center mx-auto pb-5" style="max-width: 800px;">
         <h5 class="text-uppercase text-primary">Our work</h5>
-        <h1 class="mb-4">gallery text</h1>
+        <h1 class="mb-4">gallery</h1>
     </div>
     <div class="row g-0">
 
-        <div class="col-6 col-md-6 col-lg-4">
-            <div class="gallery-item">
-                <img src="img/gallery-4.jpg" class="img-fluid w-100" alt="">
-                <div class="search-icon">
-                    <a href="img/gallery-4.jpg" data-lightbox="gallery-4" class="my-auto"><i
-                            class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i></a>
-                </div>
-                <div class="gallery-content">
-                    <div class="gallery-inner pb-5">
-                        <a class="h4 text-white">Beauty Of Life</a>
-                        <a class="text-white">
-                            <p class="mb-0">Gallery Name</p>
-                        </a>
+        <?php
+        if (!empty($gallery_img)) {
+            foreach ($gallery_img as $img) {
+                ?>
+
+                <div class="col-sm-12 col-md-6 col-lg-4">
+                    <div class="gallery-item">
+                        <img src="<?= base_url($img) ?>" class="img-fluid w-100" alt=""
+                            style="height: 450px; background-size: cover; background-position: center;">
+                        <div class="search-icon">
+                            <a href="<?= base_url($img) ?>" data-lightbox="gallery-4" class="my-auto"><i
+                                    class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </div>
-        <div class="col-6 col-md-6 col-lg-4">
-            <div class="gallery-item">
-                <img src="img/gallery-4.jpg" class="img-fluid w-100" alt="">
-                <div class="search-icon">
-                    <a href="img/gallery-4.jpg" data-lightbox="gallery-4" class="my-auto"><i
-                            class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i></a>
-                </div>
-                <div class="gallery-content">
-                    <div class="gallery-inner pb-5">
-                        <a class="h4 text-white">Beauty Of Life</a>
-                        <a class="text-white">
-                            <p class="mb-0">Gallery Name</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-6 col-md-6 col-lg-4">
-            <div class="gallery-item">
-                <img src="img/gallery-4.jpg" class="img-fluid w-100" alt="">
-                <div class="search-icon">
-                    <a href="img/gallery-4.jpg" data-lightbox="gallery-4" class="my-auto"><i
-                            class="fas fa-search-plus btn-hover-color bg-white text-primary p-3"></i></a>
-                </div>
-                <div class="gallery-content">
-                    <div class="gallery-inner pb-5">
-                        <a class="h4 text-white">Beauty Of Life</a>
-                        <a class="text-white">
-                            <p class="mb-0">Gallery Name</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
+
+                <?php
+            }
+        }
+        ?>
 
     </div>
 </div>
@@ -765,7 +761,7 @@ if (!empty($mission_vision)) {
         </p>
     </div>
     <div class="authimage">
-        <img src="<?php echo base_url($bottom_quote['quote_img']) ?>" alt="">
+        <img src="<?php echo base_url($bottom_quote['quote_img']) ?>" alt="" height="200">
     </div>
 </div>
 

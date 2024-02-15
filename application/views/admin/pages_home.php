@@ -136,7 +136,7 @@ if (!empty($mission_vision)) {
 
                             <form action="<?= base_url('admin/Pages/update_video') ?>" method="POST">
                                 <iframe id="ytplayer" type="text/html" height="200" src="<?= $home_videos['path'] ?>"
-                                    frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen></iframe>
+                                    frameborder="0" allow=" encrypted-media;" allowfullscreen></iframe>
 
                                 <div class="form-group">
                                     <label for="formGroupExampleInput2">video url</label>
@@ -158,7 +158,7 @@ if (!empty($mission_vision)) {
 
                             <form action="<?= base_url('admin/Pages/update_video') ?>" method="POST">
                                 <iframe id="ytplayer" type="text/html" height="200" src="<?= $home_videos['path'] ?>"
-                                    frameborder="0" allow="autoplay; encrypted-media;" allowfullscreen></iframe>
+                                    frameborder="0" allow="encrypted-media;" allowfullscreen></iframe>
 
                                 <div class="form-group">
                                     <label for="formGroupExampleInput2">video url</label>
