@@ -11,7 +11,7 @@
     <div class="video">
         <iframe id="ytplayer" type="text/html" width="720" height="405"
             src="<?php echo $project['project_page_video']?>"
-            frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen>
+            frameborder="0" allow="encrypted-media; loop" allowfullscreen>
         </iframe>
         <!-- https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA -->
     </div>

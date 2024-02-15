@@ -20,6 +20,7 @@ class Load extends Common {
         $data['data_page']['blogs'] = $this->Pages_model->get_all_blogs();
         $data['data_page']['causes'] = $this->Pages_model->get_causes();
         $data['data_page']['events'] = $this->Pages_model->get_event();
+        $data['data_page']['video'] = $this->Pages_model->get_all_videos();
 
         $this->load_page('web/index.php',$data);
     }

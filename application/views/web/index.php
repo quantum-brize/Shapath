@@ -25,6 +25,15 @@ if (!empty($mission_vision)) {
 
 
 
+$video_home = '';
+if (!empty($video)) {
+    foreach ($video as $val) {
+        if ($val['page'] == 'home') {
+            $video_home = $val['path'];
+        }
+    }
+}
+
 ?>
 
 <div class="navbar-end-gap"></div>
@@ -39,8 +48,8 @@ if (!empty($mission_vision)) {
     </div>
     <div class="video">
         <iframe id="ytplayer" type="text/html" width="720" height="405"
-            src="https://www.youtube.com/embed/ox3VFMNBXjA?autoplay=1&unmute=1&loop=1&playlist=ox3VFMNBXjA"
-            frameborder="0" allow="autoplay; encrypted-media; loop" allowfullscreen></iframe>
+            src="<?= $video_home ?>"
+            frameborder="0" allow="encrypted-media; loop" allowfullscreen></iframe>
     </div>
 </div>
 <!-- About Start -->
@@ -163,7 +172,7 @@ if (!empty($mission_vision)) {
                     <div class="service-item">
                         <img src="<?php echo base_url($service['img']) ?>" class="img-fluid w-100" alt="Image">
                         <div class="service-link">
-                            <a href="#" class="h4 mb-0">
+                            <a href="<?= base_url()?>" class="h4 mb-0">
                                 <?php echo $service['title'] ?>
                             </a>
                         </div>
@@ -461,10 +470,10 @@ if (!empty($mission_vision)) {
                             </div>
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar"
-                                    aria-valuenow="<?= ($cause['raised'] / $cause['goal']) * 100 ?>" aria-valuemin="0"
+                                    aria-valuenow="<?= (intval($cause['raised']) / intval($cause['goal'])) * 100 ?>" aria-valuemin="0"
                                     aria-valuemax="100">
                                     <span>
-                                        <?= ($cause['raised'] / $cause['goal']) * 100 ?>%
+                                        <?= (intval($cause['raised']) / intval($cause['goal'])) * 100 ?>%
                                     </span>
                                 </div>
                             </div>
@@ -594,7 +603,7 @@ if (!empty($mission_vision)) {
             <div class="col-lg-6 col-xl-3">
                 <div class="blog-item">
                     <div class="blog-img">
-                        <img src="<?php echo base_url($blog['img'])?>" class="img-fluid w-100" alt="">
+                        <img src="<?php echo base_url($blog['img'])?>" class="img-fluid w-100" height="" alt="" style="height: 200px; object-fit: cover;">
                         <div class="blog-info">
                             <span><i class="fa fa-clock"></i> <?php $dateTime = new DateTime($blog['created_at']); $dateOnly = $dateTime->format('d-m-Y'); echo $dateOnly?></span>
                             <div class="d-flex">
@@ -765,7 +774,7 @@ if (!empty($mission_vision)) {
         </p>
     </div>
     <div class="authimage">
-        <img src="<?php echo base_url($bottom_quote['quote_img']) ?>" alt="">
+        <img src="<?php echo base_url($bottom_quote['quote_img']) ?>" alt="" height="200">
     </div>
 </div>
 
