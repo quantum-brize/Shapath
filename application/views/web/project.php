@@ -11,8 +11,15 @@ if (!empty($quotes)) {
     }
 } 
 ?>
-
-<div class="logo-container">
+<a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="<?= base_url('donate/?id=' . $project['uid']) ?>" id="donate_btn" style="
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    z-index: 100;
+    transform: translateX(-50%);
+    padding: 10px 30px 10px 30px !important;
+">DONATE</a>
+<div class="logo-container"  style="margin-top: 100px; margin-bottom: -100px;">
     <img src="<?= base_url('assets/img/srishti.png') ?>" alt="Website Logo" />
 </div>
 
@@ -23,8 +30,7 @@ if (!empty($quotes)) {
             <?php echo $project['project_page_description'] ?>
         </p>
     </div><br>
-    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
-        href="<?= base_url('donate/?id=' . $project['uid']) ?>">Donate</a>
+  
     <div class="video">
         <iframe id="ytplayer" type="text/html" width="720" height="405"
             src="<?php echo $project['project_page_video'] ?>" frameborder="0" allow="encrypted-media; loop"
@@ -42,7 +48,7 @@ if (!empty($quotes)) {
     <div class="container py-5">
         <div class="row g-5">
             <div class="card mb-3">
-                <img src="<?php echo base_url($project['project_img'])?>" style="height:40%">
+                <img src="<?php echo base_url($project['project_img'])?>"  style="height: 400px;object-fit: cover;">
                 <div class="card-body">
                     <h3 class="card-title"><?php echo $project['project_title']?></h3>
                     <p class="card-text"><?php echo $project['project_page_description']?></p>
@@ -87,6 +93,7 @@ if (!empty($quotes)) {
         <p class="author-2">- <?php echo $bottom_quote['quote_by'] ?></p>
     </div>
     <div class="authimage">
-        <img src="img/rnt-author.png" alt="">
+        <img src="<?php echo base_url().$bottom_quote['quote_img'] ?>" alt="" >
     </div>
 </div>
+

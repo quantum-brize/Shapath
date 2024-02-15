@@ -60,7 +60,7 @@
             <?php foreach($volunteers as $volunteer){?>
             <div class="event-item">
                 <div class="donation-item">
-                    <img src="<?php echo base_url($volunteer['img'])?>" class="img-fluid w-100" alt="Image" style="height: 200px; object-fit: cover;">
+                    <img src="<?php echo base_url($volunteer['img'])?>" class="img-fluid w-100" alt="Image" style="height: 400px; object-fit: cover;">
                     <div class="donation-content d-flex flex-column">
                         <h5 class="text-uppercase text-primary" ><?php echo $volunteer['name']?></h5>
                         <p class="text-white mb-4"><?php echo $volunteer['volunteer_about']?></p>
