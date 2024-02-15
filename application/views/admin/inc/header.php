@@ -38,105 +38,72 @@
                 Content
             </div>
 
-            <!-- Nav Item - Pages Collapse Menu -->
-            <!-- <li class="nav-item">
-                <a class="nav-link <?= isset($sidebar['pages']) ? '' : 'collapsed' ?>" href="#" data-toggle="collapse"
-                    data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-                    <i class="fas fa-fw fa-book"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapseTwo" class="collapse <?= isset($sidebar['pages']) ? 'show' : '' ?>"
-                    aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item sidebar_item <?= isset($sidebar['home']) ? 'sidebar_active' : '' ?>"
-                            href="<?= base_url('/admin/pages/home') ?>">
-                            <i class="fas fa-fw fa-home mr-1"></i>
-                            Home
-                        </a>
-                        <a class="collapse-item sidebar_item <?= isset($sidebar['projects']) ? 'sidebar_active' : '' ?>"
-                            href="<?= base_url('/admin/pages/projects') ?>">
-                            <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
-                            Projects
-                        </a>
-                        <a class="collapse-item sidebar_item <?= isset($sidebar['donors']) ? 'sidebar_active' : '' ?>"
-                            href="<?= base_url('/admin/pages/donors') ?>">
-                            <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
-                            Donors
-                        </a>
-                        <a class="collapse-item sidebar_item <?= isset($sidebar['volunteers']) ? 'sidebar_active' : '' ?>"
-                            href="<?= base_url('/admin/pages/volunteers') ?>">
-                            <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
-                            Volunteers
-                        </a>
-                        <a class="collapse-item sidebar_item <?= isset($sidebar['our_team']) ? 'sidebar_active' : '' ?>"
-                            href="<?= base_url('/admin/pages/our/team') ?>">
-                            <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
-                            Our Team
-                        </a>
-                    </div>
-                </div>
-            </li> -->
 
             <li class="nav-item">
-                <a class="nav-link collapsed <?= isset($sidebar['home']) ? 'sidebar_active' : '' ?>"
+                <a class="nav-link collapsed"
                     href="<?= base_url('/admin/pages/home') ?>">
                     <i class="fas fa-fw fa-home mr-1"></i>
-                    Home
+                    <span> Home</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed <?= isset($sidebar['projects']) ? 'sidebar_active' : '' ?>"
+                <a class="nav-link collapsed"
                     href="<?= base_url('/admin/pages/projects') ?>">
-                    <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
-                    Projects
+                    <i class="fas fa-fw fa-project-diagram mr-1" ></i>
+                    <span>Projects</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed <?= isset($sidebar['donors']) ? 'sidebar_active' : '' ?>"
+                <a class="nav-link collapsed"
                     href="<?= base_url('/admin/pages/donors') ?>">
-                    <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
-                    Donors
+                    <i class="fas fa-user mr-1" ></i>
+                    <span>Donors</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed <?= isset($sidebar['volunteers']) ? 'sidebar_active' : '' ?>"
+                <a class="nav-link collapsed"
                     href="<?= base_url('/admin/pages/volunteers') ?>">
-                    <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
-                    Volunteers
+                    <i class="fas fa-user mr-1" ></i>
+                    <span>Volunteers</span>
                 </a>
             </li>
             <li class="nav-item">
-                <a class="nav-link collapsed <?= isset($sidebar['our_team']) ? 'sidebar_active' : '' ?>"
+                <a class="nav-link collapsed"
                     href="<?= base_url('/admin/pages/our/team') ?>">
-                    <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
-                    Our Team
+                    <i class="fas fa-users mr-1" ></i>
+                    <span>Our Team</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?= base_url('admin/gallery') ?>">
-                    <i class="fas fa-image"></i>
+                    <i class="fas fa-image mr-1"></i>
                     <span>Gallery</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?= base_url('admin/causes') ?>">
-                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star mr-1"></i>
                     <span>Causes</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?= base_url('admin/blog')?>">
-                    <i class="fas fa-star"></i>
+                    <i class="fas fa-book mr-1"></i>
                     <span>Blog</span>
                 </a>
             </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?= base_url('admin/events') ?>">
-                    <i class="fas fa-calendar"></i>
+                    <i class="fas fa-calendar mr-1"></i>
                     <span>Events</span>
                 </a>
             </li>
-          
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="<?= base_url('admin/messages') ?>">
+                    <i class="fas fa-comment mr-1"></i>
+                    <span>messages</span>
+                </a>
+            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

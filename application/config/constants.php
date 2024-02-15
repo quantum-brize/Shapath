@@ -73,7 +73,7 @@ define('TABLE_BLOG','blog');
 define('TABLE_CAUSES', 'causes');
 define('TABLE_EVENTS', 'events');
 define('TABLE_DONATIONS', 'donations');
-
+define('TABLE_USER_MESSAGE','user_message');
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');
@@ -103,7 +103,8 @@ define('UID_VOLUNTEER', 'VOL');
 define('UID_OUR_TEAM', 'OUT');
 define('UID_BLOG', 'BLG');
 define('UID_EVENTS', 'EVN');
-define('UID_DONATION', 'DON');
+define('UID_DONATION', 'DNT');
+define('UID_USER_MESSAGE', 'UMSG');
 
 
 //////////////////////////////////////////__UID

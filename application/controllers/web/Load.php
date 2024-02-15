@@ -31,7 +31,7 @@ class Load extends Common {
         $data['data_header']['contact'] = true;
         $this->load_page('web/contact.php',$data);
     }
-
+    
     public function donation(){
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;

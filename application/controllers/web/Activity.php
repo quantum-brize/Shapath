@@ -38,6 +38,15 @@ class Activity extends Load
         $this->load_page('web/blog.php', $data);
     }
 
+    public function save_user_msg(){
+        $data = $this->input->post();
+        $data['uid'] = $this->generate_uid(UID_USER_MESSAGE);
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->add_user_msg($data);
+        redirect('contact-us');
+
+    }
+
 }
 
 

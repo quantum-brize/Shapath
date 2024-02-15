@@ -459,4 +459,21 @@ class Pages_model extends Admin_model
         return $event;
     }
 
+
+    public function add_user_msg($data){
+        $data  = $this->db->insert(TABLE_USER_MESSAGE,$data);
+        return $data;
+    }
+
+
+    public function get_all_message(){
+        $message = $this->db->select('*')
+                            ->from(TABLE_USER_MESSAGE)
+                            ->get()
+                            ->result_array();
+        return !empty($message) ? $message: [];
+
+    }
+
+
 }

@@ -61,6 +61,19 @@ class Pages extends Admin
 
     }
 
+    public function message(){
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = [];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Projects';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['messsage'] = true;
+        $data['data_page']['messages'] = $this->Pages_model->get_all_message();
+
+        $this->is_auth('admin/pages_messsage.php', $data);
+    }
+
     public function projects_add()
     {
         $this->init_model(MODEL_PAGES);

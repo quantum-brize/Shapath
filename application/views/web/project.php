@@ -18,7 +18,7 @@ if (!empty($quotes)) {
 
 <div class="quote-video-wrapper">
     <div class="quote">
-        <h1>text</h1>
+        <h1>Events</h1>
         <p>
             <?php echo $project['project_page_description'] ?>
         </p>
@@ -34,52 +34,6 @@ if (!empty($quotes)) {
 </div>
 
 
-
-<!-- Events Start -->
-<!-- <div class="container-fluid event py-5">
-    <div class="container py-5">
-        <div class="text-center mx-auto mb-5" style="max-width: 800px;">
-            <h5 class="text-uppercase text-primary">Text</h5>
-            <h1 class="mb-0">text</h1>
-        </div>
-        <div class="event-carousel owl-carousel">
-            <?php
-
-            if (!empty($events)) {
-                foreach ($events as $event) {
-                    ?>
-                    <div class="event-item">
-                        <img src="<?= base_url() . $event['img'] ?>" class="img-fluid w-100" alt="Image"
-                            style="height: 250px;object-fit: cover;">
-                        <div class="event-content p-4">
-                            <div class="d-flex justify-content-between mb-4">
-                                <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>
-                                    <?= $event['place'] ?>
-                                </span>
-                                <span class="text-body"><i class="fas fa-calendar-alt me-2"></i>
-                                    <?= $event['date'] ?>
-                                </span>
-                            </div>
-                            <h4 class="mb-4">
-                                <?= $event['title'] ?>
-                            </h4>
-                            <p class="mb-4">
-                                <?= $event['details'] ?>
-                            </p>
-                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
-                        </div>
-                    </div>
-
-
-                    <?php
-                }
-            }
-
-            ?>
-        </div>
-    </div>
-</div> -->
-<!-- Events End -->
 <!-- About Start -->
 <div class="text-center mx-auto pb-5 mt-4" style="max-width: 800px;">
     <h1 class="mb-0"><?php echo $project['project_page_title']?></h1>
