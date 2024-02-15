@@ -582,7 +582,6 @@ $gallery_img = explode(",", $gallery_img['images']);
                             <p class="mb-4">
                                 <?= $event['details'] ?>
                             </p>
-                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Read More</a>
                         </div>
                     </div>
 
@@ -619,10 +618,6 @@ $gallery_img = explode(",", $gallery_img['images']);
                                     $dateOnly = $dateTime->format('d-m-Y');
                                     echo $dateOnly ?>
                                 </span>
-                                <div class="d-flex">
-                                    <span class="me-3"> 3 <i class="fa fa-heart"></i></span>
-                                    <a href="#" class="text-white">0 <i class="fa fa-comment"></i></a>
-                                </div>
                             </div>
                             <div class="search-icon">
                                 <a href="<?php echo base_url($blog['img']) ?>" data-lightbox="Blog-1" class="my-auto"><i
