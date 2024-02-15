@@ -16,6 +16,7 @@ class Projects extends Load {
         $data = PAGE_DATA_WEB;
         $data['data_header']['header_link'] = ['projects.css'];
         $data['data_page']['project'] = $this->Pages_model->get_projects_by_id($id);
+        $data['data_page']['events'] = $this->Pages_model->get_event();
 
         $this->load_page('web/project.php',$data);
     }
