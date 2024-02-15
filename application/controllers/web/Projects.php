@@ -15,6 +15,8 @@ class Projects extends Load {
         $id = $this->input->get('id');
         $data = PAGE_DATA_WEB;
         $data['data_header']['header_link'] = ['projects.css'];
+        $data['data_header']['project'] = true;
+        $data['data_page']['quotes'] = $this->Pages_model->get_all_quotes();
         $data['data_page']['project'] = $this->Pages_model->get_projects_by_id($id);
 
         $this->load_page('web/project.php',$data);

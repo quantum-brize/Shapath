@@ -20,6 +20,7 @@ class About extends Load
     {
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
+        $data['data_header']['about'] = true;
         $data['data_page']['our_team_board_of_trustees'] = $this->Pages_model->get_all_our_team_board_of_trustees();
         $data['data_page']['our_team_trustees'] = $this->Pages_model->get_all_our_team__trustees();
 
@@ -30,6 +31,7 @@ class About extends Load
     {
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
+        $data['data_header']['about'] = true;
         $data['data_page']['about'] = $this->Pages_model->get_about_web();
         $data['data_page']['mission_vision'] = $this->Pages_model->get_mission_vision();
         $data['data_page']['quotes'] = $this->Pages_model->get_all_quotes();
@@ -40,7 +42,17 @@ class About extends Load
     public function faq()
     {
         $data = PAGE_DATA_WEB;
+        $data['data_header']['about'] = true;
         $this->load_page('web/faq.php', $data);
+    }
+
+    public function annual_report()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_WEB;
+        $data['data_header']['about'] = true;
+        $data['data_page']['quotes'] = $this->Pages_model->get_all_quotes();
+        $this->load_page('web/annual_report.php', $data);
     }
 
     public function gallery()

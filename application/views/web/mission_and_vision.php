@@ -128,15 +128,6 @@ if (!empty($mission_vision)) {
 </div>
 <!-- About End -->
 
-<div class="text-center mx-auto pb-5" style="max-width: 800px;">
-    <h1 class="mb-0">Annual Report</h1>
-</div>
-<!-- PDF Viewer Start -->
-<div class="pdf-viewer-container">
-    <iframe src="<?=base_url('assets/img/shapath-annual-report-2022-2023-FINAL-1.pdf')?>" frameborder="0"></iframe>
-</div>
-<!-- PDF Viewer End -->
-
 <!-- Volunteers Start -->
 <div class="container-fluid volunteer py-5 mt-5">
     <div class="container py-5">

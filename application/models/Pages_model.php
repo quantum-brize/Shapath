@@ -362,6 +362,13 @@ class Pages_model extends Admin_model
         $blog = $blog->row_array();
         return !empty($blog) ? $blog : [];
     }
+
+    public function update_blog($blog_id, $update_data)
+    {
+        $update = $this->db->where('uid', $blog_id)
+            ->update(TABLE_BLOG, $update_data);
+        return $update;
+    }
   
     public function add_causes($data)
     {

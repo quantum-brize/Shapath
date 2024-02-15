@@ -39,7 +39,7 @@
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item">
+            <!-- <li class="nav-item">
                 <a class="nav-link <?= isset($sidebar['pages']) ? '' : 'collapsed' ?>" href="#" data-toggle="collapse"
                     data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-book"></i>
@@ -75,8 +75,43 @@
                         </a>
                     </div>
                 </div>
-            </li>
+            </li> -->
 
+            <li class="nav-item">
+                <a class="nav-link collapsed <?= isset($sidebar['home']) ? 'sidebar_active' : '' ?>"
+                    href="<?= base_url('/admin/pages/home') ?>">
+                    <i class="fas fa-fw fa-home mr-1"></i>
+                    Home
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed <?= isset($sidebar['projects']) ? 'sidebar_active' : '' ?>"
+                    href="<?= base_url('/admin/pages/projects') ?>">
+                    <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
+                    Projects
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed <?= isset($sidebar['donors']) ? 'sidebar_active' : '' ?>"
+                    href="<?= base_url('/admin/pages/donors') ?>">
+                    <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
+                    Donors
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed <?= isset($sidebar['volunteers']) ? 'sidebar_active' : '' ?>"
+                    href="<?= base_url('/admin/pages/volunteers') ?>">
+                    <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
+                    Volunteers
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link collapsed <?= isset($sidebar['our_team']) ? 'sidebar_active' : '' ?>"
+                    href="<?= base_url('/admin/pages/our/team') ?>">
+                    <i class="fas fa-fw fa-project-diagram mr-1" style="font-size:10px;"></i>
+                    Our Team
+                </a>
+            </li>
             <li class="nav-item">
                 <a class="nav-link collapsed" href="<?= base_url('admin/gallery') ?>">
                     <i class="fas fa-image"></i>
