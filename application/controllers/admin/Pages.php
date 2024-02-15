@@ -25,7 +25,7 @@ class Pages extends Admin
         }
     }
 
-
+    /**HOME*/
     public function home()
     {
         $this->init_model(MODEL_PAGES);
@@ -44,6 +44,8 @@ class Pages extends Admin
         $this->is_auth('admin/pages_home.php', $data);
 
     }
+
+    /**PROJECTS*/
     public function projects()
     {
         $this->init_model(MODEL_PAGES);
@@ -90,104 +92,6 @@ class Pages extends Admin
         $this->is_auth('admin/pages_projetcs_update.php', $data);
     }
 
-    public function donors()
-    {
-        $this->init_model(MODEL_PAGES);
-        $data = PAGE_DATA_ADMIN;
-        $data['data_footer']['footer_link'] = ['donor_js.php'];
-        $data['data_header']['header_link'] = [];
-        $data['data_header']['title'] = 'Admin | Donors';
-        $data['data_header']['sidebar']['pages'] = true;
-        $data['data_header']['sidebar']['donors'] = true;
-        $data['data_page']['donors'] = $this->Pages_model->get_all_donors();
-
-        $this->is_auth('admin/pages_donors.php', $data);
-
-    }
-
-    public function donors_add()
-    {
-        $this->init_model(MODEL_PAGES);
-        $data = PAGE_DATA_ADMIN;
-        $data['data_footer']['footer_link'] = ['donor_js.php'];
-        $data['data_header']['header_link'] = [];
-        $data['data_header']['title'] = 'Admin | Donors';
-        $data['data_header']['sidebar']['pages'] = true;
-        $data['data_header']['sidebar']['donors'] = true;
-        $this->is_auth('admin/pages_donors_add.php', $data);
-
-    }
-
-    public function volunteers()
-    {
-        $this->init_model(MODEL_PAGES);
-        $data = PAGE_DATA_ADMIN;
-        $data['data_footer']['footer_link'] = ['volunteer_js.php'];
-        $data['data_header']['header_link'] = [];
-        $data['data_header']['title'] = 'Admin | Volunteers';
-        $data['data_header']['sidebar']['pages'] = true;
-        $data['data_header']['sidebar']['volunteers'] = true;
-        $data['data_page']['volunteers'] = $this->Pages_model->get_all_volunteers();
-
-        $this->is_auth('admin/pages_volunteers.php', $data);
-
-    }
-
-    public function volunteers_add()
-    {
-        $this->init_model(MODEL_PAGES);
-        $data = PAGE_DATA_ADMIN;
-        $data['data_footer']['footer_link'] = ['volunteer_js.php'];
-        $data['data_header']['header_link'] = [];
-        $data['data_header']['title'] = 'Admin | Volunteers';
-        $data['data_header']['sidebar']['pages'] = true;
-        $data['data_header']['sidebar']['Volunteers'] = true;
-        $this->is_auth('admin/pages_volunteers_add.php', $data);
-
-    }
-
-
-    public function update_about()
-    {
-        $about_title = $this->input->post('about_title');
-        $about = $this->input->post('about');
-        $mission_title = $this->input->post('mission_title');
-        $mission = $this->input->post('mission');
-        $vision_title = $this->input->post('vision_title');
-        $vision = $this->input->post('vision');
-        $about_id = $this->input->post('about_id');
-        $mission_id = $this->input->post('mission_id');
-        $vision_id = $this->input->post('vision_id');
-
-        $this->init_model(MODEL_PAGES);
-
-        if (empty($_FILES['about_img']['name'][0])) {
-            $this->Pages_model->update_about_misson_vision($about_title, $about, $mission_title, $mission, $vision_title, $vision, $about_id, $mission_id, $vision_id, '');
-        } else {
-            $upload_data = $this->upload_files('./uploads/about_img/', 'about_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
-            $this->Pages_model->update_about_misson_vision($about_title, $about, $mission_title, $mission, $vision_title, $vision, $about_id, $mission_id, $vision_id, '/uploads/about_img/' . $upload_data['file_name']);
-        }
-        redirect('/admin/pages/home');
-
-    }
-
-
-    public function update_quotes()
-    {
-        $uid = $this->input->post('uid');
-        $quote = $this->input->post('quote');
-        $quote_author = $this->input->post('quote_author');
-
-        $this->init_model(MODEL_PAGES);
-
-        if (empty($_FILES['quote_img']['name'][0])) {
-            $this->Pages_model->update_quotes($uid, $quote, $quote_author, '');
-        } else {
-            $upload_data = $this->upload_files('./uploads/quotes_img/', 'quote_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
-            $this->Pages_model->update_quotes($uid, $quote, $quote_author, '/uploads/quotes_img/' . $upload_data['file_name']);
-        }
-        redirect('/admin/pages/home');
-    }
     public function add_new_project()
     {
         $project_title = $this->input->post('project_title');
@@ -285,42 +189,34 @@ class Pages extends Admin
         redirect('admin/pages/projects');
     }
 
-    public function update_video()
+    /**DONORS*/
+    public function donors()
     {
-        $uid = $this->input->post('uid');
-        $url = $this->input->post('url');
-
-        if (!empty($uid) && !empty($url)) {
-            $this->init_model(MODEL_PAGES);
-            $this->Pages_model->update_video($uid, $url);
-        }
-        redirect('/admin/pages/home');
-
-    }
-
-    public function add_work()
-    {
-        $work_title = $this->input->post('work_title');
-        $description = $this->input->post('description');
-
-        if (!empty($_FILES['work_img']['name'][0])) {
-            $this->init_model(MODEL_PAGES);
-            $upload_data = $this->upload_files('./uploads/work_img/', 'work_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
-            $this->Pages_model->add_work($work_title, $description, '/uploads/work_img/' . $upload_data['file_name']);
-        }
-        redirect('/admin/pages/home');
-
-    }
-
-
-    public function delete_service()
-    {
-        $uid = $this->input->get('uid');
         $this->init_model(MODEL_PAGES);
-        $this->Pages_model->delete_service($uid);
-        redirect('/admin/pages/home');
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['donor_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Donors';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['donors'] = true;
+        $data['data_page']['donors'] = $this->Pages_model->get_all_donors();
+
+        $this->is_auth('admin/pages_donors.php', $data);
+
     }
 
+    public function donors_add()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['donor_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Donors';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['donors'] = true;
+        $this->is_auth('admin/pages_donors_add.php', $data);
+
+    }
     public function add_new_donor()
     {
         $this->init_model(MODEL_PAGES);
@@ -353,6 +249,35 @@ class Pages extends Admin
         $donor_id = $this->input->get('donor_id');
         $this->Pages_model->delete_donor($donor_id);
         redirect('admin/pages/donors');
+    }
+
+    /**VOLUNTEERS*/
+    public function volunteers()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['volunteer_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Volunteers';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['volunteers'] = true;
+        $data['data_page']['volunteers'] = $this->Pages_model->get_all_volunteers();
+
+        $this->is_auth('admin/pages_volunteers.php', $data);
+
+    }
+
+    public function volunteers_add()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['volunteer_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Volunteers';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['Volunteers'] = true;
+        $this->is_auth('admin/pages_volunteers_add.php', $data);
+
     }
 
     public function add_new_volunteer()
@@ -388,7 +313,87 @@ class Pages extends Admin
         redirect('admin/pages/volunteers');
     }
 
+    /**ABOUT*/
+    public function update_about()
+    {
+        $about_title = $this->input->post('about_title');
+        $about = $this->input->post('about');
+        $mission_title = $this->input->post('mission_title');
+        $mission = $this->input->post('mission');
+        $vision_title = $this->input->post('vision_title');
+        $vision = $this->input->post('vision');
+        $about_id = $this->input->post('about_id');
+        $mission_id = $this->input->post('mission_id');
+        $vision_id = $this->input->post('vision_id');
 
+        $this->init_model(MODEL_PAGES);
+
+        if (empty($_FILES['about_img']['name'][0])) {
+            $this->Pages_model->update_about_misson_vision($about_title, $about, $mission_title, $mission, $vision_title, $vision, $about_id, $mission_id, $vision_id, '');
+        } else {
+            $upload_data = $this->upload_files('./uploads/about_img/', 'about_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $this->Pages_model->update_about_misson_vision($about_title, $about, $mission_title, $mission, $vision_title, $vision, $about_id, $mission_id, $vision_id, '/uploads/about_img/' . $upload_data['file_name']);
+        }
+        redirect('/admin/pages/home');
+
+    }
+
+    /**QUOTE*/
+    public function update_quotes()
+    {
+        $uid = $this->input->post('uid');
+        $quote = $this->input->post('quote');
+        $quote_author = $this->input->post('quote_author');
+
+        $this->init_model(MODEL_PAGES);
+
+        if (empty($_FILES['quote_img']['name'][0])) {
+            $this->Pages_model->update_quotes($uid, $quote, $quote_author, '');
+        } else {
+            $upload_data = $this->upload_files('./uploads/quotes_img/', 'quote_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $this->Pages_model->update_quotes($uid, $quote, $quote_author, '/uploads/quotes_img/' . $upload_data['file_name']);
+        }
+        redirect('/admin/pages/home');
+    }
+    
+    /**VIDEO*/
+    public function update_video()
+    {
+        $uid = $this->input->post('uid');
+        $url = $this->input->post('url');
+
+        if (!empty($uid) && !empty($url)) {
+            $this->init_model(MODEL_PAGES);
+            $this->Pages_model->update_video($uid, $url);
+        }
+        redirect('/admin/pages/home');
+
+    }
+
+    /**SERVICES*/
+    public function delete_service()
+    {
+        $uid = $this->input->get('uid');
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->delete_service($uid);
+        redirect('/admin/pages/home');
+    }
+
+    public function add_work()
+    {
+        $work_title = $this->input->post('work_title');
+        $description = $this->input->post('description');
+
+        if (!empty($_FILES['work_img']['name'][0])) {
+            $this->init_model(MODEL_PAGES);
+            $upload_data = $this->upload_files('./uploads/work_img/', 'work_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $this->Pages_model->add_work($work_title, $description, '/uploads/work_img/' . $upload_data['file_name']);
+        }
+        redirect('/admin/pages/home');
+
+    }
+
+    /**OUR TEAM*/
     public function our_team()
     {
         $this->init_model(MODEL_PAGES);
@@ -454,6 +459,7 @@ class Pages extends Admin
         redirect('admin/pages/our/team');
     }
 
+    /**BLOGS*/
     public function blog_add()
     {
         $this->init_model(MODEL_PAGES);

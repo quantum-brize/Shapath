@@ -72,6 +72,7 @@ define('TABLE_GALLERY','gallery_img');
 define('TABLE_BLOG','blog');
 define('TABLE_CAUSES', 'causes');
 define('TABLE_EVENTS', 'events');
+define('TABLE_DONATIONS', 'donations');
 
 
 ////////////////////////////////////////////__SESSION_VARS
@@ -102,6 +103,7 @@ define('UID_VOLUNTEER', 'VOL');
 define('UID_OUR_TEAM', 'OUT');
 define('UID_BLOG', 'BLG');
 define('UID_EVENTS', 'EVN');
+define('UID_DONATION', 'DONATE');
 
 
 //////////////////////////////////////////__UID
