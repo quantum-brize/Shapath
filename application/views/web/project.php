@@ -103,7 +103,7 @@ if (!empty($quotes)) {
 <!-- Gallery Start -->
 <div class="container-fluid gallery py-5 my-5 px-0">
     <div class="text-center mx-auto pb-5" style="max-width: 800px;">
-        <h1 class="mb-4">poject gallery</h1>
+        <h1 class="mb-4">project gallery</h1>
     </div>
     <div class="row g-0">
 
