@@ -19,7 +19,7 @@
                 <img src="<?php echo base_url($blog['img']) ?>" style="height:80%">
                 <div class="card-body">
                     <h3 class="card-title"><?php echo $blog['title']?></h3>
-                    <p class="card-text"><?php echo $blog['description']?></p>
+                    <p class="card-text" style="text-align: justify; margin: 40px 0px 40px 0px;"><?php echo $blog['description']?></p>
                     <span><i class="fa fa-clock"></i> <?php $dateTime = new DateTime($blog['created_at']); $dateOnly = $dateTime->format('d-m-Y'); echo $dateOnly?></span>
                 </div>
             </div>

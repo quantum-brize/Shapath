@@ -35,3 +35,9 @@
     </div>
 </div>
 <!-- Donation End -->
+<style>
+    .owl-next ,.owl-prev{
+        display: none !important;
+    }
+    
+</style>

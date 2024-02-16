@@ -76,8 +76,7 @@
                 foreach ($events as $event) {
                     ?>
                     <div class="event-item">
-                        <img src="<?= base_url() . $event['img'] ?>" class="img-fluid w-100" alt="Image"
-                            style="height: 250px;object-fit: cover;">
+                        <img src="<?= base_url() . $event['img'] ?>" class="img-fluid w-100" alt="Image" style="height: 250px;object-fit: cover;">
                         <div class="event-content p-4">
                             <div class="d-flex justify-content-between mb-4">
                                 <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>

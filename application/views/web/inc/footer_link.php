@@ -120,11 +120,7 @@ if (!empty($footer_link)) {
     }
 
 }
-;
-
-
 ?>
-
 </body>
 
 </html>

@@ -18,6 +18,8 @@ class Activity extends Load
     {
         $data = PAGE_DATA_WEB;
         $data['data_header']['event'] = true;
+        $this->init_model(MODEL_PAGES);
+        $data['data_page']['events'] = $this->Pages_model->get_event();
         $this->load_page('web/events.php', $data);
     }
     public function blogs()
