@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Feb 15, 2024 at 07:58 PM
--- Server version: 10.6.12-MariaDB-cll-lve
--- PHP Version: 7.2.34
+-- Host: 127.0.0.1
+-- Generation Time: Feb 16, 2024 at 02:46 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `u865002673_ecom`
+-- Database: `ngo_db`
 --
 
 -- --------------------------------------------------------
@@ -54,7 +54,7 @@ CREATE TABLE `blog` (
   `id` int(11) NOT NULL,
   `uid` varchar(255) NOT NULL,
   `title` varchar(255) NOT NULL,
-  `description` longtext NOT NULL,
+  `description` text DEFAULT NULL,
   `img` varchar(255) NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
@@ -65,7 +65,7 @@ CREATE TABLE `blog` (
 --
 
 INSERT INTO `blog` (`id`, `uid`, `title`, `description`, `img`, `created_at`, `updated_at`) VALUES
-(0, 'BLGD127B31620240215', 'Empowering Agriculture: How Solar Irrigation Transformed Pinjrat Village', 'Nestled amidst the verdant landscapes of Surat district, Pinjrat village stands as a testament to the transformative power of sustainable agriculture. Home to 86 families whose livelihoods depend on the land, this picturesque village is located next to a serene water stream. However, the idyllic setting belied the challenges faced by the farmers, who primarily relied on a costly and environmentally unfriendly diesel-powered irrigation system.\r\n<br>\r\n\r\nAccessing the diesel-powered system was a constant struggle for the farmers of Pinjrat. Often, they had to incur extra expenses and rely on external help to irrigate their fields. The daily ordeal of a 10 km journey to fetch water from the stream took its toll, leading to reduced crop yields and income for the villagers.\r\n\r\n<br>\r\nTo make ends meet, some farmers sought alternative employment opportunities, such as manual labor, further straining their finances. Eventually, the cost of operating the diesel motor pump became unsustainable, prompting the community to seek a more viable solution.\r\n\r\n<br>\r\nIn 2020, CARE India, in partnership with Shell India Pvt Ltd, launched a solar lift irrigation program after recognizing the challenges faced by the farmers during an annual meeting. An exposure visit to Dundhi village in the Kheda district provided the farmers of Pinjrat with firsthand experience of a successful solar lift irrigation system. Inspired by the economic and environmental benefits of the system, representatives from 96 homes formed the \'Sichai Samiti,\' a Solar User Group (SUG), committed to installing and maintaining the system. To ensure the success of this technical installation, farmers received assistance with administrative facilities and small loans.\r\n\r\n<br>\r\nThe impact of the solar lift irrigation system was transformative. Farmers using solar irrigation saved a staggering INR 4,14,525 by paying only INR 36,675 for three irrigations in one crop cycle, compared to the previous cost of INR 4,51,200. Moreover, the new system reduced travel time and ensured year-round vegetable cultivation, even during water-scarce seasons.\r\n\r\n<br>\r\nThe success of the solar lift irrigation program in Pinjrat is a shining example of sustainable agriculture. It not only empowered the farmers economically but also contributed to environmental conservation. The Secure and Resilient Livelihoods (SRL) programme, supported by Shell Energy Private Limited, aims to promote secure and resilient livelihoods for 5750 poor smallholder households. In Pinjrat, 94 farmers covering 94 acres experienced increased income through the solar lift irrigation system, demonstrating the transformative impact of sustainable and innovative solutions in agriculture.\r\n<br>\r\n\r\nThe story of Pinjrat village serves as a beacon of hope, showcasing how green and innovative solutions can empower farmers and transform agriculture, paving the way for a more sustainable future.', '/uploads/blog_img/4147c23bd6d8dd384ebe3120c5f99ea7.jpg', '2024-02-15 16:26:33', '2024-02-15 16:26:33');
+(0, 'BLGD127B31620240215', 'Empowering Agriculture: How Solar Irrigation Transformed Pinjrat Village', 'Nestled amidst the verdant landscapes of Surat district, Pinjrat village stands as a testament to the transformative power of sustainable agriculture. Home to 86 families whose livelihoods depend on the land, this picturesque village is located next to a serene water stream. However, the idyllic setting belied the \r\n\r\n\r\nchallenges faced by the farmers, who primarily relied on a costly and environmentally unfriendly diesel-powered irrigation system.\r\n\r\n\r\nAccessing the diesel-powered system was a constant struggle for the farmers of Pinjrat. Often, they had to incur extra expenses and rely on external help to irrigate their fields. The daily ordeal of a 10 km journey to fetch water from the stream took its toll, leading to reduced crop yields and income for the villagers.\r\n\r\nTo make ends meet, some farmers sought alternative employment opportunities, such as manual labor, further straining their finances. Eventually, the cost of operating the diesel motor pump became unsustainable, prompting the community to seek a more viable solution.\r\n\r\n\r\nIn 2020, CARE India, in partnership with Shell India Pvt Ltd, launched a solar lift irrigation program after recognizing the challenges faced by the farmers during an annual meeting. An exposure visit to Dundhi village in the Kheda district provided the farmers of Pinjrat with firsthand experience of a successful solar lift irrigation system. Inspired by the economic and environmental benefits of the system, representatives from 96 homes formed the \'Sichai Samiti,\' a Solar User Group (SUG), committed to installing and maintaining the system. To ensure the success of this technical installation, farmers received assistance with administrative facilities and small loans.\r\n\r\n\r\nThe impact of the solar lift irrigation system was transformative. Farmers using solar irrigation saved a staggering INR 4,14,525 by paying only INR 36,675 for three irrigations in one crop cycle, compared to the previous cost of INR 4,51,200. Moreover, the new system reduced travel time and ensured year-round vegetable cultivation, even during water-scarce seasons.\r\n\r\n\r\nThe success of the solar lift irrigation program in Pinjrat is a shining example of sustainable agriculture. It not only empowered the farmers economically but also contributed to environmental conservation. The Secure and Resilient Livelihoods (SRL) programme, supported by Shell Energy Private Limited, aims to promote secure and resilient livelihoods for 5750 poor smallholder households. In Pinjrat, 94 farmers covering 94 acres experienced increased income through the solar lift irrigation system, demonstrating the transformative impact of sustainable and innovative solutions in agriculture.\r\n\r\n\r\n\r\nThe story of Pinjrat village serves as a beacon of hope, showcasing how green and innovative solutions can empower farmers and transform agriculture, paving the way for a more sustainable future.', '/uploads/blog_img/4147c23bd6d8dd384ebe3120c5f99ea7.jpg', '2024-02-15 16:26:33', '2024-02-15 16:26:33');
 
 -- --------------------------------------------------------
 
@@ -92,9 +92,8 @@ CREATE TABLE `causes` (
 INSERT INTO `causes` (`id`, `uid`, `title`, `details`, `img`, `goal`, `raised`, `created_at`, `updated_at`) VALUES
 (4, 'CUS51A422B320240215', 'Hope Canva', 'Unlocking Potential Through Art: Join Hope Canva\'s Mission to Empower Underprivileged Children and Blind Women Artisans. Your Support Makes a Difference!', '/uploads/cause_img/5d3fafceec7b8e42b725b9b06370d175.png', '1245', '489', '2024-02-15 13:05:30', '2024-02-15 13:05:30'),
 (7, 'CUS95BD877420240215', 'Saraswati Scholarship', 'The Saraswati Scholarship is a beacon of hope for blind women students facing financial challenges in their pursuit of higher education.', '/uploads/cause_img/316a3ef9dfb745113db150e479b03d3b.png', '10000', '8909', '2024-02-15 18:05:51', '2024-02-15 18:05:51'),
-(9, 'CUSD50972C820240215', 'Bastra Bondhu', 'Bastra-Bondhu is a compassionate initiative focused on empowering the homeless by allowing them to choose their own clothes with dignity.', '/uploads/cause_img/Picsart_23-10-20_19-20-48-636.jpg', '109233', '', '2024-02-15 18:08:17', '2024-02-15 18:08:17'),
-(10, 'CUS0D28CFAF20240215', 'Bastra Bondhu', 'Bastra-Bondhu is a compassionate initiative focused on empowering the homeless by allowing them to choose their own clothes with dignity.', '/uploads/cause_img/Picsart_23-10-20_19-20-48-636.jpg', '213422', '', '2024-02-15 18:08:55', '2024-02-15 18:08:55'),
-(11, 'CUS68AF32B320240216', 'cause 1.2', 'details', '/uploads/cause_img/Picsart_23-10-20_19-22-06-781.jpg', '10', '', '2024-02-15 18:32:41', '2024-02-15 18:32:41');
+(9, 'CUSD50972C820240215', 'Bastra Bondhu', 'Bastra-Bondhu is a compassionate initiative focused on empowering the homeless by allowing them to choose their own clothes with dignity.', '/uploads/cause_img/33fae35e2bcf6eccf8e3bfdcb8ec425a.png', '109233', '12375', '2024-02-15 18:08:17', '2024-02-15 18:08:17'),
+(10, 'CUS0D28CFAF20240215', 'Bastra Bondhu', 'Bastra-Bondhu is a compassionate initiative focused on empowering the homeless by allowing them to choose their own clothes with dignity.', '/uploads/cause_img/7aa843ebe048ea55ab63d7bfa324b14c.png', '213422', '145786', '2024-02-15 18:08:55', '2024-02-15 18:08:55');
 
 -- --------------------------------------------------------
 
@@ -123,16 +122,12 @@ CREATE TABLE `donations` (
 --
 
 INSERT INTO `donations` (`id`, `uid`, `name`, `email`, `address`, `pin`, `phone`, `pan`, `amount`, `payment_status`, `project_id`, `created_at`, `updated_at`) VALUES
-(2, 'DNTD6AC139320240215', 'Rohan ', 'skohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '100', 'pending', 'general-donation', '2024-02-15 17:50:54', '2024-02-15 17:50:54'),
-(3, 'DNTF674B53820240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 17:56:33', '2024-02-15 17:56:33'),
-(4, 'DNTE8792A6A20240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 17:58:14', '2024-02-15 17:58:14'),
-(5, 'DNTD1CFD55F20240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 17:58:23', '2024-02-15 17:58:23'),
-(6, 'DNTFC4163A120240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 17:59:14', '2024-02-15 17:59:14'),
-(7, 'DNTE7E9D59B20240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 18:01:02', '2024-02-15 18:01:02'),
-(8, 'DNT2B7C9BA020240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 18:02:55', '2024-02-15 18:02:55'),
-(9, 'DNT9D72747620240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 18:06:01', '2024-02-15 18:06:01'),
-(10, 'DNTEB7389AA20240215', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '121', '23423', 'pending', 'general-donation', '2024-02-15 18:18:39', '2024-02-15 18:18:39'),
-(11, 'DNT530ACC5A20240215', 'Rohan ', 'skohan0420@gmail.com', 'Shopiya beauty Parlour\r\nSurerpukur', '712136', '6290353314', '3422342', '34234', 'pending', 'general-donation', '2024-02-15 18:37:58', '2024-02-15 18:37:58');
+(13, 'DNT4A46CC7D20240216', 'Sk Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\nSurerpukur', '712136', '6290353314', '3422342', '8989', 'pending', 'general-donation', '2024-02-16 19:07:07', '2024-02-16 19:07:07'),
+(14, 'DNT3D57A07120240216', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\nSurerpukur', '712136', '6290353314', '121', '1234', 'pending', 'general-donation', '2024-02-16 19:09:17', '2024-02-16 19:09:17'),
+(15, 'DNT2242C54320240216', 'Sk Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\nSurerpukur', '712136', '6290353314', '12', '23', 'pending', 'general-donation', '2024-02-16 19:11:25', '2024-02-16 19:11:25'),
+(16, 'DNTD1059A1F20240216', 'Sk Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\nSurerpukur', '712136', '6290353314', '121', '8989', 'pending', 'general-donation', '2024-02-16 19:12:30', '2024-02-16 19:12:30'),
+(17, 'DNT7BEE94E020240216', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\nSurerpukur', '712136', '6290353314', '3422342', '435', 'pending', 'general-donation', '2024-02-16 19:13:25', '2024-02-16 19:13:25'),
+(18, 'DNT56235D3D20240216', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\nSurerpukur', '712136', '6290353314', '121', '45', 'pending', 'general-donation', '2024-02-16 19:14:32', '2024-02-16 19:14:32');
 
 -- --------------------------------------------------------
 
@@ -205,7 +200,15 @@ CREATE TABLE `gallery_img` (
 --
 
 INSERT INTO `gallery_img` (`id`, `uid`, `images`, `created_at`, `updated_at`) VALUES
-(1, 'GAL67890RTY78TY', '/uploads/galary_img/Picsart_23-10-20_19-22-29-504.jpg,/uploads/galary_img/Picsart_23-10-20_19-24-48-141.jpg,/uploads/galary_img/Picsart_23-10-20_19-25-10-300.jpg', '2024-02-12 11:36:00', '2024-02-12 16:06:14');
+(19, 'GAL04E2CEFF20240216', '/uploads/galary_img/8f9646dcb6e172c8a395555f1e00b736.jpg', '0000-00-00 00:00:00', '2024-02-16 15:37:13'),
+(20, 'GAL6FAF46AC20240216', '/uploads/galary_img/cd4c954d71bc610e1f950c4949415a7f.jpg', '0000-00-00 00:00:00', '2024-02-16 15:37:27'),
+(21, 'GAL0CB39FF320240216', '/uploads/galary_img/bc54e2cca9e7394d5c583f241518465f.jpg', '0000-00-00 00:00:00', '2024-02-16 15:37:36'),
+(22, 'GAL3A4FF18120240216', '/uploads/galary_img/76b2900115feb06ba24b59d79aee1ba1.jpg', '0000-00-00 00:00:00', '2024-02-16 15:37:45'),
+(23, 'GAL47C2E8E820240216', '/uploads/galary_img/62c3f19d596bd26e728c566a48179656.jpg', '0000-00-00 00:00:00', '2024-02-16 15:37:54'),
+(24, 'GAL0DDC972120240216', '/uploads/galary_img/81beb11dd8992d52e4436495974082c1.jpg', '0000-00-00 00:00:00', '2024-02-16 15:38:13'),
+(25, 'GAL698F72D920240216', '/uploads/galary_img/509c4ee2d66ba7a86b6b9a78cb305aab.jpg', '0000-00-00 00:00:00', '2024-02-16 15:38:28'),
+(26, 'GALD85CFA3A20240216', '/uploads/galary_img/358fece07bae3fec7e0756542d723e1a.jpg', '0000-00-00 00:00:00', '2024-02-16 15:38:38'),
+(27, 'GAL57B1865420240216', '/uploads/galary_img/77d5b5b864f7a4f23b1d4938e9583ab8.jpg', '0000-00-00 00:00:00', '2024-02-16 15:38:46');
 
 -- --------------------------------------------------------
 
@@ -286,7 +289,6 @@ CREATE TABLE `projects` (
   `project_page_description` longtext NOT NULL,
   `project_img` varchar(255) NOT NULL,
   `project_logo` varchar(255) NOT NULL,
-  `galary_img` longtext NOT NULL,
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -295,9 +297,33 @@ CREATE TABLE `projects` (
 -- Dumping data for table `projects`
 --
 
-INSERT INTO `projects` (`id`, `uid`, `project_title`, `project_cover_details`, `project_page_title`, `project_page_video`, `project_page_description`, `project_img`, `project_logo`, `galary_img`, `created_at`, `updated_at`) VALUES
-(4, 'PROD9B4CE5520240212', 'Sristi', 'Welcome to Sristi, where we empower blind women through our Dhup Kathi (sun-dried sticks) workshop. As they skillfully weave and craft with these natural materials, we provide daily wages for their financial support. Join us in creating a sustainable and inclusive future through the artistry of Sristi.', '453', 'erwwer', 'Shapath is a catalyst for sustainable impact in the area of nutrition, education, and skill building amongst the underprivileged considering the family as a unit and inclusions at the core. With a committed passion for		\r\n2	Abcd	Shapath is a catalyst for sustainable impact in the area of nutrition, education, and skill building amongst the underprivileged considering the family as a unit and inclusions at the core. With a committed passion for', '/uploads/project_img/Picsart_23-10-20_19-16-35-995.jpg', '/uploads/project_logo/b11500be141a412b2b373fb23d308aa6.jpg', '/uploads/project_galary_img/83d4c8ae7e1fef14871efa37d1591091.jpg,/uploads/project_galary_img/cd1bd65967ccc367076008d5c78e5606.jpg,/uploads/project_galary_img/50cc22d61cf3215887c385788e400bf2.jpg,/uploads/project_galary_img/2439e9de98a97f9c4a1e11d5430dc2bb.jpg,/uploads/project_galary_img/f2bab161a67384bb70dddf0235af33d5.jpg,/uploads/project_galary_img/d5ce32b669f76feba8838ef6ba86d5ce.png,/uploads/project_galary_img/babe79779ac8d84cadbdcb05d47f9fad.jpg,/uploads/project_galary_img/fa7bc272459dbb3de03bee9ee8450a16.jpg', '2024-02-12 12:08:06', '2024-02-12 12:08:06'),
-(5, 'PRO3C8AAF5C20240212', 'dfs', 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', 'rtaesr', 'rgedrg', 'rget5tgser', '/uploads/project_img/fb58a7a8f6cb50eacb9193c3159546c7.jpg', '/uploads/project_logo/2a546b2dd5ba8851ae337df56b5009c0.jpg', '/uploads/project_galary_img/9be9b324f8a7f9af2eacac9ee287a867.jpg,/uploads/project_galary_img/408698ba6b1c1d44a6c6fea86da9e9e1.jpg,/uploads/project_galary_img/526c7cb6eadafd8aeed78b53cd696629.jpg,/uploads/project_galary_img/a93fbd1e32cbb2a75d41a50443c404aa.jpg,/uploads/project_galary_img/a808cd8c8c7b15d2287fe200aa285c09.jpg,/uploads/project_galary_img/60e2e190d51d5c2830c01eaac830a4e0.png,/uploads/project_galary_img/05e325001f7f55d0f9fed3fcb03859cd.jpg,/uploads/project_galary_img/b709b325025e53188736f3185183976e.jpg,/uploads/project_galary_img/28b57b5fad38cea680a330d3d0928460.jpg,/uploads/project_galary_img/efcf0b143dd798c39f2afd05b0e84832.jpg,/uploads/project_galary_img/1d10bd95e0c07e86abbc1d0767dd79e8.png,/uploads/project_galary_img/535b77b28447e371db952eebd64d1e85.png', '2024-02-12 17:06:53', '2024-02-12 17:06:53');
+INSERT INTO `projects` (`id`, `uid`, `project_title`, `project_cover_details`, `project_page_title`, `project_page_video`, `project_page_description`, `project_img`, `project_logo`, `created_at`, `updated_at`) VALUES
+(15, 'PROCADBC14820240216', 'P_1', 'D_1', '', 'dfgsrgr', '', '/uploads/project_img/137a0f126c349fa280315cf6b3ac74c8.jpg', '/uploads/project_logo/4455f61279c6164cde610cb0bddd5d2b.png', '2024-02-16 17:39:12', '2024-02-16 17:39:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_images`
+--
+
+CREATE TABLE `project_images` (
+  `id` int(11) NOT NULL,
+  `uid` varchar(255) NOT NULL,
+  `p_id` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `project_images`
+--
+
+INSERT INTO `project_images` (`id`, `uid`, `p_id`, `image`, `created_at`, `updated_at`) VALUES
+(16, 'PRGF98D1C2D20240216', 'PROCADBC14820240216', '/uploads/project_galary_img/088889d127c858a24d84dc00cb20db74.jpg', '2024-02-16 17:39:11', '2024-02-16 17:39:11'),
+(17, 'PRGF931703020240216', 'PROCADBC14820240216', '/uploads/project_galary_img/78905a7223f53549fb1d4a39b7c4795f.jpg', '2024-02-16 17:39:11', '2024-02-16 17:39:11'),
+(18, 'PRG09C9EF3B20240216', 'PROCADBC14820240216', '/uploads/project_galary_img/b8c455b8f1a70a4bfb18c9f5dbd03941.jpg', '2024-02-16 17:39:11', '2024-02-16 17:39:11'),
+(19, 'PRGC895852A20240216', 'PROCADBC14820240216', '/uploads/project_galary_img/2e2c63ee908f9c0a1c13cd79ca19e15a.jpg', '2024-02-16 17:39:12', '2024-02-16 17:39:12');
 
 -- --------------------------------------------------------
 
@@ -518,6 +544,12 @@ ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `project_images`
+--
+ALTER TABLE `project_images`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `quotes`
 --
 ALTER TABLE `quotes`
@@ -579,7 +611,7 @@ ALTER TABLE `causes`
 -- AUTO_INCREMENT for table `donations`
 --
 ALTER TABLE `donations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
 
 --
 -- AUTO_INCREMENT for table `donors`
@@ -597,7 +629,7 @@ ALTER TABLE `events`
 -- AUTO_INCREMENT for table `gallery_img`
 --
 ALTER TABLE `gallery_img`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT for table `mission_vision`
@@ -615,7 +647,13 @@ ALTER TABLE `our_team`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `project_images`
+--
+ALTER TABLE `project_images`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `quotes`
