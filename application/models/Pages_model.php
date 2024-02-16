@@ -309,24 +309,28 @@ class Pages_model extends Admin_model
         return $delete;
     }
 
-    public function gallery_img_update($gallery_img_data)
+    public function gallery_img_add($gallery_img_data)
     {
-        // fixed table for gallery images
-        // GALLERY_UID fixed uid for all images
-        $update = $this->db->where('uid', GALLERY_UID)
-            ->update(TABLE_GALLERY, ['images' => $gallery_img_data]);
-        return $update;
+
+        $insert = $this->db->insert(TABLE_GALLERY, $gallery_img_data);
+        return $insert;
 
     }
 
     public function get_gallery_img()
     {
-        $images = $this->db->select('images')
+        $images = $this->db->select('*')
             ->from(TABLE_GALLERY)
-            ->where('uid', GALLERY_UID)
             ->get()
-            ->row_array();
+            ->result_array();
         return !empty($images) ? $images : [];
+    }
+
+    public function gallery_img_delete($uid)
+    {
+        $delete = $this->db->where('uid', $uid)
+            ->delete(TABLE_GALLERY);
+        return $delete;
     }
 
 
@@ -346,7 +350,8 @@ class Pages_model extends Admin_model
         return !empty($blogs) ? $blogs : [];
     }
 
-    public function delete_blog($blog_id){
+    public function delete_blog($blog_id)
+    {
         $delete = $this->db->where('uid', $blog_id)
             ->delete(TABLE_BLOG);
         return $delete;
@@ -357,7 +362,7 @@ class Pages_model extends Admin_model
         $blog = $this->db
             ->select('*')
             ->from(TABLE_BLOG)
-            ->where('uid',$blog_id)
+            ->where('uid', $blog_id)
             ->get();
         $blog = $blog->row_array();
         return !empty($blog) ? $blog : [];
@@ -369,7 +374,7 @@ class Pages_model extends Admin_model
             ->update(TABLE_BLOG, $update_data);
         return $update;
     }
-  
+
     public function add_causes($data)
     {
         $add = $this->db->insert(TABLE_CAUSES, $data);
@@ -447,7 +452,8 @@ class Pages_model extends Admin_model
 
     }
 
-    public function delete_event($uid){
+    public function delete_event($uid)
+    {
         $delete = $this->db->where('uid', $uid)
             ->delete(TABLE_EVENTS);
         return $delete;
@@ -460,23 +466,26 @@ class Pages_model extends Admin_model
     }
 
 
-    public function add_user_msg($data){
-        $data  = $this->db->insert(TABLE_USER_MESSAGE,$data);
+    public function add_user_msg($data)
+    {
+        $data = $this->db->insert(TABLE_USER_MESSAGE, $data);
         return $data;
     }
 
 
-    public function get_all_message(){
+    public function get_all_message()
+    {
         $message = $this->db->select('*')
-                            ->from(TABLE_USER_MESSAGE)
-                            ->get()
-                            ->result_array();
-        return !empty($message) ? $message: [];
+            ->from(TABLE_USER_MESSAGE)
+            ->get()
+            ->result_array();
+        return !empty($message) ? $message : [];
 
     }
 
-    public function save_webhook_text($data){
-        $data  = $this->db->insert('transaction',['text'=>$data]); 
+    public function save_webhook_text($data)
+    {
+        $data = $this->db->insert('transaction', ['text' => $data]);
         return $data;
 
     }

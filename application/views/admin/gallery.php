@@ -1,10 +1,21 @@
-<?php
-$gallery_img = explode(",", $gallery_img['images']);
-
-?>
-
 <div class="container-fluid">
-
+    <style>
+        .img_bx_con{
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 10px; 
+            flex-wrap: wrap;
+        }
+        .img_bx{
+            width: fit-content;
+            display: flex;
+            flex-direction: column;
+        }
+        .img_bx img{
+            height: 200px;
+        }
+    </style>
     <!-- Page Heading -->
     <div class="d-sm-flex align-items-center justify-content-between mb-4">
         <h1 class="h3 mb-0 text-gray-800">Gallery</h1>
@@ -24,35 +35,39 @@ $gallery_img = explode(",", $gallery_img['images']);
                 </div>
                 <!-- Card Body -->
                 <form class="card-body row" enctype="multipart/form-data"
-                    action="<?= base_url('admin/Admin/gallery_img_add')?>" method="POST">
-                    
+                    action="<?= base_url('admin/Admin/gallery_img_add') ?>" method="POST">
+
                     <div class="col-xl-12 col-lg-12 p-2" style="border: 1px solid lightgray">
                         <div class="col-xl-12 col-lg-12">
                             <div class="form-group">
                                 <h3 align="center">Galary Images</h3>
                             </div>
+                            <div class="form-group img_bx_con">
+
+                                <?php
+                                if (!empty($gallery_img)) {
+                                    foreach ($gallery_img as $key => $val) {
+                                        echo "<div class='img_bx'>";
+                                        echo "<img src='".base_url($val["images"])."' />";
+                                        echo "<a align='center' class='p-2 btn-danger btn_dl' href='".base_url('admin/Admin/delete_gal_img?gid=').$val['uid']."'>";
+                                        echo "<i class='fas fa-trash'></i>";
+                                        echo "</a>";
+                                        echo "</div>";
+                                    }
+                                }
+                                ?>
+
+                            </div>
                         </div>
                         <div class="col-xl-12 col-lg-12"
                             style="display: flex;align-items: center;justify-content: center;">
                             <div class="form-group">
-                                <label class="btn btn-info" for="image_uploads">Choose multiple images to upload</label>
-                                <input type="file" id="image_uploads" name="galary_img[]" multiple hidden />
+                                <label class="btn btn-info" for="image_uploads">Choose New Image to upload</label>
+                                <input type="file" id="image_uploads" name="galary_img" hidden />
                             </div>
                         </div>
                         <div class="col-xl-12 col-lg-12">
-                            <div class="preview">
-                                <?php
-                                if (!empty($gallery_img)) {
-                                    echo "<ol>";
-                                    foreach ($gallery_img as $key => $value) {
-                                        echo "<li>";
-                                        echo "<img src='" . base_url($value) . "' class='gal_img' />";
-                                        echo "</li>";
-                                    }
-                                    echo "</ol>";
-                                }
-                                ?>
-                            </div>
+                            <div class="preview" align="center"></div>
                         </div>
                     </div>
                     <div class="col-xl-12 col-lg-12 mt-4"

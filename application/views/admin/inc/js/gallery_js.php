@@ -62,4 +62,10 @@
 		}
 	}
 
+
+
+	function delete_gal_img(id){
+		console.log(id)
+	}
+
 </script>

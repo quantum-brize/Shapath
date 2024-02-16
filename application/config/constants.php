@@ -105,6 +105,7 @@ define('UID_BLOG', 'BLG');
 define('UID_EVENTS', 'EVN');
 define('UID_DONATION', 'DNT');
 define('UID_USER_MESSAGE', 'UMSG');
+define('UID_GALLERY', 'GAL');
 
 
 //////////////////////////////////////////__UID

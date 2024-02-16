@@ -70,7 +70,11 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                            <iframe class="w-100" style="height: 412px; margin-bottom: -6px;" src="https://www.google.com/maps/embed?center=88.43110577223666,22.44183386818904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s%22%22!2s122%20South%20Ghosh%20Para%2C%20Sonarpur%2C%20Kolkata%20-%20700150!5e0!3m2!1sen!2sbd!4v1694259649153&zoom=15" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe 
+                                class="w-100" 
+                                style="height: 412px; margin-bottom: -6px;" 
+                                src="https://www.google.com/maps"
+                                referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                             </div>
                         </div>
