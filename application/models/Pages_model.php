@@ -448,6 +448,15 @@ class Pages_model extends Admin_model
         return !empty($event) ? $event[0] : [];
     }
 
+    public function get_projects_galary_by_id($p_id){
+        $images = $this->db->select('*')
+                    ->from('project_images')
+                    ->where('p_id', $p_id)
+                    ->get()
+                    ->result_array();
+        return !empty($images) ? $images : [];
+    }
+
     public function update_event($uid, $data)
     {
         $update = $this->db->where('uid', $uid)

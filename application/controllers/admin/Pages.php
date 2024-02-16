@@ -100,8 +100,8 @@ class Pages extends Admin
         $data['data_header']['sidebar']['pages'] = true;
         $data['data_header']['sidebar']['projects'] = true;
         $data['data_page']['project'] = $this->Pages_model->get_projects_by_id($p_id);
-
-
+        $data['data_page']['galary_img'] = $this->Pages_model->get_projects_galary_by_id($p_id);
+        
         $this->is_auth('admin/pages_projetcs_update.php', $data);
     }
 
@@ -129,10 +129,8 @@ class Pages extends Admin
         $insert_data = [
             "uid" => $this->generate_uid(UID_PROJECT),
             "project_title" => $project_title,
-            "project_cover_details" => $project_cover_details,
-            "project_page_title" => $project_page_title,
+            "project_cover_details" => $project_cover_details,  
             "project_page_video" => $project_page_video,
-            "project_page_description" => $project_page_description,
             "project_img" => $project_img,
             "project_logo" => $project_logo,
         ];

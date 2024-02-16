@@ -20,32 +20,18 @@
                 <!-- Card Body -->
                 <form class="card-body row" enctype="multipart/form-data"
                     action="<?= base_url('admin/Pages/add_new_project') ?>" method="POST">
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="form-group">
-                            <label for="formGroupExampleInput2">Project name</label>
-                            <input type="text" class="form-control" name="project_title" value=""
-                                placeholder="Project name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">Project Cover Detils</label>
-                            <textarea rows="6" cols="30" class="form-control" value=""
-                                placeholder="Project Cover Detils" required name="project_cover_details"></textarea>
-                        </div>
+
+                    <div class="form-group col-12">
+                        <label for="formGroupExampleInput2">Project name</label>
+                        <input type="text" class="form-control" name="project_title" value="" placeholder="Project name"
+                            required>
                     </div>
-                    <div class="col-xl-3 col-lg-3">
-                        <div>
-                            <label for="formGroupExampleInput2">Cover image</label>
-                        </div>
-                        <div class='form-group' id="projectPrev">
-                            <img src="https://usercontent.one/wp/www.vocaleurope.eu/wp-content/uploads/no-image.jpg?media=1642546813"
-                                height="200" id="project_img" />
-                        </div>
-                        <div class="form-group">
-                            <input multiple type="file" class="form-control-file" placeholder="projects image"
-                                name="project_img[]" required />
-                        </div>
+                    <div class="form-group col-12">
+                        <label for="formGroupExampleInput">Project Detils</label>
+                        <textarea rows="6" cols="30" class="form-control" value="" placeholder="Project  Detils"
+                            required name="project_cover_details"></textarea>
                     </div>
-                    <div class="col-xl-3 col-lg-3">
+                    <div class="form-group col-12">
                         <div>
                             <label for="formGroupExampleInput2">Project Logo</label>
                         </div>
@@ -58,26 +44,29 @@
                                 name="project_logo[]" required />
                         </div>
                     </div>
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="form-group">
-                            <label for="formGroupExampleInput2">Project Page Title</label>
-                            <input type="text" class="form-control" name="project_page_title" value=""
-                                placeholder="Project Title" required>
+                    <div class="form-group col-12">
+                        <div>
+                            <label for="formGroupExampleInput2">Cover image</label>
+                        </div>
+                        <div class='form-group' id="projectPrev">
+                            <img src="https://usercontent.one/wp/www.vocaleurope.eu/wp-content/uploads/no-image.jpg?media=1642546813"
+                                height="200" id="project_img" />
                         </div>
                         <div class="form-group">
-                            <label for="formGroupExampleInput">Project Video Url</label>
-                            <input type="text" class="form-control" name="project_page_video" value=""
-                                placeholder="Project Video Url" required>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="form-group">
-                            <label for="formGroupExampleInput">Project Page Description</label>
-                            <textarea rows="5" cols="30" class="form-control" value=""
-                                placeholder="Project Page description" required
-                                name="project_page_description"></textarea>
+                            <input multiple type="file" class="form-control-file" placeholder="projects image"
+                                name="project_img[]" required />
                         </div>
                     </div>
+
+                    
+                    <div class="form-group col-12">
+                        <label for="formGroupExampleInput">Project Video Url</label>
+                        <input type="text" class="form-control" name="project_page_video" value=""
+                            placeholder="Project Video Url" required>
+                    </div>
+
+
+
                     <div class="col-xl-12 col-lg-12 p-2" style="border: 1px solid lightgray">
                         <div class="col-xl-12 col-lg-12">
                             <div class="form-group">

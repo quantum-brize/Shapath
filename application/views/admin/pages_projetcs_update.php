@@ -1,6 +1,6 @@
 <?php
     $p_id = $this->input->get('p_id');
-    $galary_img = explode(',',$project['galary_img'] );
+;
 ?>
 
 <!-- Begin Project Content -->
@@ -101,7 +101,7 @@
                                         echo "<ol>";
                                         foreach ($galary_img as $key => $value) {
                                             echo "<li>";
-                                            echo "<img src='".base_url($value)."' class='gal_img' />";
+                                            echo "<img src='".base_url($value['image'])."' class='gal_img' />";
                                             echo "</li>";
                                         }
                                         echo "</ol>";
