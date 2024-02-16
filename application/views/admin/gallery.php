@@ -63,7 +63,7 @@
                             style="display: flex;align-items: center;justify-content: center;">
                             <div class="form-group">
                                 <label class="btn btn-info" for="image_uploads">Choose New Image to upload</label>
-                                <input type="file" id="image_uploads" name="galary_img" hidden />
+                                <input type="file" id="image_uploads" name="galary_img[]" hidden />
                             </div>
                         </div>
                         <div class="col-xl-12 col-lg-12">

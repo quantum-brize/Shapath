@@ -90,18 +90,18 @@ class Common extends CI_Controller
 
 		//$this->prd($_FILES[$file_name]);
 
-		if ($this->isAssociativeArray($_FILES[$file_name])) {
-			$_FILES['userfile']['name'] 	= $_FILES[$file_name]['name'];
-			$_FILES['userfile']['type'] 	= $_FILES[$file_name]['type'];
-			$_FILES['userfile']['tmp_name'] = $_FILES[$file_name]['tmp_name'];
-			$_FILES['userfile']['error'] 	= $_FILES[$file_name]['error'];
-			$_FILES['userfile']['size'] 	= $_FILES[$file_name]['size'];
+		if (count($_FILES[$file_name]['name']) == 1) {
+			$_FILES['userfile']['name'] 	= $_FILES[$file_name]['name'][0];
+			$_FILES['userfile']['type'] 	= $_FILES[$file_name]['type'][0];
+			$_FILES['userfile']['tmp_name'] = $_FILES[$file_name]['tmp_name'][0];
+			$_FILES['userfile']['error'] 	= $_FILES[$file_name]['error'][0];
+			$_FILES['userfile']['size'] 	= $_FILES[$file_name]['size'][0];
 
 			$this->upload->initialize($config);
 			$this->upload->do_upload('userfile');
 
 			$data = $this->upload->data();
-
+			return $data;
 		} else {
 			foreach ($_FILES[$file_name]['name'] as $key => $value) {
 				$_FILES['userfile']['name'] 	= $_FILES[$file_name]['name'][$key];
@@ -115,9 +115,9 @@ class Common extends CI_Controller
 
 				$data[$key] = $this->upload->data();
 			}
+			return  $data;
 		}
 
-		return count($data) == 1 ? $data[0] : $data;
 	}
 
 	public function isAssociativeArray($array)

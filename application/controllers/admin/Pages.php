@@ -120,13 +120,9 @@ class Pages extends Admin
         $project_img = '/uploads/project_img/' . $project_img_data['file_name'];
         $project_logo = '/uploads/project_logo/' . $project_logo_data['file_name'];
 
-        $galary_img_arr = [];
-        if (!empty($galary_img_data)) {
-            foreach ($galary_img_data as $key => $val) {
-                $galary_img_arr[$key] = '/uploads/project_galary_img/' . $val['file_name'];
-            }
-            $galary_img = implode(',', $galary_img_arr);
-        }
+       
+
+      
 
 
         $this->init_model(MODEL_PAGES);
@@ -139,8 +135,27 @@ class Pages extends Admin
             "project_page_description" => $project_page_description,
             "project_img" => $project_img,
             "project_logo" => $project_logo,
-            "galary_img" => $galary_img
         ];
+
+        
+        if(isset($galary_img_data['file_name'])){
+            $galary_img_arr = [];
+                $galary_img_arr['uid'] = $this->generate_uid('PRG');
+                $galary_img_arr['p_id'] = $insert_data['uid'];
+                $galary_img_arr['image'] = '/uploads/project_galary_img/'.$galary_img_data['file_name'];
+                $this->Pages_model->add_project_images($galary_img_arr);
+
+        }else{
+            foreach($galary_img_data as $key => $val){
+                $galary_img_arr = [];
+                $galary_img_arr['uid'] = $this->generate_uid('PRG');
+                $galary_img_arr['p_id'] = $insert_data['uid'];
+                $galary_img_arr['image'] = '/uploads/project_galary_img/'.$val['file_name'];
+                $this->Pages_model->add_project_images($galary_img_arr);
+            }
+        }
+
+
 
         $add_new_project = $this->Pages_model->add_new_project($insert_data);
 

@@ -340,6 +340,10 @@ class Pages_model extends Admin_model
         return $add;
     }
 
+    public function add_project_images($data){
+        $add = $this->db->insert('project_images', $data);
+        return $add;
+    }
     public function get_all_blogs()
     {
         $blogs = $this->db

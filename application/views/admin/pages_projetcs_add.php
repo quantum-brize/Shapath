@@ -22,9 +22,9 @@
                     action="<?= base_url('admin/Pages/add_new_project') ?>" method="POST">
                     <div class="col-xl-6 col-lg-6">
                         <div class="form-group">
-                            <label for="formGroupExampleInput2">Project Title</label>
+                            <label for="formGroupExampleInput2">Project name</label>
                             <input type="text" class="form-control" name="project_title" value=""
-                                placeholder="Project Title" required>
+                                placeholder="Project name" required>
                         </div>
                         <div class="form-group">
                             <label for="formGroupExampleInput">Project Cover Detils</label>
@@ -87,7 +87,7 @@
                         <div class="col-xl-12 col-lg-12"
                             style="display: flex;align-items: center;justify-content: center;">
                             <div class="form-group">
-                                <label class="btn btn-info" for="image_uploads">Choose multiple images to upload</label>
+                                <label class="btn btn-info" for="image_uploads">Choose image to upload</label>
                                 <input type="file" id="image_uploads" name="galary_img[]" multiple hidden required />
                             </div>
                         </div>
