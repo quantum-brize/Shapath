@@ -4,7 +4,7 @@
     <div class="container text-center py-5" style="max-width: 900px;">
         <h3 class="text-white display-3 mb-4">Our Team</h1>
             <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                 <li class="breadcrumb-item active text-white">Our Team</li>
             </ol>
     </div>
@@ -16,7 +16,7 @@
         <div class="row g-5">
             <div class="col-xl-5">
                 <div class="h-100">
-                    <img src="img/about-1.jpg" class="img-fluid w-100 h-100" alt="Image">
+                    <img src="assets/img/founder.jpeg" class="img-fluid w-100 h-100" alt="Image">
                 </div>
             </div>
             <div class="col-xl-7">
@@ -234,7 +234,6 @@ foreach($our_team_board_of_trustees as $b_o_t){
                         <h5 class="text-uppercase text-primary mb-4"><?php echo $o_t_t['name']?></h5>
                         <p class="text-white mb-4"><?php echo $o_t_t['about_member']?></p>
                         <div class="donation-btn d-flex align-items-center justify-content-start">
-                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#"></a>
                         </div>
                     </div>
                 </div>

@@ -57,26 +57,23 @@ $gallery_img = explode(",", $gallery_img['images']);
         <div class="row g-5">
             <div class="col-xl-5">
                 <div class="h-100">
-                    <img src="<?php echo base_url($about['about_img']); ?>" class="img-fluid w-100 h-100" alt="Image">
+                    <img src="<?php echo base_url($about['about_img'])?>" class="img-fluid w-100 h-80" alt="Image">
                 </div>
             </div>
             <div class="col-xl-7" style="text-align: center;">
                 <h5 class="text-uppercase text-primary">About Us</h5>
-                <h1 class="mb-4">
-                    <?php echo $about['about_title']; ?>
-                </h1>
-                <p class="fs-5 mb-4">
-                    <?php echo $about['about'] ?>
+                <h1 class="mb-4"><?php echo $about['about_title']?></h1>
+                <p class="fs-5 mb-4"><?php echo $about['about']?>
                 </p>
                 <div class="tab-class bg-secondary p-4">
                     <ul id="nav" class="nav d-flex mb-2">
                         <li class="nav-item mb-3">
-                            <a class="d-flex py-2 mx-3 text-center bg-white" data-bs-toggle="pill" href="#tab-2">
+                            <a class="d-flex py-2 mx-3 text-center bg-white" data-bs-toggle="pill" href="#tab-1">
                                 <span class="text-dark" style="width: 150px;">Mission</span>
                             </a>
                         </li>
                         <li class="nav-item mb-3">
-                            <a class="d-flex py-2 text-center bg-white" data-bs-toggle="pill" href="#tab-3">
+                            <a class="d-flex py-2 text-center bg-white" data-bs-toggle="pill" href="#tab-2">
                                 <span class="text-dark" style="width: 150px;">Vision</span>
                             </a>
                         </li>
@@ -87,16 +84,12 @@ $gallery_img = explode(",", $gallery_img['images']);
                                 <div class="col-12">
                                     <div class="d-flex">
                                         <div class="text-start my-auto">
-                                            <h5 class="text-uppercase mb-3">
-                                                <?php echo $mission['title'] ?>
-                                            </h5>
-                                            <p class="mb-4">
-                                                <?php echo $mission['description'] ?>
-                                            </p>
-                                            <div class="d-flex align-items-center justify-content-start">
+                                            <h5 class="text-uppercase mb-3"><?php echo $mission['title']?></h5>
+                                            <p class="mb-4"><?php echo $mission['description']?></p>
+                                            <!-- <div class="d-flex align-items-center justify-content-start">
                                                 <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
-                                                    href="<?= base_url('mission-vision') ?>">Read More</a>
-                                            </div>
+                                                    href="#">Read More</a>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
@@ -107,39 +100,25 @@ $gallery_img = explode(",", $gallery_img['images']);
                                 <div class="col-12">
                                     <div class="d-flex">
                                         <div class="text-start my-auto">
-                                            <h5 class="text-uppercase mb-3">
-                                                <?php echo $vision['title'] ?>
-                                            </h5>
-                                            <p class="mb-4">
-                                                <?php echo $vision['description'] ?>
+                                            <h5 class="text-uppercase mb-3"><?php echo $vision['title']?></h5>
+                                            <p class="mb-4"><?php echo $vision['description']?>
                                             </p>
-                                            <div class="d-flex align-items-center justify-content-start">
+                                            <!-- <div class="d-flex align-items-center justify-content-start">
                                                 <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
-                                                    href="<?= base_url('mission-vision') ?>">Read More</a>
-                                            </div>
+                                                    href="#">Read More</a>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div id="tab-3" class="tab-pane fade show p-0">
+                        <!-- <div id="tab-3" class="tab-pane fade show p-0">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="d-flex">
                                         <div class="text-start my-auto">
-                                            <h5 class="text-uppercase mb-3">Shapath's Vision</h5>
-                                            <p class="mb-4">Envisioning a transformed India where the lives of
-                                                underprivileged individuals undergo lasting positive change. As a
-                                                pioneering force in civic-driven change, we aspire to be a
-                                                recognized leader, setting standards for governance, innovation, and
-                                                scalability. Our vision is to provide relevant education,
-                                                healthcare, and livelihood opportunities tailored to the Indian
-                                                context. Employing cutting-edge methodologies, we aim for
-                                                ideal Social Return on Investment (SROI), fostering collaboration
-                                                between corporate and social sectors. We inspire privileged
-                                                individuals within India to actively contribute to and champion
-                                                Civic Driven Change, fostering a brighter and more equitable future
-                                                for all.</p>
+                                            <h5 class="text-uppercase mb-3"><?php echo $vision['title']?></h5>
+                                            <p class="mb-4"><?php echo $vision['description']?></p>
                                             <div class="d-flex align-items-center justify-content-start">
                                                 <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
                                                     href="#">Read More</a>
@@ -148,7 +127,7 @@ $gallery_img = explode(",", $gallery_img['images']);
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                 </div>
             </div>
@@ -163,7 +142,7 @@ $gallery_img = explode(",", $gallery_img['images']);
     <div class="container py-5">
         <div class="text-center mx-auto pb-5" style="max-width: 800px;">
             <h5 class="text-uppercase text-primary">What we do</h5>
-            <h1 class="mb-0">What we do title</h1>
+            <h1 class="mb-0">Shapath: Empowering Lives, Transforming Communities</h1>
         </div>
         <div class="row g-4">
             <?php foreach ($services as $service) { ?>
@@ -230,7 +209,7 @@ $gallery_img = explode(",", $gallery_img['images']);
     <div class="container py-5">
         <div class="text-center mx-auto pb-5" style="max-width: 800px;">
             <h5 class="text-uppercase text-primary">Our Projects</h5>
-            <h1 class="mb-0">Projects title</h1>
+            <h1 class="mb-0">Shapath's Projects Gallery</h1>
         </div>
         <div class="row g-4">
             <?php foreach ($projects as $project) { ?>
@@ -261,14 +240,11 @@ $gallery_img = explode(",", $gallery_img['images']);
 
 <!-- Counter Start -->
 <div class="container-fluid counter py-5"
-    style="background: linear-gradient(rgba(0, 0, 0, .4), rgba(0, 0, 0, 0.4)), url(img/volunteers-bg.jpg) center center; background-size: cover;">
+    style="background: linear-gradient(rgba(0, 0, 0), rgba(0, 0, 0)), url() center center; background-size: cover;">
     <div class="container py-5">
         <div class="text-center mx-auto pb-5" style="max-width: 800px;">
             <h5 class="text-uppercase text-primary">Achievements</h5>
-            <p class="text-white mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                printer took a galley
-            </p>
+            
         </div>
         <div class="row g-4">
             <div class="col-md-6 col-lg-6 col-xl-3">
@@ -306,7 +282,7 @@ $gallery_img = explode(",", $gallery_img['images']);
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="counter-item text-center border p-5">
                     <i class="fas fa-heart fa-4x text-white"></i>
-                    <h3 class="text-white my-4">Shapath Days of Help</h3>
+                    <h3 class="text-white my-4">Days of Help</h3>
                     <div class="counter-counting text-center border-white w-100"
                         style="border-style: dotted; font-size: 30px;">
                         <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">487</span>
@@ -314,11 +290,7 @@ $gallery_img = explode(",", $gallery_img['images']);
                     </div>
                 </div>
             </div>
-            <div class="col-12">
-                <div class="d-flex align-items-center justify-content-center">
-                    <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Join With Us</a>
-                </div>
-            </div>
+           
         </div>
     </div>
 </div>
@@ -330,11 +302,8 @@ $gallery_img = explode(",", $gallery_img['images']);
     <div class="container py-5">
         <div class="text-center mx-auto pb-5" style="max-width: 800px;">
             <h5 class="text-uppercase text-primary">Recent Causes</h5>
-            <h1 class="mb-4">Recent Causes Title</h1>
-            <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum
-                has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a
-                galley
-            </p>
+            <h1 class="mb-4">How You Can Help?</h1>
+           
         </div>
         <div class="row g-4">
             <!-- <div class="col-lg-6 col-xl-3">
@@ -602,7 +571,7 @@ $gallery_img = explode(",", $gallery_img['images']);
     <div class="container py-5">
         <div class="text-center mx-auto pb-5" style="max-width: 800px;">
             <h5 class="text-uppercase text-primary">Latest News</h5>
-            <h1 class="mb-0">Help today because tomorrow you may be the one who needs more helping!
+            <h1 class="mb-0">Read our blogs
             </h1>
         </div>
         <div class="row g-4">
@@ -628,7 +597,7 @@ $gallery_img = explode(",", $gallery_img['images']);
                             <h4 class="mb-4">
                                 <?php echo $blog['title'] ?>
                             </h4>
-                            <p class="mb-4">
+                            <p class="mb-4" style="overflow: hidden; text-overflow: ellipsis; white-space: normal; line-height: 1.2em; /* Adjust line height as needed */ max-height: 3.6em;">
                                 <?php echo $blog['description'] ?>
                             </p>
                             <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
@@ -685,38 +654,26 @@ $gallery_img = explode(",", $gallery_img['images']);
                 <div class="row g-4">
                     <div class="col-lg-6">
                         <div class="volunteer-img">
-                            <img src="img/volunteers-1.jpg" class="img-fluid w-100" alt="Image">
-                            <div class="volunteer-title">
-                                <h5 class="mb-2 text-white">Michel Brown</h5>
-                                <p class="mb-0 text-white">Communicator</p>
-                            </div>
+                            <img src="assets/img/volunteers-1.jpg" class="img-fluid w-100" alt="Image">
+                           
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="volunteer-img">
-                            <img src="img/volunteers-3.jpg" class="img-fluid w-100" alt="Image">
-                            <div class="volunteer-title">
-                                <h5 class="mb-2 text-white">Michel Brown</h5>
-                                <p class="mb-0 text-white">Communicator</p>
-                            </div>
+                            <img src="assets/img/volunteers-3.jpg" class="img-fluid w-100" alt="Image">
+                           
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="volunteer-img">
-                            <img src="img/volunteers-2.jpg" class="img-fluid w-100" alt="Image">
-                            <div class="volunteer-title">
-                                <h5 class="mb-2 text-white">Michel Brown</h5>
-                                <p class="mb-0 text-white">Communicator</p>
-                            </div>
+                            <img src="assets/img/volunteers-2.jpg" class="img-fluid w-100" alt="Image">
+                           
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="volunteer-img">
-                            <img src="img/volunteers-4.jpg" class="img-fluid w-100" alt="Image">
-                            <div class="volunteer-title">
-                                <h5 class="mb-2 text-white">Michel Brown</h5>
-                                <p class="mb-0 text-white">Communicator</p>
-                            </div>
+                            <img src="assets/img/volunteers-4.jpg" class="img-fluid w-100" alt="Image">
+                           
                         </div>
                     </div>
                 </div>
@@ -724,16 +681,14 @@ $gallery_img = explode(",", $gallery_img['images']);
             <div class="col-lg-7">
                 <h5 class="text-uppercase text-primary">Become a Volunteer?</h5>
                 <h1 class="mb-4">Join your hand with us for a better life and beautiful future.</h1>
-                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed
-                    eiusmod tempor amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor amet
-                    consectur adip sed eiusmod amet consectur adip sed eiusmod tempor.
+                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod
+                    tempor amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor amet consectur adip
+                    sed eiusmod amet consectur adip sed eiusmod tempor.
                 </p>
-                <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> We are friendly to each other.
-                </p>
-                <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> If you join with us,We will give
-                    you free training.</p>
-                <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> Its an opportunity to help poor
-                    Environments.</p>
+                <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> We are friendly to each other.</p>
+                <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> If you join with us,We will give you
+                    free training.</p>
+                <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> Its an opportunity to help Homeless People.</p>
                 <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> No goal requirements.</p>
                 <p class="text-dark mb-5"><i class=" fa fa-check text-primary me-2"></i> Joining is tottaly free. We
                     dont need any money from you.</p>

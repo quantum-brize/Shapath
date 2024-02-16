@@ -58,7 +58,7 @@
                     <div class="navbar-nav ms-auto">
                         <a href="<?= base_url('home')?>" class="nav-item nav-link <?= isset($home) ? 'active' : '' ?>">Home</a>
                         <div class="nav-item dropdown">
-                            <a href="" class="nav-link dropdown-toggle <?= isset($about) ? 'active' : '' ?>" data-bs-toggle="dropdown">Aboout</a>
+                            <a href="" class="nav-link dropdown-toggle <?= isset($about) ? 'active' : '' ?>" data-bs-toggle="dropdown">About</a>
                             <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                 <a href="<?= base_url('our-team')?>" class="dropdown-item">Our Team</a>
                                 <a href="<?= base_url('mission-vision')?>" class="dropdown-item">Mission and Vision</a>

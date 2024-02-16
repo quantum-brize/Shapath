@@ -49,7 +49,7 @@ if (!empty($mission_vision)) {
         <div class="row g-5">
             <div class="col-xl-5">
                 <div class="h-100">
-                    <img src="<?php echo base_url($about['about_img'])?>" class="img-fluid w-100 h-100" alt="Image">
+                    <img src="<?php echo base_url($about['about_img'])?>" class="img-fluid w-100 h-80" alt="Image">
                 </div>
             </div>
             <div class="col-xl-7" style="text-align: center;">
@@ -136,38 +136,26 @@ if (!empty($mission_vision)) {
                 <div class="row g-4">
                     <div class="col-lg-6">
                         <div class="volunteer-img">
-                            <img src="img/volunteers-1.jpg" class="img-fluid w-100" alt="Image">
-                            <div class="volunteer-title">
-                                <h5 class="mb-2 text-white">Michel Brown</h5>
-                                <p class="mb-0 text-white">Communicator</p>
-                            </div>
+                            <img src="assets/img/volunteers-1.jpg" class="img-fluid w-100" alt="Image">
+                           
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="volunteer-img">
-                            <img src="img/volunteers-3.jpg" class="img-fluid w-100" alt="Image">
-                            <div class="volunteer-title">
-                                <h5 class="mb-2 text-white">Michel Brown</h5>
-                                <p class="mb-0 text-white">Communicator</p>
-                            </div>
+                            <img src="assets/img/volunteers-3.jpg" class="img-fluid w-100" alt="Image">
+                           
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="volunteer-img">
-                            <img src="img/volunteers-2.jpg" class="img-fluid w-100" alt="Image">
-                            <div class="volunteer-title">
-                                <h5 class="mb-2 text-white">Michel Brown</h5>
-                                <p class="mb-0 text-white">Communicator</p>
-                            </div>
+                            <img src="assets/img/volunteers-2.jpg" class="img-fluid w-100" alt="Image">
+                           
                         </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="volunteer-img">
-                            <img src="img/volunteers-4.jpg" class="img-fluid w-100" alt="Image">
-                            <div class="volunteer-title">
-                                <h5 class="mb-2 text-white">Michel Brown</h5>
-                                <p class="mb-0 text-white">Communicator</p>
-                            </div>
+                            <img src="assets/img/volunteers-4.jpg" class="img-fluid w-100" alt="Image">
+                           
                         </div>
                     </div>
                 </div>
