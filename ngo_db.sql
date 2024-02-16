@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2024 at 02:46 PM
+-- Generation Time: Feb 16, 2024 at 06:32 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -127,7 +127,8 @@ INSERT INTO `donations` (`id`, `uid`, `name`, `email`, `address`, `pin`, `phone`
 (15, 'DNT2242C54320240216', 'Sk Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\nSurerpukur', '712136', '6290353314', '12', '23', 'pending', 'general-donation', '2024-02-16 19:11:25', '2024-02-16 19:11:25'),
 (16, 'DNTD1059A1F20240216', 'Sk Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\nSurerpukur', '712136', '6290353314', '121', '8989', 'pending', 'general-donation', '2024-02-16 19:12:30', '2024-02-16 19:12:30'),
 (17, 'DNT7BEE94E020240216', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\nSurerpukur', '712136', '6290353314', '3422342', '435', 'pending', 'general-donation', '2024-02-16 19:13:25', '2024-02-16 19:13:25'),
-(18, 'DNT56235D3D20240216', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\nSurerpukur', '712136', '6290353314', '121', '45', 'pending', 'general-donation', '2024-02-16 19:14:32', '2024-02-16 19:14:32');
+(18, 'DNT56235D3D20240216', 'Rohan ', 'skrohan0420@gmail.com', 'Shopiya beauty Parlour\nSurerpukur', '712136', '6290353314', '121', '45', 'pending', 'general-donation', '2024-02-16 19:14:32', '2024-02-16 19:14:32'),
+(19, 'DNT7BE4CB6620240216', 'Rohan ', 'skrohandfgsd@gmail.com', 'Shopiya beauty Parlour\nSurerpukur', '712136', '6290353314', '3422342', '120', 'pending', '', '2024-02-16 23:00:38', '2024-02-16 23:00:38');
 
 -- --------------------------------------------------------
 
@@ -298,7 +299,7 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `uid`, `project_title`, `project_cover_details`, `project_page_title`, `project_page_video`, `project_page_description`, `project_img`, `project_logo`, `created_at`, `updated_at`) VALUES
-(15, 'PROCADBC14820240216', 'P_1', 'D_1', '', 'dfgsrgr', '', '/uploads/project_img/137a0f126c349fa280315cf6b3ac74c8.jpg', '/uploads/project_logo/4455f61279c6164cde610cb0bddd5d2b.png', '2024-02-16 17:39:12', '2024-02-16 17:39:12');
+(15, 'PROCADBC14820240216', 'P_1', 'Lorem Ipsum is simply dummy text of the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '', 'dfgsrgr', '', '/uploads/project_img/137a0f126c349fa280315cf6b3ac74c8.jpg', '/uploads/project_logo/4455f61279c6164cde610cb0bddd5d2b.png', '2024-02-16 17:39:12', '2024-02-16 17:39:12');
 
 -- --------------------------------------------------------
 
@@ -611,7 +612,7 @@ ALTER TABLE `causes`
 -- AUTO_INCREMENT for table `donations`
 --
 ALTER TABLE `donations`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 
 --
 -- AUTO_INCREMENT for table `donors`
