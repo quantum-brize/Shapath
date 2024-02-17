@@ -26,12 +26,8 @@ if (!empty($quotes)) {
 
 <div class="quote-video-wrapper">
     <div class="quote">
-        <p>
-            <?php echo $top_quote['quote'] ?>
-        </p>
-        <p class="author">-
-            <?php echo $top_quote['quote_by'] ?>
-        </p>
+        <p>"<?php echo $project['project_title'] ?>"</p>
+        <p class="author">"<?php echo $project['project_cover_details'] ?>"</p>
     </div>
 
     <div class="video">
@@ -42,18 +38,7 @@ if (!empty($quotes)) {
     </div>
 </div>
 
-<!-- About Start -->
-<div class="container-fluid event py-5">
-    <div class="container py-5">
-        <div class="text-center mx-auto mb-5" style="max-width: 800px;">
-            <h5 class="text-uppercase text-primary">project details</h5>
-        </div>
-        <p style="text-align: justify;">
-            <?=$project['project_cover_details']?>
-        </p>
-    </div>
-</div>
-<!-- About End -->
+>
 
 <!-- About Start -->
 <div class="container-fluid event py-5">
