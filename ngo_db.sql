@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 16, 2024 at 06:32 PM
+-- Generation Time: Feb 17, 2024 at 03:08 PM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -299,7 +299,24 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `uid`, `project_title`, `project_cover_details`, `project_page_title`, `project_page_video`, `project_page_description`, `project_img`, `project_logo`, `created_at`, `updated_at`) VALUES
-(15, 'PROCADBC14820240216', 'P_1', 'Lorem Ipsum is simply dummy text of the Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s,', '', 'dfgsrgr', '', '/uploads/project_img/137a0f126c349fa280315cf6b3ac74c8.jpg', '/uploads/project_logo/4455f61279c6164cde610cb0bddd5d2b.png', '2024-02-16 17:39:12', '2024-02-16 17:39:12');
+(15, 'PROCADBC14820240216', 'Sirsti', 'Where the mind is without fear and the head is held high into that heaven\nof freedom. My father, let my country awake', '', 'dfgsrgr', '', '/uploads/project_img/137a0f126c349fa280315cf6b3ac74c8.jpg', '/uploads/project_logo/4455f61279c6164cde610cb0bddd5d2b.png', '2024-02-16 17:39:12', '2024-02-16 17:39:12');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `project_events`
+--
+
+CREATE TABLE `project_events` (
+  `id` int(11) NOT NULL,
+  `uid` varchar(255) NOT NULL,
+  `p_id` varchar(255) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `details` longtext NOT NULL,
+  `img` varchar(255) NOT NULL,
+  `created_at` datetime NOT NULL DEFAULT current_timestamp(),
+  `updated_at` datetime NOT NULL DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
@@ -545,6 +562,12 @@ ALTER TABLE `projects`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `project_events`
+--
+ALTER TABLE `project_events`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `project_images`
 --
 ALTER TABLE `project_images`
@@ -649,6 +672,12 @@ ALTER TABLE `our_team`
 --
 ALTER TABLE `projects`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
+-- AUTO_INCREMENT for table `project_events`
+--
+ALTER TABLE `project_events`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `project_images`
