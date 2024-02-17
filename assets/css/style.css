@@ -1180,6 +1180,14 @@
     transition: all 100ms ease-out;
 }
 
+@media only screen and (max-width: 600px) {
+    .content {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: scroll;
+        gap: 10px;
+    }
+}
 
 @media (max-width: 1023px) and (min-width: 768px) {
     .quote-2 {
