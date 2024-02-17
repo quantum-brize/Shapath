@@ -38,8 +38,8 @@ if (!empty($video)) {
 <div class="navbar-end-gap"></div>
 <div class="quote-video-wrapper">
     <div class="quote">
-        <p>"
-            <?php echo $top_quote['quote'] ?>"
+        <p>
+            <?php echo $top_quote['quote'] ?>
         </p>
         <p class="author">-
             <?php echo $top_quote['quote_by'] ?>
@@ -230,8 +230,11 @@ if (!empty($video)) {
                             <h1 class="text-uppercase text-primary mb-4">
                                 <?php echo $project['project_title'] ?>
                             </h1>
-                            <p class="text-white mb-4">
-                                <?php echo $project['project_cover_details'] ?>
+                            <p class="text-white mb-4" style="overflow: hidden; text-overflow: ellipsis; white-space: normal; line-height: 1.2em; /* Adjust line height as needed */ max-height: 3.6em;">
+                                <?=
+                                   $project['project_cover_details']
+                                     
+                                ?>
                             </p>
                             <div class="donation-btn d-flex align-items-center justify-content-start">
                                 <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
