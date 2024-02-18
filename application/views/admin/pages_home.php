@@ -156,17 +156,15 @@ if (!empty($mission_vision)) {
                         </div>
                         <div class="card-body">
 
-                            <form action="<?= base_url('admin/Pages/update_video') ?>" method="POST">
-                                <iframe id="ytplayer" type="text/html" height="200" src="<?= $home_videos['path'] ?>"
-                                    frameborder="0" allow="encrypted-media;" allowfullscreen></iframe>
+                        <form action="<?= base_url('admin/Pages/do_upload') ?>" method="POST">
+                                    <audio controls>
+                                    <source src="<?= base_url($audio['path']) ?>" type="audio/mpeg">
+                                    Your browser does not support the audio element.
+                                    </audio>
 
                                 <div class="form-group">
-                                    <label for="formGroupExampleInput2">video url</label>
-                                    <input type="text" class="form-control" name="url"
-                                        value="<?= $home_videos['path'] ?>" placeholder="video url" required>
-                                </div>
-                                <div class="form-group">
-                                    <input type="text" hidden value="<?= $home_videos['uid'] ?>" name="uid">
+                                    <input type="text" hidden value="<?= $audio['uid'] ?>" name="uid">
+                                    <input type="file" name="audio">
                                     <input type="submit" class="btn btn-success" id="" value="Update">
                                 </div>
                             </form>

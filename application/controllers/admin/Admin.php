@@ -126,30 +126,24 @@ class Admin extends Common
     }
     public function gallery_img_add()
     {
-
         if (!empty($_FILES['galary_img'])) {
             $galary_img_data = $this->upload_files('./uploads/galary_img/', 'galary_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
-
-            $galary_img_arr = [];
-
-
-            if (!empty($galary_img_data)) {
-                if ($this->isAssociativeArray($galary_img_data)) {
-                    $gallery_img_data = '/uploads/galary_img/' . $galary_img_data['file_name'];
-                } else {
-                    foreach ($galary_img_data as $key => $val) {
-                        $galary_img_arr[$key] = '/uploads/galary_img/' . $val['file_name'];
-                    }
-                    $gallery_img_data = implode(',', $galary_img_arr);
-                }
-            }
             $this->init_model(MODEL_PAGES);
-            $this->Pages_model->gallery_img_update($gallery_img_data);
+            $data['uid'] = $this->generate_uid(UID_GALLERY);
+            $data['images'] = '/uploads/galary_img/' . $galary_img_data['file_name'];
+
+            $this->Pages_model->gallery_img_add($data);
         }
+        redirect('admin/gallery');
+    }
+
+    public function delete_gal_img()
+    {
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->gallery_img_delete($this->input->get('gid'));
         redirect('admin/gallery');
 
     }
-
 
     public function causes()
     {
@@ -328,19 +322,57 @@ class Admin extends Common
     }
 
 
-    public function delete_event(){
+    public function delete_event()
+    {
         $uid = $this->input->get('e_id');
         $this->init_model(MODEL_PAGES);
         $this->Pages_model->delete_event($uid);
         redirect('admin/events');
     }
 
-    public function rezorpay_webhook(){
+    public function rezorpay_webhook()
+    {
         $this->init_model(MODEL_PAGES);
         $this->Pages_model->save_webhook_text($this->input->post());
         redirect('donate');
 
-    
+
+    }
+
+    public function proccess_payment()
+    {
+        $this->init_model(MODEL_PAGES);
+
+
+        $name = $this->input->post('name');
+        $email = $this->input->post('email');
+        $phone = $this->input->post('phone');
+        $pan = $this->input->post('pan');
+        $amount = $this->input->post('amount');
+        $project_id = $this->input->post('project_id');
+        $address = $this->input->post('address');
+        $pin = $this->input->post('pin');
+
+        $insert_data = [
+            "uid" => $this->generate_uid(UID_DONATION),
+            "name" => $name,
+            "email" => $email,
+            "phone" => $phone,
+            "pan" => $pan,
+            "address" => $address,
+            "amount" => $amount,
+            "pin" => $pin,
+            "project_id" => $project_id,
+        ];
+
+        $add_new_donation = $this->Pages_model->add_new_donation($insert_data);
+
+        if ($add_new_donation) {
+            echo json_encode(array("status"=> true));
+
+        } else {
+            echo json_encode(array("status"=> false));
+        }
     }
 
 

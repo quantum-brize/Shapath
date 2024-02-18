@@ -1,25 +1,41 @@
-
 /*** Spinner Start ***/
 #spinner {
     opacity: 0;
     visibility: hidden;
     transition: opacity .8s ease-out, visibility 0s linear .5s;
     z-index: 99999;
- }
+}
 
- #spinner.show {
-     transition: opacity .8s ease-out, visibility 0s linear .0s;
-     visibility: visible;
-     opacity: 1;
- }
+#spinner.show {
+    transition: opacity .8s ease-out, visibility 0s linear .0s;
+    visibility: visible;
+    opacity: 1;
+}
 
- 
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+}
 
- /* Floating Action Button Container Styles */
+.carousel-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+.donation {
+    /* Add any additional styles as needed */
+}
+
+
+
+/* Floating Action Button Container Styles */
 .custom-fab-container {
     position: fixed;
     bottom: 20px;
-    left: 20px; /* Align to the left side of the screen */
+    left: 20px;
+    /* Align to the left side of the screen */
     z-index: 100;
 }
 
@@ -35,37 +51,55 @@
     font-size: 24px;
     transition: all 0.3s ease;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-    margin-bottom: 10px; /* Spacing between buttons */
+    margin-bottom: 10px;
+    /* Spacing between buttons */
 }
 
 .custom-fab-options {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: none; /* Hide sub buttons by default */
+    display: none;
+    /* Hide sub buttons by default */
 }
 
 /* Icon styles for different platforms */
-.custom-fab-facebook { background: #3b5998; }
-.custom-fab-instagram { background: #e1306c; }
-.custom-fab-call { background: #4caf50; }
-.custom-fab-whatsapp { background: #25d366; }
+.custom-fab-facebook {
+    background: #3b5998;
+}
+
+.custom-fab-instagram {
+    background: #e1306c;
+}
+
+.custom-fab-call {
+    background: #4caf50;
+}
+
+.custom-fab-whatsapp {
+    background: #25d366;
+}
 
 
 /* General styles, not specific to any media query */
 #nav {
     display: flex;
     justify-content: center;
-    padding-left: 0; /* Remove default padding */
-    list-style: none; /* Remove default list styling */
-    gap: 0.5rem; /* Spacing between items */
-    margin-bottom: 2rem; /* Spacing below the nav */
+    padding-left: 0;
+    /* Remove default padding */
+    list-style: none;
+    /* Remove default list styling */
+    gap: 0.5rem;
+    /* Spacing between items */
+    margin-bottom: 2rem;
+    /* Spacing below the nav */
 }
 
 #nav-item {
     /* Flex basis set to zero and flex grow set to one to equally distribute space */
     flex: 1 0 auto;
-    margin-bottom: 0; /* Remove margin-bottom */
+    margin-bottom: 0;
+    /* Remove margin-bottom */
 }
 
 #nav-item a {
@@ -74,66 +108,86 @@
     justify-content: center;
     text-decoration: none;
     background-color: #fff;
-    color: #333; /* Dark text color for contrast */
-    padding: 0.5rem 1rem; /* Padding for tap area */
-    border-radius: 5px; /* Rounded corners */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Box shadow for depth */
-    transition: all 0.3s ease; /* Transition for hover effects */
+    color: #333;
+    /* Dark text color for contrast */
+    padding: 0.5rem 1rem;
+    /* Padding for tap area */
+    border-radius: 5px;
+    /* Rounded corners */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /* Box shadow for depth */
+    transition: all 0.3s ease;
+    /* Transition for hover effects */
 }
 
 #nav-item a span {
-    width: 100%; /* Span takes the full width of the anchor */
+    width: 100%;
+    /* Span takes the full width of the anchor */
 }
 
 /* Responsive styles for mobile screens */
 @media (max-width: 767px) {
     .nav {
-        flex-wrap: nowrap; /* Prevent wrapping on small screens */
+        flex-wrap: nowrap;
+        /* Prevent wrapping on small screens */
     }
 
     .nav-item {
-        margin: 0 4px; /* Adjust margins to ensure items are spaced evenly */
+        margin: 0 4px;
+        /* Adjust margins to ensure items are spaced evenly */
     }
 
     .nav-item a {
-        padding: 10px; /* Increase padding for a larger tap area on mobile */
+        padding: 10px;
+        /* Increase padding for a larger tap area on mobile */
     }
 }
 
 /* Additional styles for hover and active states */
 .nav-item a:hover,
 .nav-item a.active {
-    background-color: #84fab0; /* Light green background for hover/active state */
-    color: #fff; /* White text color for contrast */
+    background-color: #84fab0;
+    /* Light green background for hover/active state */
+    color: #fff;
+    /* White text color for contrast */
 }
 
 
 
 /*** Spinner End ***/
 .header-nav {
-    border-bottom: 3px solid #b3d335; /* Adjust the color and thickness as needed */
+    border-bottom: 3px solid #b3d335;
+    /* Adjust the color and thickness as needed */
 }
 
 
 /* FAQ Section Custom Styles */
 .faq-header {
-    background-color: #b3d335; /* primary color */
-    color: #F2F2F2; /* light color */
+    background-color: #b3d335;
+    /* primary color */
+    color: #F2F2F2;
+    /* light color */
 }
 
 .accordion-button {
-    background-color: #b3d335; /* primary color */
-    color: #F2F2F2; /* light color */
+    background-color: #b3d335;
+    /* primary color */
+    color: #F2F2F2;
+    /* light color */
 }
 
 .accordion-button:not(.collapsed) {
-    background-color: #6bbc53; /* secondary color */
-    color: #222222; /* dark color */
+    background-color: #6bbc53;
+    /* secondary color */
+    color: #222222;
+    /* dark color */
 }
 
 .accordion-body {
-    background-color: #F2F2F2; /* light color */
-    color: #222222; /* dark color */
+    background-color: #F2F2F2;
+    /* light color */
+    color: #222222;
+    /* dark color */
 }
 
 .accordion-button:focus {
@@ -145,18 +199,23 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh; /* Use the full height of the viewport */
+    height: 100vh;
+    /* Use the full height of the viewport */
 }
 
 .pdf-viewer-container iframe {
-    width: 80%; /* or any percentage or fixed width you prefer */
-    height: 80vh; /* 80% of the viewport height, adjust as needed */
-    border: none; /* Removes the border */
+    width: 80%;
+    /* or any percentage or fixed width you prefer */
+    height: 80vh;
+    /* 80% of the viewport height, adjust as needed */
+    border: none;
+    /* Removes the border */
 }
 
 
 .navbar-end-gap {
-    margin-top: 60px; /* Adjust the value as needed */
+    margin-top: 60px;
+    /* Adjust the value as needed */
 }
 
 
@@ -186,43 +245,53 @@
 }
 
 /* Media query for desktop devices */
-@media (min-width: 1024px)  {
+@media (min-width: 1024px) {
+
     /* Style the container for the video */
     .video {
         position: relative;
-        width: 720px; /* Set the width of the video container */
-        height: 480px; /* Set the height of the video container */
-        margin: auto; /* Center the container */
+        width: 720px;
+        /* Set the width of the video container */
+        height: 480px;
+        /* Set the height of the video container */
+        margin: auto;
+        /* Center the container */
         padding: 75px;
-        box-sizing: border-box; /* Padding is included in the width/height calculations */
+        box-sizing: border-box;
+        /* Padding is included in the width/height calculations */
         background: url('https://shapath.org.in/wp-content/uploads/2023/12/squre-web-sampel-1-1.png') center center no-repeat;
-        background-size: cover; /* Adjust the background size to fit the padding 'border' area */
+        background-size: cover;
+        /* Adjust the background size to fit the padding 'border' area */
         display: flex;
         justify-content: center;
         align-items: center;
     }
-  
+
     /* Style the video iframe */
     .video iframe {
         position: absolute;
         top: 46%;
         left: 54%;
         transform: translate(-50%, -50%);
-        width: 70%; /* Adjust the width of the video as needed */
-        height: 50%; /* Maintain aspect ratio */
+        width: 70%;
+        /* Adjust the width of the video as needed */
+        height: 50%;
+        /* Maintain aspect ratio */
         border: none;
-    } 
+    }
 
 
-  }
+}
 
-  @media (max-width: 1023px) and  (min-width: 768px) {
-    
-    html,body{
-      
-        overflow-x: hidden;  /* keeping all the items within the screen */
-      }
-       
+@media (max-width: 1023px) and (min-width: 768px) {
+
+    html,
+    body {
+
+        overflow-x: hidden;
+        /* keeping all the items within the screen */
+    }
+
     .quote-video-wrapper {
         display: flex;
         justify-content: center;
@@ -231,126 +300,146 @@
         padding: 50px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     }
-        /* Style the container for the video on mobile */
-        .quote-video-wrapper{
-            flex-direction: column;  /* To bring the text above and Video below in Mobile */
-        }
-        .video {
-            position: relative;
-            width: 720px; /* Set the width of the video container */
-            height: 480px;
-            margin: auto; /* Center the container */
-            padding:130px;
-            box-sizing: border-box; /* Padding is included in the width/height calculations */
-            background: url('https://shapath.org.in/wp-content/uploads/2023/12/squre-web-sampel-1-1.png') center center no-repeat;
-            background-size: cover; /* Adjust the background size to fit the padding 'border' area */
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-      
-        /* Style the video iframe */
-        .video iframe {
-            position: absolute;
-            top: 46%;
-            left: 54%;
-            transform: translate(-50%, -50%);
-            width: 70%; /* Adjust the width of the video as needed */
-            height: 48%; /* Maintain aspect ratio */
-            border: none;
-        } 
-    
-         /* Style the container of class quote */
-         .quote {
-            width: 100%; 
-            padding: 20px;
-            font-size: 1.25rem;
-        }
-       
-    .quote .author {
-        font-size: 1.25rem;
-    }
-    }
-    
 
-
-  /*  Making mobile responsive */
-  @media (max-width: 767px) {
-    
-html,body{
-  
-    overflow-x: hidden;  /* keeping all the items within the screen */
-  }
-   
-.quote-video-wrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 40px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
     /* Style the container for the video on mobile */
-    .quote-video-wrapper{
-        flex-direction: column;  /* To bring the text above and Video below in Mobile */
+    .quote-video-wrapper {
+        flex-direction: column;
+        /* To bring the text above and Video below in Mobile */
     }
+
     .video {
-        height: 300px;
         position: relative;
-        overflow: hidden;
-        display: inline-block;
-        
+        width: 720px;
+        /* Set the width of the video container */
+        height: 480px;
+        margin: auto;
+        /* Center the container */
+        padding: 130px;
+        box-sizing: border-box;
+        /* Padding is included in the width/height calculations */
         background: url('https://shapath.org.in/wp-content/uploads/2023/12/squre-web-sampel-1-1.png') center center no-repeat;
-        background-size: cover; 
-        width: 135%;
-        padding: 90px;
-        display: flex; /* changed from relative */
+        background-size: cover;
+        /* Adjust the background size to fit the padding 'border' area */
+        display: flex;
         justify-content: center;
         align-items: center;
-        /* added to set a specific height */
-        overflow: hidden; /* added to hide any overflow */
     }
-  
+
     /* Style the video iframe */
     .video iframe {
         position: absolute;
         top: 46%;
         left: 54%;
         transform: translate(-50%, -50%);
-        width: 73%; /* Adjust the width of the video as needed */
-        height: auto; /* Maintain aspect ratio */
+        width: 70%;
+        /* Adjust the width of the video as needed */
+        height: 48%;
+        /* Maintain aspect ratio */
         border: none;
-    } 
+    }
 
-     /* Style the container of class quote */
-     .quote {
-        width: 100%; 
+    /* Style the container of class quote */
+    .quote {
+        width: 100%;
         padding: 20px;
         font-size: 1.25rem;
     }
-   
-.quote .author {
-    font-size: 1.25rem;
-}
+
+    .quote .author {
+        font-size: 1.25rem;
+    }
 }
 
-  
+
+
+/*  Making mobile responsive */
+@media (max-width: 767px) {
+
+    html,
+    body {
+
+        overflow-x: hidden;
+        /* keeping all the items within the screen */
+    }
+
+    .quote-video-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #ffffff;
+        padding: 40px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* Style the container for the video on mobile */
+    .quote-video-wrapper {
+        flex-direction: column;
+        /* To bring the text above and Video below in Mobile */
+    }
+
+    .video {
+        height: 300px;
+        position: relative;
+        overflow: hidden;
+        display: inline-block;
+
+        background: url('https://shapath.org.in/wp-content/uploads/2023/12/squre-web-sampel-1-1.png') center center no-repeat;
+        background-size: cover;
+        width: 135%;
+        padding: 90px;
+        display: flex;
+        /* changed from relative */
+        justify-content: center;
+        align-items: center;
+        /* added to set a specific height */
+        overflow: hidden;
+        /* added to hide any overflow */
+    }
+
+    /* Style the video iframe */
+    .video iframe {
+        position: absolute;
+        top: 46%;
+        left: 54%;
+        transform: translate(-50%, -50%);
+        width: 73%;
+        /* Adjust the width of the video as needed */
+        height: auto;
+        /* Maintain aspect ratio */
+        border: none;
+    }
+
+    /* Style the container of class quote */
+    .quote {
+        width: 100%;
+        padding: 20px;
+        font-size: 1.25rem;
+    }
+
+    .quote .author {
+        font-size: 1.25rem;
+    }
+}
+
+
 
 /* Style the container for About Us */
 @media (max-width: 767px) {
 
-.mb-3{
-    width: 55%;   /* Changing the width of Options to align themselves */
+    .mb-3 {
+        width: 55%;
+        /* Changing the width of Options to align themselves */
 
-} 
+    }
 }
+
 /* End of Style for the container of About Us */
 
-.tab-content{
+.tab-content {
     background-color: bisque;
     padding: 20px;
 }
-  
+
 
 
 .back-to-top {
@@ -419,6 +508,7 @@ html,body{
 .btn-hover-color:hover {
     color: var(--bs-secondary) !important;
 }
+
 /*** Topbar Start ***/
 .fixed-top .container {
     transition: 0.5s;
@@ -442,9 +532,10 @@ html,body{
 
 @media (max-width: 768px) {
     .topbar {
-        display: none;    
+        display: none;
     }
 }
+
 /*** Topbar End ***/
 
 
@@ -508,6 +599,7 @@ html,body{
     transition: .5s;
     opacity: 1;
 }
+
 /*** Navbar End ***/
 
 /*** Carousel Start ***/
@@ -518,7 +610,7 @@ html,body{
 
 .carousel-header #carouselId .carousel-inner .carousel-item {
     position: relative;
-    min-height: 100vh 
+    min-height: 100vh
 }
 
 .carousel-header #carouselId .carousel-inner .carousel-item img {
@@ -579,13 +671,14 @@ html,body{
     border-radius: 12px !important;
     border: 5px solid transparent;
     transition: 0.5s;
-    
+
 }
 
 .carousel-header #carouselId.carousel .carousel-indicators li.active {
     border: 5px solid var(--bs-primary) !important;
     border-radius: 10px;
 }
+
 /*** Carousel End ***/
 
 
@@ -598,6 +691,7 @@ html,body{
     background-size: cover;
     padding: 100px 0 0 0;
 }
+
 /*** Single Page Hero Header End ***/
 
 
@@ -619,15 +713,15 @@ html,body{
 
 .service .service-item .service-link {
     position: absolute;
-    width: 100%; 
-    height: 100%; 
-    padding: 20px; 
-    bottom: 0; 
-    left: 0; 
-    display: flex; 
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    bottom: 0;
+    left: 0;
+    display: flex;
     align-items: end;
     background: rgba(0, 0, 0, 0.3);
-    transition: 0.5s; 
+    transition: 0.5s;
 }
 
 .service .service-item .service-link:hover {
@@ -650,6 +744,7 @@ html,body{
 .service .service-item .service-link:hover a:hover {
     color: var(--bs-primary);
 }
+
 /*** Service End ***/
 
 
@@ -673,13 +768,14 @@ html,body{
 }
 
 
+
 .donation .donation-item .donation-content {
     position: absolute;
-    width: 100%; 
-    height: 100%; 
-    padding: 20px; 
-    justify-content: end; 
-    bottom: -70px; 
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    justify-content: end;
+    bottom: -70px;
     left: 0;
     transition: 0.5s;
     z-index: 3;
@@ -687,11 +783,11 @@ html,body{
 
 .donation .donation-item:hover .donation-content {
     position: absolute;
-    width: 100%; 
-    height: 100%; 
-    padding: 20px; 
-    justify-content: end; 
-    bottom: 0px; 
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    justify-content: end;
+    bottom: 0px;
     left: 0;
     background: rgba(0, 0, 0, 0.6);
 }
@@ -715,9 +811,10 @@ html,body{
     width: 100%;
     text-align: center;
     border-style: dotted;
-    border-color: var(--bs-white); 
+    border-color: var(--bs-white);
     font-size: 30px;
 }
+
 /*** Counter End ***/
 
 
@@ -735,7 +832,7 @@ html,body{
     position: absolute;
     width: 100%;
     height: 100%;
-    bottom: 0 !important; 
+    bottom: 0 !important;
     left: 0;
     display: flex;
     justify-content: space-between;
@@ -758,7 +855,7 @@ html,body{
 
 .causes .causes-item .causes-img .causes-dination {
     position: absolute;
-    top: 0; 
+    top: 0;
     right: 0;
 }
 
@@ -798,6 +895,7 @@ html,body{
     background: var(--bs-dark);
     z-index: 1;
 }
+
 /*** causes End ***/
 
 
@@ -805,6 +903,7 @@ html,body{
 .event .event-carousel.owl-carousel {
     position: relative;
 }
+
 .event .event-carousel.owl-carousel .owl-nav .owl-prev {
     position: absolute;
     top: -60px;
@@ -840,12 +939,14 @@ html,body{
     background: var(--bs-secondary);
     color: var(--bs-primary);
 }
+
 .event .event-carousel .event-item .event-content {
     border-style: dotted;
-    border-top: 0; 
-    border-color: var(--bs-white); 
+    border-top: 0;
+    border-color: var(--bs-white);
     background: var(--bs-secondary);
 }
+
 /*** Events End ***/
 
 
@@ -899,6 +1000,7 @@ html,body{
 .blog .blog-item .blog-img:hover .search-icon {
     opacity: 1;
 }
+
 /*** Blog End ***/
 
 /*** Gallery Start ***/
@@ -914,7 +1016,8 @@ html,body{
     transition: 0.5s;
     max-width: 100%;
     height: auto;
-    display: block; /* Fixes any unwanted spacing below the images */
+    display: block;
+    /* Fixes any unwanted spacing below the images */
 }
 
 /* Scale effect on hover */
@@ -927,7 +1030,7 @@ html,body{
     position: absolute;
     width: 100%;
     height: 0;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
     background: #b3d335;
     text-align: center;
@@ -985,6 +1088,7 @@ html,body{
 .volunteer {
     background: rgba(249, 195, 123, .1);
 }
+
 .volunteer .volunteer-img {
     position: relative;
     overflow: hidden;
@@ -1016,6 +1120,7 @@ html,body{
 .volunteer .volunteer-img:hover img {
     transform: scale(1.2);
 }
+
 /*** Volunteer End ***/
 
 
@@ -1030,7 +1135,7 @@ html,body{
 
 /*  Image with Quote Start */
 
-.quote-div{
+.quote-div {
     display: flex;
     flex-direction: row;
     align-self: center;
@@ -1054,38 +1159,83 @@ html,body{
     font-weight: bold;
 }
 
-.quote-div p span{
+.quote-div p span {
     color: #b3d335;
 }
 
-@media (max-width: 1023px) and  (min-width: 768px) {
+
+
+
+/* GALLERY */
+
+.content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+.content .item {
+    cursor: pointer;
+    border-radius: 4px;
+    border: 1px solid #fff7f7;
+    transition: all 100ms ease-out;
+}
+.content .item img {
+    display: block;
+    object-fit: cover;
+    border-radius: 4px;
+    height: 250px;
+    width: 250px;
+}
+.content:has(.item:hover) .item:not(:hover) {
+    opacity: 0.8;
+    scale: 0.95;
+}
+.content .item:focus, .content .item:hover {
+    box-shadow: 0px 0px 24px 4px rgba(112, 112, 112, 0.7);
+    transition: all 100ms ease-out;
+}
+
+@media only screen and (max-width: 600px) {
+    .content {
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: scroll;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 1023px) and (min-width: 768px) {
     .quote-2 {
         flex-basis: 100%;
         padding: 20px 20px 0 20px;
         font-size: 16px;
         text-align: left;
     }
-    
+
     .author-2 {
         margin-top: 10px;
         font-size: 18px;
     }
-    .authimage{
+
+    .authimage {
         display: flex;
         width: 100%;
-     
-       justify-content: end;
+
+        justify-content: end;
     }
-    .authimage img{
-       width: 60%;
-       align-self: flex-end;
+
+    .authimage img {
+        width: 60%;
+        align-self: flex-end;
     }
 
 }
+
 @media (max-width: 767px) {
     /* Style the quote container for mobile */
 
-    .quote-div{
+    .quote-div {
         flex-direction: column;
         padding: 20px;
         align-items: center;
@@ -1098,45 +1248,54 @@ html,body{
         font-size: 16px;
         text-align: left;
     }
-    
+
     .author-2 {
         margin-top: 10px;
         font-size: 18px;
     }
-    .authimage{
+
+    .authimage {
         display: flex;
         width: 100%;
-     
-       justify-content: end;
+
+        justify-content: end;
     }
-    .authimage img{
-       width: 60%;
-       align-self: flex-end;
+
+    .authimage img {
+        width: 60%;
+        align-self: flex-end;
     }
 }
 
-@media (max-width: 992px) { /* Adjust this for your navbar's collapse breakpoint */
+@media (max-width: 992px) {
+
+    /* Adjust this for your navbar's collapse breakpoint */
     .navbar-collapse {
         position: fixed;
         top: 0;
         right: 0;
-        width: 50%; /* Navbar width on smaller screens */
+        width: 50%;
+        /* Navbar width on smaller screens */
         height: 100%;
         overflow-y: auto;
         transition: transform 0.3s ease;
         transform: translateX(100%);
-        background-color: #fff; /* Background color of the navbar */
+        background-color: #fff;
+        /* Background color of the navbar */
         z-index: 1050;
     }
+
     .navbar-collapse.collapsing {
         transition: none;
         transform: translateX(50%);
     }
+
     .navbar-collapse.show {
         transform: translateX(0);
     }
-     /* Style for the close button */
-     .navbar-close {
+
+    /* Style for the close button */
+    .navbar-close {
         position: absolute;
         top: 10px;
         right: 15px;
@@ -1144,22 +1303,34 @@ html,body{
         border: none;
         font-size: 20px;
         cursor: pointer;
-        z-index: 1051; /* Above the navbar content */
+        z-index: 1051;
+        /* Above the navbar content */
     }
 }
+
 .text-body2 {
-    display: block; /* or 'flex' if you prefer */
-    white-space: nowrap; /* keeps text in a single line */
-    overflow: hidden; /* prevents text from overflowing */
-    text-overflow: ellipsis; /* adds an ellipsis if text overflows */
-    font-size: 0.65rem; /* smaller font size, adjust as needed */
+    display: block;
+    /* or 'flex' if you prefer */
+    white-space: nowrap;
+    /* keeps text in a single line */
+    overflow: hidden;
+    /* prevents text from overflowing */
+    text-overflow: ellipsis;
+    /* adds an ellipsis if text overflows */
+    font-size: 0.65rem;
+    /* smaller font size, adjust as needed */
 }
 
-@media (min-width: 768px) { /* Adjust for your medium breakpoint, typically 768px for col-md */
+@media (min-width: 768px) {
+
+    /* Adjust for your medium breakpoint, typically 768px for col-md */
     .text-body2 {
-        display: inline; /* revert to inline for larger screens if needed */
-        white-space: normal; /* Allows text to wrap on larger screens */
-        font-size: 0.8rem; /* Slightly larger font size for larger screens */
+        display: inline;
+        /* revert to inline for larger screens if needed */
+        white-space: normal;
+        /* Allows text to wrap on larger screens */
+        font-size: 0.8rem;
+        /* Slightly larger font size for larger screens */
     }
 }
 
@@ -1175,6 +1346,7 @@ html,body{
     border-style: dotted;
     border-color: var(--bs-light);
 }
+
 .footer .footer-item a,
 .footer .footer-item p {
     line-height: 35px;
@@ -1217,6 +1389,7 @@ html,body{
     opacity: 1;
     background: rgba(0, 0, 0, .6);
 }
+
 /*** Footer End ***/
 
 /*** copyright Start ***/
@@ -1224,6 +1397,7 @@ html,body{
     border-top: 1px solid rgba(255, 255, 255, 0.08);
     background: var(--bs-dark) !important;
 }
+
 /*** copyright end ***/
 
 /* .image_size{

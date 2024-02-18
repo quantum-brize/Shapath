@@ -33,7 +33,7 @@ class Common extends CI_Controller
 		$this->init_model(MODEL_PAGES);
 		$projects['projects'] = $this->Pages_model->get_all_projects();
 		$this->load->view('/' . $data['site'] . '/inc/header_link.php', $data);
-		$this->load->view('/' . $data['site'] . '/inc/header.php',$projects,$data);
+		$this->load->view('/' . $data['site'] . '/inc/header.php', $projects, $data);
 
 	}
 
@@ -79,41 +79,58 @@ class Common extends CI_Controller
 		if (!file_exists($path)) {
 			mkdir($path, 0777, true);
 		}
-		$config['upload_path'] 	 = $path;
+		$config['upload_path'] = $path;
 		$config['allowed_types'] = $allowed_types;
-		$config['max_size'] 	 = $max_size;
-		$config['encrypt_name']  = TRUE;
+		$config['max_size'] = $max_size;
+		$config['encrypt_name'] = TRUE;
 
 		$this->load->library('upload', $config);
 
 		$data = [];
 
-		foreach ($_FILES[$file_name]['name'] as $key => $value) {
-			$_FILES['userfile']['name'] 	= $_FILES[$file_name]['name'][$key];
-			$_FILES['userfile']['type'] 	= $_FILES[$file_name]['type'][$key];
-			$_FILES['userfile']['tmp_name'] = $_FILES[$file_name]['tmp_name'][$key];
-			$_FILES['userfile']['error'] 	= $_FILES[$file_name]['error'][$key];
-			$_FILES['userfile']['size'] 	= $_FILES[$file_name]['size'][$key];
+		//$this->prd($_FILES[$file_name]);
 
-			$this->upload->initialize($config); 
+		if (count($_FILES[$file_name]['name']) == 1) {
+			$_FILES['userfile']['name'] 	= $_FILES[$file_name]['name'][0];
+			$_FILES['userfile']['type'] 	= $_FILES[$file_name]['type'][0];
+			$_FILES['userfile']['tmp_name'] = $_FILES[$file_name]['tmp_name'][0];
+			$_FILES['userfile']['error'] 	= $_FILES[$file_name]['error'][0];
+			$_FILES['userfile']['size'] 	= $_FILES[$file_name]['size'][0];
+
+			$this->upload->initialize($config);
 			$this->upload->do_upload('userfile');
 
-			$data[$key] = $this->upload->data();
+			$data = $this->upload->data();
+			return $data;
+		} else {
+			foreach ($_FILES[$file_name]['name'] as $key => $value) {
+				$_FILES['userfile']['name'] 	= $_FILES[$file_name]['name'][$key];
+				$_FILES['userfile']['type'] 	= $_FILES[$file_name]['type'][$key];
+				$_FILES['userfile']['tmp_name'] = $_FILES[$file_name]['tmp_name'][$key];
+				$_FILES['userfile']['error'] 	= $_FILES[$file_name]['error'][$key];
+				$_FILES['userfile']['size'] 	= $_FILES[$file_name]['size'][$key];
+
+				$this->upload->initialize($config);
+				$this->upload->do_upload('userfile');
+
+				$data[$key] = $this->upload->data();
+			}
+			return  $data;
 		}
-		return count($data) == 1 ? $data[0] : $data;
+
 	}
 
 	public function isAssociativeArray($array)
-    {
-        if (!is_array($array)) {
-            return false;
-        }
+	{
+		if (!is_array($array)) {
+			return false;
+		}
 
-        $keys = array_keys($array);
+		$keys = array_keys($array);
 
-        // Check if the keys are sequential (0, 1, 2, ...) or non-sequential
-        return array_keys($keys) !== $keys;
-    }
+		// Check if the keys are sequential (0, 1, 2, ...) or non-sequential
+		return array_keys($keys) !== $keys;
+	}
 
 }
 

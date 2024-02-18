@@ -42,7 +42,8 @@ define('field_location', 'Asia/Kolkata');
 
 
 //////////////////////////////////////////////__URL
-define('BASE_URL', 'http://localhost/Shapath/');
+// define('BASE_URL', 'https://daltonusstore.com');
+define('BASE_URL', 'http://localhost/z/');
 
 //////////////////////////////////////////////__PAGEDATA
 define('PAGE_DATA_WEB', ['data_page' => [], 'data_header' => ['header_link' => [], 'title' => '', 'projects' => [], 'header' => [], 'sidebar' => [], 'site' => 'web'], 'data_footer' => ['footer_link' => [], 'footer' => [], 'site' => 'web']]);
@@ -74,6 +75,8 @@ define('TABLE_CAUSES', 'causes');
 define('TABLE_EVENTS', 'events');
 define('TABLE_DONATIONS', 'donations');
 define('TABLE_USER_MESSAGE', 'user_message');
+define('TABLE_NEWS_LETTER', 'news_letter');
+define('TABLE_AUDIO', 'audio');
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');
@@ -105,6 +108,9 @@ define('UID_BLOG', 'BLG');
 define('UID_EVENTS', 'EVN');
 define('UID_DONATION', 'DNT');
 define('UID_USER_MESSAGE', 'UMSG');
+define('UID_GALLERY', 'GAL');
+define('UID_NL', 'NL');
+define('UID_AUDIO', 'AUD');
 
 
 //////////////////////////////////////////__UID

@@ -28,7 +28,9 @@
                                     <th>Id</th>
                                     <th>Title</th>
                                     <th>Description</th>
+                                    <th>Description2</th>
                                     <th>Image</th>
+                                    <th>Image2</th>
                                     <th>View</th>
                                     <th>Delete</th>
                                 </tr>
@@ -43,7 +45,9 @@
                                         $row .= '<td>' . $i++ . '</td>';
                                         $row .= '<td>' . $blog['title'] . '</td>';
                                         $row .= '<td>' . $blog['description'] . '</td>';
+                                        $row .= '<td>' . $blog['description2'] . '</td>';
                                         $row .= '<td><img src="' . base_url($blog['img'] ). '" height="100"></td>';
+                                        $row .= '<td><img src="' . base_url($blog['img2'] ). '" height="100"></td>';
                                         $row .= '<td>';
                                         $row .= '<a href="'.base_url('admin/pages/blog_update?blog_id=').$blog['uid'] .'" class="btn btn-info text-light">View & Edit</a>';
                                         $row .= '</td>';

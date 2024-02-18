@@ -3,7 +3,7 @@
     <div class="container text-center py-5" style="max-width: 900px;">
         <h3 class="text-white display-3 mb-4">Contact Us</h1>
             <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
                 <li class="breadcrumb-item active text-white">Contact</li>
             </ol>
     </div>
@@ -21,7 +21,7 @@
                         <div class="row gx-4 gy-3">
                             <div class="col-xl-6">
                                 <input type="text" class="form-control bg-white border-0 py-3 px-4" name="name" required
-                                    placeholder="Your First Name">
+                                    placeholder="Your Full Name">
                             </div>
                             <div class="col-xl-6">
                                 <input type="email" class="form-control bg-white border-0 py-3 px-4" name="email" required
@@ -70,7 +70,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-12">
-                            <iframe class="w-100" style="height: 412px; margin-bottom: -6px;" src="https://www.google.com/maps/embed?center=88.43110577223666,22.44183386818904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s%22%22!2s122%20South%20Ghosh%20Para%2C%20Sonarpur%2C%20Kolkata%20-%20700150!5e0!3m2!1sen!2sbd!4v1694259649153&zoom=15" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                           <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3687.676502791338!2d88.4311099!3d22.4411986!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a0273ea3d81d30d%3A0x54dde1059fc6cf95!2sShapath(NGO)!5e0!3m2!1sen!2sin!4v1708183134281!5m2!1sen!2sin" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
                             </div>
                         </div>

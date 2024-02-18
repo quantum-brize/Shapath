@@ -24,12 +24,30 @@
                                 <div class="form-group">
                                     <label for="formGroupExampleInput2">Blog Title</label>
                                     <input type="text" class="form-control" name="title"
-                                        placeholder="Volunteer Name" required>
+                                        placeholder="Blog title" required>
                                 </div>
                                 <div class="form-group">
-                                    <label for="formGroupExampleInput">Description</label>
+                                    <label for="formGroupExampleInput">Description 1</label>
                                     <textarea rows="6" cols="30" class="form-control" placeholder="Write About Description..." required
                                         name="description"></textarea>
+                                </div>
+                                <div class="col-xl-6 col-lg-6">
+                                <div class='form-group' id="aboutBlog2">
+                                    <div>
+                                        <label for="formGroupExampleInput2">Image</label>
+                                    </div>
+                                    <img src="https://usercontent.one/wp/www.vocaleurope.eu/wp-content/uploads/no-image.jpg?media=1642546813"
+                                        height="200" id="blog_img2" />
+                                </div>
+                                <div class="form-group">
+                                    <input type="file" class="form-control-file" placeholder="blog image 2"
+                                        name="blog_img2[]" required />
+                                </div>
+                            </div>
+                                <div class="form-group">
+                                    <label for="formGroupExampleInput">Description 2</label>
+                                    <textarea rows="6" cols="30" class="form-control" placeholder="Write About Description..." required
+                                        name="description2"></textarea>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6">
