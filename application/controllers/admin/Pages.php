@@ -102,6 +102,7 @@ class Pages extends Admin
         $data['data_header']['sidebar']['pages'] = true;
         $data['data_header']['sidebar']['projects'] = true;
         $data['data_page']['project'] = $this->Pages_model->get_projects_by_id($p_id);
+        $data['data_page']['events']  = $this->Pages_model->get_events_by_id($p_id);
         $data['data_page']['galary_img'] = $this->Pages_model->get_projects_galary_by_id($p_id);
         
         $this->is_auth('admin/pages_projetcs_update.php', $data);
@@ -121,11 +122,6 @@ class Pages extends Admin
 
         $project_img = '/uploads/project_img/' . $project_img_data['file_name'];
         $project_logo = '/uploads/project_logo/' . $project_logo_data['file_name'];
-
-       
-
-      
-
 
         $this->init_model(MODEL_PAGES);
         $insert_data = [
@@ -162,6 +158,12 @@ class Pages extends Admin
         if ($add_new_project) {
             redirect('admin/pages/projects');
         }
+    }
+
+    public function delete_project_event(){
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->delete_project_event($this->input->get('e_id'));
+        redirect('admin/pages/projects/edit?p_id='.$this->input->get('p_id'));
     }
 
     public function update_project()
@@ -555,6 +557,27 @@ class Pages extends Admin
         redirect('admin/blog');
     }
 
+
+    public function add_project_event(){
+
+        if($_FILES['event_img']['name'][0]){
+            $event_img_data = $this->upload_files('./uploads/project_event_img/', 'event_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $event_img = '/uploads/project_event_img/' . $event_img_data['file_name'];
+            $data = [
+                "uid"  => $this->generate_uid('PREV'),
+                "p_id" => $this->input->get('p_id'),
+                'title'=> $this->input->POST('event_title'),
+                'details'=> $this->input->post('event_details'),
+                'img'=>$event_img
+            ];
+            $this->init_model(MODEL_PAGES);
+            $this->Pages_model->add_project_event($data);
+            redirect('admin/pages/projects/edit?p_id='.$this->input->get('p_id'));
+        }
+
+    }
+
+
     public function blog_update()
     {
         $blog_id = $this->input->get('blog_id');
@@ -662,4 +685,5 @@ class Pages extends Admin
             redirect('admin/pages/home', $error);
         }
     }
+    
 }

@@ -324,6 +324,13 @@ class Pages_model extends Admin_model
         return $insert;
     }
 
+    public function add_project_event($data){
+        $insert = $this->db->insert('project_events', $data);
+        return $insert;
+    }
+
+
+
     public function get_gallery_img()
     {
         $images = $this->db->select('*')
@@ -374,6 +381,12 @@ class Pages_model extends Admin_model
         return $delete;
     }
 
+    public function delete_project_event($e_id){
+        $delete = $this->db->where('uid', $e_id)
+            ->delete('project_events');
+        return $delete;
+    }
+
     public function get_blog($blog_id)
     {
         $blog = $this->db
@@ -383,6 +396,17 @@ class Pages_model extends Admin_model
             ->get();
         $blog = $blog->row_array();
         return !empty($blog) ? $blog : [];
+    }
+
+    public function get_events_by_id($p_id){
+        $events = $this->db
+            ->select('*')
+            ->from('project_events')
+            ->where('p_id', $p_id)
+            ->get();
+        $events = $events->result_array();
+        return !empty($events) ? $events : [];
+
     }
 
     public function update_blog($blog_id, $update_data)

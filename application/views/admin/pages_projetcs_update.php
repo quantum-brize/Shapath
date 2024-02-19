@@ -1,7 +1,7 @@
 <?php
 $p_id = $this->input->get('p_id');
 //echo "<pre>";
-//print_r($galary_img);
+//print_r($events);
 //die();
 ?>
 
@@ -64,7 +64,7 @@ $p_id = $this->input->get('p_id');
                         </div>
                         <div class="form-group">
                             <input multiple type="file" class="form-control-file" placeholder="projects logo"
-                                name="project_logo[]"/>
+                                name="project_logo[]" />
                         </div>
                     </div>
                     <div class="form-group col-12">
@@ -76,7 +76,7 @@ $p_id = $this->input->get('p_id');
                         </div>
                         <div class="form-group">
                             <input multiple type="file" class="form-control-file" placeholder="projects image"
-                                name="project_img[]"/>
+                                name="project_img[]" />
                         </div>
                     </div>
 
@@ -101,7 +101,7 @@ $p_id = $this->input->get('p_id');
                                     foreach ($galary_img as $key => $val) {
                                         echo "<div class='img_bx'>";
                                         echo "<img src='" . base_url($val["image"]) . "' />";
-                                        echo "<a align='center' class='p-2 btn-danger btn_dl' href='" . base_url('admin/Admin/delete_project_gal_img?gid='. $val['uid'].'&pid='.$p_id) . "'>";
+                                        echo "<a align='center' class='p-2 btn-danger btn_dl' href='" . base_url('admin/Admin/delete_project_gal_img?gid=' . $val['uid'] . '&pid=' . $p_id) . "'>";
                                         echo "<i class='fas fa-trash'></i>";
                                         echo "</a>";
                                         echo "</div>";
@@ -131,6 +131,49 @@ $p_id = $this->input->get('p_id');
                 </form>
             </div>
 
+            <div class="card">
+                <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                    <h5 class="m-0 font-weight-bold text-primary">All Project Events</h5>
+                    <a href="<?= base_url('admin/Pages/new_project_event?p_id=') . $p_id ?>" class="btn btn-primary">
+                        Add New Event </a>
+                </div>
+                <div class="card-body">
+                    <table class="table table-info" border="1">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Details</th>
+                                <th>Image</th>
+                                <th>Delete</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            if (!empty($events)) {
+                                foreach ($events as $key => $val) {
+                                    ?>
+                                    <tr>
+                                        <td><?= $val['title']?></td>
+                                        <td><?= $val['details']?></td>
+                                        <td>
+                                            <img src="<?= base_url().$val['img']?>" alt="" height="100px">
+                                        </td>
+                                        <td>
+                                            <a 
+                                                class="btn btn-danger" 
+                                                href="<?=base_url('admin/Pages/delete_project_event?e_id='.$val['uid'].'&p_id='.$p_id)?>">
+                                                DELETE
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <?php
+                                }
+                            }
+                            ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
 
 

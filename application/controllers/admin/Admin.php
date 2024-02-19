@@ -177,6 +177,15 @@ class Admin extends Common
         $this->is_auth('admin/causes_add.php', $data);
     }
 
+    public function new_project_event(){
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = [];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Add Causes';
+        $data['data_header']['sidebar']['causes'] = true;
+
+        $this->is_auth('admin/pages_project_new_event.php', $data);
+    }
 
     public function add_new_cause()
     {
