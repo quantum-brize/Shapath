@@ -61,6 +61,14 @@ class About extends Load
         $this->init_model(MODEL_PAGES);
         $data['data_header']['gallery'] = true;
         $data['data_page']['gallery_img'] = $this->Pages_model->get_gallery_img();
+        $projects = $this->Pages_model->get_all_projects();
+        if($projects){
+            foreach($projects as $key => $val){
+                $projects[$key]['project_images'] = $this->Pages_model->get_projects_galary_by_id($val['uid']);
+            }
+        }
+
+        $data['data_page']['projects'] =  $projects;
 
         $this->load_page('web/gallery.php',$data);
     }
