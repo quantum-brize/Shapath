@@ -409,6 +409,16 @@ class Pages_model extends Admin_model
 
     }
 
+    public function get_project_event($id){
+        $events = $this->db
+            ->select('*')
+            ->from('project_events')
+            ->where('p_id', $id)
+            ->get();
+        $events = $events->result_array();
+        return !empty($events) ? $events : [];
+    }
+
     public function update_blog($blog_id, $update_data)
     {
         $update = $this->db->where('uid', $blog_id)
