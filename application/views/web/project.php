@@ -31,7 +31,7 @@ if (!empty($quotes)) {
     </div>
 
     <div class="video">
-        <iframe id="ytplayer" type="text/html" width="720" height="405"
+        <iframe id="ytplayer" type="text/html" width="720" height="405" style="height: 60%;"
             src="<?php echo $project['project_page_video'] ?>" frameborder="0" allow="encrypted-media; loop"
             allowfullscreen>
         </iframe>
