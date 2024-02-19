@@ -26,16 +26,18 @@
                                     <select class="form-control" name="member_type" id="member_type" require>
                                         <option value="board_of_trustees">Board of Trustees</option>
                                         <option value="trustees">Trustees</option>
+                                        <option value="secretary">Secretary</option>
+                                        <option value="treasurer">Treasurer</option>
                                     </select>
                                 </div>
                                 <div class="form-group">
                                     <label for="formGroupExampleInput2">Member Name</label>
                                     <input type="text" class="form-control" name="name"
-                                        placeholder="Donor Name" required>
+                                        placeholder="Member Name" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="formGroupExampleInput">About Member</label>
-                                    <textarea rows="6" cols="30" class="form-control" placeholder="Write About The Donor..." required
+                                    <textarea rows="6" cols="30" class="form-control" placeholder="Write About The Member..." required
                                         name="about_member"></textarea>
                                 </div>
                             </div>

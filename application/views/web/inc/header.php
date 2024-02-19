@@ -1,5 +1,4 @@
 </head>
-
 <body>
     <!-- Floating Action Buttons Container -->
     <div class="custom-fab-container">
@@ -11,22 +10,22 @@
         <!-- Sub Action Buttons -->
         <ul class="custom-fab-options">
             <li>
-                <a href="https://www.facebook.com" class="custom-fab-button custom-fab-facebook" target="_blank">
+                <a href="https://www.facebook.com/profile.php?id=61555132809953" class="custom-fab-button custom-fab-facebook" target="_blank">
                     <i class="fab fa-facebook-f"></i>
                 </a>
             </li>
             <li>
-                <a href="https://www.instagram.com" class="custom-fab-button custom-fab-instagram" target="_blank">
+                <a href="https://www.instagram.com/shapath_ngo" class="custom-fab-button custom-fab-instagram" target="_blank">
                     <i class="fab fa-instagram"></i>
                 </a>
             </li>
             <li>
-                <a href="tel:+1234567890" class="custom-fab-button custom-fab-call">
+                <a href="tel:+919062009959" class="custom-fab-button custom-fab-call">
                     <i class="fas fa-phone"></i>
                 </a>
             </li>
             <li>
-                <a href="https://wa.me/1234567890" class="custom-fab-button custom-fab-whatsapp" target="_blank">
+                <a href="https://wa.me/9062009959" class="custom-fab-button custom-fab-whatsapp" target="_blank">
                     <i class="fab fa-whatsapp"></i>
                 </a>
             </li>

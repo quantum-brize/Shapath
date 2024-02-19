@@ -36,9 +36,34 @@
                 display: none;
 
             }
+            .blog_card{
+                margin-left: 5px;
+                width: 180%;
+            }
         }
     </style>
+<style>
+    .carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin: 0 auto;
+}
 
+.carousel-item {
+    display: none;
+}
+
+.carousel-item.active {
+    display: block;
+}
+
+.carousel img {
+    max-width: 100%;
+    height: auto;
+}
+
+</style>
     <style>
         #music-toggle {
             /* Existing styles */

@@ -725,7 +725,7 @@ if (!empty($video)) {
 
 <!-- Image with Quote End -->
 <audio id="background-music" loop>
-    <source src="<?= base_url() . 'assets/audio1.mp3' ?>" type="audio/mpeg">
+    <source src="<?= base_url($audio['path'])?>" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 

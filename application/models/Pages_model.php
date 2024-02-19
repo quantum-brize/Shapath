@@ -286,6 +286,8 @@ class Pages_model extends Admin_model
             ->select('*')
             ->from(TABLE_OUR_TEAM)
             ->where('type', 'board_of_trustees')
+            ->or_where('type', 'secretary')
+            ->or_where('type', 'treasurer')
             ->get();
         $our_team = $our_team->result_array();
         return !empty($our_team) ? $our_team : [];
@@ -502,6 +504,40 @@ class Pages_model extends Admin_model
         return $data;
 
     }
+
+    public function add_news_letter($data)
+    {
+        $data = $this->db->insert(TABLE_NEWS_LETTER, $data);
+        return $data;
+    }
+
+    public function get_new_letter()
+    {
+        $data = $this->db->select('*')
+            ->from(TABLE_NEWS_LETTER)
+            ->get()
+            ->result_array();
+        return !empty($data) ? $data : [];
+
+    }
+
+    public function add_audio($data, $uid)
+    {
+        $update = $this->db->where('uid', $uid)
+            ->update(TABLE_AUDIO, $data);
+        return $update;
+    }
+
+    public function get_audio()
+    {
+        $data = $this->db->select('*')
+            ->from(TABLE_AUDIO)
+            ->get()
+            ->row_array();
+        return !empty($data) ? $data : [];
+
+    }
+
 
 
 }

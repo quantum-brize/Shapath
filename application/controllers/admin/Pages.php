@@ -37,6 +37,7 @@ class Pages extends Admin
         $data['data_header']['sidebar']['home'] = true;
         $data['data_page']['quotes'] = $this->Pages_model->get_all_quotes();
         $data['data_page']['videos'] = $this->Pages_model->get_all_videos();
+        $data['data_page']['audio'] = $this->Pages_model->get_audio();
         $data['data_page']['about'] = $this->Pages_model->get_about();
         $data['data_page']['mission_vision'] = $this->Pages_model->get_mission_vision();
         $data['data_page']['services'] = $this->Pages_model->get_all_work();
@@ -70,6 +71,7 @@ class Pages extends Admin
         $data['data_header']['sidebar']['pages'] = true;
         $data['data_header']['sidebar']['messsage'] = true;
         $data['data_page']['messages'] = $this->Pages_model->get_all_message();
+        $data['data_page']['news_letter'] = $this->Pages_model->get_new_letter();
 
         $this->is_auth('admin/pages_messsage.php', $data);
     }
@@ -520,17 +522,25 @@ class Pages extends Admin
 
         $blog_title = $this->input->post('title');
         $description = $this->input->post('description');
+        $description2 = $this->input->post('description2');
         $blog_img = '';
+        $blog_img2 = '';
         if (!empty($_FILES['blog_img']['name'])){
-            $donor_image_data = $this->upload_files('./uploads/blog_img/', 'blog_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
-            $blog_img = '/uploads/blog_img/' . $donor_image_data['file_name'];
+            $blog_image_data = $this->upload_files('./uploads/blog_img/', 'blog_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $blog_img = '/uploads/blog_img/' . $blog_image_data['file_name'];
+        }
+        if (!empty($_FILES['blog_img2']['name'])){
+            $blog_image_data = $this->upload_files('./uploads/blog_img/', 'blog_img2', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $blog_img2 = '/uploads/blog_img/' . $blog_image_data['file_name'];
         }
 
         $insert_data = [
             "uid" => $this->generate_uid(UID_BLOG),
             "title" => $blog_title,
             "description" => $description,
+            "description2" => $description2,
             "img" => $blog_img,
+            "img2" => $blog_img2,
         ];
 
         $add_new_blog = $this->Pages_model->add_new_blog($insert_data);
@@ -569,18 +579,89 @@ class Pages extends Admin
         $blog_id = $this->input->get('blog_id');
         $title = $this->input->post('title');
         $description = $this->input->post('description');
+        $description2 = $this->input->post('description2');
 
         $this->init_model(MODEL_PAGES);
         $update_data = [
             "title" => $title,
             "description" => $description,
+            "description2" => $description2,
         ];
         if (!empty($_FILES['blog_img']['name'][0])) {
             $blog_img_data = $this->upload_files('./uploads/blog_img/', 'blog_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
             $update_data['img'] = '/uploads/blog_img/' . $blog_img_data['file_name'];
         }
+        if (!empty($_FILES['blog_img2']['name'][0])) {
+            $blog_img_data = $this->upload_files('./uploads/blog_img/', 'blog_img2', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $update_data['img2'] = '/uploads/blog_img/' . $blog_img_data['file_name'];
+        }
         $this->Pages_model->update_blog($blog_id, $update_data);
         redirect('admin/blog');
 
+    }
+
+    public function add_news_letter()
+    {
+        $this->init_model(MODEL_PAGES);
+
+        $email = $this->input->post('email');
+
+        $insert_data = [
+            "uid" => $this->generate_uid(UID_NL),
+            "email" => $email,
+        ];
+
+        $add_news_letter = $this->Pages_model->add_news_letter($insert_data);
+
+        if ($add_news_letter) {
+            redirect('/home');
+        }
+    }
+
+
+    public function do_upload() 
+    {
+        $this->init_model(MODEL_PAGES);
+
+        $uid = $this->input->post('uid');
+
+        $config['upload_path'] = './uploads/mp3/';
+        $config['allowed_types'] = 'mp3|wav|ogg|m4a';
+        $config['max_size'] = 100000; 
+
+        if (!file_exists($config['upload_path'])) {
+			mkdir($config['upload_path'], 0777, true);
+		}
+
+        $this->load->library('upload', $config);
+
+        if (!empty($_FILES['audio']['name'])) {
+            $_FILES['userfile']['name'] 	= $_FILES['audio']['name'];
+			$_FILES['userfile']['type'] 	= $_FILES['audio']['type'];
+			$_FILES['userfile']['tmp_name'] = $_FILES['audio']['tmp_name'];
+			$_FILES['userfile']['error'] 	= $_FILES['audio']['error'];
+			$_FILES['userfile']['size'] 	= $_FILES['audio']['size'];
+
+			$this->upload->initialize($config);
+			$this->upload->do_upload('userfile');
+
+			$audio_data = $this->upload->data();
+            $audio_path = '/uploads/mp3/' . $audio_data['file_name'];
+
+            $insert_data = [
+                "path" => $audio_path,
+                "type" => 'audio',
+            ];
+    
+            $add_audio = $this->Pages_model->add_audio($insert_data, $uid);
+    
+            if ($add_audio) {
+                redirect('admin/pages/home');
+            }
+           
+        } else {
+            $error = array('error' => $this->upload->display_errors());
+            redirect('admin/pages/home', $error);
+        }
     }
 }

@@ -12,6 +12,22 @@
     opacity: 1;
 }
 
+.carousel {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch; /* for smooth scrolling on iOS */
+}
+
+.carousel-item {
+    flex: 0 0 auto;
+    scroll-snap-align: start;
+}
+
+.donation {
+    /* Add any additional styles as needed */
+}
+
 
 
 /* Floating Action Button Container Styles */

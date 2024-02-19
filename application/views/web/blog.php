@@ -14,12 +14,14 @@
 <!-- About Start -->
 <div class="container-fluid about  py-5">
     <div class="container py-5">
-        <div class="row g-5">
+        <div class="row g-5 blog_card">
             <div class="card mb-3">
                 <img src="<?php echo base_url($blog['img']) ?>" style="height:80%">
-                <div class="card-body">
+                <div class="card-body text-center" style="display: flex; flex-direction: column; justify-content: center;">
                     <h3 class="card-title"><?php echo $blog['title']?></h3>
-                    <p class="card-text" style="text-align: justify; margin: 40px 0px 40px 0px;"><?php echo $blog['description']?></p>
+                    <p class="card-text" style="text-align: justify; margin: 40px 0px 40px 0px;"><?php echo $blog['description']?></p><br>
+                    <img src="<?php echo base_url($blog['img2']) ?>" style="height:80%"> <br>
+                    <p class="card-text" style="text-align: justify; margin: 40px 0px 40px 0px;"><?php echo $blog['description2']?></p>
                     <span><i class="fa fa-clock"></i> <?php $dateTime = new DateTime($blog['created_at']); $dateOnly = $dateTime->format('d-m-Y'); echo $dateOnly?></span>
                 </div>
             </div>

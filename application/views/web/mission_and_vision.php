@@ -29,7 +29,7 @@ if (!empty($mission_vision)) {
 
 <div class="quote-video-wrapper">
     <div class="quote">
-        <p>"<?php echo $top_quote['quote'] ?>"</p>
+        <p><?php echo $top_quote['quote'] ?></p>
         <p class="author">- <?php echo $top_quote['quote_by'] ?></p>
     </div>
     <div class="video">

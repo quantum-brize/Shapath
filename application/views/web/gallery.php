@@ -68,9 +68,6 @@
         </div> -->
 
         <div class="container-fluid gallery py-5 my-5 px-0">
-            <div class="text-center mx-auto pb-5" style="max-width: 800px;">
-                <h1 class="mb-4 text-primary">Gallery</h1>
-            </div>
             <div class="row g-0">
 
                 <section class="content">
