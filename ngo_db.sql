@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Feb 18, 2024 at 06:31 PM
--- Server version: 10.6.12-MariaDB-cll-lve
--- PHP Version: 7.2.34
+-- Host: 127.0.0.1
+-- Generation Time: Feb 19, 2024 at 12:09 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `u865002673_ecom`
+-- Database: `ngo_db`
 --
 
 -- --------------------------------------------------------
@@ -227,8 +227,6 @@ CREATE TABLE `gallery_img` (
 --
 
 INSERT INTO `gallery_img` (`id`, `uid`, `images`, `created_at`, `updated_at`) VALUES
-(19, 'GAL04E2CEFF20240216', '/uploads/galary_img/8f9646dcb6e172c8a395555f1e00b736.jpg', '0000-00-00 00:00:00', '2024-02-16 15:37:13'),
-(20, 'GAL6FAF46AC20240216', '/uploads/galary_img/cd4c954d71bc610e1f950c4949415a7f.jpg', '0000-00-00 00:00:00', '2024-02-16 15:37:27'),
 (21, 'GAL0CB39FF320240216', '/uploads/galary_img/bc54e2cca9e7394d5c583f241518465f.jpg', '0000-00-00 00:00:00', '2024-02-16 15:37:36'),
 (22, 'GAL3A4FF18120240216', '/uploads/galary_img/76b2900115feb06ba24b59d79aee1ba1.jpg', '0000-00-00 00:00:00', '2024-02-16 15:37:45'),
 (23, 'GAL47C2E8E820240216', '/uploads/galary_img/62c3f19d596bd26e728c566a48179656.jpg', '0000-00-00 00:00:00', '2024-02-16 15:37:54'),
@@ -281,7 +279,8 @@ CREATE TABLE `news_letter` (
 
 INSERT INTO `news_letter` (`id`, `uid`, `email`, `created_at`, `updated_at`) VALUES
 (1, 'NL5678FGHTYUU', 'shapath@gmail.com', '2024-02-06 15:53:38', '2024-02-06 15:53:38'),
-(2, 'NL3ED3BEBB20240218', 'ar@emial.com', '2024-02-18 15:53:09', '2024-02-18 15:53:09');
+(2, 'NL3ED3BEBB20240218', 'ar@emial.com', '2024-02-18 15:53:09', '2024-02-18 15:53:09'),
+(3, 'NL2003F88E20240219', 'skrohan0420@gmail.com', '2024-02-19 12:34:39', '2024-02-19 12:34:39');
 
 -- --------------------------------------------------------
 
@@ -347,7 +346,8 @@ CREATE TABLE `projects` (
 --
 
 INSERT INTO `projects` (`id`, `uid`, `project_title`, `project_cover_details`, `project_page_title`, `project_page_video`, `project_page_description`, `project_img`, `project_logo`, `created_at`, `updated_at`) VALUES
-(15, 'PROCADBC14820240216', 'Sirsti', 'Where the mind is without fear and the head is held high into that heaven\nof freedom. My father, let my country awake', '', 'dfgsrgr', '', '/uploads/project_img/137a0f126c349fa280315cf6b3ac74c8.jpg', '/uploads/project_logo/4455f61279c6164cde610cb0bddd5d2b.png', '2024-02-16 17:39:12', '2024-02-16 17:39:12');
+(15, 'PROCADBC14820240216', 'Sirsti', 'Where the mind is without fear and the head is held high into that heaven\nof freedom. My father, let my country awake', '', 'dfgsrgr', '', '/uploads/project_img/137a0f126c349fa280315cf6b3ac74c8.jpg', '/uploads/project_logo/4455f61279c6164cde610cb0bddd5d2b.png', '2024-02-16 17:39:12', '2024-02-16 17:39:12'),
+(16, 'PRO930C856F20240219', 'Hope Canvas', 'At Hope Canva, we are dedicated to making a meaningful impact in the lives of underprivileged children. Join us in our Sunday drawing schools, where art becomes a tool for expression and hope. Step into our bamboo workshop, where blind women showcase their artistic skills, receiving daily wages for financial assistance. Together, we paint a brighter future and weave a tapestry of empowerment. Explore the transformative power of art and craftsmanship with Hope Canva.', '', 'rtgetg', '', '/uploads/project_img/00b991717ee2c11b9d68351fa3b31222.jpg', '/uploads/project_logo/9416eef4e17b516a878881dfed75d549.png', '2024-02-19 13:04:34', '2024-02-19 13:04:34');
 
 -- --------------------------------------------------------
 
@@ -365,6 +365,15 @@ CREATE TABLE `project_events` (
   `created_at` datetime NOT NULL DEFAULT current_timestamp(),
   `updated_at` datetime NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `project_events`
+--
+
+INSERT INTO `project_events` (`id`, `uid`, `p_id`, `title`, `details`, `img`, `created_at`, `updated_at`) VALUES
+(3, 'PREV2FFB8D7220240219', 'PROCADBC14820240216', 'At Hope Canva, we are dedicated', 'At Hope Canva, we are dedicated to making a meaningful impact in the lives of underprivileged children. Join us in our Sunday drawing schools, where art becomes a tool for expression and hope. Step into our bamboo workshop, where blind women showcase their artistic skills, receiving daily wages for financial assistance. Together, we paint a brighter future and weave a tapestry of empowerment. Explore the transformative power of art and craftsmanship with Hope Canva.', '/uploads/project_event_img/64043c47d30306d7c19a8e22f812b3ee.jpg', '2024-02-19 16:32:35', '2024-02-19 16:32:35'),
+(4, 'PREV9B35C74920240219', 'PROCADBC14820240216', 'At Hope Canva', 'At Hope Canva, we are dedicated to making a meaningful impact in the lives of underprivileged children. Join us in our Sunday drawing schools, where art becomes a tool for expression and hope. Step into our bamboo workshop, where blind women showcase their artistic skills, receiving daily wages for financial assistance. Together, we paint a brighter future and weave a tapestry of empowerment. Explore the transformative power of art and craftsmanship with Hope Canva', '/uploads/project_event_img/cb00a661632730f49cd78f2f6dc2e918.jpg', '2024-02-19 16:32:54', '2024-02-19 16:32:54'),
+(5, 'PREV59EB82D520240219', 'PROCADBC14820240216', 'ession and hope. S', 'At Hope Canva, we are dedicated to making a meaningful impact in the lives of underprivileged children. Join us in our Sunday drawing schools, where art becomes a tool for expression and hope. Step into our bamboo workshop, where blind women showcase their artistic skills, receiving daily wages for financial assistance. Together, we paint a brighter future and weave a tapestry of empowerment. Explore the transformati', '/uploads/project_event_img/d093b3089a826a5b576f8ceedad29575.jpg', '2024-02-19 16:33:24', '2024-02-19 16:33:24');
 
 -- --------------------------------------------------------
 
@@ -386,10 +395,11 @@ CREATE TABLE `project_images` (
 --
 
 INSERT INTO `project_images` (`id`, `uid`, `p_id`, `image`, `created_at`, `updated_at`) VALUES
-(16, 'PRGF98D1C2D20240216', 'PROCADBC14820240216', '/uploads/project_galary_img/088889d127c858a24d84dc00cb20db74.jpg', '2024-02-16 17:39:11', '2024-02-16 17:39:11'),
 (17, 'PRGF931703020240216', 'PROCADBC14820240216', '/uploads/project_galary_img/78905a7223f53549fb1d4a39b7c4795f.jpg', '2024-02-16 17:39:11', '2024-02-16 17:39:11'),
 (18, 'PRG09C9EF3B20240216', 'PROCADBC14820240216', '/uploads/project_galary_img/b8c455b8f1a70a4bfb18c9f5dbd03941.jpg', '2024-02-16 17:39:11', '2024-02-16 17:39:11'),
-(19, 'PRGC895852A20240216', 'PROCADBC14820240216', '/uploads/project_galary_img/2e2c63ee908f9c0a1c13cd79ca19e15a.jpg', '2024-02-16 17:39:12', '2024-02-16 17:39:12');
+(24, 'PRG2EC48CC320240219', 'PRO930C856F20240219', '/uploads/project_galary_img/960e9afaa5455861bd47476e357ae78a.jpg', '2024-02-19 13:04:33', '2024-02-19 13:04:33'),
+(39, 'PRGC74AB8AE20240219', 'PRO930C856F20240219', '/uploads/project_galary_img/13c0c9678b7aa7fa8f58255f434e6679.jpg', '2024-02-19 15:22:14', '2024-02-19 15:22:14'),
+(40, 'PRGF510E13720240219', 'PRO930C856F20240219', '/uploads/project_galary_img/4adbc19411192cb8eb3cbd7b34ec3aab.jpg', '2024-02-19 15:22:19', '2024-02-19 15:22:19');
 
 -- --------------------------------------------------------
 
@@ -743,7 +753,7 @@ ALTER TABLE `mission_vision`
 -- AUTO_INCREMENT for table `news_letter`
 --
 ALTER TABLE `news_letter`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `our_team`
@@ -755,19 +765,19 @@ ALTER TABLE `our_team`
 -- AUTO_INCREMENT for table `projects`
 --
 ALTER TABLE `projects`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `project_events`
 --
 ALTER TABLE `project_events`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `project_images`
 --
 ALTER TABLE `project_images`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `quotes`
