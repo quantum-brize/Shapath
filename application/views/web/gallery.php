@@ -41,7 +41,7 @@
             if (!empty($projects)) {
                 foreach ($projects as $project) {
                     ?>
-                    <div class="row g-0" style="margin-top: 130px;">
+                    <div class="row g-0" style="margin-top: 150px;">
                         <h2 class="text-primary mb-4 text-center"><?=  $project['project_title']?> Gallery</h2>
                         <section class="content">
                             <?php

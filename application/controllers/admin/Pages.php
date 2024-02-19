@@ -188,22 +188,20 @@ class Pages extends Admin
             $project_img_data = $this->upload_files('./uploads/project_img/', 'project_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
             $update_data['project_img'] = '/uploads/project_img/' . $project_img_data['file_name'];
         }
-        if (!empty($_FILES['galary_img']['name'][0])) {
-            $galary_img_data = $this->upload_files('./uploads/project_galary_img/', 'galary_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
-            $galary_img_arr = [];
+        if (!empty($_FILES['project_galary_img']['name'][0])) {
+            foreach($_FILES['project_galary_img']['name'] as $key => $val){
+                $galary_img_data = $this->upload_files('./uploads/project_galary_img/', 'project_galary_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+                $galary_data['image'] = '/uploads/project_galary_img/'. $galary_img_data['file_name'];
+                $galary_data['uid'] = $this->generate_uid('PRG');
+                $galary_data['p_id'] = $p_id;
 
-
-            if (!empty($galary_img_data)) {
-                if ($this->isAssociativeArray($galary_img_data)) {
-                    $update_data['galary_img'] = '/uploads/project_galary_img/' . $galary_img_data['file_name'];
-                } else {
-                    foreach ($galary_img_data as $key => $val) {
-                        $galary_img_arr[$key] = '/uploads/project_galary_img/' . $val['file_name'];
-                    }
-                    $update_data['galary_img'] = implode(',', $galary_img_arr);
-                }
+                $this->Pages_model->add_project_galary_images($galary_data);
             }
+
+
+           
         }
+
         $this->Pages_model->update_project($p_id, $update_data);
         redirect('admin/pages/projects/edit?p_id=' . $p_id);
 

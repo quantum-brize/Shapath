@@ -319,6 +319,11 @@ class Pages_model extends Admin_model
 
     }
 
+    public function add_project_galary_images($data){
+        $insert = $this->db->insert('project_images', $data);
+        return $insert;
+    }
+
     public function get_gallery_img()
     {
         $images = $this->db->select('*')
@@ -335,6 +340,12 @@ class Pages_model extends Admin_model
         return $delete;
     }
 
+    public function delete_project_gal_img($uid)
+    {
+        $delete = $this->db->where('uid', $uid)
+            ->delete('project_images');
+        return $delete;
+    }
 
     public function add_new_blog($data)
     {

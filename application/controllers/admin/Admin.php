@@ -145,6 +145,13 @@ class Admin extends Common
 
     }
 
+    public function delete_project_gal_img(){
+        $this->init_model(MODEL_PAGES);
+        $this->Pages_model->delete_project_gal_img($this->input->get('gid'));
+        redirect('admin/pages/projects/edit?p_id='.$this->input->get('pid'));
+    }
+
+
     public function causes()
     {
         $data = PAGE_DATA_ADMIN;
