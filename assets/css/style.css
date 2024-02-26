@@ -245,45 +245,28 @@
     font-weight: bold;
 }
 /* Base styles for the video container and iframe */
-
-/* Media query for desktop devices */
-@media (min-width: 1024px) {
-
-    /* Style the container for the video */
-    .video {
-        position: relative;
-        width: 720px;
-        /* Set the width of the video container */
-        height: 480px;
-        /* Set the height of the video container */
-        margin: auto;
-        /* Center the container */
-        padding: 75px;
-        box-sizing: border-box;
-        /* Padding is included in the width/height calculations */
-        background: url('https://shapath.org.in/assets/img/border.png') center center no-repeat;
-        background-size: cover;
-        /* Adjust the background size to fit the padding 'border' area */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Style the video iframe */
-    .video iframe {
-        position: absolute;
-        top: 46%;
-        left: 54%;
-        transform: translate(-50%, -50%);
-        width: 70%;
-        /* Adjust the width of the video as needed */
-        height: 50%;
-        /* Maintain aspect ratio */
-        border: none;
-    }
-
-
+.video {
+    /* Padding is included in the width/height calculations */
+    background: url('https://shapath.org.in/assets/img/border.png') center center no-repeat;
+    padding: 130px;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: fit-content;
+    width: fit-content;
+   
 }
+
+/* Style the video iframe */
+.video iframe {
+    height: 260px;
+    width: 480px;
+    position: relative;
+    top: -20px;
+    left: 25px;
+}
+
 
 @media (max-width: 1023px) and (min-width: 768px) {
 
@@ -309,35 +292,10 @@
         /* To bring the text above and Video below in Mobile */
     }
 
-    .video {
-        position: relative;
-        width: 720px;
-        /* Set the width of the video container */
-        height: 480px;
-        margin: auto;
-        /* Center the container */
-        padding: 130px;
-        box-sizing: border-box;
-        /* Padding is included in the width/height calculations */
-        background-image: url('https://shapath.org.in/assets/img/border.png') center center no-repeat;
-        background-size: cover;
-        /* Adjust the background size to fit the padding 'border' area */
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    /* Style the video iframe */
     .video iframe {
-        position: absolute;
-        top: 46%;
-        left: 54%;
-        transform: translate(-50%, -50%);
-        width: 70%;
-        /* Adjust the width of the video as needed */
-        height: 48%;
-        /* Maintain aspect ratio */
-        border: none;
+        height: 200px;
+        width: 420px;
+       
     }
 
     /* Style the container of class quote */
@@ -352,8 +310,6 @@
     }
 }
 
-
-
 /*  Making mobile responsive */
 @media (max-width: 982px) {
 
@@ -363,7 +319,7 @@
         overflow-x: hidden;
         /* keeping all the items within the screen */
     }
-
+    
     .quote-video-wrapper {
         display: flex;
         justify-content: center;
@@ -379,38 +335,7 @@
         /* To bring the text above and Video below in Mobile */
     }
 
-    .video {
-        height: 400px;
-        position: relative;
-        overflow: hidden;
-        display: inline-block;
-
-        background: url('https://shapath.org.in/assets/img/border.png') center center no-repeat;
-        background-size: cover;
-        width: 135%;
-        padding: 90px;
-        display: flex;
-        /* changed from relative */
-        justify-content: center;
-        align-items: center;
-        /* added to set a specific height */
-        overflow: hidden;
-        /* added to hide any overflow */
-    }
-
-    /* Style the video iframe */
-    .video iframe {
-        position: absolute;
-        top: 46%;
-        left: 54%;
-        transform: translate(-50%, -50%);
-        width: 73%;
-        /* Adjust the width of the video as needed */
-        height: auto;
-        /* Maintain aspect ratio */
-        border: none;
-    }
-
+   
     /* Style the container of class quote */
     .quote {
         width: 100%;
