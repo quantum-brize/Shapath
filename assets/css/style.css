@@ -268,7 +268,7 @@
 }
 @media screen and (max-width: 680px) {
     .video iframe {
-        height: 155px;
+        height: 175px;
         width: 320px;
     }
     .video {
@@ -279,12 +279,12 @@
 
 @media screen and (max-width: 480px) {
     .video iframe {
-        height: 120px;
+        height: 170px;
         width: 290px;
     }
     .video {
         /* Padding is included in the width/height calculations */
-        padding: 50px;
+        padding: 40px;
     }
 }
 
