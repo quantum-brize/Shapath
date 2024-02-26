@@ -266,7 +266,16 @@
     top: -20px;
     left: 25px;
 }
-
+@media screen and (max-width: 580px) {
+    .video iframe {
+        height: 155px;
+        width: 320px;
+    }
+    .video {
+        /* Padding is included in the width/height calculations */
+        padding: 80px;
+    }
+}
 
 @media (max-width: 1023px) and (min-width: 768px) {
 
@@ -290,12 +299,6 @@
     .quote-video-wrapper {
         flex-direction: column;
         /* To bring the text above and Video below in Mobile */
-    }
-
-    .video iframe {
-        height: 200px;
-        width: 420px;
-       
     }
 
     /* Style the container of class quote */
