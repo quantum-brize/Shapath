@@ -65,6 +65,51 @@
                             placeholder="Project Video Url" required>
                     </div>
 
+                    
+
+
+
+
+
+
+
+                    <div class="form-group col-12">
+                        <label for="formGroupExampleInput">Quote</label>
+                        <textarea type="text" class="form-control" id="" value="" placeholder="Quote"
+                            name="quote" required></textarea>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="formGroupExampleInput2">Quote Author</label>
+                        <input type="text" class="form-control" id="" name="quote_author"
+                             placeholder="Quote Author" required />
+                    </div>
+                    <div class='form-group col-12' id="imagePreview">
+                        <div>
+                            <label for="formGroupExampleInput2">Quote image</label>
+                        </div>
+                        <img src="https://usercontent.one/wp/www.vocaleurope.eu/wp-content/uploads/no-image.jpg?media=1642546813"" height="100"
+                            id="quote_img" />
+                    </div>
+                    <div class="form-group col-12">
+                        <input type="file" class="form-control-file" placeholder="Quote image"
+                            name="quote_img[]" />
+                    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
                     <div class="col-xl-12 col-lg-12 p-2" style="border: 1px solid lightgray">

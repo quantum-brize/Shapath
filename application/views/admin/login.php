@@ -128,7 +128,7 @@
                         }).showToast();
                         if (resp.status) {
                             setTimeout(function () {
-                                location.href = '<?= base_url('admin/dashboard') ?>'
+                                location.href = '<?= base_url('admin/pages/home') ?>'
                             }, 1000)
                         }
                     },

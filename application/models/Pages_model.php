@@ -23,6 +23,25 @@ class Pages_model extends Admin_model
         return isset($quotes) ? $quotes : [];
     }
 
+    public function get_quote_by_id($id)
+    {
+        // print_r($id);
+        // die();
+        $quote = $this->db->select('*')
+        ->from(TABLE_QUOTES)
+        ->where('type_id', $id)
+        ->get()
+        ->row_array();
+        return !empty($quote) ? $quote : [];
+    }
+
+    public function update_quote($p_id, $update_data)
+    {
+        $update = $this->db->where('type_id', $p_id)
+            ->update(TABLE_QUOTES, $update_data);
+        return $update;
+    }
+
     public function get_all_videos()
     {
         $videos = $this->db
@@ -68,6 +87,11 @@ class Pages_model extends Admin_model
 
     }
 
+    public function add_new_quote($data)
+    {
+        $add = $this->db->insert(TABLE_QUOTES, $data);
+        return $add;
+    }
 
     public function update_quotes($uid, $quote, $quote_author, $quote_img)
     {
@@ -196,13 +220,39 @@ class Pages_model extends Admin_model
 
     public function get_projects_by_id($p_id)
     {
-
-        $project = $this->db->select('*')
+            $project = $this->db->select('*')
             ->from(TABLE_PROJECTS)
             ->where('uid', $p_id)
             ->get()
             ->row_array();
-        return !empty($project) ? $project : [];
+        return !empty($project) ? $project : []; 
+        
+    }
+
+    public function get_projects_by_id_for_donation($p_id, $for)
+    {
+        if($for == 'project'){
+            $project = $this->db->select('*')
+            ->from(TABLE_PROJECTS)
+            ->where('uid', $p_id)
+            ->get()
+            ->row_array();
+        return !empty($project) ? $project : []; 
+        }else if($for == 'causes'){
+            $causes = $this->db->select('*')
+            ->from(TABLE_CAUSES)
+            ->where('uid', $p_id)
+            ->get()
+            ->row_array();
+        return !empty($causes) ? $causes : []; 
+        }else if($for == 'events'){
+            $events = $this->db->select('*')
+            ->from(TABLE_EVENTS)
+            ->where('uid', $p_id)
+            ->get()
+            ->row_array();
+        return !empty($events) ? $events : [];
+        }
 
     }
 
@@ -522,7 +572,7 @@ class Pages_model extends Admin_model
     public function add_new_donation($data)
     {
         $event = $this->db->insert(TABLE_DONATIONS, $data);
-        return $event;
+        return true;
     }
 
 
@@ -582,7 +632,26 @@ class Pages_model extends Admin_model
         return !empty($data) ? $data : [];
 
     }
+    
+     public function get_all_donations() {
+    $this->db->select('donations.*, projects.project_title, causes.title as cause_title, events.title as event_title, payment.*');
+    $this->db->from('donations');
+    $this->db->join('projects', 'projects.uid = donations.project_id', 'left');
+    $this->db->join('causes', 'causes.uid = donations.project_id', 'left'); // Assuming cause_id is the correct foreign key
+    $this->db->join('events', 'events.uid = donations.project_id', 'left'); // Assuming event_id is the correct foreign key
+    $this->db->join('payment', 'payment.payment_id = donations.payment_id', 'left');
+    $this->db->where('payment.status', 'authorized'); // Assuming payment_status is the correct field
+    $query = $this->db->get();
+    $donations = $query->result_array();
+    
+    return !empty($donations) ? $donations : [];
+}
 
 
+    public function add_new_payment($insert_data)
+    {
+        $data = $this->db->insert(TABLE_PAYMENT, $insert_data);
+        return $data;
+    }
 
 }

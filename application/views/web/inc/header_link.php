@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <title>Shapath</title>
+    <link rel="icon" type="image/x-icon" href="assets/img/favicon.ico">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -20,6 +21,7 @@
     <!-- Libraries Stylesheet -->
     <link href="<?=base_url()?>assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
     <link href="<?=base_url()?>assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
 
 
 
@@ -40,7 +42,14 @@
                 margin-left: 5px;
                 width: 180%;
             }
+            .view_more{
+                display: none;
+            }
+            .m-view{
+                margin-top: 20%;
+            }
         }
+        
     </style>
 <style>
     .carousel {

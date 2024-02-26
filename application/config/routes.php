@@ -21,6 +21,8 @@ $route['blogs']                     = 'web/activity/blogs';
 $route['project']                   = 'web/projects';
 $route['our-volunteer']             = 'web/testimonial/our_volunteer';
 $route['our-donor']                 = 'web/testimonial/our_donor';
+$route['join-us']                   = 'web/load/join_us';
+$route['payment-success']           = 'web/load/payment_success';
 
 // ============================ admin routes
 $route['admin']                     = 'admin/Admin/index';
@@ -53,6 +55,7 @@ $route['admin/pages/volunteers']    = 'admin/Pages/volunteers';
 $route['admin/pages/volunteers/add']= 'admin/Pages/volunteers_add';
 $route['admin/pages/our/team']      = 'admin/Pages/our_team';
 $route['admin/pages/our/team/add']  = 'admin/Pages/our_team_add';
+$route['admin/donations']           = 'admin/Pages/donation';
 $route['admin/webhook']             = 'admin/Admin/rezorpay_webhook';
 
 

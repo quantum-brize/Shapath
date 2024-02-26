@@ -88,6 +88,35 @@ $p_id = $this->input->get('p_id');
                     </div>
 
 
+                    <div class="form-group col-12">
+                        <label for="formGroupExampleInput">Quote</label>
+                        <textarea type="text" class="form-control" id="" value="" placeholder="Quote"
+                            name="quote" required><?= $quote['quote'] ?></textarea>
+                    </div>
+                    <div class="form-group col-12">
+                        <label for="formGroupExampleInput2">Quote Author</label>
+                        <input type="text" class="form-control" id="" name="quote_author"
+                            value="<?= $quote['quote_by'] ?>" placeholder="Quote Author" required />
+                    </div>
+                    <div class='form-group col-12' id="imagePreview">
+                        <div>
+                            <label for="formGroupExampleInput2">Quote image</label>
+                        </div>
+                        <img src="<?= base_url($quote['quote_img']) ?>" height="100"
+                            id="quote_img" />
+                    </div>
+                    <div class="form-group col-12">
+                        <input type="file" class="form-control-file" placeholder="Quote image"
+                            name="quote_img[]" />
+                    </div>
+
+
+
+
+
+
+
+
 
                     <div class="col-xl-12 col-lg-12 p-2" style="border: 1px solid lightgray">
                         <div class="col-xl-12 col-lg-12">

@@ -140,6 +140,7 @@
     .nav-item a {
         padding: 10px;
         /* Increase padding for a larger tap area on mobile */
+        
     }
 }
 
@@ -243,6 +244,7 @@
     font-size: 20px;
     font-weight: bold;
 }
+/* Base styles for the video container and iframe */
 
 /* Media query for desktop devices */
 @media (min-width: 1024px) {
@@ -259,7 +261,7 @@
         padding: 75px;
         box-sizing: border-box;
         /* Padding is included in the width/height calculations */
-        background: url('https://shapath.org.in/wp-content/uploads/2023/12/squre-web-sampel-1-1.png') center center no-repeat;
+        background: url('https://shapath.org.in/assets/img/border.png') center center no-repeat;
         background-size: cover;
         /* Adjust the background size to fit the padding 'border' area */
         display: flex;
@@ -317,7 +319,7 @@
         padding: 130px;
         box-sizing: border-box;
         /* Padding is included in the width/height calculations */
-        background: url('https://shapath.org.in/wp-content/uploads/2023/12/squre-web-sampel-1-1.png') center center no-repeat;
+        background-image: url('https://shapath.org.in/assets/img/border.png') center center no-repeat;
         background-size: cover;
         /* Adjust the background size to fit the padding 'border' area */
         display: flex;
@@ -353,7 +355,7 @@
 
 
 /*  Making mobile responsive */
-@media (max-width: 767px) {
+@media (max-width: 982px) {
 
     html,
     body {
@@ -378,12 +380,12 @@
     }
 
     .video {
-        height: 300px;
+        height: 400px;
         position: relative;
         overflow: hidden;
         display: inline-block;
 
-        background: url('https://shapath.org.in/wp-content/uploads/2023/12/squre-web-sampel-1-1.png') center center no-repeat;
+        background: url('https://shapath.org.in/assets/img/border.png') center center no-repeat;
         background-size: cover;
         width: 135%;
         padding: 90px;
@@ -432,6 +434,8 @@
 
     }
 }
+
+
 
 /* End of Style for the container of About Us */
 
@@ -860,6 +864,17 @@
 }
 
 .causes .causes-item .causes-img .causes-dination a {
+    font-size: 14px;
+}
+
+/* donate event */
+.event .event-item .event-dination {
+    position: absolute !important;
+    top: 0 !important;
+    right: 0 !important;
+}
+
+.event .event-item .event-dination a {
     font-size: 14px;
 }
 

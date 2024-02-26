@@ -37,8 +37,11 @@ class Load extends Common {
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
         $id = $this->input->get('id');
+        $for = $this->input->get('for');
+        
         if(!empty($id)){
-            $data['data_page']['project'] = $this->Pages_model->get_projects_by_id($id);
+            $data['data_page']['project'] = $this->Pages_model->get_projects_by_id_for_donation($id, $for);
+            $data['data_page']['for'] = $for;
             $data['data_page']['flag'] = 1;
 
         }else{
@@ -46,10 +49,29 @@ class Load extends Common {
             $data['data_page']['flag'] = 0;
         }
         
+        // print_r($data['data_page']['project']);
+        // die();
         $this->load_page('web/donation.php',$data);
 
     }
+
+
+
+
+    public function join_us(){
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_WEB;
+        $data['data_header']['join_us'] = true;
+        $data['data_page']['quotes'] = $this->Pages_model->get_all_quotes();
+        $data['data_page']['volunteers'] = $this->Pages_model->get_all_volunteers();
+        $this->load_page('web/join_us.php',$data);
+    }
+    
+    public function payment_success(){
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_WEB;
+        // $data['data_header']['join_us'] = true;
+        $this->load->view('web/payment_success.php',$data);
+    }
 }
-
-
 ?>

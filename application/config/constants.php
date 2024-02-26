@@ -42,8 +42,8 @@ define('field_location', 'Asia/Kolkata');
 
 
 //////////////////////////////////////////////__URL
-define('BASE_URL', 'http://localhost/Shapath/');
-//define('BASE_URL', 'https://daltonusstore.com/');
+
+define('BASE_URL', 'https://shapath.org.in/');
 
 //////////////////////////////////////////////__PAGEDATA
 define('PAGE_DATA_WEB', ['data_page' => [], 'data_header' => ['header_link' => [], 'title' => '', 'projects' => [], 'header' => [], 'sidebar' => [], 'site' => 'web'], 'data_footer' => ['footer_link' => [], 'footer' => [], 'site' => 'web']]);
@@ -77,6 +77,7 @@ define('TABLE_DONATIONS', 'donations');
 define('TABLE_USER_MESSAGE', 'user_message');
 define('TABLE_NEWS_LETTER', 'news_letter');
 define('TABLE_AUDIO', 'audio');
+define('TABLE_PAYMENT', 'payment');
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');
@@ -111,6 +112,8 @@ define('UID_USER_MESSAGE', 'UMSG');
 define('UID_GALLERY', 'GAL');
 define('UID_NL', 'NL');
 define('UID_AUDIO', 'AUD');
+define('UID_QUOTE', 'QT');
+define('UID_PAYMENT', 'PMT');
 
 
 //////////////////////////////////////////__UID
@@ -119,8 +122,12 @@ define('GALLERY_UID', 'GAL67890RTY78TY');
 
 
 /////////////////////////////////////////__RAZORPAY_SECRET_KEY
-define('RAZORPAY_KEY_TEST_SECRET', 'rqaB1PDEZvHE7cY6FpJlYzve');
-define('RAZORPAY_KEY_TEST_ID',  'rzp_test_CU0ppPGU4Lrll0');
+define('RAZORPAY_KEY_TEST_SECRET', 'uiWpezFA8kVqANmunIbfz3hN');
+define('RAZORPAY_KEY_TEST_ID',  'rzp_live_F2pXC2B8iPfgA5');
+
+// define('RAZORPAY_KEY_TEST_SECRET', 'rqaB1PDEZvHE7cY6FpJlYzve');
+// define('RAZORPAY_KEY_TEST_ID',  'rzp_test_ycN7Tm3OZQF98A');
+
 
 define('RAZORPAY_KEY_LIVE_SECRET', '');
 define('RAZORPAY_KEY_LIVE_ID', '');

@@ -59,9 +59,9 @@
             </div>
             <div class="col-md-4 text-center">
                 <div class="d-flex align-items-center justify-content-center">
-                    <a href="#" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-instagram"></i></a>
+                    <a target="_blank" href="https://www.facebook.com/people/Shapath-NGO/61555132809953/" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-facebook-f"></i></a>
+                    <a target="_blank" href="https://www.youtube.com/channel/UCGbECOHlItTYKzAIKitJaDg" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-youtube"></i></a>
+                    <a target="_blank" href="https://www.instagram.com/shapath_ngo/" class="btn-hover-color btn-square text-white me-2"><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
             <div class="col-md-4 text-center text-md-end text-body">

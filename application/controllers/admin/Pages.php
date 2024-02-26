@@ -104,6 +104,7 @@ class Pages extends Admin
         $data['data_page']['project'] = $this->Pages_model->get_projects_by_id($p_id);
         $data['data_page']['events']  = $this->Pages_model->get_events_by_id($p_id);
         $data['data_page']['galary_img'] = $this->Pages_model->get_projects_galary_by_id($p_id);
+        $data['data_page']['quote'] = $this->Pages_model->get_quote_by_id($p_id);
         
         $this->is_auth('admin/pages_projetcs_update.php', $data);
     }
@@ -115,22 +116,37 @@ class Pages extends Admin
         $project_page_title = $this->input->post('project_page_title');
         $project_page_video = $this->input->post('project_page_video');
         $project_page_description = $this->input->post('project_page_description');
+        $project_page_quote = $this->input->post('quote');
+        $project_page_quoteBy = $this->input->post('quote_author');
 
         $project_logo_data = $this->upload_files('./uploads/project_logo/', 'project_logo', IMG_FILE_TYPES, IMG_FILE_SIZE);
         $project_img_data = $this->upload_files('./uploads/project_img/', 'project_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+        $project_quote_data = $this->upload_files('./uploads/quotes_img/', 'quote_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
         $galary_img_data = $this->upload_files('./uploads/project_galary_img/', 'galary_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
 
         $project_img = '/uploads/project_img/' . $project_img_data['file_name'];
         $project_logo = '/uploads/project_logo/' . $project_logo_data['file_name'];
+        $project_quote_img = '/uploads/quotes_img/' . $project_quote_data['file_name'];
 
         $this->init_model(MODEL_PAGES);
+        $project_id = $this->generate_uid(UID_PROJECT);
         $insert_data = [
-            "uid" => $this->generate_uid(UID_PROJECT),
+            "uid" => $project_id,
             "project_title" => $project_title,
             "project_cover_details" => $project_cover_details,  
             "project_page_video" => $project_page_video,
             "project_img" => $project_img,
             "project_logo" => $project_logo,
+        ];
+        $insert_quote = [
+            "uid" => $this->generate_uid(UID_QUOTE),
+            "type_id" => $this->generate_uid(UID_QUOTE),
+            "quote" => $project_page_quote,
+            "quote_by" => $project_page_quoteBy,
+            "quote_img" => $project_quote_img,
+            "position" => "bottom",
+            "type" => "project",
+            "type_id" => $project_id,
         ];
 
         
@@ -154,10 +170,13 @@ class Pages extends Admin
 
 
         $add_new_project = $this->Pages_model->add_new_project($insert_data);
-
         if ($add_new_project) {
-            redirect('admin/pages/projects');
+            $add_new_project = $this->Pages_model->add_new_quote($insert_quote);
+            if ($add_new_project) {
+                redirect('admin/pages/projects');
+            }
         }
+        
     }
 
     public function delete_project_event(){
@@ -174,6 +193,9 @@ class Pages extends Admin
         $project_page_title = $this->input->post('project_page_title');
         $project_page_video = $this->input->post('project_page_video');
         $project_page_description = $this->input->post('project_page_description');
+        $project_page_quote = $this->input->post('quote');
+        $project_page_quoteBy = $this->input->post('quote_author');
+
         $this->init_model(MODEL_PAGES);
         $update_data = [
             "project_title" => $project_title,
@@ -182,6 +204,15 @@ class Pages extends Admin
             "project_page_video" => $project_page_video,
             "project_page_description" => $project_page_description,
         ];
+
+        $update_quote = [
+            "quote" => $project_page_quote,
+            "quote_by" => $project_page_quoteBy,
+        ];
+        if (!empty($_FILES['quote_img']['name'][0])) {
+            $quote_data = $this->upload_files('./uploads/quotes_img/', 'quote_img', IMG_FILE_TYPES, IMG_FILE_SIZE);
+            $update_quote['quote_img'] = '/uploads/quotes_img/' . $quote_data['file_name'];
+        }
         if (!empty($_FILES['project_logo']['name'][0])) {
             $project_logo_data = $this->upload_files('./uploads/project_logo/', 'project_logo', IMG_FILE_TYPES, IMG_FILE_SIZE);
             $update_data['project_logo'] = '/uploads/project_logo/' . $project_logo_data['file_name'];
@@ -205,6 +236,7 @@ class Pages extends Admin
         }
 
         $this->Pages_model->update_project($p_id, $update_data);
+        $this->Pages_model->update_quote($p_id, $update_quote);
         redirect('admin/pages/projects/edit?p_id=' . $p_id);
 
     }
@@ -684,6 +716,22 @@ class Pages extends Admin
             $error = array('error' => $this->upload->display_errors());
             redirect('admin/pages/home', $error);
         }
+    }
+    
+    /**DONATION*/
+    public function donation()
+    {
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_footer']['footer_link'] = ['home_js.php'];
+        $data['data_header']['header_link'] = [];
+        $data['data_header']['title'] = 'Admin | Pages';
+        $data['data_header']['sidebar']['pages'] = true;
+        $data['data_header']['sidebar']['donation'] = true;
+        $data['data_page']['payments'] = $this->Pages_model->get_all_donations();
+        //  $this->prd($data['data_page']['payments']);
+        $this->is_auth('admin/donation.php', $data);
+
     }
     
 }

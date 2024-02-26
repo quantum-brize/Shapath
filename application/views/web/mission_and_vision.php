@@ -25,20 +25,57 @@ if (!empty($mission_vision)) {
 
 ?>
 
+<style>
+        .bg-breadcrumb {
+        position: relative;
+        background-image: url('https://shapath.org.in/assets/img/team1.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .bg-breadcrumb::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity (0.5) as needed */
+        z-index: 1;
+    }
+
+    .container {
+        position: relative; /* Ensure the container is on top of the pseudo-element */
+        z-index: 2; /* Ensure the container is on top of the pseudo-element */
+    }
+</style>
+
 <div class="navbar-end-gap"></div>
 
-<div class="quote-video-wrapper">
-    <div class="quote">
-        <p><?php echo $top_quote['quote'] ?></p>
-        <p class="author">- <?php echo $top_quote['quote_by'] ?></p>
-    </div>
-    <div class="video">
-        <iframe id="ytplayer" type="text/html" width="720" height="405"
-            src="https://www.youtube.com/embed/ox3VFMNBXjA?unmute=1&loop=1&playlist=ox3VFMNBXjA"
-            frameborder="0" allow="encrypted-media; loop" allowfullscreen></iframe>
-    </div>
+<!--<div class="quote-video-wrapper">-->
+<!--    <div class="quote">-->
+<!--        <p><?php echo $top_quote['quote'] ?></p>-->
+<!--        <p class="author">- <?php echo $top_quote['quote_by'] ?></p>-->
+<!--    </div>-->
+<!--    <div class="video">-->
+<!--        <iframe id="ytplayer" type="text/html" width="720" height="405"-->
+<!--            src="https://www.youtube.com/embed/ox3VFMNBXjA?unmute=1&loop=1&playlist=ox3VFMNBXjA"-->
+<!--            frameborder="0" allow="encrypted-media; loop" allowfullscreen></iframe>-->
+<!--    </div>-->
 
+<!--</div>-->
+<!-- Header Start -->
+<div class="container-fluid bg-breadcrumb">
+    <div class="container text-center py-5" style="max-width: 900px;">
+        <h3 class="text-white display-3 mb-4">Mission Vision</h1>
+            <ol class="breadcrumb justify-content-center mb-0">
+                <li class="breadcrumb-item"><a href="<?= base_url('home')?>">Home</a></li>
+                <li class="breadcrumb-item active text-white">Mission Vision</li>
+            </ol>
+    </div>
 </div>
+<!-- Header End -->
 
 
 
@@ -60,12 +97,12 @@ if (!empty($mission_vision)) {
                 <div class="tab-class bg-secondary p-4">
                     <ul id="nav" class="nav d-flex mb-2">
                         <li class="nav-item mb-3">
-                            <a class="d-flex py-2 mx-3 text-center bg-white" data-bs-toggle="pill" href="#tab-1">
+                            <a class="d-flex py-2 mx-3 text-center bg-white active" data-bs-toggle="pill" href="#tab-1" style="border: 1px solid gray;">
                                 <span class="text-dark" style="width: 150px;">Mission</span>
                             </a>
                         </li>
                         <li class="nav-item mb-3">
-                            <a class="d-flex py-2 text-center bg-white" data-bs-toggle="pill" href="#tab-2">
+                            <a class="d-flex py-2 text-center bg-white" data-bs-toggle="pill" href="#tab-2" style="border: 1px solid gray;">
                                 <span class="text-dark" style="width: 150px;">Vision</span>
                             </a>
                         </li>
@@ -128,59 +165,6 @@ if (!empty($mission_vision)) {
 </div>
 <!-- About End -->
 
-<!-- Volunteers Start -->
-<div class="container-fluid volunteer py-5 mt-5">
-    <div class="container py-5">
-        <div class="row g-5">
-            <div class="col-lg-5">
-                <div class="row g-4">
-                    <div class="col-lg-6">
-                        <div class="volunteer-img">
-                            <img src="assets/img/volunteers-1.jpg" class="img-fluid w-100" alt="Image">
-                           
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="volunteer-img">
-                            <img src="assets/img/volunteers-3.jpg" class="img-fluid w-100" alt="Image">
-                           
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="volunteer-img">
-                            <img src="assets/img/volunteers-2.jpg" class="img-fluid w-100" alt="Image">
-                           
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="volunteer-img">
-                            <img src="assets/img/volunteers-4.jpg" class="img-fluid w-100" alt="Image">
-                           
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-7">
-                <h5 class="text-uppercase text-primary">Become a Volunteer?</h5>
-                <h1 class="mb-4">Join your hand with us for a better life and beautiful future.</h1>
-                <p class="mb-4">Lorem ipsum dolor sit amet consectur adip sed eiusmod amet consectur adip sed eiusmod
-                    tempor amet consectur adip sed eiusmod amet consectur adip sed eiusmod tempor amet consectur adip
-                    sed eiusmod amet consectur adip sed eiusmod tempor.
-                </p>
-                <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> We are friendly to each other.</p>
-                <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> If you join with us,We will give you
-                    free training.</p>
-                <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> Its an opportunity to help poor
-                    Environments.</p>
-                <p class="text-dark"><i class=" fa fa-check text-primary me-2"></i> No goal requirements.</p>
-                <p class="text-dark mb-5"><i class=" fa fa-check text-primary me-2"></i> Joining is tottaly free. We
-                    dont need any money from you.</p>
-                <a class="btn-hover-bg btn btn-primary text-white py-2 px-4" href="#">Join With Us</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Volunteers End -->
 
 
 <!-- Image with Quote Start -->

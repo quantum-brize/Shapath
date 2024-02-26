@@ -70,12 +70,12 @@ if (!empty($video)) {
                 <div class="tab-class bg-secondary p-4">
                     <ul id="nav" class="nav d-flex mb-2">
                         <li class="nav-item mb-3">
-                            <a class="d-flex py-2 mx-3 text-center bg-white" data-bs-toggle="pill" href="#tab-1">
+                            <a class="d-flex py-2 mx-3 text-center bg-white active" data-bs-toggle="pill" href="#tab-1" style="border: 1px solid gray;">
                                 <span class="text-dark" style="width: 150px;">Mission</span>
                             </a>
                         </li>
                         <li class="nav-item mb-3">
-                            <a class="d-flex py-2 text-center bg-white" data-bs-toggle="pill" href="#tab-2">
+                            <a class="d-flex py-2 text-center bg-white" data-bs-toggle="pill" href="#tab-2" style="border: 1px solid gray;">
                                 <span class="text-dark" style="width: 150px;">Vision</span>
                             </a>
                         </li>
@@ -159,7 +159,7 @@ if (!empty($video)) {
                     <div class="service-item">
                         <img src="<?php echo base_url($service['img']) ?>" class="img-fluid w-100" alt="Image">
                         <div class="service-link">
-                            <a href="<?= base_url() ?>" class="h4 mb-0">
+                            <a class="h4 mb-0">
                                 <?php echo $service['title'] ?>
                             </a>
                         </div>
@@ -238,7 +238,7 @@ if (!empty($video)) {
                             </p>
                             <div class="donation-btn d-flex align-items-center justify-content-start">
                                 <a class="btn-hover-bg btn btn-primary text-white py-2 px-4"
-                                    href="<?= base_url('donate/?id=' . $project['uid']) ?>">Donate !</a>
+                                    href="<?= base_url('project/?id='.$project['uid']) ?>">Read More !</a>
                             </div>
                         </div>
                     </div>
@@ -252,7 +252,7 @@ if (!empty($video)) {
 
 <!-- Counter Start -->
 <div class="container-fluid counter py-5"
-    style="background: linear-gradient(rgba(0, 0, 0), rgba(0, 0, 0)), url() center center; background-size: cover;">
+    style="background: linear-gradient(rgba(1, 50, 32), rgba(1, 70, 23)), url() center center; background-size: cover;">
     <div class="container py-5">
         <div class="text-center mx-auto pb-5" style="max-width: 800px;">
             <h5 class="text-uppercase text-primary">Achievements</h5>
@@ -271,12 +271,23 @@ if (!empty($video)) {
             </div>
             <div class="col-md-6 col-lg-6 col-xl-3">
                 <div class="counter-item text-center border p-5">
-                    <i class="fas fa-file-invoice-dollar fa-4x text-white"></i>
-                    <h3 class="text-white my-4">Funds Collected</h3>
+                    <i class="fas fa-file fa-4x text-white"></i>
+                    <h3 class="text-white my-4">Total Projects</h3>
                     <div class="counter-counting text-center border-white w-100"
                         style="border-style: dotted; font-size: 30px;">
-                        <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">51300</span>
-                        <span class="h1 fw-bold text-primary"></span>
+                        <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">6</span>
+                        <span class="h1 fw-bold text-primary">+</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-6 col-xl-3">
+                <div class="counter-item text-center border p-5">
+                    <i class="fas fa-folder fa-4x text-white"></i>
+                    <h3 class="text-white my-4">Upcoming Projects</h3>
+                    <div class="counter-counting text-center border-white w-100"
+                        style="border-style: dotted; font-size: 30px;">
+                        <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">2</span>
+                        <span class="h1 fw-bold text-primary">+</span>
                     </div>
                 </div>
             </div>
@@ -286,18 +297,7 @@ if (!empty($video)) {
                     <h3 class="text-white my-4">Our Volunteer</h3>
                     <div class="counter-counting text-center border-white w-100"
                         style="border-style: dotted; font-size: 30px;">
-                        <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">85</span>
-                        <span class="h1 fw-bold text-primary">+</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-6 col-xl-3">
-                <div class="counter-item text-center border p-5">
-                    <i class="fas fa-heart fa-4x text-white"></i>
-                    <h3 class="text-white my-4">Days of Help</h3>
-                    <div class="counter-counting text-center border-white w-100"
-                        style="border-style: dotted; font-size: 30px;">
-                        <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">487</span>
+                        <span class="text-primary fs-2 fw-bold" data-toggle="counter-up">95</span>
                         <span class="h1 fw-bold text-primary">+</span>
                     </div>
                 </div>
@@ -445,7 +445,7 @@ if (!empty($video)) {
                                     </small>
                                 </div>
                                 <div class="causes-dination p-2">
-                                    <a class="btn-hover-bg btn btn-primary text-white py-2 px-3" href="#">Donate Now</a>
+                                    <a class="btn-hover-bg btn btn-primary text-white py-2 px-3" href="<?= base_url('donate?id=' . $cause['uid']. '&for=causes')?>">Donate Now</a>
                                 </div>
                             </div>
                             <div class="progress">
@@ -548,6 +548,9 @@ if (!empty($video)) {
                     <div class="event-item">
                         <img src="<?= base_url() . $event['img'] ?>" class="img-fluid w-100" alt="Image"
                             style="height: 250px;object-fit: cover;">
+                        <div class="event-dination p-2">
+                            <a class="btn-hover-bg btn btn-primary text-white py-2 px-3" href="<?= base_url('donate?id=' . $event['uid']. '&for=events')?>">Donate Now</a>
+                        </div>
                         <div class="event-content p-4">
                             <div class="d-flex justify-content-between mb-4">
                                 <span class="text-body"><i class="fas fa-map-marker-alt me-2"></i>
@@ -646,7 +649,13 @@ if (!empty($video)) {
             }
             ?>
         </section>
-
+        <ul id="nav" class="nav d-flex mb-2 mt-5">
+            <li class="nav-item mb-3 view_more">
+                <a class="btn-hover-bg btn btn-primary py-2 px-4 me-3" href="<?= base_url('gallery') ?>">
+                    <span class="text-white" style="width: 150px;">View More</span>
+                </a>
+            </li>
+        </ul>
     </div>
 </div>
 <!-- Gallery End -->
@@ -724,11 +733,11 @@ if (!empty($video)) {
 
 
 <!-- Image with Quote End -->
-<audio id="background-music" loop>
+<!-- <audio id="background-music" loop>
     <source src="<?= base_url($audio['path'])?>" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
 <button id="music-toggle"
     style="position: fixed; bottom: 10px; left: 50%; transform: translateX(-50%); z-index: 1000; display: none;"
-    onclick="toggleMusic()">Do you want Play a Music?</button>
+    onclick="toggleMusic()">Do you want Play a Music?</button> -->

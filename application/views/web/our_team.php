@@ -1,10 +1,34 @@
+<style>
+        .bg-breadcrumb {
+        position: relative;
+        background-image: url('https://shapath.org.in/assets/img/team1.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
 
+    .bg-breadcrumb::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5); /* Adjust the opacity (0.5) as needed */
+        z-index: 1;
+    }
+
+    .container {
+        position: relative; /* Ensure the container is on top of the pseudo-element */
+        z-index: 2; /* Ensure the container is on top of the pseudo-element */
+    }
+</style>
 <!-- Header Start -->
 <div class="container-fluid bg-breadcrumb">
     <div class="container text-center py-5" style="max-width: 900px;">
         <h3 class="text-white display-3 mb-4">Our Team</h1>
             <ol class="breadcrumb justify-content-center mb-0">
-                <li class="breadcrumb-item"><a href="index.php">Home</a></li>
+                <li class="breadcrumb-item"><a href="<?= base_url('home')?>">Home</a></li>
                 <li class="breadcrumb-item active text-white">Our Team</li>
             </ol>
     </div>

@@ -75,7 +75,6 @@
                                 <tr>
                                     <th>Sl No.</th>
                                     <th>email</th>
-                                    <th>date</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -89,7 +88,6 @@
                                         $row .= '<tr>';
                                         $row .= '<td>' . $i++ . '</td>';
                                         $row .= '<td>' . $n_l['email'] . '</td>';
-                                        $row .= '<td>' . $dateOnly . '</td>';
                                         $row .= '</tr>';
                                         echo $row;
                                     }

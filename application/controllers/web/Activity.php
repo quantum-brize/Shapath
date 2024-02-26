@@ -37,7 +37,12 @@ class Activity extends Load
         $blog_id = $this->input->get('blog_id');
         $data = PAGE_DATA_WEB;
         $data['data_page']['blog'] = $this->Pages_model->get_blog($blog_id);
-        $this->load_page('web/blog.php', $data);
+        if(!empty($data['data_page']['blog'])){
+            $this->load_page('web/blog.php', $data);
+        }else{
+            redirect('404_override');
+        }
+        
     }
 
     public function save_user_msg(){

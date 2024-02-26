@@ -19,7 +19,7 @@ class Admin extends Common
         ) {
             redirect('/admin/login');
         } else {
-            redirect('/admin/dashboard');
+            redirect('/admin/pages/home');
         }
     }
 
@@ -363,31 +363,77 @@ class Admin extends Common
         $name = $this->input->post('name');
         $email = $this->input->post('email');
         $phone = $this->input->post('phone');
+        $dob = $this->input->post('dob');
         $pan = $this->input->post('pan');
         $amount = $this->input->post('amount');
         $project_id = $this->input->post('project_id');
         $address = $this->input->post('address');
         $pin = $this->input->post('pin');
+        $paymentid = $this->input->post('paymentid');
 
         $insert_data = [
             "uid" => $this->generate_uid(UID_DONATION),
             "name" => $name,
             "email" => $email,
             "phone" => $phone,
+            "date_of_birth" => $dob,
             "pan" => $pan,
             "address" => $address,
             "amount" => $amount,
             "pin" => $pin,
             "project_id" => $project_id,
+            "payment_id" => $paymentid
         ];
 
         $add_new_donation = $this->Pages_model->add_new_donation($insert_data);
+        // var_dump($add_new_donation);
 
         if ($add_new_donation) {
-            echo json_encode(array("status"=> true));
+            echo json_encode(["status"=> true, "payment_id" =>$paymentid, "amount" => $amount]);
+            return;
 
         } else {
-            echo json_encode(array("status"=> false));
+            return json_encode(["status"=> false, "payment_id" =>""]);
+        }
+    }
+    
+    public function payment()
+    {
+        
+       $json_data = file_get_contents('php://input');
+        // Decode the JSON data into a PHP array
+        $data = json_decode($json_data, true); 
+
+        $payment_id = $data['payload']['payment']['entity']['id'];
+        $amount = $data['payload']['payment']['entity']['amount'];
+        $currency = $data['payload']['payment']['entity']['currency'];
+        $status = $data['payload']['payment']['entity']['status'];
+        $method = $data['payload']['payment']['entity']['method'];
+        $wallet = $data['payload']['payment']['entity']['wallet'];
+        $description = $data['payload']['payment']['entity']['description'];
+        $contact = $data['payload']['payment']['entity']['contact'];
+        
+        $this->init_model(MODEL_PAGES);
+
+        $insert_data = [
+            "uid" => $this->generate_uid(UID_PAYMENT),
+            "payment_id" => $payment_id,
+            "amount" => $amount,
+            "currency" => $currency,
+            "status" => $status,
+            "method" => $method,
+            "wallet" => $wallet,
+            "description" => $description,
+            "contact" => $contact,
+        ];
+
+        $add_new_donation = $this->Pages_model->add_new_payment($insert_data);
+
+        if ($add_new_donation) {
+            return json_encode(array("status"=> true));
+
+        } else {
+            return json_encode(array("status"=> false));
         }
     }
 

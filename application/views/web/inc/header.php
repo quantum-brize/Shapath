@@ -47,7 +47,7 @@
         <div class="container px-0">
             <nav class="navbar navbar-light bg-light navbar-expand-xl header-nav">
                 <a href="<?= base_url('home')?>" class="navbar-brand ms-3">
-                    <h1 class="text-primary display-5">Shapath</h1>
+                    <img src="<?php echo base_url("assets/img/logo.png")?>" alt="Image Description" width="120px" height="44px">
                 </a>
                 <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarCollapse">
@@ -90,6 +90,7 @@
                         <a href="<?= base_url('gallery') ?>" class="nav-item nav-link <?= isset($gallery) ? 'active' : '' ?>">Gallery</a>
                         <a href="<?= base_url('events') ?>" class="nav-item nav-link <?= isset($event) ? 'active' : '' ?>">Events</a>
                         <a href="<?= base_url('blogs')?>" class="nav-item nav-link <?= isset($blogs) ? 'active' : '' ?>">Blog</a>
+                        <a href="<?= base_url('join-us')?>" class="nav-item nav-link <?= isset($join_us) ? 'active' : '' ?>">Join Us</a>
                         <a href="<?= base_url('contact-us')?>" class="nav-item nav-link <?= isset($contact) ? 'active' : '' ?>">Contact</a>
                     </div>
                     <div class="d-flex align-items-center flex-nowrap pt-xl-0" style="margin-left: 15px;">
