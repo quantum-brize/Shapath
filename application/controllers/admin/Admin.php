@@ -98,14 +98,14 @@ class Admin extends Common
 
     public function is_auth($page, $data)
     {
-        if (
-            $this->session->userdata(SES_ADMIN_ID) == null &&
-            $this->session->userdata(SES_SUB_ADMIN_ID) == null
-        ) {
-            redirect('/admin');
-        } else {
+        // if (
+        //     $this->session->userdata(SES_ADMIN_ID) == null &&
+        //     $this->session->userdata(SES_SUB_ADMIN_ID) == null
+        // ) {
+        //     redirect('/admin');
+        // } else {
             $this->load_page($page, $data);
-        }
+        // }
     }
 
 

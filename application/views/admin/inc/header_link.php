@@ -1,56 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+<title>Dreams LMS</title>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
+<link rel="shortcut icon" type="image/x-icon" href="<?=base_url()?>assets/img/favicon.svg">
 
-    <title>
-        <?= $title ? $title : 'Admin' ?>
-    </title>
+<link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
 
-    <!-- Custom fonts for this template-->
-    <link href="<?= base_url() ?>assets_admin/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+<link rel="stylesheet" href="<?=base_url()?>assets/plugins/fontawesome/css/fontawesome.min.css">
+<link rel="stylesheet" href="<?=base_url()?>assets/plugins/fontawesome/css/all.min.css">
 
-    <!-- Custom styles for this template-->
-    <link href="<?= base_url() ?>assets_admin/css/sb-admin-2.min.css" rel="stylesheet">
-    <link href="<?= base_url() ?>assets_admin/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
-    <?php
+<link rel="stylesheet" href="<?=base_url()?>assets/css/feather.css">
 
-    if (!empty($header_link)) {
-        foreach ($header_link as $link) {
-            echo "<link href='" . base_url() . "assets_admin/css/" . $link . "' rel='stylesheet'>";
-        }
+<link rel="stylesheet" href="<?=base_url()?>assets/plugins/select2/css/select2.min.css">
 
-    }
-    ;
+<link rel="stylesheet" href="<?=base_url()?>assets/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
 
+<link rel="stylesheet" href="<?=base_url()?>assets/css/owl.carousel.min.css">
+<link rel="stylesheet" href="<?=base_url()?>assets/css/owl.theme.default.min.css">
 
-    ?>
-    <style>
-        #accordionSidebar {
-            transition: 0.1s;
-        }
+<link rel="stylesheet" href="<?=base_url()?>assets/plugins/swiper/css/swiper.min.css">
 
-        .sidebar_active {
-            background-color: #3a60d0;
-            color: #ffff !important;
-        }
+<link rel="stylesheet" href="<?=base_url()?>assets/plugins/slick/slick.css">
+<link rel="stylesheet" href="<?=base_url()?>assets/plugins/slick/slick-theme.css">
 
-        .sidebar_item:hover {
-            background-color: #3a60d0 !important;
-            color: #ffff !important;
-        }
+<link rel="stylesheet" href="<?=base_url()?>assets/plugins/feather/feather.css">
 
-        .sidebar_item {
-            margin-top: 2px !important;
-            margin-bottom: 2px !important;
-        }
-    </style>
+<link rel="stylesheet" href="<?=base_url()?>assets/plugins/dropzone/dropzone.min.css">
+
+<link rel="stylesheet" href="<?=base_url()?>assets/plugins/aos/aos.css">
+
+<link rel="stylesheet" href="<?=base_url()?>assets/css/style.css">
+<style>[wire\:loading], [wire\:loading\.delay], [wire\:loading\.inline-block], [wire\:loading\.inline], [wire\:loading\.block], [wire\:loading\.flex], [wire\:loading\.table], [wire\:loading\.grid], [wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short], [wire\:loading\.delay\.default], [wire\:loading\.delay\.long], [wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest] {display:none;}[wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #2299dd;}[x-cloak] {display: none;}</style>

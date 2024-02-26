@@ -12,27 +12,73 @@ class Load extends Common {
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
         $data['data_header']['home'] = true;
-        $data['data_page']['projects'] = $this->Pages_model->get_all_projects();
-        $data['data_page']['about'] = $this->Pages_model->get_about_web();
-        $data['data_page']['mission_vision'] = $this->Pages_model->get_mission_vision();
-        $data['data_page']['quotes'] = $this->Pages_model->get_all_quotes();
-        $data['data_page']['services'] = $this->Pages_model->get_all_work();
-        $data['data_page']['blogs'] = $this->Pages_model->get_all_blogs();
-        $data['data_page']['causes'] = $this->Pages_model->get_causes();
-        $data['data_page']['events'] = $this->Pages_model->get_event();
-        $data['data_page']['video'] = $this->Pages_model->get_all_videos();
-        $data['data_page']['audio'] = $this->Pages_model->get_audio();
-        $data['data_page']['gallery_img'] = $this->Pages_model->get_gallery_img();
         $this->load_page('web/index.php',$data);
     }
 
-    public function contact(){
-        
+    public function about_us(){
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_WEB;
+        $data['data_header']['about'] = true;
+        $this->load_page('web/about_us.php',$data);
+    }
+
+    public function contact_us(){
+        $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
         $data['data_header']['contact'] = true;
-        $this->load_page('web/contact.php',$data);
+        $this->load_page('web/contact_us.php',$data);
     }
+    public function online_registration(){
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_WEB;
+        $data['data_header']['online_registration'] = true;
+        $this->load_page('web/online_registration.php',$data);
+    }
+    public function student_admission(){
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_WEB;
+        $data['data_header']['student_admission'] = true;
+        $this->load_page('web/student_admission.php',$data);
+    }
+    public function franchise_list(){
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_WEB;
+        $data['data_header']['franchise_list'] = true;
+        $this->load_page('web/franchise_list.php',$data);
+    }
+    public function home(){
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_ADMIN;
+        $data['data_header']['franchise_list'] = true;
+        $this->load_page('admin/index.php',$data);
+    }
+
+
+    // Admin
+    /**HOME*/
+    // public function home()
+    // {
+    //     $this->init_model(MODEL_PAGES);
+    //     $data = PAGE_DATA_WEB;
+    //     $data['data_header']['home'] = true;
+    //     $this->load->view('admin/inc/header.php');
+	// 	$this->load->view('admin/inc/header_link.php', $data);
+    //     $this->load->view('admin/index.php',$data);
+    //     $this->load->view('admin/inc/footer.php');
+	// 	$this->load->view('admin/inc/footer_link.php', $data);
+
+    // }
+
     
+    
+
+
+
+
+
+
+
+
     public function donation(){
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;

@@ -2,122 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Shapath</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+    <title>Dreams LMS</title>
+    <link rel="shortcut icon" type="image/x-icon" href="<?=base_url()?>assets/img/favicon.svg">
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jost:wght@500;600&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="<?=base_url()?>assets/css/bootstrap.min.css">
 
-    <!-- Icon Font Stylesheet -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?=base_url()?>assets/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="<?=base_url()?>assets/plugins/fontawesome/css/all.min.css">
 
-    <!-- Libraries Stylesheet -->
-    <link href="<?=base_url()?>assets/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-    <link href="<?=base_url()?>assets/lib/lightbox/css/lightbox.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?=base_url()?>assets/css/feather.css">
 
+    <link rel="stylesheet" href="<?=base_url()?>assets/plugins/select2/css/select2.min.css">
 
+    <link rel="stylesheet" href="<?=base_url()?>assets/plugins/bootstrap-tagsinput/css/bootstrap-tagsinput.css">
 
+    <link rel="stylesheet" href="<?=base_url()?>assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="<?=base_url()?>assets/css/owl.theme.default.min.css">
 
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="<?=base_url()?>assets/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?=base_url()?>assets/plugins/swiper/css/swiper.min.css">
 
-    <!-- Template Stylesheet -->
-    <link href="<?=base_url()?>assets/css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="<?=base_url()?>assets/plugins/slick/slick.css">
+    <link rel="stylesheet" href="<?=base_url()?>assets/plugins/slick/slick-theme.css">
+
+    <link rel="stylesheet" href="<?=base_url()?>assets/plugins/feather/feather.css">
+
+    <link rel="stylesheet" href="<?=base_url()?>assets/plugins/dropzone/dropzone.min.css">
+
+    <link rel="stylesheet" href="<?=base_url()?>assets/plugins/aos/aos.css">
+
+    <link rel="stylesheet" href="<?=base_url()?>assets/css/style.css">
+    <link rel="stylesheet" href="<?=base_url()?>assets/css/style2.css">
+
+    <link href="<?=base_url()?>assets/css/font-awesome.min.css" rel="stylesheet">
+    <link href="<?=base_url()?>assets/css/font-awesome.min-1.css" rel="stylesheet">
+    
     <style>
-        /* Hide volunteer section on screens less than 1024 pixels wide */
-        @media (max-width: 1023px) {
-            .volunteer {
-                display: none;
+    [wire\:loading],
+    [wire\:loading\.delay],
+    [wire\:loading\.inline-block],
+    [wire\:loading\.inline],
+    [wire\:loading\.block],
+    [wire\:loading\.flex],
+    [wire\:loading\.table],
+    [wire\:loading\.grid],
+    [wire\:loading\.inline-flex] {
+        display: none;
+    }
 
-            }
-        }
+    [wire\:loading\.delay\.none],
+    [wire\:loading\.delay\.shortest],
+    [wire\:loading\.delay\.shorter],
+    [wire\:loading\.delay\.short],
+    [wire\:loading\.delay\.default],
+    [wire\:loading\.delay\.long],
+    [wire\:loading\.delay\.longer],
+    [wire\:loading\.delay\.longest] {
+        display: none;
+    }
+
+    [wire\:offline] {
+        display: none;
+    }
+
+    [wire\:dirty]:not(textarea):not(input):not(select) {
+        display: none;
+    }
+
+    :root {
+        --livewire-progress-bar-color: #2299dd;
+    }
+
+    [x-cloak] {
+        display: none;
+    }
     </style>
-<style>
-    .carousel {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    margin: 0 auto;
-}
-
-.carousel-item {
-    display: none;
-}
-
-.carousel-item.active {
-    display: block;
-}
-
-.carousel img {
-    max-width: 100%;
-    height: auto;
-}
-
-</style>
-    <style>
-        #music-toggle {
-            /* Existing styles */
-            position: fixed;
-            bottom: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1000;
-            display: none;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-            opacity: 0;
-            /* Start with the button invisible */
-            animation: fadeIn 1s ease forwards, float 2s ease-in-out infinite;
-        }
-
-        #music-toggle:hover {
-            background-color: #45a049;
-            transform: translateX(-50%) scale(1.1);
-            /* Slightly increase size on hover */
-        }
-
-        /* Fade-in animation */
-        @keyframes fadeIn {
-            to {
-                opacity: 1;
-            }
-        }
-
-        /* Floating animation */
-        @keyframes float {
-
-            0%,
-            100% {
-                transform: translateX(-50%) translateY(0);
-            }
-
-            50% {
-                transform: translateX(-50%) translateY(-10px);
-            }
-        }
-    </style>
-
-    <?php
-       
-       if(!empty($header_link)){
-           foreach($header_link as $link){
-               echo "<link href='".base_url()."assets/css/".$link."' rel='stylesheet'>";
-           }
-
-       };
-           
-       
-   ?>

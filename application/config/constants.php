@@ -43,7 +43,7 @@ define('field_location', 'Asia/Kolkata');
 
 //////////////////////////////////////////////__URL
 // define('BASE_URL', 'https://daltonusstore.com');
-define('BASE_URL', 'http://localhost/z/');
+define('BASE_URL', 'http://localhost/student_website/');
 
 //////////////////////////////////////////////__PAGEDATA
 define('PAGE_DATA_WEB', ['data_page' => [], 'data_header' => ['header_link' => [], 'title' => '', 'projects' => [], 'header' => [], 'sidebar' => [], 'site' => 'web'], 'data_footer' => ['footer_link' => [], 'footer' => [], 'site' => 'web']]);
@@ -60,23 +60,10 @@ define('MODEL_PAGES', 'Pages_model');
 
 ////////////////////////////////////////////__TABLES
 define('TABLE_USER', 'users');
-define('TABLE_QUOTES', 'quotes');
-define('TABLE_VIDEOS', 'videos');
-define('TABLE_ABOUT', 'about');
-define('TABLE_MISSION_VISION', 'mission_vision');
-define('TABLE_SERVICES', 'services');
-define('TABLE_PROJECTS', 'projects');
-define('TABLE_DONORS', 'donors');
-define('TABLE_VOLUNTEERS', 'volunteers');
-define('TABLE_OUR_TEAM', 'our_team');
-define('TABLE_GALLERY', 'gallery_img');
-define('TABLE_BLOG', 'blog');
-define('TABLE_CAUSES', 'causes');
-define('TABLE_EVENTS', 'events');
-define('TABLE_DONATIONS', 'donations');
-define('TABLE_USER_MESSAGE', 'user_message');
-define('TABLE_NEWS_LETTER', 'news_letter');
-define('TABLE_AUDIO', 'audio');
+define('TABLE_CENTRE', 'centre');
+define('TABLE_ADDRESS', 'address');
+define('TABLE_STUDENT', 'student');
+
 
 ////////////////////////////////////////////__SESSION_VARS
 define('SES_ADMIN_ID', 'admin_id');
@@ -98,19 +85,11 @@ define('KEY_USER_NAME', 'user_name');
 define('KEY_UID', 'uid');
 
 ///////////////////////////////////////////__UID-PREFIX
-define('UID_WORK', 'WDO');
-define('UID_PROJECT', 'PRO');
-define('UID_CAUSES', 'CUS');
-define('UID_DONOR', 'DON');
-define('UID_VOLUNTEER', 'VOL');
-define('UID_OUR_TEAM', 'OUT');
-define('UID_BLOG', 'BLG');
-define('UID_EVENTS', 'EVN');
-define('UID_DONATION', 'DNT');
-define('UID_USER_MESSAGE', 'UMSG');
-define('UID_GALLERY', 'GAL');
-define('UID_NL', 'NL');
-define('UID_AUDIO', 'AUD');
+define('UID_USER', 'USER');
+define('UID_CENTRE', 'CENTRE');
+define('UID_ADDRESS', 'ADRS');
+define('UID_STUDENT', 'STU');
+
 
 
 //////////////////////////////////////////__UID

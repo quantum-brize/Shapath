@@ -1,107 +1,89 @@
 </head>
+
 <body>
-    <!-- Floating Action Buttons Container -->
-    <div class="custom-fab-container">
-        <!-- Main Action Button -->
-        <a href="javascript:void(0);" class="custom-fab-button custom-fab-main" id="customFabMain">
-            <i class="fas fa-ellipsis-v"></i> <!-- Main FAB icon -->
-        </a>
 
-        <!-- Sub Action Buttons -->
-        <ul class="custom-fab-options">
-            <li>
-                <a href="https://www.facebook.com/profile.php?id=61555132809953" class="custom-fab-button custom-fab-facebook" target="_blank">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.instagram.com/shapath_ngo" class="custom-fab-button custom-fab-instagram" target="_blank">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </li>
-            <li>
-                <a href="tel:+919062009959" class="custom-fab-button custom-fab-call">
-                    <i class="fas fa-phone"></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://wa.me/9062009959" class="custom-fab-button custom-fab-whatsapp" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
-            </li>
-        </ul>
-    </div>
+    <div class="main-wrapper">
 
-
-    <!-- Spinner Start -->
-    <div id="spinner"
-        class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
-    <!-- Spinner End -->
-
-
-    <!-- Navbar start -->
-
-    <div class="container-fluid fixed-top px-0">
-        <div class="container px-0">
-            <nav class="navbar navbar-light bg-light navbar-expand-xl header-nav">
-                <a href="<?= base_url('home')?>" class="navbar-brand ms-3">
-                    <h1 class="text-primary display-5">Shapath</h1>
-                </a>
-                <button class="navbar-toggler py-2 px-3 me-3" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarCollapse">
-                    <span class="fa fa-bars text-primary"></span>
-                </button>
-                <div class="collapse navbar-collapse bg-light" id="navbarCollapse">
-                    <div class="navbar-nav ms-auto">
-                        <a href="<?= base_url('home')?>" class="nav-item nav-link <?= isset($home) ? 'active' : '' ?>">Home</a>
-                        <div class="nav-item dropdown">
-                            <a href="" class="nav-link dropdown-toggle <?= isset($about) ? 'active' : '' ?>" data-bs-toggle="dropdown">About</a>
-                            <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                <a href="<?= base_url('our-team')?>" class="dropdown-item">Our Team</a>
-                                <a href="<?= base_url('mission-vision')?>" class="dropdown-item">Mission and Vision</a>
-                                <a href="<?= base_url('annual_report')?>" class="dropdown-item">Annual Report</a>
-                                <a href="<?= base_url('faq')?>" class="dropdown-item">FAQ</a>
-                            </div>
+        <header class="header">
+            <div class="header-fixed">
+                <nav class="navbar navbar-expand-lg header-nav scroll-sticky add-header-bg">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a id="mobile_btn" href="javascript:void(0);">
+                                <span class="bar-icon">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </span>
+                            </a>
+                            <a href="https://dreamslms.dreamstechnologies.com/laravel/public" class="navbar-brand logo">
+                                <img src="<?php echo base_url()?>assets/img/logo.svg" class="img-fluid" alt="Logo">
+                            </a>
                         </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle <?= isset($project) ? 'active' : '' ?>" data-bs-toggle="dropdown">Projects</a>
-                            <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                <?php foreach($projects as $project){?>
-                                <a href="<?= base_url('project/?id='.$project['uid']) ?>" class="dropdown-item"><?php echo $project['project_title']?></a>
-                                <?php }?>
+                        <div class="main-menu-wrapper">
+                            <div class="menu-header">
+                                <a href="https://dreamslms.dreamstechnologies.com/laravel/public" class="menu-logo">
+                                    <img src="<?php echo base_url()?>assets/img/logo.svg" class="img-fluid" alt="Logo">
+                                </a>
+                                <a id="menu_close" class="menu-close" href="javascript:void(0);">
+                                    <i class="fas fa-times"></i>
+                                </a>
+                            </div>
+                            <ul class="main-nav">
+                                <li class="has-submenu <?= isset($home) ? 'active' : '' ?>">
+                                    <a class="" href="<?php echo base_url('home')?>">Home</a>
+                                </li>
+                                <li class="has-submenu <?= isset($about) ? 'active' : '' ?>">
+                                    <a href="<?php echo base_url('about-us')?>">About Us </a>
+                                </li>
+                                <li class="has-submenu <?= isset($home) ? 'active' : '' ?>">
+                                    <a href="<?php echo base_url('franchise-list')?>">Franchise List </a>
+                                </li>
+                                <li class="has-submenu <?= isset($online_registration) ? 'active' : '' ?>">
+                                    <a href="<?php echo base_url('online-registration')?>">Franchise Registration </a>
+                                </li>
+                                <li class="has-submenu <?= isset($student_admission) ? 'active' : '' ?>">
+                                    <a href="<?php echo base_url('student-admission')?>">Student Admission </a>
+                                </li>
+                                <li class="has-submenu <?= isset($franchise_list) ? 'active' : '' ?>">
+                                    <a href="<?php echo base_url('contact')?>">Contact </a>
+                                </li>
 
-                                <!-- <a href="<?= base_url('project') ?>" class="dropdown-item">Hope Canvas</a>
-                                <a href="<?= base_url('project') ?>" class="dropdown-item">Uddan</a>
-                                <a href="<?= base_url('project') ?>" class="dropdown-item">Saraswati Scholarship</a>
-                                <a href="<?= base_url('project') ?>" class="dropdown-item">Bastra Bondhu</a>
-                                <a href="<?= base_url('project') ?>" class="dropdown-item">Upohar</a>
-                                <a href="<?= base_url('project') ?>" class="dropdown-item">Blanket Drive</a> -->
-                            </div>
+
+
+
+
+
+                                
+                                <li class="login-link">
+                                    <a href="login.html">Login / Signup</a>
+                                </li>
+                            </ul>
                         </div>
-                        <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle <?= isset($testimonial) ? 'active' : '' ?>" data-bs-toggle="dropdown">Testimonial</a>
-                            <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                <a href="<?= base_url('our-volunteer') ?>" class="dropdown-item">Our Volunteer</a>
-                                <a href="<?= base_url('our-donor') ?>" class="dropdown-item">Our Donor</a>
-                            </div>
-                        </div>
-                        <a href="<?= base_url('gallery') ?>" class="nav-item nav-link <?= isset($gallery) ? 'active' : '' ?>">Gallery</a>
-                        <a href="<?= base_url('events') ?>" class="nav-item nav-link <?= isset($event) ? 'active' : '' ?>">Events</a>
-                        <a href="<?= base_url('blogs')?>" class="nav-item nav-link <?= isset($blogs) ? 'active' : '' ?>">Blog</a>
-                        <a href="<?= base_url('contact-us')?>" class="nav-item nav-link <?= isset($contact) ? 'active' : '' ?>">Contact</a>
+                        <ul class="nav header-navbar-rht">
+                            <li class="nav-item">
+                                <a class="nav-link header-sign" href="login.html">Signin</a>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="d-flex align-items-center flex-nowrap pt-xl-0" style="margin-left: 15px;">
-                        <a href="<?= base_url('donate')?>" class="btn-hover-bg btn btn-primary text-white py-2 px-4 me-3">Donate Now</a>
+                </nav>
+                <!-- <div class="breadcrumb-bar">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 col-12">
+                            <div class="breadcrumb-list">
+                                <nav aria-label="breadcrumb" class="page-breadcrumb">
+                                    <ol class="breadcrumb">
+                                        <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                                        <li class="breadcrumb-item" aria-current="page">Pages</li>
+                                        <li class="breadcrumb-item" aria-current="page">Instructors List</li>
+                                    </ol>
+                                </nav>
+                            </div>
+                        </div>
                     </div>
-                    <a class="navbar-close" aria-label="Close"></a>
                 </div>
-                                    
-            </nav>
-        </div>
-    </div>
-    <!-- Navbar End -->
-
-
-    
+            </div> -->
+            </div>
+            
+        </header>

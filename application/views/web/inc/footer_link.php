@@ -1,130 +1,42 @@
-<!-- JavaScript Libraries -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="<?= base_url() ?>assets/lib/easing/easing.min.js"></script>
-<script src="<?= base_url() ?>assets/lib/waypoints/waypoints.min.js"></script>
-<script src="<?= base_url() ?>assets/lib/counterup/counterup.min.js"></script>
-<script src="<?= base_url() ?>assets/lib/owlcarousel/owl.carousel.min.js"></script>
-<script src="<?= base_url() ?>assets/lib/lightbox/js/lightbox.min.js"></script>
+<script src="<?=base_url()?>assets/js/jquery-3.6.0.min.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-<!-- Template Javascript -->
-<script src="<?= base_url() ?>assets/js/main.js"></script>
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var navbarToggler = document.querySelector('.navbar-toggler');
-        var navbarCollapse = document.getElementById('navbarCollapse');
-        var navbarCloseButton = document.querySelector('.navbar-close');
+<script src="<?=base_url()?>assets/js/bootstrap.bundle.min.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-        // Toggle navbar on clicking the toggler
-        navbarToggler.addEventListener('click', function (event) {
-            event.stopPropagation();
-            navbarCollapse.classList.toggle('show');
-        });
+<script src="<?=base_url()?>assets/js/jquery.waypoints.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
+<script src="<?=base_url()?>assets/js/jquery.counterup.min.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-        // Close navbar on clicking the close button
-        navbarCloseButton.addEventListener('click', function () {
-            navbarCollapse.classList.remove('show');
-        });
+<script src="<?=base_url()?>assets/plugins/select2/js/select2.min.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-        // Close navbar when clicking outside of it
-        document.addEventListener('click', function (event) {
-            if (!navbarCollapse.contains(event.target) && !navbarToggler.contains(event.target)) {
-                navbarCollapse.classList.remove('show');
-            }
-        });
+<script src="<?=base_url()?>assets/js/owl.carousel.min.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-        // Prevent closing when clicking inside the navbar
-        navbarCollapse.addEventListener('click', function (event) {
-            event.stopPropagation();
-        });
-    });
-</script>
+<script src="<?=base_url()?>assets/plugins/slick/slick.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-<script>
-    var youtubeIframe = document.getElementById('youtube-video');
+<script src="<?=base_url()?>assets/plugins/aos/aos.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-    youtubeIframe.addEventListener('click', function () {
-        var iframeSrc = youtubeIframe.src;
-        youtubeIframe.src = iframeSrc.replace("&mute=1", "&mute=0");
-    });
-</script>
+<script src="<?=base_url()?>assets/js/ckeditor.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-<script>
-    // JavaScript to toggle the sub action buttons
-    document.addEventListener('DOMContentLoaded', function () {
-        var mainFab = document.getElementById('customFabMain');
-        var fabOptions = document.querySelector('.custom-fab-options');
+<script src="<?=base_url()?>assets/plugins/bootstrap-tagsinput/js/bootstrap-tagsinput.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-        mainFab.addEventListener('click', function () {
-            // Toggle display of the sub action buttons
-            fabOptions.style.display = fabOptions.style.display === 'none' ? 'block' : 'none';
-        });
+<script src="<?=base_url()?>assets/plugins/swiper/js/swiper.min.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-        // Optional: Hide sub action buttons when clicking anywhere else on the page
-        document.addEventListener('click', function (event) {
-            if (!mainFab.contains(event.target) && !fabOptions.contains(event.target)) {
-                fabOptions.style.display = 'none';
-            }
-        });
-    });  
-</script>
+<script src="<?=base_url()?>assets/plugins/feather/feather.min.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-<script>
-    window.addEventListener('DOMContentLoaded', (event) => {
-        var music = document.getElementById("background-music");
-        var button = document.getElementById("music-toggle");
+<script src="<?=base_url()?>assets/plugins/theia-sticky-sidebar/ResizeSensor.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
+<script src="<?=base_url()?>assets/plugins/theia-sticky-sidebar/theia-sticky-sidebar.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-        // Delay the autoplay
-        setTimeout(() => {
-            music.volume = 0.3; // Set the volume between 0 (silent) and 1 (maximum)
-            music.play()
-                .then(() => {
-                    // Autoplay started
-                    button.textContent = 'Pause Music';
-                    button.style.display = 'block';
-                })
-                .catch(e => {
-                    // Autoplay was prevented
-                    console.log('Autoplay was prevented.');
-                    button.textContent = 'Want Play a Music?';
-                    button.style.display = 'block';
-                });
-        }, 3000); // Delay in milliseconds (3000ms = 3s)
+<script src="<?=base_url()?>assets/plugins/apexchart/apexcharts.min.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
+<script src="<?=base_url()?>assets/plugins/apexchart/chart-data.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-        // Hide the button after 20 seconds
-        setTimeout(() => {
-            button.style.display = 'none';
-        }, 20000); // 20 seconds delay
-    });
+<script src="<?=base_url()?>assets/js/circle-progress.min.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-    // Function to play/pause the music
-    function toggleMusic() {
-        var music = document.getElementById("background-music");
-        var button = document.getElementById("music-toggle");
+<script src="<?=base_url()?>assets/plugins/dropzone/dropzone.min.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
 
-        if (music.paused) {
-            music.play();
-            button.textContent = 'Pause Music';
-        } else {
-            music.pause();
-            button.textContent = 'Want Play a Music?';
-        }
-    }
-</script>
+<script src="<?=base_url()?>assets/js/validation.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
+<script data-navigate-once="true" type="fdc0b48d23ba16f3238edcb7-text/javascript">window.livewireScriptConfig = {"csrf":"zys1Tptzq1HI08KoIbQVmNfiSHcbaFnOtaw18XRv","uri":"\/livewire\/update","progressBar":""};</script>
 
-<?php
+<script src="<?=base_url()?>assets/js/script.js" type="fdc0b48d23ba16f3238edcb7-text/javascript"></script>
+<script src="../../cdn-cgi/scripts/7d0fa10a/cloudflare-static/rocket-loader.min.js" data-cf-settings="fdc0b48d23ba16f3238edcb7-|49" defer=""></script>
 
-if (!empty($footer_link)) {
-    foreach ($footer_link as $link) {
-        echo "<script src='" . base_url() . "assets/js/" . $link . "'></script>";
-    }
 
-}
-?>
 </body>
-<!-- Include Bootstrap JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
 </html>
