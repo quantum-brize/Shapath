@@ -2,6 +2,10 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 require_once(APPPATH.'controllers/Common.php');
 
+// Include autoloader
+require 'vendor/autoload.php';
+use Dompdf\Dompdf;
+
 
 class Load extends Common {
     function __construct() {
@@ -12,6 +16,8 @@ class Load extends Common {
         $this->init_model(MODEL_PAGES);
         $data = PAGE_DATA_WEB;
         $data['data_header']['home'] = true;
+        $data['data_page']['courses'] = $this->Pages_model->get_all_courses();
+        $data['data_page']['notices'] = $this->Pages_model->get_all_notices();
         $this->load_page('web/index.php',$data);
     }
 
@@ -46,12 +52,201 @@ class Load extends Common {
         $data['data_header']['franchise_list'] = true;
         $this->load_page('web/franchise_list.php',$data);
     }
-    public function home(){
+    public function course(){
+        $id = $this->input->get('id');
+        
         $this->init_model(MODEL_PAGES);
-        $data = PAGE_DATA_ADMIN;
-        $data['data_header']['franchise_list'] = true;
-        $this->load_page('admin/index.php',$data);
+        $data = PAGE_DATA_WEB;
+        // $data['data_header']['franchise_list'] = true;
+        $data['data_page']['course'] = $this->Pages_model->get_course_by_id($id);
+        $this->load_page('web/course.php',$data);
     }
+
+    public function edit_profile(){
+        $this->init_model(MODEL_PAGES);
+        $data = PAGE_DATA_WEB;
+        if($this->session->userdata(SES_STUDENT_ID) != null && $this->session->userdata(SES_STUDENT_EMAIL) != null && $this->session->userdata(SES_TYPE_STUDENT) != null){
+        // $data['data_footer']['footer_link']=['profile_js.php'];
+        $data['data_page']['profile_data'] = $this->Pages_model->get_user_by_id($this->session->userdata(SES_STUDENT_ID));
+        $this->load_page('web/edit_profile.php',$data);
+        $this->load->view('web/inc/js/profile_js.php');
+        }
+    }
+
+    public function get_cirtificate(){
+        if($this->session->userdata(SES_STUDENT_ID) != null && $this->session->userdata(SES_STUDENT_EMAIL) != null && $this->session->userdata(SES_TYPE_STUDENT) == 'student'){
+            $this->init_model(MODEL_PAGES);
+            $data['data_page']['marks'] = $this->Pages_model->get_student_marks_by_id($this->session->userdata(SES_STUDENT_ID));
+        
+            $this->init_model(MODEL_PAGES);
+            $data = PAGE_DATA_WEB;
+            $this->load_page('web/get_cirtificate.php',$data);
+        }else{
+            redirect('home');
+        }
+    }
+
+    public function get_cirtificate_centre(){
+        if($this->session->userdata(SES_STUDENT_ID) != null && $this->session->userdata(SES_STUDENT_EMAIL) != null && $this->session->userdata(SES_TYPE_STUDENT) == 'centre'){
+            $this->init_model(MODEL_PAGES);
+            $data['data_page']['marks'] = $this->Pages_model->get_student_marks_by_id($this->session->userdata(SES_STUDENT_ID));
+        
+            $this->init_model(MODEL_PAGES);
+            $data = PAGE_DATA_WEB;
+            $this->load_page('web/get_cirtificate_centre.php',$data);
+        }else{
+            redirect('home');
+        }
+    }
+
+    public function get_student_details()
+    {
+        $resp = [
+            KEY_STATUS => false,
+            KEY_MESSAGE => '',
+            KEY_TYPE => '',
+            'data' => ''
+        ];
+        if($this->session->userdata(SES_STUDENT_ID) != null && $this->session->userdata(SES_STUDENT_EMAIL) != null && $this->session->userdata(SES_TYPE_STUDENT) == 'student'){
+            $this->init_model(MODEL_PAGES);
+            $resp['data'] = $this->Pages_model->get_student_marks_by_id($this->session->userdata(SES_STUDENT_ID));
+            // $this->prd($resp['data']);
+            if($resp['data']){
+                $resp[KEY_STATUS] = true;
+                $resp[KEY_MESSAGE] = 'user found';
+                echo $this->response($resp);
+            }else{
+                $resp[KEY_STATUS] = true;
+                $resp[KEY_MESSAGE] = 'user found';
+                echo $this->response($resp);
+            }
+        }else{
+                $resp[KEY_MESSAGE] = 'user not found';
+                return $this->response($resp);
+        }
+       
+    }
+
+    public function get_cirtificate_details()
+    {
+        $resp = [
+            KEY_STATUS => false,
+            KEY_MESSAGE => '',
+            KEY_TYPE => '',
+            'data' => ''
+        ];
+        if($this->session->userdata(SES_STUDENT_ID) != null && $this->session->userdata(SES_STUDENT_EMAIL) != null && $this->session->userdata(SES_TYPE_STUDENT) == 'student'){
+            $this->init_model(MODEL_PAGES);
+            $resp['data'] = $this->Pages_model->get_student_marks_by_id($this->session->userdata(SES_STUDENT_ID));
+            // $this->prd($resp['data']);
+            if($resp['data']){
+                $resp[KEY_STATUS] = true;
+                $resp[KEY_MESSAGE] = 'user found';
+                echo $this->response($resp);
+            }else{
+                $resp[KEY_MESSAGE] = 'Cirtificate Not Found!s';
+                return $this->response($resp);
+            }
+        }else{
+                $resp[KEY_MESSAGE] = 'user not found';
+                return $this->response($resp);
+        }
+       
+    }
+
+    public function get_centre_cirtificate_details()
+    {
+        $resp = [
+            KEY_STATUS => false,
+            KEY_MESSAGE => '',
+            KEY_TYPE => '',
+            'data' => ''
+        ];
+        if($this->session->userdata(SES_STUDENT_ID) != null && $this->session->userdata(SES_STUDENT_EMAIL) != null && $this->session->userdata(SES_TYPE_STUDENT) == 'centre'){
+            $this->init_model(MODEL_PAGES);
+            $resp['data'] = $this->Pages_model->get_centre_details_by_id($this->session->userdata(SES_STUDENT_ID));
+            // $this->prd($resp['data']);
+            if($resp['data']){
+                $resp[KEY_STATUS] = true;
+                $resp[KEY_MESSAGE] = 'user found';
+                echo $this->response($resp);
+            }else{
+                $resp[KEY_MESSAGE] = 'Cirtificate Not Found!s';
+                return $this->response($resp);
+            }
+        }else{
+                $resp[KEY_MESSAGE] = 'user not found';
+                return $this->response($resp);
+        }
+       
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+    public function cirtificate(){
+        if($this->session->userdata(SES_STUDENT_ID) != null && $this->session->userdata(SES_STUDENT_EMAIL) != null && $this->session->userdata(SES_TYPE_STUDENT) == 'student'){
+            $this->init_model(MODEL_PAGES);
+            $data['student'] = $this->Pages_model->get_student_marks_by_id($this->session->userdata(SES_STUDENT_ID));
+            // $this->prd($data['student'][0]['course_name']);
+            $this->load->view('web/cirtificate.php', $data);
+            $this->load->view('web/inc/js/cirtificate_js.php');
+        }else{
+            redirect('home');
+        }
+    }
+
+    public function cirtificate_centre(){
+        if($this->session->userdata(SES_STUDENT_ID) != null && $this->session->userdata(SES_STUDENT_EMAIL) != null && $this->session->userdata(SES_TYPE_STUDENT) == 'centre'){
+            $this->init_model(MODEL_PAGES);
+            $data['centre'] = $this->Pages_model->get_centre_details_by_id($this->session->userdata(SES_STUDENT_ID));
+            // $this->prd($data['centre']);
+            $this->load->view('web/cirtificate_centre.php', $data);
+            $this->load->view('web/inc/js/cirtificate_centre_js.php');
+        }else{
+            redirect('home');
+        }
+    }
+
+
+ public function download_pdf(){
+    $html = file_get_contents(base_url('cirtificate'));
+
+    // Create an instance of the DOMPDF class
+    $dompdf = new Dompdf();
+
+    // Load HTML content
+    $dompdf->loadHtml($html);
+
+    // Set paper size and orientation
+    $dompdf->setPaper('A4', 'portrait');
+
+    // Render the HTML as PDF
+    $dompdf->render();
+
+    // Output the generated PDF to a file
+    $pdfContent = $dompdf->output();
+
+    // Set headers for download
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/pdf');
+    header('Content-Disposition: attachment; filename="downloaded_pdf.pdf"');
+    header('Content-Length: ' . strlen($pdfContent));
+    header('Cache-Control: private, max-age=0, must-revalidate');
+    header('Pragma: public');
+
+    // Output the PDF content
+    echo $pdfContent;
+ }
+    
 
 
     // Admin
@@ -79,22 +274,22 @@ class Load extends Common {
 
 
 
-    public function donation(){
-        $this->init_model(MODEL_PAGES);
-        $data = PAGE_DATA_WEB;
-        $id = $this->input->get('id');
-        if(!empty($id)){
-            $data['data_page']['project'] = $this->Pages_model->get_projects_by_id($id);
-            $data['data_page']['flag'] = 1;
+    // public function donation(){
+    //     $this->init_model(MODEL_PAGES);
+    //     $data = PAGE_DATA_WEB;
+    //     $id = $this->input->get('id');
+    //     if(!empty($id)){
+    //         $data['data_page']['project'] = $this->Pages_model->get_projects_by_id($id);
+    //         $data['data_page']['flag'] = 1;
 
-        }else{
-            $data['data_page']['project'] = $this->Pages_model->get_all_projects();
-            $data['data_page']['flag'] = 0;
-        }
+    //     }else{
+    //         $data['data_page']['project'] = $this->Pages_model->get_all_projects();
+    //         $data['data_page']['flag'] = 0;
+    //     }
         
-        $this->load_page('web/donation.php',$data);
+    //     $this->load_page('web/donation.php',$data);
 
-    }
+    // }
 }
 
 

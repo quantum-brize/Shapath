@@ -31,8 +31,20 @@ class Common extends CI_Controller
 	private function load_headers($data)
 	{
 		$this->init_model(MODEL_PAGES);
-		$this->load->view('/' . $data['site'] . '/inc/header_link.php', $data);
-		$this->load->view('/' . $data['site'] . '/inc/header.php');
+		if($data['site'] == 'web'){
+		 	$user['user_type'] =	$this->session->userdata(SES_TYPE_STUDENT);
+			$user['user_img'] 	= "";
+		 	
+			 if($this->session->userdata(SES_STUDENT_ID) != null){
+				$user['user_img'] = $this->Pages_model->get_user_img_by_id($this->session->userdata(SES_STUDENT_ID));
+			 }
+		 	$this->load->view('/' . $data['site'] . '/inc/header_link.php', $data);
+		 	$this->load->view('/' . $data['site'] . '/inc/header.php', $user);
+		}else{
+			$this->load->view('/' . $data['site'] . '/inc/header_link.php', $data);
+			$this->load->view('/' . $data['site'] . '/inc/header.php');
+		}
+		
 
 	}
 

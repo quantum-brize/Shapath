@@ -29,131 +29,6 @@
                                     <i class="fas fa-times"></i>
                                 </a>
                             </div>
-                            <!-- <ul class="main-nav">
-                                <li class="has-submenu ">
-                                    <a class="" href="">Home <i class="fas fa-chevron-down"></i></a>
-                                    <ul class="submenu">
-                                        <li class=""><a href="index.html">Home</a>
-                                        </li>
-                                        <li class=""><a href="index-two.html">Home Two</a></li>
-                                        <li class=""><a href="index-three.html">Home Three</a></li>
-                                        <li class=""><a href="index-four.html">Home Four</a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-submenu active">
-                                    <a href="">Instructor <i class="fas fa-chevron-down"></i></a>
-                                    <ul class="submenu">
-                                        <li class="active">
-                                            <a href="instructor-dashboard.html">Dashboard</a>
-                                        </li>
-                                        <li class="has-submenu ">
-                                            <a href="instructor-list.html">Instructor</a>
-                                            <ul class="submenu">
-                                                <li class=""><a href="instructor-list.html">List</a></li>
-                                                <li class="">
-                                                    <a href="instructor-grid.html">Grid</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class=""><a href="instructor-course.html">My Course</a></li>
-                                        <li class=""><a href="instructor-reviews.html">Reviews</a></li>
-                                        <li class=""><a href="instructor-earnings.html">Earnings</a></li>
-                                        <li class=""><a href="instructor-orders.html">Orders</a></li>
-                                        <li class=""><a href="instructor-payouts.html">Payouts</a></li>
-                                        <li class="">
-                                            <a href="instructor-tickets.html">Support Ticket</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="instructor-edit-profile.html">Instructor Profile</a>
-                                        </li>
-                                        <li class=""><a href="instructor-security.html">Security</a></li>
-                                        <li class=""><a href="instructor-social-profiles.html">Social Profiles</a></li>
-                                        <li class=""><a href="instructor-notification.html">Notifications</a></li>
-                                        <li class=""><a href="instructor-profile-privacy.html">Profile Privacy</a></li>
-                                        <li class=""><a href="instructor-delete-profile.html">Delete Profile</a></li>
-                                        <li class=""><a href="instructor-linked-account.html">Linked Accounts</a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-submenu ">
-                                    <a href="">Student <i class="fas fa-chevron-down"></i></a>
-                                    <ul class="submenu first-submenu">
-                                        <li class="has-submenu ">
-                                            <a href="students-list.html">Student</a>
-                                            <ul class="submenu">
-                                                <li class=""><a href="students-list.html">List</a></li>
-                                                <li class=""><a href="students-grid.html">Grid</a></li>
-                                            </ul>
-                                        </li>
-                                        <li class=""><a href="setting-edit-profile.html">Student Profile</a></li>
-                                        <li class=""><a href="setting-student-security.html">Security</a></li>
-                                        <li class=""><a href="setting-student-social-profile.html">Social profile</a>
-                                        </li>
-                                        <li class=""><a href="setting-student-notification.html">Notification</a></li>
-                                        <li class=""><a href="setting-student-privacy.html">Profile Privacy</a></li>
-                                        <li class=""><a href="setting-student-accounts.html">Link Accounts</a></li>
-                                        <li class=""><a href="setting-student-referral.html">Referal</a></li>
-                                        <li class=""><a href="setting-student-subscription.html">Subscribtion</a></li>
-                                        <li class=""><a href="setting-student-billing.html">Billing</a></li>
-                                        <li class=""><a href="setting-student-payment.html">Payment</a></li>
-                                        <li class="">
-                                            <a href="setting-student-invoice.html">Invoice</a>
-                                        </li>
-                                        <li class="">
-                                            <a href="setting-support-tickets.html">Support Tickets</a>
-                                        </li>
-                                    </ul>
-                                </li>
-                                <li class="has-submenu ">
-                                    <a href="">Pages <i class="fas fa-chevron-down"></i></a>
-                                    <ul class="submenu">
-                                        <li class=""><a href="notifications.html">Notification</a></li>
-                                        <li class=""><a href="pricing-plan.html">Pricing Plan</a></li>
-                                        <li class=""><a href="wishlist.html">Wishlist</a></li>
-                                        <li class="has-submenu ">
-                                            <a href="course-list.html">Course</a>
-                                            <ul class="submenu">
-                                                <li class=""><a href="add-course.html">Add Course</a></li>
-                                                <li class=""><a href="course-list.html">Course List</a></li>
-                                                <li class=""><a href="course-grid.html">Course Grid</a></li>
-                                                <li class="">
-                                                    <a href="course-details.html">Course Details</a>
-                                                </li>
-                                            </ul>
-                                        </li>
-                                        <li class="has-submenu ">
-                                            <a href="come-soon.html">Error</a>
-                                            <ul class="submenu">
-                                                <li class=""><a href="come-soon.html">Coming soon</a></li>
-                                                <li class=""><a href="error-404.html">404</a></li>
-                                                <li class=""><a href="error-500.html">500</a></li>
-                                                <li class=""><a href="under-construction.html">Under Construction</a>
-                                                </li>
-                                            </ul>
-                                        <li class=""><a href="faq.html">FAQ</a>
-                                        </li>
-                                        <li class=""><a href="support.html">Support</a></li>
-                                        <li class=""><a href="job-category.html">Category</a></li>
-                                        <li class=""><a href="cart.html">Cart</a></li>
-                                        <li class=""><a href="checkout.html">Checkout</a></li>
-                                        <li class=""><a href="login.html">Login</a></li>
-                                        <li class=""><a href="register.html">Register</a></li>
-                                        <li class=""><a href="forgot-password.html">Forgot Password</a></li>
-                                    </ul>
-                                </li>
-                                <li class="has-submenu ">
-                                    <a href="">Blog <i class="fas fa-chevron-down"></i></a>
-                                    <ul class="submenu">
-                                        <li class=""><a href="blog-list.html">Blog List</a></li>
-                                        <li class=""><a href="blog-grid.html">Blog Grid</a></li>
-                                        <li class=""><a href="blog-masonry.html">Blog Masonry</a></li>
-                                        <li class=""><a href="blog-modern.html">Blog Modern</a></li>
-                                        <li class=""><a href="blog-details.html">Blog Details</a></li>
-                                    </ul>
-                                </li>
-                                <li class="login-link">
-                                    <a href="login.html">Login / Signup</a>
-                                </li>
-                            </ul> -->
                         </div>
                         <ul class="nav header-navbar-rht">
                             <li class="nav-item">
@@ -446,7 +321,7 @@
                 <div class="row">
 
                     <div class="col-xl-3 col-lg-4 col-md-12 theiaStickySidebar">
-                        <div class="settings-widget dash-profile">
+                        <!-- <div class="settings-widget dash-profile">
                             <div class="settings-menu p-0">
                                 <div class="profile-bg">
                                     <h5>Beginner</h5>
@@ -466,93 +341,98 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                         <div class="settings-widget account-settings">
                             <div class="settings-menu">
                                 <h3>DASHBOARD</h3>
                                 <ul>
                                     <li class="nav-item ">
-                                        <a class="active" href="instructor-dashboard.html" class="nav-link">
+                                        <a class="<?= isset($home) ? 'active' : '' ?>" href="<?= base_url('admin/home')?>" class="nav-link">
                                             <i class="feather-home"></i> My Dashboard
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="" href="instructor-course.html" class="nav-link">
-                                            <i class="feather-book"></i> My Courses
+                                        <a class="<?= isset($centres) ? 'active' : '' ?>" href="<?= base_url('admin/centres')?>" class="nav-link">
+                                            <i class="feather-book"></i> Centres
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="" href="instructor-reviews.html" class="nav-link">
-                                            <i class="feather-star"></i> Reviews
+                                        <a class="<?= isset($student_list) ? 'active' : '' ?>" href="<?= base_url('admin/students')?>" class="nav-link">
+                                            <i class="feather-star"></i> Students
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="" href="instructor-earnings.html" class="nav-link">
-                                            <i class="feather-pie-chart"></i> Earnings
+                                        <a class="<?= isset($courses) ? 'active' : '' ?>" href="<?= base_url('admin/courses')?>" class="nav-link">
+                                            <i class="feather-pie-chart"></i> Courses
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="" href="instructor-orders.html" class="nav-link">
-                                            <i class="feather-shopping-bag"></i> Orders
+                                        <a class="<?= isset($notices) ? 'active' : '' ?>" href="<?= base_url('admin/notices')?>" class="nav-link">
+                                            <i class="feather-shopping-bag"></i> Notices
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="" href="instructor-student-grid.html" class="nav-link">
-                                            <i class="feather-users"></i> Students
+                                        <a class="<?= isset($results) ? 'active' : '' ?>" href="<?= base_url('admin/results')?>" class="nav-link">
+                                            <i class="feather-users"></i> Results
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="<?= isset($get_in_touch) ? 'active' : '' ?>" href="<?= base_url('admin/get-in-touches')?>" class="nav-link">
+                                            <i class="feather-users"></i> Get In Touch
+                                        </a>
+                                    </li>
+                                    <!-- <li class="nav-item">
                                         <a class="" href="instructor-payouts.html" class="nav-link">
                                             <i class="feather-dollar-sign"></i> Payouts
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
+                                    </li> -->
+                                    <!-- <li class="nav-item">
                                         <a class="" href="instructor-tickets.html" class="nav-link">
                                             <i class="feather-server"></i> Support Tickets
                                         </a>
-                                    </li>
+                                    </li> -->
                                 </ul>
                                 <div class="instructor-title">
                                     <h3>ACCOUNT SETTINGS</h3>
                                 </div>
                                 <ul>
-                                    <li class="nav-item">
+                                    <!-- <li class="nav-item">
                                         <a class="" href="instructor-edit-profile.html" class="nav-link ">
                                             <i class="feather-settings"></i> Edit Profile
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
+                                    </li> -->
+                                    <!-- <li class="nav-item">
                                         <a class="" href="instructor-security.html" class="nav-link">
                                             <i class="feather-user"></i> Security
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
+                                    </li> -->
+                                    <!-- <li class="nav-item">
                                         <a class="" href="instructor-social-profiles.html" class="nav-link">
                                             <i class="feather-refresh-cw"></i> Social Profiles
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
+                                    </li> -->
+                                    <!-- <li class="nav-item">
                                         <a class="" href="instructor-notification.html" class="nav-link">
                                             <i class="feather-bell"></i> Notifications
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
+                                    </li> -->
+                                    <!-- <li class="nav-item">
                                         <a class="" href="instructor-profile-privacy.html" class="nav-link">
                                             <i class="feather-lock"></i> Profile Privacy
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
+                                    </li> -->
+                                    <!-- <li class="nav-item">
                                         <a class="" href="instructor-delete-profile.html" class="nav-link">
                                             <i class="feather-trash-2"></i> Delete Profile
                                         </a>
-                                    </li>
-                                    <li class="nav-item">
+                                    </li> -->
+                                    <!-- <li class="nav-item">
                                         <a class="" href="instructor-linked-account.html" class="nav-link">
                                             <i class="feather-user"></i> Linked Accounts
                                         </a>
-                                    </li>
+                                    </li> -->
                                     <li class="nav-item">
-                                        <a class="" href="index.html" class="nav-link">
+                                        <a class="" href="<?= base_url('admin/logout')?>" class="nav-link">
                                             <i class="feather-power"></i> Sign Out
                                         </a>
                                     </li>
@@ -560,3 +440,8 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-xl-9 col-lg-8 col-md-12">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="settings-widget">
+                                <div class="settings-inner-blk p-0">

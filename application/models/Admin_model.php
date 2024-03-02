@@ -12,10 +12,11 @@ class Admin_model extends Common_model {
 
     public function is_admin($email, $password){
         $admin = $this->db
-                        ->select('user_name,uid, type')
+                        ->select('email,uid, role, status')
                         ->from(TABLE_USER)
-                        ->where('user_name', $email)
+                        ->where('email', $email)
                         ->where('password', $password)
+                        ->where('status', 'active')
                         ->get();
 
         $admin = $admin->result_array();

@@ -63,6 +63,11 @@ define('TABLE_USER', 'users');
 define('TABLE_CENTRE', 'centre');
 define('TABLE_ADDRESS', 'address');
 define('TABLE_STUDENT', 'student');
+define('TABLE_COURSE', 'course');
+define('TABLE_NOTICE', 'notices');
+define('TABLE_ENROLED_COURSE', 'enroled_course');
+define('TABLE_RESULTS', 'results');
+define('TABLE_GET_IN_TOUCH', 'get_in_touch');
 
 
 ////////////////////////////////////////////__SESSION_VARS
@@ -70,18 +75,26 @@ define('SES_ADMIN_ID', 'admin_id');
 define('SES_ADMIN_NAME', 'admin_name');
 define('SES_SUB_ADMIN_ID', 'sub_admin_id');
 define('SES_SUB_ADMIN_NAME', 'sub_admin_name');
+define('SES_CENTRE_ID', 'centre_id');
+define('SES_CENTRE_EMAIL', 'centre_email');
+define('SES_STUDENT_ID', 'student_id');
+define('SES_STUDENT_EMAIL', 'student_email');
 define('SES_TYPE', 'type');
+define('SES_TYPE_STUDENT', 'type_student');
 
 ////////////////////////////////////////////__USERS
 define('USER_ADMIN', 'admin');
 define('USER_SUB_ADMIN', 'sub_admin');
+define('USER_STUDENT', 'student');
+define('USER_CENTRE', 'centre');
 
 
 ////////////////////////////////////////////__KEYS
 define("KEY_STATUS", "status");
 define("KEY_MESSAGE", "message");
-define("KEY_TYPE", "type");
-define('KEY_USER_NAME', 'user_name');
+define("KEY_TYPE", "role");
+define('KEY_USER_NAME', 'name');
+define('KEY_EMAIL', 'email');
 define('KEY_UID', 'uid');
 
 ///////////////////////////////////////////__UID-PREFIX
@@ -89,6 +102,11 @@ define('UID_USER', 'USER');
 define('UID_CENTRE', 'CENTRE');
 define('UID_ADDRESS', 'ADRS');
 define('UID_STUDENT', 'STU');
+define('UID_COURSE', 'CRS');
+define('UID_NOTICE', 'NOT');
+define('UID_ENROLED', 'ENROL');
+define('UID_RESULT', 'RS');
+define('UID_GET_IN_TOUCH', 'GNT');
 
 
 

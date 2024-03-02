@@ -38,101 +38,93 @@
 
         <!-- start wpo-contact-pg-section -->
 <section class="wpo-contact-pg-section section-padding">
-            <div class="container">
-                <div class="row">
-                    <div class="col col-lg-10 offset-lg-1">
-                        <div class="office-info">
-                            <div class="row">
-                                <div class="col col-xl-4 col-lg-6 col-md-6 col-12">
-                                    <div class="office-info-item">
-                                        <div class="office-info-icon">
-                                            <div class="icon">
-                                                <i class="fi fa-solid fa-location-dot mt-4"></i>
-                                            </div>
-                                        </div>
-                                        <div class="office-info-text">
-                                            <h2>Address</h2>
-                                            <p>7 Green Lake Street Crawfordsville, IN 47933</p>
-                                        </div>
+    <div class="container">
+        <div class="row">
+            <div class="col col-lg-10 offset-lg-1">
+                <div class="office-info">
+                    <div class="row">
+                        <div class="col col-xl-4 col-lg-6 col-md-6 col-12">
+                            <div class="office-info-item">
+                                <div class="office-info-icon">
+                                    <div class="icon">
+                                        <i class="fi fa-solid fa-location-dot mt-4"></i>
                                     </div>
-                                </div> 
-                                <div class="col col-xl-4 col-lg-6 col-md-6 col-12">
-                                    <div class="office-info-item">
-                                        <div class="office-info-icon">
-                                            <div class="icon">
-                                                <i class="fi fa-solid fa-envelope mt-4"></i>
-                                            </div>
-                                        </div>
-                                        <div class="office-info-text">
-                                            <h2>Email Us</h2>
-                                            <p>LoveLove@gmail.com</p>
-                                            <p>helloyou@gmail.com</p>
-                                        </div>
+                                </div>
+                                <div class="office-info-text">
+                                    <h2>Address</h2>
+                                    <p>7 Green Lake Street Crawfordsville, IN 47933</p>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col col-xl-4 col-lg-6 col-md-6 col-12">
+                            <div class="office-info-item">
+                                <div class="office-info-icon">
+                                    <div class="icon">
+                                        <i class="fi fa-solid fa-envelope mt-4"></i>
                                     </div>
-                                </div> 
-                                <div class="col col-xl-4 col-lg-6 col-md-6 col-12">
-                                    <div class="office-info-item">
-                                        <div class="office-info-icon">
-                                            <div class="icon">
-                                                <i class="fi fa-solid fa-phone mt-4"></i>
-                                            </div>
-                                        </div>
-                                        <div class="office-info-text">
-                                            <h2>Call Now</h2>
-                                            <p>+1 800 123 456 789</p>
-                                            <p>+1 800 123 654 987</p>
-                                        </div>
+                                </div>
+                                <div class="office-info-text">
+                                    <h2>Email Us</h2>
+                                    <p>LoveLove@gmail.com</p>
+                                    <p>helloyou@gmail.com</p>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col col-xl-4 col-lg-6 col-md-6 col-12">
+                            <div class="office-info-item">
+                                <div class="office-info-icon">
+                                    <div class="icon">
+                                        <i class="fi fa-solid fa-phone mt-4"></i>
                                     </div>
-                                </div> 
+                                </div>
+                                <div class="office-info-text">
+                                    <h2>Call Now</h2>
+                                    <p>+1 800 123 456 789</p>
+                                    <p>+1 800 123 654 987</p>
+                                </div>
+                            </div>
+                        </div> 
+                    </div>
+                </div>
+                <div class="wpo-contact-title">
+                    <h2>Have Any Question?</h2>
+                    <p>It is a long established fact that a reader will be distracted
+                        content of a page when looking.</p>
+                </div>
+                <div class="wpo-contact-form-area">
+                    <form method="POST" enctype="multipart/form-data" action="<?= base_url('admin/Pages/add_get_in_touch') ?>" class="contact-validation-active" id="contact-form-main">
+                        <div>
+                            <input type="text" class="form-control" name="name" id="name" placeholder="Your Name*" required>
+                        </div>
+                        <div>
+                            <input type="email" class="form-control" name="email" id="email" placeholder="Your Email*" required>
+                        </div>
+                        <div>
+                            <input type="number" class="form-control" name="phone" id="phone" placeholder="phone*" required>
+                        </div>
+                        <div>
+                            <input type="text" class="form-control" name="address" id="address" placeholder="Adress*" required>
+                        </div>
+                        <div class="fullwidth">
+                            <textarea class="form-control" name="message" id="message" placeholder="Message..." required></textarea>
+                        </div>
+                        <div class="submit-area">
+                            <button type="submit" class="theme-btn-s4">Get in Touch</button>
+                            <div id="loader">
+                                <i class="ti-reload"></i>
                             </div>
                         </div>
-                        <div class="wpo-contact-title">
-                            <h2>Have Any Question?</h2>
-                            <p>It is a long established fact that a reader will be distracted
-                                content of a page when looking.</p>
+                        <div class="clearfix error-handling-messages">
+                            <div id="success">Thank you</div>
+                            <div id="error"> Error occurred while sending email. Please try again later. </div>
                         </div>
-                        <div class="wpo-contact-form-area">
-                            <form method="post" class="contact-validation-active" id="contact-form-main">
-                                <div>
-                                    <input type="text" class="form-control" name="name" id="name" placeholder="Your Name*">
-                                </div>
-                                <div>
-                                    <input type="email" class="form-control" name="email" id="email" placeholder="Your Email*">
-                                </div>
-                                <div>
-                                    <input type="text" class="form-control" name="adress" id="adress" placeholder="Adress">
-                                </div>
-                                <div>
-                                    <select name="service" class="form-control">
-                                        <option disabled="disabled" selected="">Services</option>
-                                        <option>Photography</option>
-                                        <option>The Rehearsal Dinner</option>
-                                        <option>The Afterparty</option>
-                                        <option>Videographers</option>
-                                        <option>Perfect Cake</option>
-                                        <option>All Of The Above</option>
-                                    </select>
-                                </div>
-                                <div class="fullwidth">
-                                    <textarea class="form-control" name="note" id="note" placeholder="Message..."></textarea>
-                                </div>
-                                <div class="submit-area">
-                                    <button type="submit" class="theme-btn-s4">Get in Touch</button>
-                                    <div id="loader">
-                                        <i class="ti-reload"></i>
-                                    </div>
-                                </div>
-                                <div class="clearfix error-handling-messages">
-                                    <div id="success">Thank you</div>
-                                    <div id="error"> Error occurred while sending email. Please try again later. </div>
-                                </div>
-                            </form>
-                        </div>
-                    </div>                
+                    </form>
                 </div>
-            </div> <!-- end container -->
-        </section>
-        <!-- end wpo-contact-pg-section -->
+            </div>                
+        </div>
+    </div> <!-- end container -->
+</section>
+<!-- end wpo-contact-pg-section -->
 
         <!--  start wpo-contact-map -->
         <section class="wpo-contact-map-section">
